@@ -30,24 +30,43 @@ const GuidedMode = ({ userData }) => {
 
   return (
     <div className="max-w-4xl mx-auto pt-20 pb-10">
-      <div className="flex justify-between items-end mb-8">
-        <div>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="flex justify-between items-end mb-8"
+      >
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <h2 className="text-4xl font-bold text-white">Guided Study</h2>
           <p className="text-gray-400 mt-1">AI-curated questions for your role</p>
-        </div>
-        <button 
-          onClick={fetchQuestions} disabled={loading}
-          className="px-6 py-2 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full text-cyan-400 font-semibold transition-all"
+        </motion.div>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          onClick={fetchQuestions} 
+          disabled={loading}
+          className="px-6 py-2 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full text-cyan-400 font-semibold transition-all disabled:opacity-50"
         >
           {loading ? 'Generating...' : '🔄 Refresh Questions'}
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
 
       <div className="space-y-4">
         {loading && (
-          <div className="text-center py-20 opacity-50 animate-pulse text-cyan-400">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20 opacity-50 animate-pulse text-cyan-400"
+          >
             Generating intelligent insights...
-          </div>
+          </motion.div>
         )}
 
         <AnimatePresence>
@@ -56,20 +75,24 @@ const GuidedMode = ({ userData }) => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: 0.1 + index * 0.08, duration: 0.5 }}
               className="bg-gray-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-colors"
             >
-              <button 
+              <motion.button 
+                whileHover={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full text-left p-6 flex gap-4 items-start"
               >
-                <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-lg font-bold text-sm">
+                <motion.span 
+                  className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-lg font-bold text-sm"
+                  whileHover={{ scale: 1.15, backgroundColor: 'rgba(6, 182, 212, 0.2)' }}
+                >
                   {index + 1}
-                </span>
+                </motion.span>
                 <div className="flex-grow">
                   <h3 className="text-lg font-medium text-gray-200">{item.question}</h3>
                 </div>
-              </button>
+              </motion.button>
               
               <AnimatePresence>
                 {openIndex === index && (
@@ -77,14 +100,20 @@ const GuidedMode = ({ userData }) => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 pt-0 pl-16">
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.1 }}
+                      className="p-6 pt-0 pl-16"
+                    >
                       <div className="p-4 bg-black/40 border-l-4 border-green-500 rounded-r-xl">
                         <p className="text-xs font-bold text-green-500 uppercase mb-2">Sample Answer</p>
                         <p className="text-gray-300 leading-relaxed">{item.answer}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>

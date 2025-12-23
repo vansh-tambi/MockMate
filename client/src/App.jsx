@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import GuidedMode from './components/GuidedMode';
 import TestMode from './components/TestMode';
@@ -27,6 +28,16 @@ function App() {
     });
   };
 
+  const handleNewSession = () => {
+    if (userData.isReady) {
+      const confirmed = window.confirm('🔄 Start a new session? Your current data will be cleared.');
+      if (confirmed) {
+        setUserData({ resumeText: null, jobDescription: '', isReady: false });
+        localStorage.removeItem('mockMateUser');
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-black">
       
@@ -34,7 +45,7 @@ function App() {
         <SetupScreen onComplete={handleSetupComplete} />
       ) : (
         <>
-          <Navbar activeMode={activeMode} setActiveMode={setActiveMode} />
+          <Navbar activeMode={activeMode} setActiveMode={setActiveMode} onNewSession={handleNewSession} />
           
           <main className="max-w-7xl mx-auto p-6 md:p-8">
             {activeMode === 'guided' ? (
