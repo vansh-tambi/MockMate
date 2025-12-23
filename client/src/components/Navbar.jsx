@@ -18,18 +18,14 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession }) => {
           className="flex items-center gap-3 cursor-pointer"
           onClick={onNewSession}
         >
-          <motion.div 
-            className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/20"
-            whileHover={{ boxShadow: '0 0 30px rgba(0, 188, 212, 0.6)' }}
-          >
-            <span className="text-white font-bold text-xl">M</span>
-          </motion.div>
-          <motion.span 
-            className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 hidden sm:inline"
-            whileHover={{ backgroundImage: 'linear-gradient(to right, #06b6d4, #0ea5e9)' }}
-          >
-            MockMate
-          </motion.span>
+<motion.img
+  src="/Logo.png" // Ensure Logo.png is in your 'public' folder
+  alt="MockMate Logo"
+  // Adjust 'h-12' to make it bigger or smaller to fit your navbar height
+  className="h-12 w-auto object-contain"
+  whileHover={{ scale: 1.05 }}
+  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+/>
         </motion.div>
 
         {/* Tabs */}

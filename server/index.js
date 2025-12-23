@@ -156,12 +156,15 @@ app.post('/api/generate-qa', async (req, res) => {
     const nonce = Date.now(); // ensure responses differ even for same input
 
     const prompt = `
-      Act as a technical interview coach.
-      RESUME: ${resumeText.slice(0, 2000)}
-      JOB: ${jobDescription.slice(0, 500)}
+      Act as a technical interview coach preparing someone for a job interview.
+      TARGET ROLE: ${jobDescription.slice(0, 500)}
+      CANDIDATE BACKGROUND: ${resumeText.slice(0, 2000)}
 
-      Generate 5 DISTINCT interview questions (no overlapping themes) with concise answers (max 2 sentences).
+      IMPORTANT: Generate 5 questions SPECIFICALLY for the TARGET ROLE, even if it differs from the candidate's background.
+      The questions should reflect the actual job requirements and responsibilities mentioned in the job description.
+      
       Cover these focus areas (one per question, any order): ${focusAreas.join(', ')}.
+      Make questions relevant to the specific role and responsibilities.
       Vary phrasing and difficulty. Avoid reusing wording from earlier questions.
       Add subtle randomness keyed by ${nonce} to avoid deterministic outputs.
 
