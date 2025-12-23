@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import GuidedMode from './components/GuidedMode';
 import TestMode from './components/TestMode';
-import SetupScreen from './components/SetupScreen'; 
-import './App.css'
+import SetupScreen from './components/SetupScreen';
+import './App.css';
+
 function App() {
   const [activeMode, setActiveMode] = useState('guided');
   
-  // GLOBAL USER DATA
-  const [userData, setUserData] = useState({
-    resumeText: null,
-    jobDescription: '',
-    isReady: false // True when data is collected
+  // Initialize from LocalStorage if available, otherwise default
+  const [userData, setUserData] = useState(() => {
+    const saved = localStorage.getItem('mockMateUser');
+    return saved ? JSON.parse(saved) : { resumeText: null, jobDescription: '', isReady: false };
   });
 
-  // Handler to update data from SetupScreen
+  // Save to LocalStorage whenever userData changes
+  useEffect(() => {
+    localStorage.setItem('mockMateUser', JSON.stringify(userData));
+  }, [userData]);
+
   const handleSetupComplete = (data) => {
     setUserData({
       resumeText: data.resumeText,
@@ -24,13 +28,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-black">
       
-      {/* 1. SETUP SCREEN (Shows if no data yet) */}
       {!userData.isReady ? (
         <SetupScreen onComplete={handleSetupComplete} />
       ) : (
-        /* 2. MAIN APP (Shows once data is ready) */
         <>
           <Navbar activeMode={activeMode} setActiveMode={setActiveMode} />
           
