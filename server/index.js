@@ -78,6 +78,16 @@ const cleanJson = (text) => {
   return clean;
 };
 
+// --- 6. HELPER: Shuffle for variety ---
+const shuffleArray = (arr = []) => {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};
+
 // --- ROUTES ---
 
 // ROUTE 1: Parse Resume
@@ -128,12 +138,33 @@ app.post('/api/generate-qa', async (req, res) => {
       return res.json({ qaPairs: [] });
     }
 
+    // Pick varied themes to avoid repetitive patterns
+    const themes = shuffleArray([
+      'algorithms & data structures',
+      'system design / architecture',
+      'debugging & troubleshooting',
+      'testing & quality',
+      'performance & optimization',
+      'security & reliability',
+      'communication & collaboration',
+      'product/feature thinking',
+      'tooling & productivity',
+      'role-specific domain knowledge'
+    ]);
+
+    const focusAreas = themes.slice(0, 5);
+    const nonce = Date.now(); // ensure responses differ even for same input
+
     const prompt = `
       Act as a technical interview coach.
       RESUME: ${resumeText.slice(0, 2000)}
       JOB: ${jobDescription.slice(0, 500)}
 
-      TASK: Generate 5 interview questions with concise answers (max 2 sentences).
+      Generate 5 DISTINCT interview questions (no overlapping themes) with concise answers (max 2 sentences).
+      Cover these focus areas (one per question, any order): ${focusAreas.join(', ')}.
+      Vary phrasing and difficulty. Avoid reusing wording from earlier questions.
+      Add subtle randomness keyed by ${nonce} to avoid deterministic outputs.
+
       RETURN RAW JSON ARRAY ONLY. NO MARKDOWN.
       Example: [{"question":"...","answer":"..."}]
     `;
@@ -149,6 +180,9 @@ app.post('/api/generate-qa', async (req, res) => {
       console.error("❌ JSON Parse Failed. Raw:", rawText);
       qaPairs = [{ question: "Could not generate questions.", answer: "Try again." }];
     }
+
+    // Shuffle final output to further reduce repeated ordering patterns
+    qaPairs = shuffleArray(qaPairs);
 
     console.log(`✅ Returned ${qaPairs.length} questions.`);
     res.json({ qaPairs });

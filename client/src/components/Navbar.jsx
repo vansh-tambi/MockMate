@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Navbar = ({ setActiveMode, activeMode }) => {
+const Navbar = ({ setActiveMode, activeMode, onNewSession }) => {
   const tabs = [
     { id: 'guided', label: 'Guided Study' },
     { id: 'test', label: 'Mock Interview' },
@@ -12,25 +12,35 @@ const Navbar = ({ setActiveMode, activeMode }) => {
       <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
         
         {/* Logo */}
-        <div 
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="flex items-center gap-3 cursor-pointer"
-          onClick={() => setActiveMode('guided')}
+          onClick={onNewSession}
         >
-          <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/20">
+          <motion.div 
+            className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/20"
+            whileHover={{ boxShadow: '0 0 30px rgba(0, 188, 212, 0.6)' }}
+          >
             <span className="text-white font-bold text-xl">M</span>
-          </div>
-          <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+          </motion.div>
+          <motion.span 
+            className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 hidden sm:inline"
+            whileHover={{ backgroundImage: 'linear-gradient(to right, #06b6d4, #0ea5e9)' }}
+          >
             MockMate
-          </span>
-        </div>
+          </motion.span>
+        </motion.div>
 
         {/* Tabs */}
         <div className="flex bg-white/5 p-1 rounded-full border border-white/10">
           {tabs.map((tab) => (
-            <button
+            <motion.button
               key={tab.id}
               onClick={() => setActiveMode(tab.id)}
               className="relative px-6 py-2 rounded-full text-sm font-medium transition-colors z-10"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               {activeMode === tab.id && (
                 <motion.div
@@ -42,7 +52,7 @@ const Navbar = ({ setActiveMode, activeMode }) => {
               <span className={`relative z-10 ${activeMode === tab.id ? 'text-white' : 'text-gray-400'}`}>
                 {tab.label}
               </span>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
