@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const TestMode = ({ userData }) => {
-  const [questions, setQuestions] = useState([]);
+const TestMode = ({ userData, qaPairs, setQaPairs }) => {
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [transcript, setTranscript] = useState('');
   const [isRecording, setIsRecording] = useState(false);
@@ -12,7 +11,11 @@ const TestMode = ({ userData }) => {
   const recognitionRef = useRef(null);
   const videoRef = useRef(null);
 
+  // Extract questions from qaPairs
+  const questions = qaPairs?.map(q => q.question) || [];
+
   useEffect(() => {
+    // Only fetch if questions are not already loaded
     const fetchQ = async () => {
       const res = await fetch('http://localhost:5000/api/generate-qa', {
         method: 'POST',
@@ -20,9 +23,11 @@ const TestMode = ({ userData }) => {
         body: JSON.stringify(userData)
       });
       const data = await res.json();
-      setQuestions(data.qaPairs?.map(q => q.question) || []);
+      setQaPairs(data.qaPairs || []);
     };
-    fetchQ();
+    if (qaPairs.length === 0) {
+      fetchQ();
+    }
   }, []);
 
   useEffect(() => {
