@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const GuidedMode = ({ userData }) => {
-  const [qaPairs, setQaPairs] = useState([]);
+const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
   const [loading, setLoading] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -25,6 +24,7 @@ const GuidedMode = ({ userData }) => {
   };
 
   useEffect(() => {
+    // Only fetch questions if empty (initial load)
     if (qaPairs.length === 0) fetchQuestions();
   }, []);
 
