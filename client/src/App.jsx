@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   const [activeMode, setActiveMode] = useState('guided');
+  const [isGenerating, setIsGenerating] = useState(false);
   const hasShownAlertRef = useRef(false);
   
   // Initialize from LocalStorage if available, otherwise default
@@ -70,11 +71,11 @@ function App() {
         <SetupScreen onComplete={handleSetupComplete} />
       ) : (
         <>
-          <Navbar activeMode={activeMode} setActiveMode={setActiveMode} onNewSession={handleNewSession} />
+          <Navbar activeMode={activeMode} setActiveMode={setActiveMode} onNewSession={handleNewSession} isGenerating={isGenerating} />
           
           <main className="max-w-7xl mx-auto p-6 md:p-8">
             {activeMode === 'guided' ? (
-              <GuidedMode userData={userData} qaPairs={qaPairs} setQaPairs={setQaPairs} />
+              <GuidedMode userData={userData} qaPairs={qaPairs} setQaPairs={setQaPairs} setIsGenerating={setIsGenerating} />
             ) : (
               <TestMode userData={userData} qaPairs={qaPairs} setQaPairs={setQaPairs} />
             )}

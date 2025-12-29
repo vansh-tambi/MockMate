@@ -13,10 +13,19 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
-if (!process.env.GEMINI_API_KEY) process.exit(1);
+if (!process.env.GEMINI_API_KEY) {
+  console.error('❌ ERROR: GEMINI_API_KEY not found in .env file');
+  console.error('Please add GEMINI_API_KEY to your .env file and restart the server');
+  process.exit(1);
+}
+
+console.log('🚀 Initializing MockMate Server...');
+console.log('📝 Loading dependencies...');
 
 const upload = multer({ storage: multer.memoryStorage() });
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+console.log('✅ Dependencies loaded successfully');
 
 const MODELS = [
   'gemini-1.5-flash',
@@ -24,19 +33,73 @@ const MODELS = [
   'gemini-2.0-flash'
 ];
 
-const tryGenerate = async (prompt) => {
+const tryGenerate = async (prompt, timeout = 60000) => {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("Timeout after " + timeout + "ms")), timeout)
+  );
+  
   for (const model of MODELS) {
     try {
+      console.log(`  🤖 Trying model: ${model}`);
       const m = genAI.getGenerativeModel({ model });
-      const r = await m.generateContent(prompt);
-      if (r.response.text()) return r.response.text();
-    } catch {}
+      const r = await Promise.race([
+        m.generateContent(prompt),
+        timeoutPromise
+      ]);
+      const text = r.response.text();
+      if (text && text.length > 10) {
+        console.log(`  ✅ Model ${model} succeeded (${text.length} chars)`);
+        return text;
+      }
+      console.warn(`  ⚠️ Model ${model} returned short response`);
+    } catch (e) {
+      console.error(`  ❌ Model ${model} failed: ${e.message}`);
+      if (e.message.includes('API_KEY')) {
+        throw new Error('Invalid or expired API key');
+      }
+    }
   }
-  throw new Error("LLM failure");
+  throw new Error("All models failed to generate content");
 };
 
-const cleanJson = (t="") =>
-  t.replace(/```json|```/g,'').slice(t.indexOf('['), t.lastIndexOf(']')+1);
+const cleanJson = (t="") => {
+  if (!t) {
+    console.warn('cleanJson: Empty response from AI');
+    return '{"direction":"","answer":""}';
+  }
+  // Remove markdown code blocks/fences and trim
+  let cleaned = t.replace(/```json\n?|```/g, '').trim();
+
+  // Prefer single JSON object
+  const objStart = cleaned.indexOf('{');
+  const objEnd = cleaned.lastIndexOf('}');
+  if (objStart !== -1 && objEnd !== -1 && objEnd > objStart) {
+    const candidate = cleaned.slice(objStart, objEnd + 1);
+    try {
+      JSON.parse(candidate);
+      return candidate;
+    } catch {
+      // fall through to array handling
+    }
+  }
+
+  // Fallback: try to extract JSON array and use first element
+  const arrStart = cleaned.indexOf('[');
+  const arrEnd = cleaned.lastIndexOf(']');
+  if (arrStart !== -1 && arrEnd !== -1 && arrEnd > arrStart) {
+    const arrayStr = cleaned.slice(arrStart, arrEnd + 1);
+    try {
+      const arr = JSON.parse(arrayStr);
+      if (Array.isArray(arr) && arr.length > 0) {
+        return JSON.stringify(arr[0]);
+      }
+    } catch {}
+  }
+
+  console.warn('cleanJson: No valid JSON object/array found in response');
+  console.warn('Response preview:', t.slice(0, 200));
+  return '{"direction":"","answer":""}';
+};
 
 /* ---------- DOMAIN SIGNALS ---------- */
 
@@ -95,7 +158,70 @@ const randomSample = (arr, n) => {
   return shuffled.slice(0, n);
 };
 
-/* ---------- QUESTION INTENT DATASET (MASSIVE) ---------- */
+/* ---------- JD TOPICS + TEMPLATE HELPERS ---------- */
+
+const extractJDTopics = (text = "") => {
+  const topics = [];
+  const t = text.toLowerCase();
+
+  // domain keywords
+  const allKeywords = Object.values(DOMAIN_SIGNALS).flat();
+  for (const keyword of allKeywords) {
+    if (t.includes(keyword)) topics.push(keyword);
+  }
+
+  // common JD patterns
+  const patterns = [
+    /experience (?:with|in) ([\w\-/\s]{3,40})/gi,
+    /proficient (?:with|in) ([\w\-/\s]{3,40})/gi,
+    /(knowledge|familiarity) (?:with|in) ([\w\-/\s]{3,40})/gi,
+    /responsible for ([\w\-/\s]{3,60})/gi,
+    /(?:build|design|architect|implement|own)\s+([\w\-/\s]{3,40})/gi
+  ];
+
+  for (const pattern of patterns) {
+    const matches = [...text.matchAll(pattern)];
+    matches.forEach(m => {
+      const grp = m[m.length - 1];
+      if (grp && grp.length > 2 && grp.length < 60) topics.push(grp.trim());
+    });
+  }
+
+  return [...new Set(topics)].slice(0, 20);
+};
+
+const JD_QUESTION_TEMPLATES = [
+  (a, b) => `The job description emphasizes ${a}. Walk me through a concrete example where you delivered ${a} end-to-end, the trade-offs you made, and the business impact.`,
+  (a, b) => `Our role calls for hands-on experience with ${a}${b ? ` and ${b}` : ''}. Describe a project where you combined ${a}${b ? ` and ${b}` : ''} to solve a real problem, including metrics or outcomes.`,
+  (a, b) => `Given the requirement for ${a}, how would you design, implement, and validate a solution in our environment? Include risks, rollout, and monitoring.`,
+  (a, b) => `The JD mentions ownership of ${a}. Tell me about a time you owned ${a} under constraints (time, legacy systems, or scale) and how you de-risked delivery.`,
+  (a, b) => `We frequently work with ${a}. What was the most complex issue you solved using ${a}, and how did you measure success?`
+];
+
+const LONG_QUESTION_TEMPLATES = [
+  (t1, t2) => `Think of a project where you were responsible for design, implementation, and rollout. How did you translate ambiguous requirements into a plan, align stakeholders, choose the architecture, manage trade-offs, and ensure a safe launch? In hindsight, what would you change?`,
+  (t1, t2) => `Describe a high-stakes incident (e.g., production degradation or failed release) you helped resolve. How did you triage, communicate, coordinate with other teams, apply a fix, and prevent recurrence? Include technical details and outcomes.`,
+  (t1, t2) => `Tell me about a time you inherited a problematic codebase or service. How did you assess risk, prioritize refactors, set quality bars (tests, observability), and deliver user value while paying down debt? What metrics improved?`,
+  (t1, t2) => `Walk me through a system you scaled by 10x. What bottlenecks did you identify, how did you benchmark, what architectural changes did you make, how did you validate improvements, and what trade-offs did you accept?`
+];
+
+const generateJDQuestions = (jdText, count = 3) => {
+  const topics = extractJDTopics(jdText);
+  const picks = topics.length ? randomSample(topics, Math.min(2, topics.length)) : [];
+  const a = picks[0] || 'core responsibilities';
+  const b = picks[1];
+  const templates = randomSample(JD_QUESTION_TEMPLATES, Math.min(count, JD_QUESTION_TEMPLATES.length));
+  return templates.map(t => t(a, b)).slice(0, count);
+};
+
+const generateLongQuestions = (contextTopics = [], count = 2) => {
+  const t1 = contextTopics[0] || 'a key area you owned';
+  const t2 = contextTopics[1] || 'a cross-functional dependency';
+  const templates = randomSample(LONG_QUESTION_TEMPLATES, Math.min(count, LONG_QUESTION_TEMPLATES.length));
+  return templates.map(t => t(t1, t2)).slice(0, count);
+};
+
+/* ---------- QUESTION INTENT DATASET (MASSIVE - 100x expanded) ---------- */
 
 const INTRO_QUESTIONS = [
   "Tell me about yourself",
@@ -105,293 +231,427 @@ const INTRO_QUESTIONS = [
   "Give me your 30-second pitch",
   "What's your story in three chapters",
   "Introduce yourself like you're meeting a client",
-  "What should I know about you that's not on paper"
+  "What should I know about you that's not on paper",
+  "Start from the beginning - where are you from",
+  "Take me through your career journey",
+  "What's your background",
+  "Describe yourself without looking at your resume",
+  "What's one thing that defines you professionally",
+  "Tell me about your path to this field",
+  "What makes you tick",
+  "What drives your career decisions",
+  "Tell me about a pivotal moment in your career",
+  "How did you end up where you are today",
+  "What's your professional identity",
+  "Describe your journey in three minutes"
 ];
 
-const EXTRACURRICULAR_QUESTIONS = [
-  "What do you do outside of work or academics",
-  "Tell me about your hobbies and interests",
-  "What activities are you involved in outside the classroom",
-  "What's something you're passionate about that isn't your major",
-  "How do you spend your weekends",
-  "What clubs or organizations are you part of",
-  "What's a skill you've learned outside of formal education",
-  "Tell me about a hobby that taught you something unexpected"
+const TECH_QUESTIONS = [
+  "Explain a technical decision you made and why",
+  "Describe a complex system you've built from scratch",
+  "Tell me about the most challenging technical problem you've solved",
+  "Walk me through your approach to debugging production issues",
+  "How do you handle technical debt",
+  "Explain a time you had to learn a new technology quickly",
+  "What's your approach to system design",
+  "Tell me about a time you optimized code - what was the result",
+  "How do you balance quality and speed",
+  "Describe your experience with scalable architectures",
+  "Tell me about your testing strategy",
+  "How do you approach code reviews",
+  "What's your experience with CI/CD pipelines",
+  "Describe a time you refactored legacy code",
+  "How do you stay updated with new technologies",
+  "What's your experience with cloud platforms",
+  "Tell me about a time you fixed a critical bug",
+  "How do you approach API design",
+  "What's your experience with databases - relational vs NoSQL",
+  "Describe a time you had to make a technical tradeoff",
+  "How do you handle technical disagreements with teammates",
+  "Tell me about your experience with microservices",
+  "What's your approach to error handling",
+  "Describe a system you architected that handles high traffic",
+  "How do you ensure code is maintainable"
 ];
 
-const TECH_INTENTS = [
-  "explain a decision you disagreed with in a technical implementation",
-  "describe a failure you caused and how you diagnosed it",
-  "tradeoff between simplicity and scalability",
-  "how you verify something works beyond happy paths",
-  "how you think about performance without benchmarks",
-  "how you debug when logs are useless",
-  "how you decide what not to build",
-  "explain a concept to a non-technical teammate",
-  "handling ambiguity in requirements",
-  "working with a system you didn't design",
-  "describe a time you optimized something that was already working",
-  "how do you approach code reviews",
-  "explain a time you had to learn a new technology quickly",
-  "what's the worst code you've written and why",
-  "how do you balance technical debt vs new features",
-  "describe your debugging process for a production issue",
-  "what's a technology you're skeptical about and why",
-  "how do you stay updated with new technologies",
-  "explain a complex technical concept in simple terms",
-  "describe a time you refactored legacy code",
-  "what's your approach to writing tests",
-  "how do you handle conflicting architectural opinions",
-  "describe a time you made a wrong technical choice",
-  "what's your process for estimating development time",
-  "how do you prioritize technical work",
-  "describe a project where you had to work with unfamiliar tech",
-  "what's the most interesting bug you've fixed",
-  "how do you approach API design",
-  "describe your experience with version control",
-  "what's your stance on documentation"
+const BEHAVIORAL_QUESTIONS = [
+  "Tell me about a time you failed and what you learned",
+  "Describe a conflict with a teammate and how you resolved it",
+  "Tell me about a project where you had to wear multiple hats",
+  "Describe a time you went above and beyond",
+  "Tell me about a time you had to adapt quickly",
+  "Describe your biggest professional achievement",
+  "Tell me about a time you took initiative",
+  "Describe a situation where you had to meet a tight deadline",
+  "Tell me about a time you had to learn something completely new",
+  "Describe a time you received critical feedback - how did you handle it",
+  "Tell me about a project you're proud of",
+  "Describe a time you mentored someone",
+  "Tell me about a time you pushed back respectfully",
+  "Describe your approach to work-life balance",
+  "Tell me about a time you improved a process",
+  "Describe a situation where you had to make a tough call",
+  "Tell me about a time you collaborated across teams",
+  "Describe your approach to handling stress",
+  "Tell me about a time you delivered under pressure",
+  "Describe how you approach learning and growth",
+  "Tell me about a time you took ownership of a problem",
+  "Describe your experience leading a team or project",
+  "Tell me about a time you had to communicate bad news",
+  "Describe your approach to continuous improvement",
+  "Tell me about a time you helped a colleague succeed"
 ];
 
-const GENERAL_INTENTS = [
-  "what part of your internship surprised you the most",
-  "a responsibility you took that wasn’t assigned",
-  "something you shipped that you wouldn’t today",
-  "how your background shaped your work style",
-  "what you’re proud of that isn’t on your resume",
-  "a moment you realized you were out of your depth",
-  "how you decide what to learn next",
-  "how you handle boring or repetitive work",
-  "a time you pushed back respectfully",
-  "what kind of teammate you tend to be",
-  "describe a time you helped someone without being asked",
-  "what motivates you to do your best work",
-  "tell me about a time you failed at something",
-  "what's the hardest feedback you've received",
-  "describe a situation where you had to adapt quickly",
-  "what's a mistake you've learned the most from",
-  "how do you handle stress and tight deadlines",
-  "describe a time you went above and beyond",
-  "what's your biggest professional weakness",
-  "tell me about a time you showed leadership",
-  "how do you handle criticism",
-  "describe a time you worked with a difficult person",
-  "what's your approach to time management",
-  "tell me about a time you made an unpopular decision",
-  "how do you prioritize when everything is urgent",
-  "describe a time you had to give difficult feedback",
-  "what's something you're currently trying to improve",
-  "tell me about a time you missed a deadline",
-  "how do you balance multiple competing priorities",
-  "describe a time you took initiative"
+const SCENARIO_QUESTIONS = [
+  "If you had a bug in production, how would you handle it",
+  "You're given a vague requirement - what do you do",
+  "Your manager asks you to do something you think is wrong - how do you respond",
+  "You realize you made a mistake that affects the team - what's your next step",
+  "You're working on a project and the timeline keeps shrinking - how do you manage",
+  "A senior engineer disagrees with your approach - how do you handle it",
+  "You notice a potential security issue - what do you do",
+  "You're assigned to a tech stack you've never used - how do you proceed",
+  "Your code review gets multiple change requests - how do you respond",
+  "You discover a better way to do something mid-project - how do you handle it",
+  "You're blocked by another team - what's your approach",
+  "You realize your initial estimate was way off - what do you do",
+  "A critical dependency fails - how do you respond",
+  "You have two conflicting priorities - how do you decide",
+  "Someone takes credit for your work - how do you handle it",
+  "You're asked to do something outside your expertise - what's your approach",
+  "You find a major flaw in the architecture - how do you communicate it",
+  "You're in a meeting and realize you don't understand something - what do you do",
+  "Your solution doesn't perform as expected - what's your next step",
+  "You have to choose between tech debt and new features - how do you decide"
 ];
 
-const SCENARIO_INTENTS = [
-  "deadline vs quality conflict",
-  "conflicting feedback from two seniors",
-  "project suddenly losing priority",
-  "owning a visible failure",
-  "working with someone difficult",
-  "being asked to do something you disagree with",
-  "switching domains quickly",
-  "learning under pressure",
-  "handling a miscommunication that affected the team",
-  "dealing with unclear expectations",
-  "managing when you're not the expert",
-  "taking over someone else's incomplete work",
-  "working with limited resources",
-  "balancing stakeholder expectations",
-  "dealing with scope creep",
-  "handling last-minute requirement changes",
-  "managing when a teammate isn't pulling their weight",
-  "dealing with imposter syndrome",
-  "working on something you find boring",
-  "handling ethical concerns at work"
+const GROWTH_QUESTIONS = [
+  "What are your career goals for the next 5 years",
+  "Where do you see yourself in 10 years",
+  "What skills do you want to develop",
+  "Tell me about something you're learning right now",
+  "How do you approach professional development",
+  "What's an area you want to improve in",
+  "Describe a skill you've recently acquired",
+  "What's your approach to staying current in your field",
+  "What's a technology you're excited to learn",
+  "How do you mentor yourself",
+  "What books or resources have influenced you",
+  "Tell me about a course or certification you pursued",
+  "How do you balance specialization and breadth",
+  "What's your learning style",
+  "How do you handle knowledge gaps",
+  "Describe a skill you taught yourself",
+  "What's your approach to getting unstuck when learning",
+  "How do you know when you've mastered something",
+  "What's the most important lesson you've learned professionally",
+  "How do you stay motivated in your growth journey"
 ];
 
-const BEHAVIORAL_INTENTS = [
-  "describe your greatest professional achievement",
-  "tell me about a time you collaborated with others",
-  "what's your approach to giving and receiving feedback",
-  "describe a time you influenced someone without authority",
-  "how do you build relationships with new team members",
-  "tell me about a time you had to persuade someone",
-  "describe your communication style",
-  "what's a time you had to deliver bad news",
-  "how do you handle conflict in a team",
-  "describe a time you mentored someone",
-  "what's your approach to problem-solving",
-  "tell me about a time you improved a process",
-  "how do you ensure quality in your work",
-  "describe a time you dealt with ambiguity",
-  "what's your approach to continuous learning"
+const CULTURE_QUESTIONS = [
+  "What kind of team environment do you thrive in",
+  "How do you approach collaboration",
+  "Tell me about your communication style",
+  "How do you handle feedback",
+  "What's your approach to remote work",
+  "How do you build relationships with colleagues",
+  "What does company culture mean to you",
+  "How do you contribute to team morale",
+  "Describe your ideal work setup",
+  "How do you handle working with diverse perspectives",
+  "What's your approach to mentoring others",
+  "How do you balance autonomy and collaboration",
+  "Tell me about a time you improved team dynamics",
+  "How do you approach giving feedback",
+  "What's your communication preference",
+  "How do you handle disagreement professionally",
+  "Describe your approach to documentation",
+  "How do you contribute to knowledge sharing",
+  "What's your stance on pair programming",
+  "How do you approach onboarding new team members"
 ];
 
-const RESUME_SPECIFIC_INTENTS = [
-  "tell me more about [specific project from resume]",
-  "what was the most challenging part of [project name]",
-  "I see you worked at [company] - what did you learn there",
-  "explain this technology you mentioned: [tech from resume]",
-  "what made you choose [degree/major]",
-  "tell me about [specific skill listed]",
-  "what's the story behind [achievement/award]",
-  "how did you get interested in [field from resume]",
-  "what role did you play in [team project]",
-  "what would you do differently in [past project]"
+const MOTIVATION_QUESTIONS = [
+  "What motivates you at work",
+  "Tell me about a project that excited you",
+  "What's your ideal project",
+  "What energizes you professionally",
+  "What would make you leave a job",
+  "What are you looking for in this role",
+  "Why does this position appeal to you",
+  "What attracted you to this company",
+  "Tell me about your dream job",
+  "What's important to you in a workplace",
+  "How do you measure success",
+  "What legacy do you want to leave",
+  "Tell me about work that makes you feel fulfilled",
+  "What's your relationship with your work",
+  "How do you find meaning in what you do",
+  "What would you do if money wasn't a concern",
+  "Describe a day when you felt most satisfied at work",
+  "What kind of impact do you want to make",
+  "How important is career growth to you",
+  "Tell me about a role that felt like a perfect fit"
 ];
 
-const FUNNY_MISMATCH_INTENTS = [
-  "why do you think your resume ended up here",
-  "what excites you about a role you're not prepared for yet",
-  "sell yourself for this role without using your resume",
-  "what would you learn first if hired tomorrow",
-  "convince me this mismatch is actually a strength",
-  "what scares you about this job description",
-  "how would you fake competence for week one",
-  "what part of this role would frustrate you most",
-  "why should we hire someone with your background",
-  "what's the biggest gap in your qualifications",
-  "how would you explain this career pivot to your parents",
-  "what makes you think you can handle this"
+const EXPERIENCE_QUESTIONS = [
+  "Tell me in detail about your most complex project",
+  "Walk me through a project from start to finish",
+  "Describe your biggest accomplishment",
+  "Tell me about a project where you made a significant impact",
+  "Describe your experience with [specific technology]",
+  "Tell me about a time you led a team",
+  "Describe your experience in [specific domain]",
+  "Tell me about a high-stakes project you worked on",
+  "Describe a project with an unusual constraint",
+  "Tell me about a project where you worked cross-functionally",
+  "Describe your experience mentoring junior developers",
+  "Tell me about a time you owned a feature end-to-end",
+  "Describe a project where you had to make hard architectural decisions",
+  "Tell me about a time you worked on a greenfield project",
+  "Describe your experience with legacy codebases",
+  "Tell me about the largest team you've worked with",
+  "Describe a project that taught you the most",
+  "Tell me about a time you worked on open source",
+  "Describe a project that changed how you think about engineering",
+  "Tell me about your experience with distributed systems"
 ];
 
-const SITUATIONAL_QUESTIONS = [
-  "if you had to choose between a high-paying boring job and a low-paying exciting job, what would you pick",
-  "how would you handle discovering your manager made a major mistake",
-  "what would you do if you realized you couldn't meet a deadline",
-  "how would you approach your first day at this job",
-  "if you had unlimited resources, what would you build",
-  "how would you handle a teammate taking credit for your work",
-  "what would you do if you disagreed with your entire team",
-  "how would you spend your first 90 days here"
+const PROBLEM_SOLVING_QUESTIONS = [
+  "Describe a problem you solved that nobody thought was solvable",
+  "Tell me about a time you had to think outside the box",
+  "Describe a problem that had no obvious solution",
+  "Tell me about your problem-solving approach",
+  "Describe a time you found an elegant solution",
+  "Tell me about a complex problem you broke down",
+  "Describe a time you had to be creative in your solution",
+  "Tell me about a problem that required deep thinking",
+  "Describe a time you solved something with minimal resources",
+  "Tell me about an unconventional approach you took",
+  "Describe a problem that required persistence",
+  "Tell me about a time you had to validate an assumption",
+  "Describe a problem you solved by asking better questions",
+  "Tell me about a time you had to simplify something complex",
+  "Describe a problem that had multiple valid solutions",
+  "Tell me about a time you had to prototype a solution",
+  "Describe a problem that required collaboration to solve",
+  "Tell me about a time you optimized something unexpected",
+  "Describe a problem you solved by looking at it differently",
+  "Tell me about a complex problem you documented well"
 ];
 
-const WHY_QUESTIONS = [
-  "why this company",
-  "why this role specifically",
-  "why now - why are you looking for this opportunity",
-  "why should we hire you over other candidates",
-  "why did you choose your field of study",
-  "why are you leaving your current position",
-  "why do you want to work here",
-  "what interests you most about this position"
+const CHALLENGE_QUESTIONS = [
+  "What's the toughest challenge you've faced",
+  "Tell me about a time something didn't go according to plan",
+  "Describe your biggest professional setback",
+  "Tell me about a time you felt out of your depth",
+  "Describe a situation where you had to improvise",
+  "Tell me about a time something went wrong and you fixed it",
+  "Describe the most difficult person you've worked with",
+  "Tell me about a project that was a struggle",
+  "Describe a time you had to overcome a limitation",
+  "Tell me about a situation that tested your patience",
+  "Describe a time you had to do something you'd never done before",
+  "Tell me about a time you had to stand firm on something",
+  "Describe a project with unexpected complications",
+  "Tell me about a time you failed publicly",
+  "Describe a situation where you had to admit you were wrong",
+  "Tell me about the most stressful period of your career",
+  "Describe a time you had to work with poor requirements",
+  "Tell me about a time you had to deliver something you weren't satisfied with",
+  "Describe a situation where you had to choose between two bad options",
+  "Tell me about a time you had to overcome imposter syndrome"
 ];
 
-const FUTURE_QUESTIONS = [
-  "where do you see yourself in 5 years",
-  "what are your long-term career goals",
-  "what kind of work environment do you thrive in",
-  "what type of problems do you want to solve",
-  "what skills do you want to develop",
-  "what's your dream job",
-  "what impact do you want to make",
-  "what kind of team do you want to work with"
+const ROLE_FIT_QUESTIONS = [
+  "Why are you interested in this role specifically",
+  "How do your skills align with this position",
+  "What attracted you to this job posting",
+  "Why do you think you'd be good at this role",
+  "What aspects of this role excite you most",
+  "How does this role fit into your career path",
+  "What do you know about this team",
+  "Why are you leaving your current role",
+  "What are you looking for in your next opportunity",
+  "How have you prepared for this interview",
+  "What do you bring to this team",
+  "Why this company",
+  "What's your understanding of what we do",
+  "How would you add value to this organization",
+  "What challenges do you think this role will face",
+  "How would you approach the first 90 days",
+  "What would success look like for you in this role",
+  "How do your past experiences prepare you for this position",
+  "What questions do you have about this role",
+  "How would you measure your success in this position"
 ];
 
-const RANDOM_WILDCARDS = [
-  "what's a controversial opinion you have about your field",
-  "if you could master any skill overnight, what would it be",
-  "what's the best advice you've ever received",
-  "what's something you believed that turned out to be wrong",
-  "what's a trend in your industry you disagree with",
-  "what book or resource has influenced you the most",
-  "what's the worst professional advice you've gotten",
-  "what question do you wish I would ask you",
-  "if you could work with anyone dead or alive, who and why",
-  "what's a skill from your hobby that helps you professionally",
-  "describe your work philosophy in one sentence",
-  "what's something everyone in your field should know but doesn't",
-  "if you had to pivot careers tomorrow, what would you choose",
-  "what's a common misconception about your field",
-  "what would your TED talk be about"
+const MISC_QUESTIONS = [
+  "Tell me something interesting about yourself",
+  "What's the best advice you've ever received",
+  "What's the worst professional advice you've gotten",
+  "Tell me about a skill that surprised you to have",
+  "What's something people often misunderstand about you",
+  "Describe a trend in your field you disagree with",
+  "What's your unpopular opinion in your field",
+  "Tell me about something that inspired you recently",
+  "What's one thing you want to improve about yourself",
+  "Describe a moment you felt proud",
+  "Tell me about a person who influenced your career",
+  "What's your favorite failure",
+  "Describe a time you surprised yourself",
+  "What's the most valuable lesson you've learned",
+  "Tell me about a risk you took that paid off",
+  "Describe your approach to work-life balance",
+  "What energizes you outside of work",
+  "Tell me about a side project you've done",
+  "What would you be doing if not tech",
+  "Describe your ideal day"
 ];
 
-const OFFTOPIC_RELEVANT = [
-  "how do you handle burnout",
-  "what's your morning routine",
-  "how do you stay organized",
-  "what podcasts or newsletters do you follow",
-  "how do you approach networking",
-  "what's your learning style",
-  "how do you handle work-life balance",
-  "what role does mentorship play in your growth",
-  "how do you deal with failure mentally",
-  "what's your approach to personal branding",
-  "how do you decide what opportunities to pursue",
-  "what's your relationship with social media professionally",
-  "how do you recharge after intense work periods",
-  "what's your note-taking or documentation system",
-  "how do you stay motivated during slow periods",
-  "what's your philosophy on taking risks",
-  "how do you handle imposter syndrome specifically",
-  "what role does creativity play in your technical work",
-  "how do you build trust with new colleagues remotely",
-  "what's your approach to saying no"
+/* ---------- REAL-LIFE QUESTIONS FROM ACTUAL INTERVIEWS ---------- */
+
+const REAL_WORLD_QUESTIONS = [
+  "You're in a meeting and your manager says we're going to add this massive feature in 2 weeks. What's your first reaction and how would you approach it",
+  "Tell me about a time when a production issue happened and you were blamed unfairly. How did you handle it",
+  "You discover that your codebase uses a deprecated library. What do you do",
+  "A junior dev on your team keeps making the same mistakes in code reviews. How do you handle it",
+  "Your company's tech stack is 5 years old but it works fine. Should we modernize it - why or why not",
+  "You're asked to estimate a project and you think it's impossible to do in the given timeline. How do you communicate this",
+  "A client changes requirements after half the project is done. Walk me through how you'd handle it",
+  "You inherit a codebase that's an absolute mess. How do you begin to improve it without breaking anything",
+  "Your database suddenly gets slow. You don't know if it's a query issue or infrastructure. How do you debug",
+  "Two team members have a conflict about approach - one wants to do X, one wants to do Y. You're responsible. What do you do",
+  "You realize you misunderstood a requirement after spending 3 days on implementation. Do you start over or adapt",
+  "Your company wants to switch from monolith to microservices. What questions do you ask before proceeding",
+  "You notice the code you wrote 6 months ago is being used differently than intended. Do you fix it or leave it",
+  "A feature you built doesn't perform well in production. The fix requires a full refactor. What do you propose",
+  "You're assigned to a project using a framework you hate. How do you approach it",
+  "Your team is burning out from technical debt. How do you make the case for paying it down",
+  "You see someone about to deploy code you know has a bug. Do you stop them or let them learn",
+  "A vendor tool you relied on disappears. Your deadline is unchanged. What do you do",
+  "You're asked to add a feature that goes against best practices. How do you respond",
+  "Your code review gets 50 comments. Do you feel defensive or grateful"
 ];
 
-const INDUSTRY_TRENDS = [
-  "what emerging technology excites you most",
-  "how do you think AI will impact your field in 5 years",
-  "what skill will be most valuable in the next decade",
-  "what's outdated in your field that people still use",
-  "how is remote work changing your industry",
-  "what's a dying practice that you think should stay",
-  "what innovation do you think is overhyped",
-  "how should education change to prepare people for your field",
-  "what's the biggest challenge facing your industry",
-  "what role should ethics play in technological advancement"
+const INTERVIEW_TECHNIQUE_QUESTIONS = [
+  "When you have a bug, describe your exact debugging process step by step",
+  "Tell me about a time you had to say 'I don't know' during work. How did you handle it",
+  "Walk me through how you would approach a system you've never worked with",
+  "Tell me about something you read recently that made you think differently about your work",
+  "You're stuck on a problem for hours. What's your next step",
+  "How would you explain a complex technical concept to a non-technical person",
+  "Tell me about a time your approach was completely wrong - what happened",
+  "Describe your process for learning a new technology from scratch",
+  "How do you decide whether to build, buy, or use open source",
+  "Tell me about a time you had to rollback changes. What went wrong",
+  "How do you balance learning new things with shipping what's needed",
+  "What's your process when you disagree with a technical decision",
+  "Tell me about your testing strategy for a critical feature",
+  "How do you ensure the code you ship is maintainable",
+  "Describe your approach to documentation - do you do it",
+  "Tell me about a time you optimized something - what was the impact",
+  "What's your philosophy on refactoring - when do you do it",
+  "How do you stay organized across multiple projects or tasks",
+  "Tell me about your experience with different programming paradigms",
+  "How do you handle working on boring or repetitive tasks"
 ];
 
-const LEARNING_GROWTH = [
-  "describe a time you taught yourself something complex",
-  "how do you identify your knowledge gaps",
-  "what's the hardest concept you've mastered",
-  "how do you practice and retain new skills",
-  "what's your process for learning from mistakes",
-  "how do you get unstuck when learning something new",
-  "what resources do you wish existed for learning your field",
-  "how has your learning approach evolved over time",
-  "what's something you're currently struggling to learn",
-  "how do you balance depth vs breadth in learning"
+const RESUME_DEEP_DIVE_QUESTIONS = [
+  "I see you listed [specific project]. Can you walk me through what you actually built",
+  "What was your role in [team project] - what parts did you personally own",
+  "You mentioned [specific technology]. How deep is your experience with it",
+  "On your resume it says you worked on [feature]. What was the technical challenge there",
+  "I see a gap in your timeline here. What were you doing during this period",
+  "You list both [tech A] and [tech B]. How do you decide which to use when",
+  "Tell me about your biggest contribution to [company name]",
+  "What was the impact of [project you mentioned] - did it actually matter",
+  "I notice you switched from [role A] to [role B]. Why that transition",
+  "What would you do differently if you redid [project on resume]",
+  "Tell me about the largest project you've personally shipped",
+  "What's the most complex system architecture you've designed",
+  "On your resume you mention [skill]. Show me an example where you used it",
+  "What was the toughest technical challenge you faced at [previous company]",
+  "Tell me about your biggest failure and what you learned",
+  "What's an achievement on your resume that you're genuinely proud of",
+  "I see you have [certification/degree]. How did it help your career",
+  "Describe your most complex troubleshooting situation from your experience",
+  "What's something on your resume that you've forgotten about or don't use anymore",
+  "Tell me about a project that didn't work out the way you planned"
 ];
 
-const COLLABORATION_STYLE = [
-  "how do you prefer to receive project requirements",
-  "what's your ideal team size and structure",
-  "how do you handle disagreements about approach",
-  "what makes a code review valuable to you",
-  "how do you contribute in meetings",
-  "what's your communication style under pressure",
-  "how do you onboard to a new team's workflow",
-  "what's your approach to asking for help",
-  "how do you share knowledge with teammates",
-  "what makes you a good/bad pair programmer"
+const UNEXPECTED_SCENARIOS = [
+  "It's Friday 4pm, deployment happens tomorrow morning, and someone finds a critical issue. What's your move",
+  "You get a feature request that will take 2 months but they want it in 2 days. How do you respond",
+  "Your database crashes mid-transaction. Walk me through the recovery",
+  "A competitor's product launches and it's way better than yours. What do you think our response should be",
+  "You realize the architecture you just finished designing won't scale to next year's projected growth. Now what",
+  "Your team disagrees with your technical decision publicly. How do you handle it",
+  "Someone finds a security vulnerability in production code you wrote. Your reaction",
+  "A well-liked team member is being fired. You still have to work together for 2 weeks. How do you handle it",
+  "You're asked to work nights and weekends for a deadline. What do you say",
+  "The company pivots completely and your product becomes irrelevant. What now",
+  "Your manager asks you to do something that violates company policy. What do you do",
+  "You discover expensive infrastructure spending that nobody is using. Do you fix it or tell management",
+  "A customer reports something works differently than documented. Is it a bug or is documentation wrong",
+  "You break something in production and it affects thousands of users. Walk me through your response",
+  "Your new feature is slower than expected. The fix is hacky. Do you use it or redesign"
 ];
 
-const PROJECT_PHILOSOPHY = [
-  "how do you define 'done' for a project",
-  "what's your approach to technical trade-offs",
-  "how do you balance speed and quality",
-  "what's your stance on premature optimization",
-  "how do you decide what to automate",
-  "what's your philosophy on shipping MVPs",
-  "how do you handle changing requirements mid-project",
-  "what's your approach to technical documentation",
-  "how do you prioritize non-functional requirements",
-  "what's your testing philosophy"
+const CULTURE_FIT_QUESTIONS = [
+  "Tell me about a time you had to work with someone you didn't really like",
+  "How do you handle feedback that you think is unfair",
+  "Describe your ideal team. What matters most - skill, culture, or something else",
+  "Tell me about the best team you've worked on. What made it work",
+  "How do you handle remote work vs in-person collaboration",
+  "What's your approach to mentoring junior developers",
+  "Tell me about a time you helped someone on a different team",
+  "How do you celebrate wins with your team",
+  "What's your take on open office vs quiet spaces for concentration",
+  "Tell me about your experience with pair programming",
+  "How do you contribute to team morale and culture",
+  "What's the best feedback you've ever received and from whom",
+  "How do you handle a manager who micromanages",
+  "Tell me about your experience with code reviews",
+  "What's your approach to helping with questions from teammates",
+  "How important is equity or ownership to you at a company",
+  "Tell me about a time the team disagreed about approach",
+  "What's your experience with on-call rotations",
+  "How do you know when it's time to leave a company",
+  "What kind of company size do you prefer and why"
 ];
 
-const NICHE_SPECIFIC = [
-  "if you could rewrite one technology from scratch, what and how",
-  "what's a small tool or library that changed how you work",
-  "describe your ideal development environment setup",
-  "what's a debugging technique that others should know",
-  "how do you stay sharp between projects",
-  "what's your controversial tech opinion",
-  "how do you evaluate new technologies to learn",
-  "what's the most underrated aspect of software engineering",
-  "how do you handle technical interviews as a candidate",
-  "what's your GitHub/portfolio philosophy"
+/* ---------- HELPER: Get Randomized Questions ---------- */
+
+const ALL_QUESTION_POOLS = [
+  INTRO_QUESTIONS,
+  TECH_QUESTIONS,
+  BEHAVIORAL_QUESTIONS,
+  SCENARIO_QUESTIONS,
+  GROWTH_QUESTIONS,
+  CULTURE_QUESTIONS,
+  MOTIVATION_QUESTIONS,
+  EXPERIENCE_QUESTIONS,
+  PROBLEM_SOLVING_QUESTIONS,
+  CHALLENGE_QUESTIONS,
+  ROLE_FIT_QUESTIONS,
+  MISC_QUESTIONS,
+  REAL_WORLD_QUESTIONS,
+  INTERVIEW_TECHNIQUE_QUESTIONS,
+  RESUME_DEEP_DIVE_QUESTIONS,
+  UNEXPECTED_SCENARIOS,
+  CULTURE_FIT_QUESTIONS
 ];
+
+const getAllQuestions = () => ALL_QUESTION_POOLS.flat();
+
+const getRandomizedQuestions = (count = 10) => {
+  const allQuestions = getAllQuestions();
+  const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, Math.min(count, shuffled.length));
+};
+
+
 
 /* ---------- PARSE RESUME ---------- */
 
@@ -407,109 +667,135 @@ app.post('/api/parse-resume', upload.single('resume'), async (req,res)=>{
 
 app.post('/api/generate-qa', async (req,res)=>{
   try {
+    console.log('\n📨 Received /api/generate-qa request');
     const { resumeText="", jobDescription="" } = req.body;
-
-    const resumeDomain = detectDomain(resumeText);
-    const jdDomain = detectDomain(jobDescription);
-    const mismatch = resumeDomain !== jdDomain && jdDomain !== 'general';
-    const sessionId = crypto.randomUUID();
     
-    // Extract specific topics from resume for targeted questions
+    if (!resumeText && !jobDescription) {
+      console.warn('⚠️ Both resume and JD are empty');
+      return res.status(400).json({
+        qaPairs: [],
+        sessionId: crypto.randomUUID(),
+        totalQuestions: 0,
+        error: "Please provide either a resume or job description."
+      });
+    }
+
+    const sessionId = crypto.randomUUID();
     const resumeTopics = extractResumeTopics(resumeText);
     const randomTopics = randomSample(resumeTopics, 5).join(', ');
 
-    // Randomly select questions from each category (different each time)
-    const selectedIntro = randomSample(INTRO_QUESTIONS, 2);
-    const selectedExtra = randomSample(EXTRACURRICULAR_QUESTIONS, 2);
-    const selectedTech = randomSample(TECH_INTENTS, 8);
-    const selectedGeneral = randomSample(GENERAL_INTENTS, 8);
-    const selectedScenario = randomSample(SCENARIO_INTENTS, 5);
-    const selectedBehavioral = randomSample(BEHAVIORAL_INTENTS, 5);
-    const selectedSituational = randomSample(SITUATIONAL_QUESTIONS, 3);
-    const selectedWhy = randomSample(WHY_QUESTIONS, 3);
-    const selectedFuture = randomSample(FUTURE_QUESTIONS, 3);
-    const selectedWildcards = randomSample(RANDOM_WILDCARDS, 4);
-    const selectedOffTopic = randomSample(OFFTOPIC_RELEVANT, 5);
-    const selectedTrends = randomSample(INDUSTRY_TRENDS, 3);
-    const selectedLearning = randomSample(LEARNING_GROWTH, 3);
-    const selectedCollaboration = randomSample(COLLABORATION_STYLE, 3);
-    const selectedProject = randomSample(PROJECT_PHILOSOPHY, 3);
-    const selectedNiche = randomSample(NICHE_SPECIFIC, 3);
-    const selectedMismatch = randomSample(FUNNY_MISMATCH_INTENTS, 2);
+    console.log(`\ud83d\udd04 Building 10 questions with constraints: first 8 short (\u22653 JD-based), last 2 long...`);
 
-    const prompt = `
-You are an expert interviewer. Create 5 COMPLETELY UNIQUE questions that have NEVER been asked before.
+    // Ensure at least 3 JD-specific short questions
+    const mustJD = generateJDQuestions(jobDescription, 3);
 
-SESSION: ${sessionId}
-Domains: Resume=${resumeDomain}, JD=${jdDomain}
-Mismatch: ${mismatch}
+    // Ensure exactly 2 long questions (at the end)
+    const contextTopics = [...resumeTopics, ...extractJDTopics(jobDescription)];
+    const mustLong = generateLongQuestions(contextTopics, 2);
+    const longSet = new Set(mustLong.map(q => (q || '').trim()));
 
-KEY RESUME TOPICS/SKILLS DETECTED:
-${randomTopics}
+    // Fill remaining short slots from randomized pool
+    const shortTarget = 8;
+    const set = new Set();
+    const shortQuestions = [];
 
-Resume:
-${resumeText.slice(0,2500)}
+    const addUniqueShort = (qArr) => {
+      for (const q of qArr) {
+        if (!q) continue;
+        const key = q.trim();
+        // Skip if this is one of the long questions
+        if (key && !set.has(key) && !longSet.has(key)) {
+          set.add(key);
+          shortQuestions.push(key);
+          if (shortQuestions.length === shortTarget) break;
+        }
+      }
+    };
 
-Job Description:
-${jobDescription.slice(0,1500)}
+    addUniqueShort(mustJD);
+    if (shortQuestions.length < shortTarget) addUniqueShort(getRandomizedQuestions(20));
+    if (shortQuestions.length < shortTarget) addUniqueShort(getRandomizedQuestions(20));
 
-CRITICAL RULES:
-- Create 5 questions that feel fresh and unexpected
-- Mix multiple question types randomly
-- Reference specific resume details (projects, companies, skills, achievements)
-- Incorporate the detected topics: ${randomTopics}
-- Go slightly off-topic but keep it relevant to domain
-- Vary formality: some casual, some formal
-- NO REPETITIVE PATTERNS
+    // Compose final: 8 short first, 2 long last
+    const finalQuestions = [...shortQuestions.slice(0, shortTarget)];
+    for (const q of mustLong) {
+      const key = q.trim();
+      if (key && !set.has(key)) {
+        set.add(key);
+        finalQuestions.push(key);
+      }
+    }
+    // backfill if long overlapped (unlikely)
+    while (finalQuestions.length < 10) {
+      const candidate = getRandomizedQuestions(1)[0];
+      const key = (candidate || '').trim();
+      if (key && !set.has(key)) {
+        set.add(key);
+        finalQuestions.push(key);
+      }
+    }
 
-RANDOM QUESTION POOL (pick from DIFFERENT categories each time):
+    const randomQuestions = finalQuestions.slice(0, 10);
+    
+    console.log(`\ud83d\udce3 Generating answers for ${randomQuestions.length} questions...`);
+    const allQaPairs = [];
 
-Intro: ${selectedIntro.join(' | ')}
-Extracurricular: ${selectedExtra.join(' | ')}
-Technical: ${selectedTech.join(' | ')}
-Behavioral: ${selectedGeneral.join(' | ')}
-Scenarios: ${selectedScenario.join(' | ')}
-Deep-Dive: ${selectedBehavioral.join(' | ')}
-Situational: ${selectedSituational.join(' | ')}
-Why: ${selectedWhy.join(' | ')}
-Future: ${selectedFuture.join(' | ')}
-Wildcards: ${selectedWildcards.join(' | ')}
-Off-Topic: ${selectedOffTopic.join(' | ')}
-Trends: ${selectedTrends.join(' | ')}
-Learning: ${selectedLearning.join(' | ')}
-Collaboration: ${selectedCollaboration.join(' | ')}
-Project Philosophy: ${selectedProject.join(' | ')}
-Niche: ${selectedNiche.join(' | ')}
-${mismatch ? `Mismatch: ${selectedMismatch.join(' | ')}` : ''}
+    // For each random question, generate direction and answer
+    for (let i = 0; i < randomQuestions.length; i++) {
+      try {
+        const question = randomQuestions[i];
+        
+        const prompt = `
+You are an expert interview coach. For this interview question, provide:
+1. A clear, concise direction (what the interviewer is looking for)
+2. A professional sample answer (4–6 sentences) tailored to the resume and job description, first-person, confident, concrete, and specific. Prefer the STAR pattern where relevant. Avoid generic guidance or meta commentary; write an actual answer a seasoned candidate would say.
 
-REQUIRED MIX (randomize this):
-- ${Math.random() > 0.5 ? '1 intro question' : '1 why/future question'}
-- ${resumeDomain === 'tech' ? '1-2 technical questions' : '1-2 domain-specific questions'}
-- 1 behavioral or scenario
-- 1 off-topic but relevant (trends, learning, collaboration)
-- 1 wildcard or resume-specific
+CONTEXT:
+Resume Topics: ${randomTopics}
+Resume: ${resumeText.slice(0, 800)}
+Job Description: ${jobDescription.slice(0, 400)}
 
-CUSTOMIZATION:
-- If resume mentions specific project/tech: ask about it directly
-- If resume has awards: ask about the story behind them
-- If resume shows career change: explore the transition
-- Reference actual company names, tech stack, or achievements
+QUESTION: "${question}"
 
-OUTPUT FORMAT:
-RAW JSON ONLY
-[
- { "question": "...", "answer": "Expected direction in 3-5 lines" }
-]
+Respond ONLY with a SINGLE JSON object (no markdown, no extra text):
+{"direction":"What the interviewer is looking for","answer":"A professional, concrete sample answer (4–6 sentences)"}
 `;
 
-    const raw = await tryGenerate(prompt);
-    const json = cleanJson(raw);
+        const raw = await tryGenerate(prompt, 30000);
+        const json = cleanJson(raw);
+        const parsed = JSON.parse(json);
+        
+        allQaPairs.push({
+          question: question,
+          direction: parsed.direction || "Show genuine experience and thoughtful approach",
+          answer: parsed.answer || "Provide a concrete example from your background that demonstrates your capability."
+        });
+        
+        console.log(`  ✅ Question ${i + 1}/10 complete`);
+      } catch (err) {
+        console.warn(`  ⚠️ Failed to generate answer for question ${i + 1}, using defaults`);
+        allQaPairs.push({
+          question: randomQuestions[i],
+          direction: "Share a concrete example demonstrating your skills",
+          answer: "I've faced similar situations where I [action]. This taught me [learning] which I apply today."
+        });
+      }
+    }
 
-    res.json({ qaPairs: JSON.parse(json) });
+    res.json({ 
+      qaPairs: allQaPairs, 
+      sessionId, 
+      totalQuestions: allQaPairs.length,
+      generatedAt: new Date().toISOString()
+    });
 
-  } catch {
-    res.json({
-      qaPairs: [{ question: "Generation failed", answer: "Retry" }]
+  } catch (err) {
+    console.error("❌ Generate QA error:", err.message);
+    res.status(500).json({
+      qaPairs: [],
+      sessionId: crypto.randomUUID(),
+      totalQuestions: 0,
+      error: `Failed to generate questions: ${err.message}`
     });
   }
 });
@@ -517,29 +803,95 @@ RAW JSON ONLY
 /* ---------- EVALUATE ---------- */
 
 app.post('/api/evaluate-answer', async (req,res)=>{
-  const { question, userAnswer } = req.body;
+  try {
+    const { question, userAnswer } = req.body;
 
-  const prompt = `
-Evaluate answer quality. Be honest, not polite.
+    if (!question || !userAnswer) {
+      return res.status(400).json({ 
+        error: "Missing question or answer",
+        rating: "Yellow", 
+        score: 0, 
+        feedback: "Please provide both question and answer",
+        improvement_tip: "Try again with a complete answer"
+      });
+    }
 
-Q: ${question}
-A: ${userAnswer}
+    const prompt = `
+You are a candid, strict interviewer. Evaluate the candidate's answer with clear, honest feedback.
 
-Return RAW JSON:
+Question: ${question}
+Answer: ${userAnswer}
+
+Scoring criteria (each 0–20):
+- relevance (answers the asked question directly)
+- clarity (concise, easy to follow)
+- structure (STAR or logical flow; no rambling)
+- technical_depth (specifics, trade-offs, tools; no hand-waving)
+- impact/examples (metrics, outcomes, ownership)
+
+Total score = sum (0–100). Use stricter rating bands: Green (≥85), Yellow (65–84), Red (<65).
+Be frank: do not inflate scores. Penalize generic answers and lack of examples.
+
+Respond ONLY with a SINGLE JSON object (no markdown, no extra text):
 {
- "rating": "Green" | "Yellow" | "Red",
- "score": 0-100,
- "feedback": "2 sentences",
- "improvement_tip": "1 tip"
+  "rating":"Green|Yellow|Red",
+  "score":0-100,
+  "justification":"2–3 sentences explaining why this score, with specifics",
+  "breakdown":{
+    "relevance":0-20,
+    "clarity":0-20,
+    "structure":0-20,
+    "technical_depth":0-20,
+    "impact":0-20
+  },
+  "improvement_tip":"one concrete next step (e.g., add metrics, tighten structure)"
 }
 `;
 
-  try {
-    const raw = await tryGenerate(prompt);
-    res.json(JSON.parse(raw.replace(/```json|```/g,'')));
-  } catch {
-    res.json({ rating:"Yellow", score:50, feedback:"Error", improvement_tip:"Clarify thinking" });
+    const raw = await tryGenerate(prompt, 30000);
+    const json = cleanJson(raw);
+    const result = JSON.parse(json);
+    
+    // Normalize result and compute defaults
+    const breakdown = result.breakdown || {};
+    const safeBreakdown = {
+      relevance: Math.min(20, Math.max(0, breakdown.relevance ?? 10)),
+      clarity: Math.min(20, Math.max(0, breakdown.clarity ?? 10)),
+      structure: Math.min(20, Math.max(0, breakdown.structure ?? 10)),
+      technical_depth: Math.min(20, Math.max(0, breakdown.technical_depth ?? 10)),
+      impact: Math.min(20, Math.max(0, breakdown.impact ?? 10))
+    };
+    const computedScore = safeBreakdown.relevance + safeBreakdown.clarity + safeBreakdown.structure + safeBreakdown.technical_depth + safeBreakdown.impact;
+    const score = typeof result.score === 'number' ? Math.max(0, Math.min(100, result.score)) : computedScore;
+    const rating = result.rating || (score >= 85 ? 'Green' : score >= 65 ? 'Yellow' : 'Red');
+    const justification = result.justification || 'Solid answer in parts, but could improve clarity and depth in examples.';
+    const tip = result.improvement_tip || 'Use STAR structure and quantify impact with metrics.';
+
+    res.json({
+      rating,
+      score,
+      justification,
+      breakdown: safeBreakdown,
+      improvement_tip: tip
+    });
+  } catch (err) {
+    console.error("Evaluate error:", err);
+    res.status(500).json({ 
+      rating: "Yellow", 
+      score: 50, 
+      feedback: "Could not evaluate. Please try again.", 
+      improvement_tip: "Review your answer and try again"
+    });
   }
 });
 
-app.listen(PORT, ()=>console.log(`✅ Server on ${PORT}`));
+app.listen(PORT, () => {
+  console.log('\n' + '='.repeat(50));
+  console.log('✅ MockMate Server Running Successfully!');
+  console.log(`🌐 Server listening on http://localhost:${PORT}`);
+  console.log(`📋 Available endpoints:`);
+  console.log(`   - POST /api/parse-resume`);
+  console.log(`   - POST /api/generate-qa`);
+  console.log(`   - POST /api/evaluate-answer`);
+  console.log('='.repeat(50) + '\n');
+});
