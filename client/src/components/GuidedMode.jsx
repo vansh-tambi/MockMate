@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
+const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
   const [loading, setLoading] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
+  const [error, setError] = useState(null);
 
   const fetchQuestions = async () => {
     setLoading(true);
+    setIsGenerating?.(true);
+    setError(null);
     setOpenIndex(null);
     try {
       const res = await fetch('http://localhost:5000/api/generate-qa', {
@@ -14,12 +17,27 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
       });
+      
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
+      }
+
       const data = await res.json();
-      setQaPairs(data.qaPairs || []);
+      
+      if (data.qaPairs && data.qaPairs.length > 0) {
+        setQaPairs(data.qaPairs);
+        setError(null);
+      } else {
+        setError('No questions generated. Please try again.');
+        setQaPairs([]);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Fetch error:', err);
+      setError('Failed to generate questions. Please check your connection and try again.');
+      setQaPairs([]);
     } finally {
       setLoading(false);
+      setIsGenerating?.(false);
     }
   };
 
@@ -43,6 +61,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
         >
           <h2 className="text-4xl font-bold text-white">Guided Study</h2>
           <p className="text-gray-400 mt-1">AI-curated questions for your role</p>
+          {qaPairs.length > 0 && <p className="text-cyan-400 text-sm mt-2">{qaPairs.length} questions loaded</p>}
         </motion.div>
         <motion.button 
           whileHover={{ scale: 1.05 }}
@@ -54,28 +73,39 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
           disabled={loading}
           className="px-6 py-2 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full text-cyan-400 font-semibold transition-all disabled:opacity-50"
         >
-          {loading ? 'Generating...' : '🔄 Refresh Questions'}
+          {loading ? 'Generating...' : '🔄 New Questions'}
         </motion.button>
       </motion.div>
 
       <div className="space-y-4">
+        {error && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm"
+          >
+            {error}
+          </motion.div>
+        )}
+
         {loading && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center py-20 opacity-50 animate-pulse text-cyan-400"
           >
-            Generating intelligent insights...
+            Generating intelligent insights (this may take 30-60 seconds)...
           </motion.div>
         )}
 
         <AnimatePresence>
-          {!loading && qaPairs.map((item, index) => (
+          {!loading && qaPairs.length > 0 && qaPairs.map((item, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + index * 0.08, duration: 0.5 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ delay: 0.1 + (index % 10) * 0.05, duration: 0.4 }}
               className="bg-gray-900/40 border border-white/5 rounded-2xl overflow-hidden hover:border-cyan-500/30 transition-colors"
             >
               <motion.button 
@@ -107,11 +137,18 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.1 }}
-                      className="p-6 pt-0 pl-16"
+                      className="p-6 pt-0 pl-16 space-y-4"
                     >
-                      <div className="p-4 bg-black/40 border-l-4 border-green-500 rounded-r-xl">
-                        <p className="text-xs font-bold text-green-500 uppercase mb-2">Sample Answer</p>
-                        <p className="text-gray-300 leading-relaxed">{item.answer}</p>
+                      {/* Expected Direction */}
+                      <div className="p-4 bg-blue-500/5 border-l-4 border-blue-500 rounded-r-xl">
+                        <p className="text-xs font-bold text-blue-400 uppercase mb-2">💡 Expected Direction</p>
+                        <p className="text-gray-300 leading-relaxed text-sm">{item.direction || item.answer}</p>
+                      </div>
+
+                      {/* Expected Answer */}
+                      <div className="p-4 bg-green-500/5 border-l-4 border-green-500 rounded-r-xl">
+                        <p className="text-xs font-bold text-green-400 uppercase mb-2">✓ Sample Answer</p>
+                        <p className="text-gray-200 leading-relaxed text-sm">{item.answer}</p>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -120,6 +157,16 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs }) => {
             </motion.div>
           ))}
         </AnimatePresence>
+
+        {!loading && qaPairs.length === 0 && !error && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20 text-gray-400"
+          >
+            Click "New Questions" to generate questions
+          </motion.div>
+        )}
       </div>
     </div>
   );
