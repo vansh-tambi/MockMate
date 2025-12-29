@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
+  const API_BASE = import.meta.env.VITE_API_BASE || '';
   const [loading, setLoading] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     setLoading(true);
     setIsGenerating?.(true);
     setError(null);
     setOpenIndex(null);
     try {
-      const res = await fetch('http://localhost:5000/api/generate-qa', {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 45000);
+
+      const res = await fetch(`${API_BASE}/api/generate-qa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
+        body: JSON.stringify(userData),
+        signal: controller.signal
       });
+      clearTimeout(timer);
       
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
@@ -33,18 +40,19 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
       }
     } catch (err) {
       console.error('Fetch error:', err);
-      setError('Failed to generate questions. Please check your connection and try again.');
+      const isAbort = err?.name === 'AbortError';
+      setError(isAbort ? 'Request timed out. Please try again.' : 'Failed to generate questions. Please check your connection and try again.');
       setQaPairs([]);
     } finally {
       setLoading(false);
       setIsGenerating?.(false);
     }
-  };
+  }, [API_BASE, setIsGenerating, setQaPairs, userData]);
 
   useEffect(() => {
     // Only fetch questions if empty (initial load)
     if (qaPairs.length === 0) fetchQuestions();
-  }, []);
+  }, [qaPairs.length, fetchQuestions]);
 
   return (
     <div className="max-w-4xl mx-auto pt-20 pb-10">
@@ -114,12 +122,12 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
                 className="w-full text-left p-6 flex gap-4 items-start"
               >
                 <motion.span 
-                  className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-lg font-bold text-sm"
+                  className="shrink-0 w-8 h-8 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-lg font-bold text-sm"
                   whileHover={{ scale: 1.15, backgroundColor: 'rgba(6, 182, 212, 0.2)' }}
                 >
                   {index + 1}
                 </motion.span>
-                <div className="flex-grow">
+                <div className="grow">
                   <h3 className="text-lg font-medium text-gray-200">{item.question}</h3>
                 </div>
               </motion.button>
