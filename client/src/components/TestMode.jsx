@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TestMode = ({ userData, qaPairs, setQaPairs }) => {
+  const API_BASE = import.meta.env.VITE_API_BASE || '';
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [transcript, setTranscript] = useState('');
   const [isRecording, setIsRecording] = useState(false);
@@ -28,11 +29,15 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
     transcriptRef.current = '';
     setFeedback(null);
     try {
-      const res = await fetch('http://localhost:5000/api/generate-qa', {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 45000);
+      const res = await fetch(`${API_BASE}/api/generate-qa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
+        body: JSON.stringify(userData),
+        signal: controller.signal
       });
+      clearTimeout(timer);
       const data = await res.json();
       if (data.qaPairs && data.qaPairs.length > 0) {
         setQaPairs(data.qaPairs);
@@ -42,18 +47,19 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
       }
     } catch (err) {
       console.error(err);
-      setError('Network error. Please check your connection.');
+      const isAbort = err?.name === 'AbortError';
+      setError(isAbort ? 'Request timed out. Please try again.' : 'Network error. Please check your connection.');
     } finally {
       setLoading(false);
     }
-  }, [userData, setQaPairs]);
+  }, [userData, setQaPairs, API_BASE]);
 
   useEffect(() => {
     // Only fetch if questions are not already loaded
     if (qaPairs.length === 0) {
       fetchQuestions();
     }
-  }, [qaPairs.length, fetchQuestions]);
+  }, [qaPairs.length, fetchQuestions, API_BASE]);
 
   // Keep a ref to the current question for evaluation callbacks
   useEffect(() => {
@@ -100,25 +106,30 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
           return;
         }
         try {
-          const res = await fetch('http://localhost:5000/api/evaluate-answer', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              question: currentQuestionRef.current,
-              userAnswer: captured
-            })
-          });
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 30000);
+            const res = await fetch(`${API_BASE}/api/evaluate-answer`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                question: currentQuestionRef.current,
+                userAnswer: captured
+              }),
+              signal: controller.signal
+            });
+            clearTimeout(timer);
           const data = await res.json();
           setFeedback(data);
         } catch (err) {
           console.error('Evaluation error:', err);
-          setFeedback({ rating: 'Yellow', score: 50, justification: 'Error evaluating.', breakdown: { relevance: 10, clarity: 10, structure: 10, technical_depth: 10, impact: 10 }, improvement_tip: 'Try again' });
+            const isAbort = err?.name === 'AbortError';
+            setFeedback({ rating: 'Yellow', score: 50, justification: isAbort ? 'Request timed out.' : 'Error evaluating.', breakdown: { relevance: 10, clarity: 10, structure: 10, technical_depth: 10, impact: 10 }, improvement_tip: 'Try again' });
         } finally {
           setAnalyzing(false);
         }
       };
     }
-  }, []);
+  }, [API_BASE]);
 
   const handleAction = async () => {
     if (isRecording) {
