@@ -108,7 +108,7 @@ const DOMAIN_SIGNALS = {
   core: ['mechanical','electrical','civil','manufacturing','design','plant','cad','autocad','solidworks','thermodynamics','circuits','structures','hvac','robotics','aerospace','automotive','plc','scada','cnc','welding','machining','fluid mechanics','heat transfer','control systems','embedded','pcb','vhdl','verilog','matlab','simulink','ansys','catia','nx','inventor','revit','etabs','staad','hydraulics','pneumatics','gears','motors'],
   business: ['marketing','sales','operations','finance','strategy','consulting','management','analytics','crm','revenue','growth','product management','b2b','b2c','saas','roi','kpi','market research','competitive analysis','pricing','positioning','segmentation','branding','campaigns','lead generation','conversion','retention','seo','sem','social media','email marketing','content strategy','partnership','stakeholder','forecasting','budgeting','p&l'],
   creative: ['design','video','editing','content','writing','branding','ui','ux','figma','photoshop','illustrator','animation','graphics','adobe','premiere','after effects','blender','sketch','invision','prototyping','wireframing','typography','color theory','user research','a/b testing','usability','accessibility','motion design','3d modeling','rendering','storyboarding','copywriting','storytelling','visual identity'],
-  data: ['data science','machine learning','statistics','tableau','powerbi','sql','analytics','modeling','visualization','python','r','pandas','numpy','scikit-learn','tensorflow','pytorch','keras','deep learning','neural networks','nlp','computer vision','big data','hadoop','spark','etl','data pipeline','feature engineering','regression','classification','clustering','time series','a/b testing','hypothesis testing','data cleaning','exploratory analysis'],
+  data: ['data science','machine learning','statistics','tableau','powerbi','sql','analytics','modeling','visualization','python','pandas','numpy','scikit-learn','tensorflow','pytorch','keras','deep learning','neural networks','nlp','computer vision','big data','hadoop','spark','etl','data pipeline','feature engineering','regression','classification','clustering','time series','a/b testing','hypothesis testing','data cleaning','exploratory analysis'],
   finance: ['accounting','investment','portfolio','trading','valuation','financial modeling','audit','tax','equity','debt','derivatives','options','futures','hedge fund','private equity','venture capital','m&a','dcf','wacc','capm','balance sheet','income statement','cash flow','gaap','ifrs','quickbooks','sap','oracle','bloomberg','excel','vba','risk management','compliance'],
   research: ['research','publication','thesis','experiment','analysis','laboratory','academic','study','literature review','methodology','hypothesis','data collection','statistical analysis','peer review','citation','conference','journal','abstract','ethics','irb','survey','interview','qualitative','quantitative','meta-analysis','case study','field work','validation'],
   healthcare: ['patient care','clinical','diagnosis','treatment','medical','nursing','pharmacy','healthcare','hospital','ehr','hipaa','epidemiology','public health','surgery','radiology','cardiology','oncology','pediatrics','geriatrics','mental health','telemedicine','medical devices','clinical trials','pathology'],
@@ -128,29 +128,30 @@ const extractResumeTopics = (text) => {
   const topics = [];
   const t = text.toLowerCase();
   
-  // Extract technologies/tools mentioned
-  const allKeywords = Object.values(DOMAIN_SIGNALS).flat();
+  // Extract technologies/tools mentioned (minimum 2 chars to avoid single letters)
+  const allKeywords = Object.values(DOMAIN_SIGNALS).flat().filter(k => k.length >= 2);
   for (const keyword of allKeywords) {
     if (t.includes(keyword)) topics.push(keyword);
   }
   
   // Extract common resume patterns
   const patterns = [
-    /(?:developed|built|created|designed|implemented|managed)\s+([\w\s]{3,30})(?=\.|,|\s+using|\s+with)/gi,
-    /(?:experience with|knowledge of|proficient in|skilled in)\s+([\w\s,]+)/gi,
+    /(?:developed|built|created|designed|implemented|managed)\s+([\w\s]{4,30})(?=\.|,|\s+using|\s+with)/gi,
+    /(?:experience with|knowledge of|proficient in|skilled in)\s+([\w\s,]{4,})/gi,
     /\b([A-Z][\w]+(?:\s+[A-Z][\w]+){0,3})\s+(?:project|internship|course|certification)/gi
   ];
   
   for (const pattern of patterns) {
     const matches = [...text.matchAll(pattern)];
     matches.forEach(m => {
-      if (m[1] && m[1].length > 3 && m[1].length < 50) {
+      if (m[1] && m[1].trim().length >= 4 && m[1].trim().length < 50) {
         topics.push(m[1].trim());
       }
     });
   }
   
-  return [...new Set(topics)].slice(0, 30); // Return unique topics
+  // Filter out any single-character or too-short topics
+  return [...new Set(topics)].filter(t => t.length >= 4).slice(0, 30);
 };
 
 const randomSample = (arr, n) => {
@@ -164,30 +165,34 @@ const extractJDTopics = (text = "") => {
   const topics = [];
   const t = text.toLowerCase();
 
-  // domain keywords
-  const allKeywords = Object.values(DOMAIN_SIGNALS).flat();
+  // domain keywords (minimum 2 chars to avoid single letters)
+  const allKeywords = Object.values(DOMAIN_SIGNALS).flat().filter(k => k.length >= 2);
   for (const keyword of allKeywords) {
     if (t.includes(keyword)) topics.push(keyword);
   }
 
   // common JD patterns
   const patterns = [
-    /experience (?:with|in) ([\w\-/\s]{3,40})/gi,
-    /proficient (?:with|in) ([\w\-/\s]{3,40})/gi,
-    /(knowledge|familiarity) (?:with|in) ([\w\-/\s]{3,40})/gi,
-    /responsible for ([\w\-/\s]{3,60})/gi,
-    /(?:build|design|architect|implement|own)\s+([\w\-/\s]{3,40})/gi
+    /experience (?:with|in) ([\w\-/\s]{4,40})/gi,
+    /proficient (?:with|in) ([\w\-/\s]{4,40})/gi,
+    /(knowledge|familiarity) (?:with|in) ([\w\-/\s]{4,40})/gi,
+    /responsible for ([\w\-/\s]{5,60})/gi,
+    /(?:build|design|architect|implement|own)\s+([\w\-/\s]{4,40})/gi
   ];
 
   for (const pattern of patterns) {
     const matches = [...text.matchAll(pattern)];
     matches.forEach(m => {
       const grp = m[m.length - 1];
-      if (grp && grp.length > 2 && grp.length < 60) topics.push(grp.trim());
+      // Filter out very short matches and single letters
+      if (grp && grp.trim().length >= 4 && grp.trim().length < 60) {
+        topics.push(grp.trim());
+      }
     });
   }
 
-  return [...new Set(topics)].slice(0, 20);
+  // Filter out any single-character or too-short topics
+  return [...new Set(topics)].filter(t => t.length >= 4).slice(0, 20);
 };
 
 const JD_QUESTION_TEMPLATES = [
@@ -207,8 +212,10 @@ const LONG_QUESTION_TEMPLATES = [
 
 const generateJDQuestions = (jdText, count = 3) => {
   const topics = extractJDTopics(jdText);
-  const picks = topics.length ? randomSample(topics, Math.min(2, topics.length)) : [];
-  const a = picks[0] || 'core responsibilities';
+  // Filter to ensure topics are at least 4 characters and not single letters
+  const validTopics = topics.filter(t => t && t.length >= 4);
+  const picks = validTopics.length ? randomSample(validTopics, Math.min(2, validTopics.length)) : [];
+  const a = picks[0] || 'technical skills';
   const b = picks[1];
   const templates = randomSample(JD_QUESTION_TEMPLATES, Math.min(count, JD_QUESTION_TEMPLATES.length));
   return templates.map(t => t(a, b)).slice(0, count);
@@ -225,28 +232,38 @@ const generateLongQuestions = (contextTopics = [], count = 2) => {
 
 const INTRO_QUESTIONS = [
   "Tell me about yourself",
-  "Walk me through your resume",
   "What brings you here today",
-  "How would your friends describe you",
   "Give me your 30-second pitch",
-  "What's your story in three chapters",
   "Introduce yourself like you're meeting a client",
   "What should I know about you that's not on paper",
-  "Start from the beginning - where are you from",
-  "Take me through your career journey",
-  "What's your background",
-  "Describe yourself without looking at your resume",
-  "What's one thing that defines you professionally",
-  "Tell me about your path to this field",
   "What makes you tick",
-  "What drives your career decisions",
-  "Tell me about a pivotal moment in your career",
   "How did you end up where you are today",
-  "What's your professional identity",
-  "Describe your journey in three minutes"
-];
+  "What's your vision and ambition",
+  "Tell me a bit about your background",
+  "What defines you as a professional"
+]
 
 const TECH_QUESTIONS = [
+  "What is a variable and how do you use it",
+  "Explain the difference between a function and a method",
+  "What are loops and why do we need them",
+  "Explain what an array is and give an example",
+  "What's the difference between synchronous and asynchronous code",
+  "Explain the concept of variables, data types, and operators",
+  "What is a loop and what are the different types",
+  "Explain what an object is in programming",
+  "What's the difference between let, const, and var",
+  "Explain what a string is and how to manipulate it",
+  "What are conditional statements and give examples",
+  "Explain what a function parameter is",
+  "What is the purpose of a return statement",
+  "Explain the concept of scope in programming",
+  "What's the difference between == and ===",
+  "Explain what null and undefined mean",
+  "What is a callback function",
+  "Explain what Promises are in JavaScript",
+  "What's the difference between a class and an object",
+  "Explain what inheritance is in programming",
   "Explain a technical decision you made and why",
   "Describe a complex system you've built from scratch",
   "Tell me about the most challenging technical problem you've solved",
@@ -275,32 +292,21 @@ const TECH_QUESTIONS = [
 ];
 
 const BEHAVIORAL_QUESTIONS = [
-  "Tell me about a time you failed and what you learned",
-  "Describe a conflict with a teammate and how you resolved it",
-  "Tell me about a project where you had to wear multiple hats",
-  "Describe a time you went above and beyond",
-  "Tell me about a time you had to adapt quickly",
-  "Describe your biggest professional achievement",
-  "Tell me about a time you took initiative",
-  "Describe a situation where you had to meet a tight deadline",
-  "Tell me about a time you had to learn something completely new",
-  "Describe a time you received critical feedback - how did you handle it",
-  "Tell me about a project you're proud of",
-  "Describe a time you mentored someone",
-  "Tell me about a time you pushed back respectfully",
-  "Describe your approach to work-life balance",
-  "Tell me about a time you improved a process",
-  "Describe a situation where you had to make a tough call",
-  "Tell me about a time you collaborated across teams",
-  "Describe your approach to handling stress",
-  "Tell me about a time you delivered under pressure",
-  "Describe how you approach learning and growth",
-  "Tell me about a time you took ownership of a problem",
-  "Describe your experience leading a team or project",
-  "Tell me about a time you had to communicate bad news",
-  "Describe your approach to continuous improvement",
-  "Tell me about a time you helped a colleague succeed"
-];
+  "Tell me about a time you failed",
+  "Describe a conflict with a teammate and how you solved it",
+  "Tell me about a time you went beyond expectations",
+  "Tell me about a time you had to adjust quickly",
+  "Tell me about a time you took the lead",
+  "Tell me about a time you met a tight deadline",
+  "Describe a time you got important feedback",
+  "Tell me about a time you did something difficult",
+  "Describe a situation where you had to choose",
+  "Tell me about a time you helped a colleague",
+  "Describe a time you handled something on your own",
+  "Tell me about a time you was under tension",
+  "Tell me about a time you did something new",
+  "Describe a success you had at work"
+]
 
 const SCENARIO_QUESTIONS = [
   "If you had a bug in production, how would you handle it",
@@ -326,26 +332,20 @@ const SCENARIO_QUESTIONS = [
 ];
 
 const GROWTH_QUESTIONS = [
-  "What are your career goals for the next 5 years",
-  "Where do you see yourself in 10 years",
-  "What skills do you want to develop",
-  "Tell me about something you're learning right now",
-  "How do you approach professional development",
-  "What's an area you want to improve in",
-  "Describe a skill you've recently acquired",
-  "What's your approach to staying current in your field",
-  "What's a technology you're excited to learn",
-  "How do you mentor yourself",
-  "What books or resources have influenced you",
-  "Tell me about a course or certification you pursued",
-  "How do you balance specialization and breadth",
-  "What's your learning style",
-  "How do you handle knowledge gaps",
-  "Describe a skill you taught yourself",
-  "What's your approach to getting unstuck when learning",
-  "How do you know when you've mastered something",
-  "What's the most important lesson you've learned professionally",
-  "How do you stay motivated in your growth journey"
+  "What do you aim for in the next 5 years",
+  "How do you go about learning new things",
+  "What's a field you want to get into",
+  "Tell me about something you're studying now",
+  "What's a skill you've picked up lately",
+  "How do you make sure you know the latest things",
+  "What's a new tech you want to get into",
+  "How do you help yourself get better",
+  "What books have changed how you think",
+  "Tell me about a course you've taken",
+  "What's a skill you had to teach to yourself",
+  "What's the biggest lesson you've picked up at work",
+  "What's something you've mastered on your own",
+  "Tell me about a skill gap you've closed"
 ];
 
 const CULTURE_QUESTIONS = [

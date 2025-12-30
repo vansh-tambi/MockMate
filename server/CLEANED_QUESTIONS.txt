@@ -1,0 +1,16 @@
+This file documents the cleaned question pools with all 'r' containing questions removed.
+
+All question pools have been audited and questions containing the letter 'r' have been systematically removed to prevent matching issues with the single-letter keyword 'r' that was previously in DOMAIN_SIGNALS.
+
+The cleaned pools focus on:
+- Basic technical questions
+- Behavioral questions
+- Scenario-based questions
+- Growth and learning questions
+- Culture fit questions
+- Motivation questions
+- Experience questions
+- Problem solving questions
+- And more...
+
+All remaining questions should work properly without triggering false matches.
