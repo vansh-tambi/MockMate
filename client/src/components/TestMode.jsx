@@ -263,10 +263,27 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                       {currentQIndex >= questions.length - 1 ? 'New Batch ↻' : 'Next Question →'}
                     </motion.button>
                   </div>
+                  
+                  {/* Breakdown Bars - Moved here */}
+                  {feedback.breakdown && (
+                    <div className="grid grid-cols-1 gap-2 w-full mt-6">
+                      {Object.entries(feedback.breakdown).map(([k,v]) => (
+                        <div key={k} className="text-left">
+                          <div className="flex justify-between text-xs text-gray-400 mb-1">
+                            <span className="capitalize">{k.replace('_',' ')}</span>
+                            <span>{v}/20</span>
+                          </div>
+                          <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div className={`h-full ${feedback.rating==='Green' ? 'bg-green-500' : feedback.rating==='Yellow' ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${(v/20)*100}%` }} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Right: Evaluation */}
-                <div className="flex flex-col items-center text-center">
+                <div className="flex flex-col items-center text-center overflow-y-auto max-h-full pr-2 custom-scrollbar">
                   <motion.div 
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -290,26 +307,10 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="text-gray-300 mb-6 text-sm"
+                      className="text-gray-300 mb-6 text-sm px-4"
                     >
                       {feedback.justification}
                     </motion.p>
-                  )}
-                  {/* Breakdown Bars */}
-                  {feedback.breakdown && (
-                    <div className="grid grid-cols-1 gap-2 w-full max-w-md mb-6">
-                      {Object.entries(feedback.breakdown).map(([k,v]) => (
-                        <div key={k} className="text-left">
-                          <div className="flex justify-between text-xs text-gray-400 mb-1">
-                            <span className="capitalize">{k.replace('_',' ')}</span>
-                            <span>{v}/20</span>
-                          </div>
-                          <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                            <div className={`h-full ${feedback.rating==='Green' ? 'bg-green-500' : feedback.rating==='Yellow' ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${(v/20)*100}%` }} />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
                   )}
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
