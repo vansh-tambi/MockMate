@@ -38,11 +38,12 @@ const SetupScreen = ({ onComplete }) => {
     if (!resume || !jobDescription) return alert("Required fields missing");
 
     setLoading(true);
+    const API_BASE = import.meta.env.VITE_API_BASE || '';
     const formData = new FormData();
     formData.append('resume', resume);
 
     try {
-      const res = await fetch('http://localhost:5000/api/parse-resume', {
+      const res = await fetch(`${API_BASE}/api/parse-resume`, {
         method: 'POST',
         body: formData
       });
