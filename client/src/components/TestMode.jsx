@@ -34,7 +34,7 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
       const res = await fetch(`${API_BASE}/api/generate-qa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ ...userData, questionCount: qaPairs.length }),
         signal: controller.signal
       });
       clearTimeout(timer);

@@ -668,7 +668,7 @@ app.post('/api/parse-resume', upload.single('resume'), async (req,res)=>{
 app.post('/api/generate-qa', async (req,res)=>{
   try {
     console.log('\n📨 Received /api/generate-qa request');
-    const { resumeText="", jobDescription="" } = req.body;
+    const { resumeText="", jobDescription="", questionCount=0 } = req.body;
     
     if (!resumeText && !jobDescription) {
       console.warn('⚠️ Both resume and JD are empty');
@@ -686,56 +686,27 @@ app.post('/api/generate-qa', async (req,res)=>{
 
     console.log(`\ud83d\udd04 Building 10 questions with constraints: first 8 short (\u22653 JD-based), last 2 long...`);
 
-    // Ensure at least 3 JD-specific short questions
-    const mustJD = generateJDQuestions(jobDescription, 3);
-
-    // Ensure exactly 2 long questions (at the end)
+    // 1. Get 5 SHORT questions
+    const shortQuestions = getRandomizedQuestions(5);
+    // 2. Get 1 JD-SPECIFIC question  
+    const jdQuestions = generateJDQuestions(jobDescription, 1);
+    // 3. Get 3 LONG/REAL-LIFE questions
     const contextTopics = [...resumeTopics, ...extractJDTopics(jobDescription)];
-    const mustLong = generateLongQuestions(contextTopics, 2);
-    const longSet = new Set(mustLong.map(q => (q || '').trim()));
-
-    // Fill remaining short slots from randomized pool
-    const shortTarget = 8;
-    const set = new Set();
-    const shortQuestions = [];
-
-    const addUniqueShort = (qArr) => {
-      for (const q of qArr) {
-        if (!q) continue;
-        const key = q.trim();
-        // Skip if this is one of the long questions
-        if (key && !set.has(key) && !longSet.has(key)) {
-          set.add(key);
-          shortQuestions.push(key);
-          if (shortQuestions.length === shortTarget) break;
-        }
-      }
-    };
-
-    addUniqueShort(mustJD);
-    if (shortQuestions.length < shortTarget) addUniqueShort(getRandomizedQuestions(20));
-    if (shortQuestions.length < shortTarget) addUniqueShort(getRandomizedQuestions(20));
-
-    // Compose final: 8 short first, 2 long last
-    const finalQuestions = [...shortQuestions.slice(0, shortTarget)];
-    for (const q of mustLong) {
-      const key = q.trim();
-      if (key && !set.has(key)) {
-        set.add(key);
-        finalQuestions.push(key);
-      }
-    }
-    // backfill if long overlapped (unlikely)
-    while (finalQuestions.length < 10) {
-      const candidate = getRandomizedQuestions(1)[0];
-      const key = (candidate || '').trim();
-      if (key && !set.has(key)) {
-        set.add(key);
-        finalQuestions.push(key);
-      }
+    const longQuestions = generateLongQuestions(contextTopics, 3);
+    // 4. Build question array
+    let orderedQuestions = [
+      ...shortQuestions.slice(0, 5),
+      ...jdQuestions.slice(0, 1),
+      ...longQuestions.slice(0, 3)
+    ];
+    // 5. Add self-intro if every 30 questions
+    const shouldAddSelfIntro = questionCount > 0 && questionCount % 30 === 0;
+    if (shouldAddSelfIntro) {
+      orderedQuestions.unshift("Tell me about yourself and your professional journey.");
+      console.log('✅ Self-intro added (30-question milestone)');
     }
 
-    const randomQuestions = finalQuestions.slice(0, 10);
+    const randomQuestions = orderedQuestions;
     
     console.log(`\ud83d\udce3 Generating answers for ${randomQuestions.length} questions...`);
     const allQaPairs = [];
