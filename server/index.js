@@ -653,6 +653,16 @@ const getRandomizedQuestions = (count = 10) => {
 
 
 
+/* ---------- HEALTH CHECK ---------- */
+
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'MockMate API is running',
+    endpoints: ['/api/parse-resume', '/api/generate-qa', '/api/evaluate-answer']
+  });
+});
+
 /* ---------- PARSE RESUME ---------- */
 
 app.post('/api/parse-resume', upload.single('resume'), async (req,res)=>{
