@@ -1,0 +1,362 @@
+[
+  {
+    "id": "cabin_crew_001",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why do you want to be a cabin crew member?",
+    "ideal_points": [
+      "Genuine passion for hospitality and service",
+      "Understands role beyond glamour",
+      "Interested in travel and cultures",
+      "Aware of challenges and responsibilities",
+      "Shows customer service orientation"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "understanding": "Do they know what the job entails?",
+      "passion": "Do they show enthusiasm for service?",
+      "awareness": "Are they realistic about challenges?",
+      "missed_opportunities": ["Only wants free travel", "Glamour-focused", "No service mindset", "Unrealistic expectations"]
+    },
+    "follow_ups": ["What aspects of the role excite you most?", "How have you prepared for this career?", "What do you know about our airline?"]
+  },
+  {
+    "id": "cabin_crew_002",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "customer_service",
+    "difficulty": 2,
+    "question": "What does excellent customer service mean to you?",
+    "ideal_points": [
+      "Goes beyond basic requirements",
+      "Anticipates needs proactively",
+      "Shows empathy and care",
+      "Maintains professionalism always",
+      "Creates memorable experiences"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is understanding deep and comprehensive?",
+      "proactivity": "Do they anticipate vs just react?",
+      "empathy": "Do they show genuine care?",
+      "standards": "Are their standards high?",
+      "missed_opportunities": ["Too basic", "Transactional view", "No empathy", "Can't give examples"]
+    },
+    "follow_ups": ["Describe exceptional service you provided.", "How do you handle rude customers?", "What's the difference between good and great service?"]
+  },
+  {
+    "id": "cabin_crew_003",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "conflict_resolution",
+    "difficulty": 3,
+    "question": "Tell me about a time you dealt with a difficult customer or passenger.",
+    "ideal_points": [
+      "Uses STAR method effectively",
+      "Remained calm and professional",
+      "Showed empathy while being firm",
+      "Found satisfactory resolution",
+      "Learned from the experience"
+    ],
+    "evaluation_rubric": {
+      "composure": "Did they stay calm?",
+      "approach": "Was approach effective?",
+      "resolution": "Was customer satisfied?",
+      "professionalism": "Did they maintain standards?",
+      "missed_opportunities": ["Lost temper", "Too passive", "No resolution", "Vague details"]
+    },
+    "follow_ups": ["What would you do differently?", "How do you stay calm under pressure?", "What if the customer was abusive?"]
+  },
+  {
+    "id": "cabin_crew_004",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 2,
+    "question": "How do you handle long hours, irregular schedules, and jet lag?",
+    "ideal_points": [
+      "Has practical strategies for managing fatigue",
+      "Understands importance of self-care",
+      "Shows adaptability and resilience",
+      "Maintains performance despite challenges",
+      "Realistic about lifestyle demands"
+    ],
+    "evaluation_rubric": {
+      "preparedness": "Do they have strategies?",
+      "realism": "Are they realistic about demands?",
+      "self_care": "Do they prioritize health?",
+      "adaptability": "Can they adjust to irregular schedule?",
+      "missed_opportunities": ["No strategies", "Underestimates challenge", "Ignores health needs", "Too idealistic"]
+    },
+    "follow_ups": ["How do you maintain energy during long flights?", "Describe your self-care routine.", "How do you balance personal life?"]
+  },
+  {
+    "id": "cabin_crew_005",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "knowledge",
+    "difficulty": 2,
+    "question": "What do you know about our airline?",
+    "ideal_points": [
+      "Researched company thoroughly",
+      "Knows destinations, fleet, values",
+      "Understands airline's position in market",
+      "Aware of recent news and developments",
+      "Shows genuine interest"
+    ],
+    "evaluation_rubric": {
+      "research": "Did they do homework?",
+      "depth": "How deep is their knowledge?",
+      "relevance": "Did they research relevant aspects?",
+      "interest": "Do they show genuine enthusiasm?",
+      "missed_opportunities": ["No research", "Wrong information", "Only basics", "Confuses with other airlines"]
+    },
+    "follow_ups": ["Why this airline specifically?", "What differentiates us from competitors?", "What concerns do you have about us?"]
+  },
+  {
+    "id": "cabin_crew_006",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "cultural_awareness",
+    "difficulty": 2,
+    "question": "How do you handle cultural differences when serving international passengers?",
+    "ideal_points": [
+      "Shows cultural sensitivity and awareness",
+      "Respects different customs and preferences",
+      "Adapts communication style",
+      "Learns about different cultures",
+      "Examples of cultural adaptation"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Are they culturally aware?",
+      "respect": "Do they show genuine respect?",
+      "adaptability": "Can they adjust approach?",
+      "learning": "Do they actively learn?",
+      "missed_opportunities": ["No awareness", "Stereotypes", "One-size-fits-all", "No examples"]
+    },
+    "follow_ups": ["Describe adapting to a cultural preference.", "How do you learn about cultures?", "What if cultural norms conflict with safety?"]
+  },
+  {
+    "id": "cabin_crew_007",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "strengths",
+    "difficulty": 2,
+    "question": "What are your key strengths that make you suitable for this role?",
+    "ideal_points": [
+      "Relevant strengths for cabin crew",
+      "Backed by specific examples",
+      "Shows self-awareness",
+      "Links strengths to role requirements",
+      "Demonstrates customer service skills"
+    ],
+    "evaluation_rubric": {
+      "relevance": "Are strengths relevant to role?",
+      "evidence": "Are they backed by examples?",
+      "authenticity": "Are they genuinely their strengths?",
+      "fit": "Do they match role requirements?",
+      "missed_opportunities": ["Generic strengths", "No examples", "Irrelevant skills", "No self-awareness"]
+    },
+    "follow_ups": ["Give an example of using this strength.", "What's your biggest weakness?", "How do you leverage your strengths?"]
+  },
+  {
+    "id": "cabin_crew_008",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "emergency_handling",
+    "difficulty": 3,
+    "question": "How would you handle an emergency situation on board?",
+    "ideal_points": [
+      "Follows safety protocols",
+      "Remains calm under pressure",
+      "Prioritizes passenger safety",
+      "Communicates clearly and authoritatively",
+      "Works effectively with crew"
+    ],
+    "evaluation_rubric": {
+      "protocol": "Do they know to follow procedures?",
+      "composure": "Can they stay calm?",
+      "priorities": "Are priorities correct?",
+      "teamwork": "Can they work with crew?",
+      "missed_opportunities": ["Panics", "Wrong priorities", "No protocol awareness", "Forgets communication"]
+    },
+    "follow_ups": ["What safety training have you done?", "How do you prepare mentally for emergencies?", "Describe staying calm in crisis."]
+  },
+  {
+    "id": "cabin_crew_009",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why should we hire you?",
+    "ideal_points": [
+      "Clear fit with role requirements",
+      "Unique qualities or experiences",
+      "Passion for service and aviation",
+      "Confidence without arrogance",
+      "Specific value proposition"
+    ],
+    "evaluation_rubric": {
+      "fit": "Are they a good match?",
+      "differentiation": "What makes them unique?",
+      "confidence": "Are they appropriately confident?",
+      "specificity": "Are claims specific?",
+      "missed_opportunities": ["Generic answer", "Can't differentiate self", "Arrogant", "No clear value"]
+    },
+    "follow_ups": ["What makes you different from others?", "What concerns should we have?", "Where do you see yourself in 5 years?"]
+  },
+  {
+    "id": "cabin_crew_010",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "professionalism",
+    "difficulty": 3,
+    "question": "How do you maintain professionalism under stress or when exhausted?",
+    "ideal_points": [
+      "Understands service must be consistent",
+      "Has techniques for managing fatigue",
+      "Shows strong work ethic",
+      "Puts passenger experience first",
+      "Self-aware about stress triggers"
+    ],
+    "evaluation_rubric": {
+      "commitment": "Are they committed to standards?",
+      "techniques": "Do they have coping strategies?",
+      "awareness": "Do they recognize stress?",
+      "consistency": "Can they deliver consistently?",
+      "missed_opportunities": ["No strategies", "Lets stress show", "Passengers second", "No self-awareness"]
+    },
+    "follow_ups": ["Describe maintaining composure when exhausted.", "How do you recharge?", "What helps you stay professional?"]
+  },
+  {
+    "id": "cabin_crew_011",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "A passenger refuses to follow safety instructions during takeoff. How do you handle this?",
+    "ideal_points": [
+      "Firm but polite communication",
+      "Explains importance of safety compliance",
+      "Escalates appropriately if needed",
+      "Maintains passenger dignity",
+      "Follows airline protocols"
+    ],
+    "evaluation_rubric": {
+      "firmness": "Are they firm enough?",
+      "politeness": "Do they maintain respect?",
+      "protocol": "Do they follow procedures?",
+      "escalation": "Do they know when to escalate?",
+      "missed_opportunities": ["Too passive", "Aggressive", "Gives up", "Ignores protocol"]
+    },
+    "follow_ups": ["What if they still refuse?", "How do you balance firmness and courtesy?", "When do you involve senior crew?"]
+  },
+  {
+    "id": "cabin_crew_012",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "A passenger becomes angry and starts shouting mid-flight. What do you do?",
+    "ideal_points": [
+      "Remains calm and composed",
+      "Moves conversation to private area if possible",
+      "Listens and shows empathy",
+      "De-escalates the situation",
+      "Coordinates with crew and follows protocol"
+    ],
+    "evaluation_rubric": {
+      "composure": "Do they stay calm?",
+      "approach": "Is approach effective?",
+      "de_escalation": "Can they calm the passenger?",
+      "safety": "Do they consider safety of all?",
+      "missed_opportunities": ["Gets defensive", "Ignores other passengers", "No de-escalation skills", "Panics"]
+    },
+    "follow_ups": ["What if they become physically aggressive?", "How do you protect other passengers?", "How do you recover after such incidents?"]
+  },
+  {
+    "id": "cabin_crew_013",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 2,
+    "question": "A child is crying continuously and disturbing other passengers. How do you handle this?",
+    "ideal_points": [
+      "Shows empathy to parents and child",
+      "Offers assistance proactively",
+      "Manages expectations of other passengers",
+      "Creative problem-solving",
+      "Maintains positive atmosphere"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Do they show understanding?",
+      "proactivity": "Do they offer help?",
+      "balance": "Can they balance all passengers?",
+      "creativity": "Can they find solutions?",
+      "missed_opportunities": ["Blames parents", "Ignores situation", "Only focuses on complaints", "No empathy"]
+    },
+    "follow_ups": ["What specific techniques work with children?", "How do you handle complaining passengers?", "What if parents are unresponsive?"]
+  },
+  {
+    "id": "cabin_crew_014",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You notice a conflict between your fellow crew members during service. What do you do?",
+    "ideal_points": [
+      "Addresses issue discreetly",
+      "Maintains service standards",
+      "Supports both colleagues professionally",
+      "Reports to senior crew if necessary",
+      "Helps resolve after service"
+    ],
+    "evaluation_rubric": {
+      "discretion": "Do they handle it discreetly?",
+      "priorities": "Do passengers come first?",
+      "support": "Do they support colleagues?",
+      "judgment": "Do they know when to escalate?",
+      "missed_opportunities": ["Takes sides", "Ignores it", "Makes it public", "Lets it affect service"]
+    },
+    "follow_ups": ["How do you maintain teamwork under pressure?", "What if the conflict involves you?", "How do you build crew cohesion?"]
+  },
+  {
+    "id": "cabin_crew_015",
+    "phase": "behavioral",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "A passenger has a medical emergency onboard. Walk me through your response.",
+    "ideal_points": [
+      "Follows emergency medical protocols",
+      "Calls for medical professionals onboard",
+      "Coordinates with flight crew immediately",
+      "Keeps passenger calm and comfortable",
+      "Documents incident properly"
+    ],
+    "evaluation_rubric": {
+      "protocol": "Do they follow procedures?",
+      "coordination": "Do they coordinate with crew?",
+      "composure": "Do they stay calm?",
+      "passenger_care": "Do they care for the passenger?",
+      "missed_opportunities": ["No protocol knowledge", "Panics", "Doesn't inform captain", "Poor coordination"]
+    },
+    "follow_ups": ["What training have you had for medical emergencies?", "How do you stay calm?", "What if there's no doctor onboard?"]
+  }
+]

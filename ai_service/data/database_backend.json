@@ -1,0 +1,172 @@
+[
+  {
+    "id": "db_back_001",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "database",
+    "difficulty": 1,
+    "question": "What is DBMS?",
+    "ideal_points": [
+      "Database Management System",
+      "Software to manage databases",
+      "Handles CRUD operations",
+      "Provides data security and integrity",
+      "Examples: MySQL, PostgreSQL, MongoDB"
+    ],
+    "follow_ups": ["What's the difference between DBMS and database?", "Types of DBMS?", "Why use DBMS vs flat files?"]
+  },
+  {
+    "id": "db_back_002",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "database",
+    "difficulty": 2,
+    "question": "Difference between SQL and NoSQL.",
+    "ideal_points": [
+      "SQL: Relational, structured schema, ACID compliant",
+      "NoSQL: Non-relational, flexible schema, BASE model",
+      "SQL better for complex queries and relationships",
+      "NoSQL better for scalability and unstructured data",
+      "Use cases depend on data structure and requirements"
+    ],
+    "follow_ups": ["When would you choose each?", "What's your experience with databases?", "What's BASE vs ACID?"]
+  },
+  {
+    "id": "db_back_003",
+    "phase": "technical",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "database",
+    "difficulty": 2,
+    "question": "What is normalization?",
+    "ideal_points": [
+      "Organizing database to reduce redundancy",
+      "Dividing tables to eliminate duplicate data",
+      "Normal forms: 1NF, 2NF, 3NF, BCNF",
+      "Improves data integrity",
+      "Can impact query performance (denormalization sometimes preferred)"
+    ],
+    "follow_ups": ["Explain 1NF, 2NF, 3NF", "What's denormalization?", "When to denormalize?"]
+  },
+  {
+    "id": "db_back_004",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "database",
+    "difficulty": 1,
+    "question": "What is a primary key vs foreign key?",
+    "ideal_points": [
+      "Primary key: Unique identifier for table row",
+      "Foreign key: References primary key in another table",
+      "Primary key cannot be null",
+      "Foreign key establishes relationships",
+      "Essential for relational database design"
+    ],
+    "follow_ups": ["Can a table have multiple primary keys?", "What's a composite key?", "What happens if foreign key constraint violated?"]
+  },
+  {
+    "id": "db_back_005",
+    "phase": "technical",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "database",
+    "difficulty": 2,
+    "question": "What is indexing?",
+    "ideal_points": [
+      "Data structure to speed up data retrieval",
+      "Like index in a book",
+      "Trades storage space for query speed",
+      "Common types: B-tree, hash, bitmap",
+      "Should index frequently queried columns"
+    ],
+    "follow_ups": ["What's the cost of indexing?", "When should you not index?", "Clustered vs non-clustered index?"]
+  },
+  {
+    "id": "db_back_006",
+    "phase": "technical",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "database",
+    "difficulty": 2,
+    "question": "What is ACID?",
+    "ideal_points": [
+      "Atomicity: All or nothing",
+      "Consistency: Valid state before and after",
+      "Isolation: Transactions independent",
+      "Durability: Changes persist after commit",
+      "Guarantees reliable database transactions"
+    ],
+    "follow_ups": ["Give an example of ACID", "What happens when ACID violated?", "NoSQL and ACID?"]
+  },
+  {
+    "id": "db_back_007",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "database",
+    "difficulty": 2,
+    "question": "What is a transaction?",
+    "ideal_points": [
+      "Sequence of database operations as single unit",
+      "Must be ACID compliant",
+      "Can be committed or rolled back",
+      "Ensures data consistency",
+      "Example: Bank transfer (debit and credit)"
+    ],
+    "follow_ups": ["What's a rollback?", "Transaction isolation levels?", "Deadlocks?"]
+  },
+  {
+    "id": "db_back_008",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "api",
+    "difficulty": 2,
+    "question": "What is REST API?",
+    "ideal_points": [
+      "Representational State Transfer",
+      "Architectural style for web services",
+      "Uses HTTP methods (GET, POST, PUT, DELETE)",
+      "Stateless communication",
+      "Resources identified by URLs"
+    ],
+    "follow_ups": ["REST vs SOAP?", "What's RESTful design?", "Have you built REST APIs?"]
+  },
+  {
+    "id": "db_back_009",
+    "phase": "technical",
+    "role": "backend",
+    "level": "intern",
+    "skill": "api",
+    "difficulty": 1,
+    "question": "Difference between GET and POST.",
+    "ideal_points": [
+      "GET: Retrieve data, idempotent",
+      "POST: Submit data, creates resource",
+      "GET parameters in URL",
+      "POST data in request body",
+      "GET cached, POST not cached"
+    ],
+    "follow_ups": ["What's idempotent?", "PUT vs POST?", "When to use DELETE?"]
+  },
+  {
+    "id": "db_back_010",
+    "phase": "technical",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "security",
+    "difficulty": 2,
+    "question": "What is authentication vs authorization?",
+    "ideal_points": [
+      "Authentication: Verifying identity (who you are)",
+      "Authorization: Verifying permissions (what you can do)",
+      "Authentication comes before authorization",
+      "Examples: Login (authentication), access control (authorization)",
+      "Essential for application security"
+    ],
+    "follow_ups": ["Common authentication methods?", "What's OAuth?", "JWT tokens?"]
+  }
+]

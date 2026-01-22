@@ -1,0 +1,242 @@
+[
+  {
+    "id": "warmup_001",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Please introduce yourself.",
+    "ideal_points": [
+      "Name and current status (student/professional)",
+      "Educational background mentioned",
+      "Relevant experience or projects",
+      "Clear and confident delivery",
+      "Mentions target role or field"
+    ],
+    "evaluation_rubric": {
+      "resume_mention": "Did they mention key items from their resume?",
+      "role_relevance": "Did they frame intro towards the target role?",
+      "confidence": "Was delivery clear and confident?",
+      "structure": "Was the intro organized (not rambling)?",
+      "missed_opportunities": ["Projects not mentioned", "Skills not highlighted", "Education details skipped"]
+    },
+    "follow_ups": ["Tell me more about [mentioned project]", "What was your favorite course in [mentioned degree]?", "How did you get interested in [mentioned field]?"]
+  },
+  {
+    "id": "warmup_002",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Tell me about your educational background.",
+    "ideal_points": [
+      "Degree and institution mentioned",
+      "Major/specialization clearly stated",
+      "Relevant coursework or achievements",
+      "How education relates to target role",
+      "Any projects or research mentioned"
+    ],
+    "evaluation_rubric": {
+      "resume_alignment": "Did they mention education from their resume?",
+      "role_relevance": "Connected education to target role?",
+      "depth": "Went beyond just stating degree?",
+      "achievements": "Mentioned GPA, awards, or standout projects?",
+      "missed_opportunities": ["Relevant coursework not mentioned", "Projects not connected", "No achievements highlighted"]
+    },
+    "follow_ups": ["What was your favorite subject?", "Did you do any projects or research?", "How does your education prepare you for this role?"]
+  },
+  {
+    "id": "warmup_003",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Where are you from, and how did that shape you?",
+    "ideal_points": [
+      "Hometown or current location mentioned",
+      "Cultural or personal context shared",
+      "How it influenced career choices",
+      "Shows self-awareness",
+      "Connects to work ethic or values"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Did they share genuine personal context?",
+      "relevance": "Connected background to professional development?",
+      "depth": "Went beyond surface-level details?",
+      "values": "Communicated work values or ethics?",
+      "missed_opportunities": ["No connection to career", "Too brief or vague", "Missed chance to show personality"]
+    },
+    "follow_ups": ["How did that experience influence your career choice?", "What values from your background do you bring to work?"]
+  },
+  {
+    "id": "warmup_004",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why did you choose this field?",
+    "ideal_points": [
+      "Genuine interest and passion shown",
+      "Specific moment or experience mentioned",
+      "Connection to skills or aptitude",
+      "Long-term career vision",
+      "Awareness of field challenges and opportunities"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Did it feel genuine or rehearsed?",
+      "specificity": "Specific story or moment shared?",
+      "passion": "Enthusiasm and interest evident?",
+      "awareness": "Understanding of the field shown?",
+      "missed_opportunities": ["Generic reasons", "No personal story", "Lack of passion", "No awareness of field"]
+    },
+    "follow_ups": ["What excites you most about this field?", "What challenges do you expect?", "Who or what inspired you?"]
+  },
+  {
+    "id": "warmup_005",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What do you know about our company?",
+    "ideal_points": [
+      "Company mission or values mentioned",
+      "Recent news or achievements referenced",
+      "Products or services understood",
+      "Company culture awareness",
+      "Why company appeals to them"
+    ],
+    "evaluation_rubric": {
+      "research": "Did they do homework on the company?",
+      "specificity": "Mentioned specific details, not generic facts?",
+      "alignment": "Connected company values to personal values?",
+      "enthusiasm": "Showed genuine interest?",
+      "missed_opportunities": ["Generic answers", "No recent company news mentioned", "Didn't connect to personal fit"]
+    },
+    "follow_ups": ["What attracted you to our company specifically?", "Which of our products/services interests you most?", "How do you see yourself fitting into our culture?"]
+  },
+  {
+    "id": "warmup_006",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why are you interested in this role specifically?",
+    "ideal_points": [
+      "Role responsibilities understood",
+      "Skills match explained",
+      "Career growth potential mentioned",
+      "How role aligns with interests",
+      "What they'll bring to the role"
+    ],
+    "evaluation_rubric": {
+      "role_understanding": "Do they understand what the role involves?",
+      "skills_alignment": "Connected their skills to role requirements?",
+      "growth_mindset": "Mentioned learning or growth opportunities?",
+      "value_proposition": "Explained what they'd bring?",
+      "missed_opportunities": ["Generic interest", "No skills connection", "Didn't mention JD requirements", "One-sided (what they get, not what they give)"]
+    },
+    "follow_ups": ["What skills do you have that make you a good fit?", "What excites you most about this role?", "Where do you see this role taking you?"]
+  },
+  {
+    "id": "warmup_007",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What are your key strengths?",
+    "ideal_points": [
+      "Role-relevant strengths mentioned",
+      "Strengths backed by specific examples",
+      "Not generic traits without context",
+      "Framed as value to employer",
+      "Self-aware and honest"
+    ],
+    "evaluation_rubric": {
+      "relevance": "Are strengths relevant to target role?",
+      "evidence": "Are they backed by examples or proof?",
+      "specificity": "Specific strengths, not generic?",
+      "value_framing": "Framed as value to company?",
+      "missed_opportunities": ["Generic traits (hardworking, team player)", "No examples", "Not role-aligned", "No connection to JD"]
+    },
+    "follow_ups": ["Can you give an example of when you used that strength?", "How would that strength help in this role?"]
+  },
+  {
+    "id": "warmup_008",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What is one weakness you're working on?",
+    "ideal_points": [
+      "Honest but safe weakness",
+      "Not a critical job requirement",
+      "Shows self-awareness",
+      "Mitigation strategy mentioned",
+      "Growth and improvement shown"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Genuine weakness, not disguised strength?",
+      "safety": "Not a deal-breaker for the role?",
+      "self_awareness": "Shows reflection and maturity?",
+      "improvement": "Are they actively working on it?",
+      "missed_opportunities": ["Perfectionist cliché", "No mitigation strategy", "Critical job skill as weakness", "No growth shown"]
+    },
+    "follow_ups": ["What steps are you taking to improve?", "How has this affected your work?", "What have you learned from addressing this?"]
+  },
+  {
+    "id": "warmup_009",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why should we hire you?",
+    "ideal_points": [
+      "Mentions company and role specifically",
+      "Highlights unique value proposition",
+      "Connects past experience to future value",
+      "Shows confidence without arrogance",
+      "Addresses how they solve company's needs"
+    ],
+    "evaluation_rubric": {
+      "company_mention": "Did they mention the company specifically?",
+      "role_mention": "Did they reference the specific role?",
+      "personal_fit": "Connected their skills/experience to needs?",
+      "value_framing": "Focused on what they give, not just what they get?",
+      "missed_opportunities": ["Generic answer", "No company mention", "No role connection", "One-sided (only what they gain)"]
+    },
+    "follow_ups": ["What makes you different from other candidates?", "How would you add value in the first 90 days?"]
+  },
+  {
+    "id": "warmup_010",
+    "phase": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Where do you see yourself in 3-5 years?",
+    "ideal_points": [
+      "Realistic and role-aligned goals",
+      "Shows ambition but not job-hopping",
+      "Growth within company mentioned",
+      "Balance between ambition and loyalty",
+      "Shows they've thought about career path"
+    ],
+    "evaluation_rubric": {
+      "realism": "Are goals realistic and achievable?",
+      "alignment": "Do goals align with company growth?",
+      "ambition": "Shows drive and career planning?",
+      "loyalty_signal": "Indicates they plan to stay and grow?",
+      "missed_opportunities": ["Unrealistic goals", "No connection to this role", "Sounds like they'll leave quickly", "Too vague"]
+    },
+    "follow_ups": ["How does this role fit into that vision?", "What skills do you want to develop?", "What kind of impact do you want to make?"]
+  }
+]

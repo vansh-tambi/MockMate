@@ -1,0 +1,362 @@
+[
+  {
+    "id": "psychologist_therapist_001",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why did you choose psychology/therapy as your career?",
+    "ideal_points": [
+      "Genuine desire to help others",
+      "Personal experiences that inspired the choice",
+      "Understanding of mental health importance",
+      "Realistic about emotional demands",
+      "Passion for understanding human behavior"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic and ethical?",
+      "understanding": "Do they grasp the profession's nature?",
+      "empathy": "Do they show compassion?",
+      "self_awareness": "Are they aware of emotional demands?",
+      "missed_opportunities": ["Savior complex", "Too clinical/detached", "No empathy shown", "Unrealistic expectations"]
+    },
+    "follow_ups": ["What personal qualities make you suited for this?", "How do you plan to maintain boundaries?", "What area of psychology interests you most?"]
+  },
+  {
+    "id": "psychologist_therapist_002",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "professional_qualities",
+    "difficulty": 2,
+    "question": "What qualities make a good therapist?",
+    "ideal_points": [
+      "Empathy and active listening",
+      "Non-judgmental attitude",
+      "Professional boundaries",
+      "Self-awareness and emotional regulation",
+      "Continuous learning mindset"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is understanding comprehensive?",
+      "balance": "Do they balance empathy with boundaries?",
+      "self_awareness": "Are they aware of their own biases?",
+      "professionalism": "Do they understand ethical standards?",
+      "missed_opportunities": ["Only lists generic traits", "No mention of boundaries", "Lacks self-awareness", "Too detached"]
+    },
+    "follow_ups": ["How do you develop these qualities?", "Which quality do you need to improve?", "How do you maintain objectivity?"]
+  },
+  {
+    "id": "psychologist_therapist_003",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "client_relationship",
+    "difficulty": 3,
+    "question": "How do you build trust with a new client?",
+    "ideal_points": [
+      "Create safe, non-judgmental space",
+      "Active listening and validation",
+      "Transparency about process",
+      "Respect confidentiality",
+      "Patience and consistency"
+    ],
+    "evaluation_rubric": {
+      "approach": "Is approach ethical and effective?",
+      "empathy": "Do they prioritize client comfort?",
+      "boundaries": "Do they maintain professionalism?",
+      "patience": "Do they understand trust takes time?",
+      "missed_opportunities": ["Rushing the process", "No mention of confidentiality", "Lacks empathy", "Too clinical"]
+    },
+    "follow_ups": ["What if a client is resistant?", "How long does trust-building take?", "How do you handle trust violations?"]
+  },
+  {
+    "id": "psychologist_therapist_004",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "professional_boundaries",
+    "difficulty": 3,
+    "question": "How do you maintain professional boundaries with clients?",
+    "ideal_points": [
+      "Clear boundaries from the start",
+      "Separate personal and professional life",
+      "Avoid dual relationships",
+      "Time and availability limits",
+      "Self-awareness about countertransference"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Are boundaries clearly defined?",
+      "firmness": "Can they maintain boundaries?",
+      "ethics": "Do they understand ethical implications?",
+      "self_awareness": "Are they aware of emotional entanglement risks?",
+      "missed_opportunities": ["Vague boundaries", "No mention of ethics", "Too rigid or too loose", "Lacks self-awareness"]
+    },
+    "follow_ups": ["What if a client crosses boundaries?", "How do you handle attachment?", "Have you ever struggled with this?"]
+  },
+  {
+    "id": "psychologist_therapist_005",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "emotional_management",
+    "difficulty": 3,
+    "question": "How do you handle emotionally draining sessions?",
+    "ideal_points": [
+      "Self-care practices in place",
+      "Supervision and peer support",
+      "Emotional processing techniques",
+      "Work-life balance",
+      "Awareness of vicarious trauma"
+    ],
+    "evaluation_rubric": {
+      "self_care": "Do they prioritize their well-being?",
+      "strategies": "Do they have concrete coping mechanisms?",
+      "awareness": "Are they aware of burnout risks?",
+      "support": "Do they seek professional support?",
+      "missed_opportunities": ["No self-care plan", "Ignores emotional impact", "No support system", "Martyrdom mentality"]
+    },
+    "follow_ups": ["What specific self-care practices do you use?", "How do you prevent burnout?", "When do you seek supervision?"]
+  },
+  {
+    "id": "psychologist_therapist_006",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "ethics",
+    "difficulty": 2,
+    "question": "What does confidentiality mean to you as a therapist?",
+    "ideal_points": [
+      "Fundamental client right",
+      "Legal and ethical obligation",
+      "Knows limits of confidentiality",
+      "Builds trust through confidentiality",
+      "Secure record-keeping practices"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Do they understand confidentiality fully?",
+      "limits": "Are they aware of legal exceptions?",
+      "importance": "Do they grasp its significance?",
+      "practice": "Do they have practical safeguards?",
+      "missed_opportunities": ["Vague understanding", "Unaware of exceptions", "No mention of records", "Takes it lightly"]
+    },
+    "follow_ups": ["When would you break confidentiality?", "How do you secure records?", "What if family members ask about sessions?"]
+  },
+  {
+    "id": "psychologist_therapist_007",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "ethical_reasoning",
+    "difficulty": 3,
+    "question": "Describe a time you faced an ethical dilemma in your practice.",
+    "ideal_points": [
+      "Recognizes ethical complexity",
+      "Consulted ethical guidelines",
+      "Sought supervision/consultation",
+      "Prioritized client welfare",
+      "Learned from the experience"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Do they recognize ethical issues?",
+      "process": "Did they follow proper procedures?",
+      "judgment": "Was their decision sound?",
+      "learning": "Did they reflect and grow?",
+      "missed_opportunities": ["No real dilemma given", "Acted alone", "Poor judgment", "No consultation sought"]
+    },
+    "follow_ups": ["What would you do differently?", "Who did you consult?", "How did it change your practice?"]
+  },
+  {
+    "id": "psychologist_therapist_008",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "fit",
+    "difficulty": 2,
+    "question": "Why should we hire you as a therapist?",
+    "ideal_points": [
+      "Unique skills or specialization",
+      "Proven client outcomes",
+      "Strong therapeutic relationship skills",
+      "Commitment to ethical practice",
+      "Continuous professional development"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Are they appropriately confident?",
+      "evidence": "Can they back up their claims?",
+      "uniqueness": "What makes them stand out?",
+      "alignment": "Do they fit the role?",
+      "missed_opportunities": ["Too generic", "Arrogant", "No evidence", "Doesn't understand role needs"]
+    },
+    "follow_ups": ["What's your therapeutic approach?", "What client populations have you worked with?", "What's your success rate?"]
+  },
+  {
+    "id": "psychologist_therapist_009",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "professional_development",
+    "difficulty": 2,
+    "question": "How do you stay updated with developments in psychology?",
+    "ideal_points": [
+      "Regular continuing education",
+      "Reading research and journals",
+      "Professional associations membership",
+      "Attending conferences/workshops",
+      "Peer consultation groups"
+    ],
+    "evaluation_rubric": {
+      "commitment": "Are they committed to learning?",
+      "methods": "Do they have concrete strategies?",
+      "currency": "Are they aware of recent developments?",
+      "integration": "Do they apply new knowledge?",
+      "missed_opportunities": ["No learning plan", "Relies on outdated knowledge", "Not engaged professionally", "No examples"]
+    },
+    "follow_ups": ["What recent development interests you?", "How often do you attend training?", "What's your learning goal this year?"]
+  },
+  {
+    "id": "psychologist_therapist_010",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "outcome_measurement",
+    "difficulty": 3,
+    "question": "How do you measure success in therapy?",
+    "ideal_points": [
+      "Client-centered goals",
+      "Measurable outcomes",
+      "Progress monitoring tools",
+      "Client feedback and satisfaction",
+      "Functional improvement in daily life"
+    ],
+    "evaluation_rubric": {
+      "client_focus": "Is success defined by client goals?",
+      "measurement": "Do they use objective measures?",
+      "holistic": "Do they consider overall well-being?",
+      "flexibility": "Do they adapt to different clients?",
+      "missed_opportunities": ["Vague criteria", "Only symptom-focused", "No client input", "No measurement tools"]
+    },
+    "follow_ups": ["What tools do you use to track progress?", "How do you handle plateaus?", "What if client and therapist disagree on progress?"]
+  },
+  {
+    "id": "psychologist_therapist_011",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "A client consistently refuses your therapeutic interventions. How do you handle this?",
+    "ideal_points": [
+      "Explore reasons for resistance",
+      "Reassess therapeutic approach",
+      "Validate client's autonomy",
+      "Consider alternative methods",
+      "Possibly discuss referral if appropriate"
+    ],
+    "evaluation_rubric": {
+      "respect": "Do they respect client autonomy?",
+      "flexibility": "Are they willing to adapt?",
+      "exploration": "Do they dig deeper into resistance?",
+      "professionalism": "Do they handle it maturely?",
+      "missed_opportunities": ["Blames client", "Gives up quickly", "Forces interventions", "Takes it personally"]
+    },
+    "follow_ups": ["When would you consider a referral?", "How do you manage your frustration?", "What if resistance continues?"]
+  },
+  {
+    "id": "psychologist_therapist_012",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "crisis_management",
+    "difficulty": 3,
+    "question": "How would you handle a client expressing suicidal ideation?",
+    "ideal_points": [
+      "Immediate risk assessment",
+      "Direct and compassionate approach",
+      "Safety planning with client",
+      "Appropriate documentation",
+      "Emergency contacts/hospitalization if needed"
+    ],
+    "evaluation_rubric": {
+      "urgency": "Do they recognize the seriousness?",
+      "protocol": "Do they know proper procedures?",
+      "balance": "Do they balance safety and empowerment?",
+      "calmness": "Can they stay calm under pressure?",
+      "missed_opportunities": ["Panic or avoidance", "No risk assessment", "Breaks confidentiality unnecessarily", "Inadequate follow-up"]
+    },
+    "follow_ups": ["How do you assess suicide risk?", "When do you break confidentiality?", "What follow-up do you provide?"]
+  },
+  {
+    "id": "psychologist_therapist_013",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "boundary_management",
+    "difficulty": 3,
+    "question": "A client becomes emotionally dependent on you. How do you address this?",
+    "ideal_points": [
+      "Recognize dependency early",
+      "Gently reinforce boundaries",
+      "Discuss therapeutic relationship",
+      "Empower client's independence",
+      "Use supervision for guidance"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Do they recognize dependency dynamics?",
+      "approach": "Is their approach therapeutic?",
+      "empowerment": "Do they foster independence?",
+      "boundaries": "Do they maintain professional limits?",
+      "missed_opportunities": ["Enables dependency", "Too abrupt/harsh", "Ignores the issue", "Takes it personally"]
+    },
+    "follow_ups": ["How do you prevent this from developing?", "What role does transference play?", "When would you refer out?"]
+  },
+  {
+    "id": "psychologist_therapist_014",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "self_care",
+    "difficulty": 3,
+    "question": "You're experiencing burnout from your caseload. How do you manage this?",
+    "ideal_points": [
+      "Recognize burnout signs early",
+      "Seek supervision or therapy",
+      "Reduce caseload if possible",
+      "Implement self-care routines",
+      "Set better boundaries"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Do they recognize their limits?",
+      "action": "Do they take concrete steps?",
+      "prevention": "Do they have prevention strategies?",
+      "help_seeking": "Are they willing to get support?",
+      "missed_opportunities": ["Push through without help", "Ignores warning signs", "No self-care plan", "Martyrdom attitude"]
+    },
+    "follow_ups": ["What are early signs of burnout for you?", "Who do you turn to for support?", "How do you prevent it?"]
+  },
+  {
+    "id": "psychologist_therapist_015",
+    "phase": "behavioral",
+    "role": "Psychologist/Therapist",
+    "level": "any",
+    "skill": "values_conflict",
+    "difficulty": 3,
+    "question": "A client's behavior conflicts with your personal values. How do you handle this?",
+    "ideal_points": [
+      "Self-awareness of own values",
+      "Maintain non-judgmental stance",
+      "Separate personal from professional",
+      "Seek supervision",
+      "Consider referral if unable to be objective"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Are they aware of their biases?",
+      "professionalism": "Can they separate personal values?",
+      "ethics": "Do they prioritize client welfare?",
+      "honesty": "Are they honest about limitations?",
+      "missed_opportunities": ["Judges client", "Imposes values", "Denies bias", "Continues when compromised"]
+    },
+    "follow_ups": ["How do you manage countertransference?", "When would you refer?", "How do you ensure objectivity?"]
+  }
+]

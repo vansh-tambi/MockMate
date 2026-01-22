@@ -1,0 +1,242 @@
+[
+  {
+    "id": "actor_artist_001",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why did you choose acting as your career?",
+    "ideal_points": [
+      "Genuine passion for storytelling",
+      "Love for performance and expression",
+      "Understanding of craft demands",
+      "Awareness of industry challenges",
+      "Artistic calling or purpose"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "understanding": "Do they grasp the reality?",
+      "passion": "Do they show deep commitment?",
+      "awareness": "Are they realistic about challenges?",
+      "missed_opportunities": ["Only wants fame", "Glamour-focused", "No artistic depth", "Unrealistic expectations"]
+    },
+    "follow_ups": ["What does acting mean to you?", "How do you handle rejection?", "What's your artistic philosophy?"]
+  },
+  {
+    "id": "actor_artist_002",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "craft",
+    "difficulty": 3,
+    "question": "How do you prepare for a role?",
+    "ideal_points": [
+      "Script analysis and character study",
+      "Research and background work",
+      "Physical/vocal preparation",
+      "Emotional connection to character",
+      "Collaboration with director"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is preparation thorough?",
+      "method": "Do they have a clear process?",
+      "dedication": "Do they show commitment?",
+      "collaboration": "Do they work with team?",
+      "missed_opportunities": ["Superficial prep", "No method", "Works in isolation", "Doesn't research"]
+    },
+    "follow_ups": ["What's your most challenging role?", "How do you get into character?", "What techniques do you use?"]
+  },
+  {
+    "id": "actor_artist_003",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 3,
+    "question": "How do you handle rejection and criticism in this industry?",
+    "ideal_points": [
+      "Sees rejection as part of process",
+      "Learns from constructive criticism",
+      "Maintains self-belief",
+      "Supports self-care and mental health",
+      "Stays persistent and focused"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Can they bounce back?",
+      "learning": "Do they grow from criticism?",
+      "balance": "Do they protect mental health?",
+      "perspective": "Do they have healthy mindset?",
+      "missed_opportunities": ["Takes rejection personally", "Defensive about criticism", "No resilience", "Gives up easily"]
+    },
+    "follow_ups": ["Describe a major rejection you faced.", "How do you maintain confidence?", "What keeps you going?"]
+  },
+  {
+    "id": "actor_artist_004",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "creativity",
+    "difficulty": 2,
+    "question": "Where do you find artistic inspiration?",
+    "ideal_points": [
+      "Observes people and life",
+      "Engages with various art forms",
+      "Personal experiences",
+      "Reading and research",
+      "Collaboration with others"
+    ],
+    "evaluation_rubric": {
+      "sources": "Are inspiration sources diverse?",
+      "depth": "Do they actively seek inspiration?",
+      "application": "Do they apply it to work?",
+      "curiosity": "Are they curious about world?",
+      "missed_opportunities": ["Limited sources", "Passive approach", "No curiosity", "Surface-level"]
+    },
+    "follow_ups": ["Who are your artistic influences?", "What inspires your recent work?", "How do you stay creatively fresh?"]
+  },
+  {
+    "id": "actor_artist_005",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "professionalism",
+    "difficulty": 3,
+    "question": "How do you handle negative reviews or criticism of your performance?",
+    "ideal_points": [
+      "Separates self-worth from reviews",
+      "Analyzes for valid points",
+      "Maintains professionalism",
+      "Focuses on growth",
+      "Balances feedback with self-trust"
+    ],
+    "evaluation_rubric": {
+      "maturity": "Do they handle it maturely?",
+      "learning": "Do they extract value?",
+      "balance": "Do they balance input with intuition?",
+      "composure": "Do they stay professional?",
+      "missed_opportunities": ["Too defensive", "Ignores all criticism", "Devastated by reviews", "No learning"]
+    },
+    "follow_ups": ["What's the harshest criticism you received?", "How do you know which feedback to take?", "How do you stay confident?"]
+  },
+  {
+    "id": "actor_artist_006",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "commitment",
+    "difficulty": 3,
+    "question": "What sacrifices have you made for your acting career?",
+    "ideal_points": [
+      "Time and financial investment",
+      "Personal relationships",
+      "Stable income",
+      "Geographic flexibility",
+      "Accepts with purpose and awareness"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Are they aware of sacrifices?",
+      "acceptance": "Do they accept willingly?",
+      "balance": "Do they maintain healthy perspective?",
+      "purpose": "Is it purposeful, not martyrdom?",
+      "missed_opportunities": ["Bitter about sacrifices", "Unaware of costs", "No boundaries", "Martyrdom complex"]
+    },
+    "follow_ups": ["Do you have any regrets?", "How do you balance career and personal life?", "What keeps you committed?"]
+  },
+  {
+    "id": "actor_artist_007",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "self_awareness",
+    "difficulty": 2,
+    "question": "How do you handle fame or failure?",
+    "ideal_points": [
+      "Stays grounded in both",
+      "Fame doesn't define identity",
+      "Failure as learning opportunity",
+      "Support system in place",
+      "Focuses on craft over outcome"
+    ],
+    "evaluation_rubric": {
+      "groundedness": "Do they stay grounded?",
+      "perspective": "Do they have healthy perspective?",
+      "focus": "Do they focus on craft?",
+      "balance": "Do they maintain balance?",
+      "missed_opportunities": ["Ego-driven", "Devastated by failure", "No support system", "External validation dependent"]
+    },
+    "follow_ups": ["How do you stay humble?", "What if success changes you?", "How do you define success?"]
+  },
+  {
+    "id": "actor_artist_008",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "fit",
+    "difficulty": 2,
+    "question": "Why should we select you for this role?",
+    "ideal_points": [
+      "Understanding of character",
+      "Relevant experience or skills",
+      "Unique interpretation or perspective",
+      "Strong work ethic",
+      "Collaborative spirit"
+    ],
+    "evaluation_rubric": {
+      "preparation": "Have they researched the role?",
+      "uniqueness": "What makes them stand out?",
+      "confidence": "Are they appropriately confident?",
+      "collaboration": "Are they team-oriented?",
+      "missed_opportunities": ["Generic answer", "No preparation", "Arrogant", "Doesn't understand role"]
+    },
+    "follow_ups": ["What's your take on this character?", "What similar roles have you done?", "How do you work with directors?"]
+  },
+  {
+    "id": "actor_artist_009",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "differentiation",
+    "difficulty": 2,
+    "question": "What makes you different from other actors?",
+    "ideal_points": [
+      "Unique perspective or background",
+      "Specific skills or training",
+      "Distinctive approach to craft",
+      "Personal qualities",
+      "Authentic self-awareness"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Is answer genuine?",
+      "uniqueness": "Do they have distinct qualities?",
+      "confidence": "Are they appropriately confident?",
+      "specificity": "Are examples concrete?",
+      "missed_opportunities": ["Too generic", "False humility", "Arrogant", "Can't articulate uniqueness"]
+    },
+    "follow_ups": ["What's your acting style?", "What roles suit you best?", "What's your greatest strength as actor?"]
+  },
+  {
+    "id": "actor_artist_010",
+    "phase": "behavioral",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "success_definition",
+    "difficulty": 2,
+    "question": "How do you define success as an actor?",
+    "ideal_points": [
+      "Craft mastery and growth",
+      "Meaningful roles",
+      "Audience impact",
+      "Sustainable career",
+      "Personal fulfillment"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is definition meaningful?",
+      "balance": "Is it balanced and healthy?",
+      "craft_focus": "Do they prioritize craft?",
+      "sustainability": "Is it sustainable long-term?",
+      "missed_opportunities": ["Only fame/money", "No craft focus", "External validation only", "Unrealistic"]
+    },
+    "follow_ups": ["What's your career goal?", "What role would you love to play?", "How do you measure progress?"]
+  }
+]

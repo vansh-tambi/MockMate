@@ -1,0 +1,362 @@
+[
+  {
+    "id": "hotel_hospitality_001",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why did you choose a career in hospitality?",
+    "ideal_points": [
+      "Genuine passion for service",
+      "Enjoys making people happy",
+      "Thrives in dynamic environment",
+      "Understands 24/7 nature of industry",
+      "Interest in diverse cultures"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "understanding": "Do they know industry realities?",
+      "passion": "Do they show enthusiasm for service?",
+      "awareness": "Are they realistic about challenges?",
+      "missed_opportunities": ["Only mentions money", "Glamour-focused", "No service mindset", "Unaware of demands"]
+    },
+    "follow_ups": ["What aspect of hospitality excites you most?", "How do you handle irregular hours?", "What makes great hospitality?"]
+  },
+  {
+    "id": "hotel_hospitality_002",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "customer_satisfaction",
+    "difficulty": 2,
+    "question": "What does customer satisfaction mean to you?",
+    "ideal_points": [
+      "Exceeding expectations",
+      "Personalized service",
+      "Attention to detail",
+      "Anticipating needs",
+      "Creating memorable experiences"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is understanding comprehensive?",
+      "proactivity": "Do they anticipate vs react?",
+      "personalization": "Do they understand individual needs?",
+      "standards": "Are their standards high?",
+      "missed_opportunities": ["Too basic", "Transactional only", "No examples", "Generic answers"]
+    },
+    "follow_ups": ["Give an example of exceeding expectations.", "How do you measure satisfaction?", "What's your service philosophy?"]
+  },
+  {
+    "id": "hotel_hospitality_003",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "problem_solving",
+    "difficulty": 3,
+    "question": "How do you handle guest complaints?",
+    "ideal_points": [
+      "Listen actively without defensiveness",
+      "Show empathy and apologize",
+      "Take ownership and act quickly",
+      "Offer solutions, not excuses",
+      "Follow up to ensure satisfaction"
+    ],
+    "evaluation_rubric": {
+      "approach": "Is approach professional and empathetic?",
+      "ownership": "Do they take responsibility?",
+      "solution_focus": "Do they focus on resolving?",
+      "follow_through": "Do they ensure closure?",
+      "missed_opportunities": ["Defensive", "Makes excuses", "Doesn't follow up", "No empathy shown"]
+    },
+    "follow_ups": ["Describe a difficult complaint you handled.", "What if you can't resolve immediately?", "How do you prevent escalation?"]
+  },
+  {
+    "id": "hotel_hospitality_004",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "service_excellence",
+    "difficulty": 2,
+    "question": "What does service excellence mean in hospitality?",
+    "ideal_points": [
+      "Consistency in quality",
+      "Personalized attention",
+      "Proactive problem-solving",
+      "Team coordination",
+      "Going beyond standard"
+    ],
+    "evaluation_rubric": {
+      "standards": "Are their standards high?",
+      "understanding": "Do they grasp excellence components?",
+      "examples": "Can they provide examples?",
+      "practicality": "Is it realistic and achievable?",
+      "missed_opportunities": ["Vague answers", "No specific standards", "Can't give examples", "Unrealistic expectations"]
+    },
+    "follow_ups": ["How do you ensure consistency?", "What separates good from excellent?", "How do you train staff on this?"]
+  },
+  {
+    "id": "hotel_hospitality_005",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "stress_management",
+    "difficulty": 3,
+    "question": "How do you handle stress during peak seasons?",
+    "ideal_points": [
+      "Prioritization and time management",
+      "Team delegation",
+      "Staying calm under pressure",
+      "Self-care practices",
+      "Proactive planning"
+    ],
+    "evaluation_rubric": {
+      "strategies": "Do they have concrete methods?",
+      "calmness": "Can they maintain composure?",
+      "teamwork": "Do they leverage team support?",
+      "planning": "Do they prepare in advance?",
+      "missed_opportunities": ["No stress management plan", "Panics easily", "Works alone", "Reactive only"]
+    },
+    "follow_ups": ["Describe a high-pressure situation you handled.", "How do you support stressed team members?", "What's your stress threshold?"]
+  },
+  {
+    "id": "hotel_hospitality_006",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "work_life_balance",
+    "difficulty": 2,
+    "question": "How do you manage working irregular hours and shifts?",
+    "ideal_points": [
+      "Flexible and adaptable",
+      "Understands industry requirements",
+      "Self-care routines",
+      "Energy management strategies",
+      "Family/personal life planning"
+    ],
+    "evaluation_rubric": {
+      "acceptance": "Do they accept shift work reality?",
+      "adaptability": "Are they flexible?",
+      "balance": "Do they maintain personal life?",
+      "sustainability": "Is their approach long-term?",
+      "missed_opportunities": ["Complains about hours", "No balance strategy", "Unrealistic expectations", "No self-care"]
+    },
+    "follow_ups": ["How do you maintain energy across shifts?", "What's your biggest challenge with hours?", "How do you plan personal time?"]
+  },
+  {
+    "id": "hotel_hospitality_007",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "fit",
+    "difficulty": 2,
+    "question": "Why should we hire you for this hospitality role?",
+    "ideal_points": [
+      "Proven service track record",
+      "Strong interpersonal skills",
+      "Problem-solving abilities",
+      "Passion for hospitality",
+      "Alignment with brand values"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Are they appropriately confident?",
+      "evidence": "Can they back up claims?",
+      "uniqueness": "What makes them stand out?",
+      "research": "Do they know the property/brand?",
+      "missed_opportunities": ["Too generic", "No evidence", "Arrogant", "Hasn't researched company"]
+    },
+    "follow_ups": ["What's your service philosophy?", "What do you know about our hotel?", "What's your greatest strength in service?"]
+  },
+  {
+    "id": "hotel_hospitality_008",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "diversity",
+    "difficulty": 2,
+    "question": "How do you handle diverse guests from different cultures?",
+    "ideal_points": [
+      "Cultural sensitivity and respect",
+      "Learns cultural norms",
+      "Adapts communication style",
+      "Non-judgmental approach",
+      "Sees diversity as enriching"
+    ],
+    "evaluation_rubric": {
+      "sensitivity": "Are they culturally aware?",
+      "adaptability": "Do they adjust approach?",
+      "respect": "Do they show genuine respect?",
+      "learning": "Do they seek cultural knowledge?",
+      "missed_opportunities": ["Stereotyping", "One-size-fits-all approach", "No cultural awareness", "Uncomfortable with diversity"]
+    },
+    "follow_ups": ["Give an example of adapting to cultural needs.", "How do you learn about cultures?", "What cultural differences have surprised you?"]
+  },
+  {
+    "id": "hotel_hospitality_009",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "What motivates you in a service role?",
+    "ideal_points": [
+      "Guest happiness and satisfaction",
+      "Creating memorable experiences",
+      "Solving problems",
+      "Team collaboration",
+      "Recognition and growth"
+    ],
+    "evaluation_rubric": {
+      "service_focus": "Is motivation service-oriented?",
+      "authenticity": "Is it genuine?",
+      "sustainability": "Will it last long-term?",
+      "balance": "Is there healthy balance?",
+      "missed_opportunities": ["Only money-motivated", "Ego-driven", "No service passion", "Unrealistic motivations"]
+    },
+    "follow_ups": ["What's your most satisfying service moment?", "How do you stay motivated during tough days?", "What demotivates you?"]
+  },
+  {
+    "id": "hotel_hospitality_010",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "quality_control",
+    "difficulty": 3,
+    "question": "How do you ensure consistency in service standards?",
+    "ideal_points": [
+      "Clear standard operating procedures",
+      "Regular training and briefings",
+      "Quality checks and audits",
+      "Feedback systems",
+      "Lead by example"
+    ],
+    "evaluation_rubric": {
+      "systems": "Do they have systematic approach?",
+      "leadership": "Do they lead by example?",
+      "monitoring": "Do they track quality?",
+      "improvement": "Do they continuously improve?",
+      "missed_opportunities": ["No systems", "Inconsistent enforcement", "No monitoring", "Poor leadership"]
+    },
+    "follow_ups": ["How do you handle inconsistent team members?", "What metrics do you use?", "How do you maintain standards when busy?"]
+  },
+  {
+    "id": "hotel_hospitality_011",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "conflict_resolution",
+    "difficulty": 3,
+    "question": "An extremely rude guest is shouting at your staff. How do you handle this?",
+    "ideal_points": [
+      "Step in to protect staff",
+      "Remain calm and professional",
+      "Move guest to private area",
+      "Listen and show empathy",
+      "Find solution while maintaining dignity"
+    ],
+    "evaluation_rubric": {
+      "composure": "Do they stay calm?",
+      "staff_protection": "Do they support their team?",
+      "de_escalation": "Can they defuse situation?",
+      "resolution": "Do they solve the problem?",
+      "missed_opportunities": ["Escalates situation", "Abandons staff", "Takes it personally", "Can't find solution"]
+    },
+    "follow_ups": ["When would you involve security?", "How do you support staff after?", "What if guest demands unreasonable things?"]
+  },
+  {
+    "id": "hotel_hospitality_012",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "crisis_management",
+    "difficulty": 3,
+    "question": "The hotel is overbooked and you have guests without rooms. What do you do?",
+    "ideal_points": [
+      "Take responsibility immediately",
+      "Apologize sincerely",
+      "Arrange alternative accommodation",
+      "Offer compensation (transport, upgrade)",
+      "Ensure seamless transfer"
+    ],
+    "evaluation_rubric": {
+      "ownership": "Do they take responsibility?",
+      "urgency": "Do they act quickly?",
+      "solutions": "Are solutions appropriate?",
+      "guest_focus": "Do they prioritize guest comfort?",
+      "missed_opportunities": ["Blames others", "Slow to act", "Inadequate compensation", "Poor communication"]
+    },
+    "follow_ups": ["How do you prevent overbooking?", "What compensation is appropriate?", "How do you choose which guest to relocate?"]
+  },
+  {
+    "id": "hotel_hospitality_013",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "quality_control",
+    "difficulty": 3,
+    "question": "A guest points out a service fault that your team missed. How do you respond?",
+    "ideal_points": [
+      "Thank guest for feedback",
+      "Apologize without defensiveness",
+      "Rectify immediately",
+      "Address with team constructively",
+      "Implement preventive measures"
+    ],
+    "evaluation_rubric": {
+      "reception": "Do they accept feedback well?",
+      "action": "Do they fix it immediately?",
+      "learning": "Do they use it to improve?",
+      "team_handling": "Do they address team appropriately?",
+      "missed_opportunities": ["Defensive", "Makes excuses", "Doesn't address root cause", "Blames team publicly"]
+    },
+    "follow_ups": ["How do you give feedback to staff?", "How do you turn complaints into improvements?", "What's your approach to quality control?"]
+  },
+  {
+    "id": "hotel_hospitality_014",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "teamwork",
+    "difficulty": 3,
+    "question": "Multiple departments need coordination for a large event. How do you manage this?",
+    "ideal_points": [
+      "Pre-event planning meeting",
+      "Clear role assignments",
+      "Communication channels",
+      "Contingency plans",
+      "Real-time coordination"
+    ],
+    "evaluation_rubric": {
+      "planning": "Do they plan thoroughly?",
+      "communication": "Is communication clear?",
+      "leadership": "Do they lead effectively?",
+      "flexibility": "Can they adapt?",
+      "missed_opportunities": ["Poor planning", "Unclear roles", "No contingency", "Poor communication"]
+    },
+    "follow_ups": ["How do you handle conflicts between departments?", "What if something goes wrong during event?", "How do you ensure everyone is aligned?"]
+  },
+  {
+    "id": "hotel_hospitality_015",
+    "phase": "behavioral",
+    "role": "Hotel Management/Hospitality",
+    "level": "any",
+    "skill": "performance_management",
+    "difficulty": 3,
+    "question": "You notice service standards dropping. How do you address this?",
+    "ideal_points": [
+      "Identify root causes",
+      "Observe and gather data",
+      "Address with team",
+      "Provide retraining",
+      "Monitor improvement"
+    ],
+    "evaluation_rubric": {
+      "diagnosis": "Do they identify causes?",
+      "approach": "Is approach constructive?",
+      "solutions": "Are solutions effective?",
+      "follow_through": "Do they monitor results?",
+      "missed_opportunities": ["Blames without investigating", "Too harsh or too soft", "No follow-up", "Doesn't address root cause"]
+    },
+    "follow_ups": ["How do you motivate underperforming team?", "What if it's one person vs systemic?", "How do you measure improvement?"]
+  }
+]

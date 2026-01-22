@@ -1,0 +1,242 @@
+[
+  {
+    "id": "designer_creative_001",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why did you choose design as your career?",
+    "ideal_points": [
+      "Passion for visual communication",
+      "Problem-solving through design",
+      "Creative expression",
+      "Impact on user experience",
+      "Combines art and function"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "understanding": "Do they grasp design's purpose?",
+      "passion": "Do they show enthusiasm?",
+      "depth": "Is understanding beyond aesthetics?",
+      "missed_opportunities": ["Only aesthetic focus", "No problem-solving", "Shallow reasoning", "Can't articulate purpose"]
+    },
+    "follow_ups": ["What aspect of design excites you most?", "What does good design mean to you?", "How did you develop your interest?"]
+  },
+  {
+    "id": "designer_creative_002",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "creativity",
+    "difficulty": 3,
+    "question": "How do you overcome creative blocks?",
+    "ideal_points": [
+      "Takes breaks and changes environment",
+      "Seeks inspiration from varied sources",
+      "Sketches and iterates",
+      "Collaborates with others",
+      "Returns to user/project goals"
+    ],
+    "evaluation_rubric": {
+      "strategies": "Do they have concrete methods?",
+      "variety": "Do they use multiple approaches?",
+      "effectiveness": "Are strategies proven?",
+      "self_awareness": "Do they understand their process?",
+      "missed_opportunities": ["No strategies", "Waits for inspiration", "Forces creativity", "Works in isolation"]
+    },
+    "follow_ups": ["What's your most effective technique?", "How long do blocks typically last?", "What inspires you most?"]
+  },
+  {
+    "id": "designer_creative_003",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "feedback_handling",
+    "difficulty": 3,
+    "question": "How do you handle criticism of your design work?",
+    "ideal_points": [
+      "Separates ego from work",
+      "Listens to understand intent",
+      "Asks clarifying questions",
+      "Evaluates feedback objectively",
+      "Uses it to improve"
+    ],
+    "evaluation_rubric": {
+      "openness": "Are they open to feedback?",
+      "maturity": "Do they handle it professionally?",
+      "discernment": "Can they filter useful feedback?",
+      "growth": "Do they use it to improve?",
+      "missed_opportunities": ["Defensive", "Takes personally", "Accepts all feedback blindly", "Ignores feedback"]
+    },
+    "follow_ups": ["Describe harsh feedback you received.", "How do you decide which feedback to implement?", "How do you maintain confidence?"]
+  },
+  {
+    "id": "designer_creative_004",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "design_philosophy",
+    "difficulty": 2,
+    "question": "What makes a design good in your opinion?",
+    "ideal_points": [
+      "Solves user problems",
+      "Balance of form and function",
+      "Clear communication",
+      "Appropriate for context",
+      "Timeless yet relevant"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is understanding comprehensive?",
+      "user_focus": "Do they prioritize users?",
+      "balance": "Do they balance aesthetics and function?",
+      "principles": "Do they have clear principles?",
+      "missed_opportunities": ["Only aesthetic focus", "No user consideration", "Vague criteria", "Follows trends blindly"]
+    },
+    "follow_ups": ["Give an example of great design.", "How do you measure design success?", "What design principles guide you?"]
+  },
+  {
+    "id": "designer_creative_005",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "constraints",
+    "difficulty": 3,
+    "question": "How do you balance creativity with constraints and requirements?",
+    "ideal_points": [
+      "Sees constraints as creative challenges",
+      "Prioritizes key requirements",
+      "Finds innovative solutions within limits",
+      "Communicates tradeoffs",
+      "Balances business and user needs"
+    ],
+    "evaluation_rubric": {
+      "mindset": "Do they see constraints positively?",
+      "creativity": "Are they creative within limits?",
+      "prioritization": "Can they prioritize effectively?",
+      "communication": "Do they explain tradeoffs?",
+      "missed_opportunities": ["Frustrated by constraints", "Ignores requirements", "Can't adapt", "No prioritization"]
+    },
+    "follow_ups": ["Describe a project with heavy constraints.", "How do you negotiate requirements?", "What if client rejects your creative ideas?"]
+  },
+  {
+    "id": "designer_creative_006",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "time_management",
+    "difficulty": 3,
+    "question": "How do you deliver quality work under tight deadlines?",
+    "ideal_points": [
+      "Prioritizes ruthlessly",
+      "Manages time effectively",
+      "Focuses on core requirements",
+      "Communicates realistic timelines",
+      "Knows when to iterate vs perfect"
+    ],
+    "evaluation_rubric": {
+      "efficiency": "Can they work efficiently?",
+      "prioritization": "Do they focus on what matters?",
+      "quality": "Do they maintain standards?",
+      "communication": "Do they set expectations?",
+      "missed_opportunities": ["Sacrifices all quality", "Misses deadlines", "Poor planning", "No prioritization"]
+    },
+    "follow_ups": ["Describe a tight deadline project.", "How do you decide what to prioritize?", "What if timeline is impossible?"]
+  },
+  {
+    "id": "designer_creative_007",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "fit",
+    "difficulty": 2,
+    "question": "Why should we hire you as our designer?",
+    "ideal_points": [
+      "Unique design perspective",
+      "Proven portfolio results",
+      "Strong technical skills",
+      "Collaborative approach",
+      "Alignment with company values"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Are they appropriately confident?",
+      "evidence": "Can they demonstrate value?",
+      "uniqueness": "What makes them stand out?",
+      "research": "Do they understand the company?",
+      "missed_opportunities": ["Generic answer", "No portfolio examples", "Arrogant", "Hasn't researched company"]
+    },
+    "follow_ups": ["Show me your best work.", "What's your design process?", "How do you approach new projects?"]
+  },
+  {
+    "id": "designer_creative_008",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "inspiration",
+    "difficulty": 2,
+    "question": "How do you stay inspired and keep your work fresh?",
+    "ideal_points": [
+      "Explores diverse design sources",
+      "Engages with design community",
+      "Learns new tools and techniques",
+      "Draws from non-design fields",
+      "Experiments with personal projects"
+    ],
+    "evaluation_rubric": {
+      "variety": "Are inspiration sources diverse?",
+      "active": "Do they actively seek inspiration?",
+      "learning": "Do they continuously learn?",
+      "application": "Do they apply new ideas?",
+      "missed_opportunities": ["Limited sources", "Passive approach", "No experimentation", "Stale work"]
+    },
+    "follow_ups": ["What designers inspire you?", "What's your latest learning?", "How do you experiment?"]
+  },
+  {
+    "id": "designer_creative_009",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "metrics",
+    "difficulty": 3,
+    "question": "How do you measure the success of your designs?",
+    "ideal_points": [
+      "User testing and feedback",
+      "Achievement of project goals",
+      "Business metrics impact",
+      "Client satisfaction",
+      "Usability improvements"
+    ],
+    "evaluation_rubric": {
+      "metrics": "Do they use concrete measures?",
+      "user_focus": "Do they prioritize user outcomes?",
+      "business_awareness": "Do they understand business impact?",
+      "comprehensiveness": "Do they use multiple measures?",
+      "missed_opportunities": ["Only aesthetic judgment", "No measurement", "Ignores users", "No business awareness"]
+    },
+    "follow_ups": ["What metrics matter most?", "How do you conduct user testing?", "Give an example of measured success."]
+  },
+  {
+    "id": "designer_creative_010",
+    "phase": "behavioral",
+    "role": "Designer/Creative Professional",
+    "level": "any",
+    "skill": "collaboration",
+    "difficulty": 3,
+    "question": "How do you work with non-designers who don't understand design?",
+    "ideal_points": [
+      "Educates through visualization",
+      "Explains rationale clearly",
+      "Listens to their expertise",
+      "Bridges design and business",
+      "Shows empathy and patience"
+    ],
+    "evaluation_rubric": {
+      "communication": "Can they explain design effectively?",
+      "patience": "Are they patient and empathetic?",
+      "collaboration": "Do they value others' input?",
+      "translation": "Can they bridge design and business?",
+      "missed_opportunities": ["Condescending", "Can't explain rationale", "Dismissive", "Poor communication"]
+    },
+    "follow_ups": ["Describe collaborating with difficult stakeholder.", "How do you justify design decisions?", "How do you handle design-by-committee?"]
+  }
+]

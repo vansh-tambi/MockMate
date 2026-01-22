@@ -1,0 +1,332 @@
+[
+  {
+    "id": "pilot_001",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "Why do you want to become a pilot?",
+    "ideal_points": [
+      "Passion for aviation",
+      "Love of flying and travel",
+      "Technical interest in aircraft",
+      "Responsibility and challenge",
+      "Career stability and growth"
+    ],
+    "evaluation_rubric": {
+      "passion": "Genuine interest in aviation",
+      "understanding": "Knows what the job entails",
+      "commitment": "Ready for training and challenges"
+    },
+    "follow_ups": ["When did you first want to fly?", "What type of aircraft interests you?", "How have you prepared for this career?"]
+  },
+  {
+    "id": "pilot_002",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "What do you understand about pilot responsibility?",
+    "ideal_points": [
+      "Safety of passengers and crew",
+      "Aircraft operation and maintenance",
+      "Regulatory compliance",
+      "Decision-making authority",
+      "Professional conduct"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Understands scope of responsibility",
+      "maturity": "Takes responsibility seriously",
+      "safety_focus": "Prioritizes safety above all"
+    },
+    "follow_ups": ["How do you handle this responsibility?", "What's the hardest part?", "When do you defer to others?"]
+  },
+  {
+    "id": "pilot_003",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "How do you handle pressure?",
+    "ideal_points": [
+      "Stay calm and focused",
+      "Follow procedures and training",
+      "Prioritize critical tasks",
+      "Communicate effectively",
+      "Practice stress management"
+    ],
+    "evaluation_rubric": {
+      "composure": "Remains calm under stress",
+      "methods": "Has concrete pressure management strategies",
+      "experience": "Can provide examples"
+    },
+    "follow_ups": ["Tell me about a high-pressure situation", "How do you stay focused?", "When do you ask for help?"]
+  },
+  {
+    "id": "pilot_004",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "Describe a stressful situation and how you managed it.",
+    "ideal_points": [
+      "Clear situation description",
+      "Actions taken under stress",
+      "Communication with team",
+      "Outcome achieved",
+      "Lessons learned"
+    ],
+    "evaluation_rubric": {
+      "star_method": "Uses Situation-Task-Action-Result structure",
+      "decision_making": "Made sound decisions under pressure",
+      "reflection": "Shows learning from experience"
+    },
+    "follow_ups": ["What would you do differently?", "How did this prepare you for flying?", "How do you prevent similar situations?"]
+  },
+  {
+    "id": "pilot_005",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "What does teamwork mean in aviation?",
+    "ideal_points": [
+      "Crew resource management (CRM)",
+      "Clear communication",
+      "Trust and mutual respect",
+      "Shared decision-making",
+      "Supporting each other"
+    ],
+    "evaluation_rubric": {
+      "crm_knowledge": "Understands crew coordination principles",
+      "collaboration": "Values team input",
+      "communication": "Emphasizes clear communication"
+    },
+    "follow_ups": ["Give an example of good teamwork", "How do you handle disagreements?", "What's your role in the team?"]
+  },
+  {
+    "id": "pilot_006",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "How do you ensure passenger safety?",
+    "ideal_points": [
+      "Pre-flight checks and procedures",
+      "Adherence to regulations",
+      "Weather and route planning",
+      "Continuous monitoring",
+      "Emergency preparedness"
+    ],
+    "evaluation_rubric": {
+      "thoroughness": "Covers multiple safety aspects",
+      "procedural": "Follows established protocols",
+      "vigilance": "Shows proactive safety mindset"
+    },
+    "follow_ups": ["What's the most important safety check?", "How do you handle safety concerns?", "When do you abort a flight?"]
+  },
+  {
+    "id": "pilot_007",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "What are your strengths as a pilot?",
+    "ideal_points": [
+      "Technical competence",
+      "Decision-making ability",
+      "Communication skills",
+      "Situational awareness",
+      "Calm under pressure"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Knows own strengths",
+      "relevance": "Mentions aviation-specific strengths",
+      "confidence": "Articulates value without arrogance"
+    },
+    "follow_ups": ["Can you give an example?", "What areas need improvement?", "How do you develop your skills?"]
+  },
+  {
+    "id": "pilot_008",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "How do you handle fatigue?",
+    "ideal_points": [
+      "Follow rest requirements",
+      "Recognize signs of fatigue",
+      "Report when not fit to fly",
+      "Maintain healthy lifestyle",
+      "Use rest periods effectively"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Understands fatigue risks",
+      "responsibility": "Willing to report unfit status",
+      "self_care": "Has fatigue management strategies"
+    },
+    "follow_ups": ["What if you're scheduled but fatigued?", "How do you optimize sleep?", "What are fatigue signs?"]
+  },
+  {
+    "id": "pilot_009",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "Why should we trust you with hundreds of lives?",
+    "ideal_points": [
+      "Training and qualifications",
+      "Safety-first mindset",
+      "Experience and track record",
+      "Adherence to procedures",
+      "Continuous learning"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Projects trustworthiness",
+      "evidence": "Provides concrete reasons",
+      "humility": "Acknowledges responsibility seriously"
+    },
+    "follow_ups": ["What's your safety record?", "How do you build trust?", "What if you make a mistake?"]
+  },
+  {
+    "id": "pilot_010",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 2,
+    "question": "Where do you see your aviation career in 10 years?",
+    "ideal_points": [
+      "Career progression goals",
+      "Type rating aspirations",
+      "Airline or sector preference",
+      "Continuous skill development",
+      "Long-term commitment"
+    ],
+    "evaluation_rubric": {
+      "ambition": "Has clear career goals",
+      "realism": "Goals are achievable",
+      "commitment": "Shows long-term dedication"
+    },
+    "follow_ups": ["What's your next step?", "Which airline interests you?", "How will you achieve this?"]
+  },
+  {
+    "id": "pilot_sit_001",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "What would you do during an in-flight emergency?",
+    "ideal_points": [
+      "Follow emergency procedures",
+      "Communicate with ATC",
+      "Coordinate with crew",
+      "Keep passengers informed",
+      "Execute safe landing"
+    ],
+    "evaluation_rubric": {
+      "procedural": "Follows established protocols",
+      "composure": "Remains calm and focused",
+      "communication": "Coordinates effectively"
+    },
+    "follow_ups": ["What if communication fails?", "How do you prioritize actions?", "When do you declare emergency?"]
+  },
+  {
+    "id": "pilot_sit_002",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "How would you handle a conflict with the co-pilot?",
+    "ideal_points": [
+      "Address issue professionally",
+      "Focus on safety, not ego",
+      "Use CRM principles",
+      "Communicate clearly",
+      "Resolve after flight if needed"
+    ],
+    "evaluation_rubric": {
+      "professionalism": "Handles conflict maturely",
+      "safety_focus": "Keeps safety paramount",
+      "communication": "Uses effective conflict resolution"
+    },
+    "follow_ups": ["What if they're still disagreeing?", "When do you involve management?", "How do you prevent conflicts?"]
+  },
+  {
+    "id": "pilot_sit_003",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "What if weather conditions suddenly change?",
+    "ideal_points": [
+      "Assess new weather data",
+      "Consider alternate airports",
+      "Communicate with ATC",
+      "Make go/no-go decision",
+      "Prioritize safety over schedule"
+    ],
+    "evaluation_rubric": {
+      "decision_making": "Makes sound weather-related decisions",
+      "safety_first": "Willing to divert or delay",
+      "preparedness": "Has contingency planning"
+    },
+    "follow_ups": ["What if passengers complain?", "How do you assess weather risks?", "When do you divert?"]
+  },
+  {
+    "id": "pilot_sit_004",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "How do you manage decision-making under time pressure?",
+    "ideal_points": [
+      "Use training and procedures",
+      "Prioritize critical information",
+      "Trust instruments and data",
+      "Consult with crew",
+      "Make decisive action"
+    ],
+    "evaluation_rubric": {
+      "composure": "Stays calm under time pressure",
+      "methodology": "Has decision-making framework",
+      "confidence": "Can make timely decisions"
+    },
+    "follow_ups": ["Give an example", "What if you're uncertain?", "How do you avoid hasty decisions?"]
+  },
+  {
+    "id": "pilot_sit_005",
+    "phase": "behavioral",
+    "role": "aviation",
+    "level": "any",
+    "skill": "aviation",
+    "difficulty": 3,
+    "question": "What would you do if you made a procedural error?",
+    "ideal_points": [
+      "Acknowledge error immediately",
+      "Take corrective action",
+      "Inform co-pilot and ATC if needed",
+      "Report in accordance with policy",
+      "Learn from mistake"
+    ],
+    "evaluation_rubric": {
+      "accountability": "Takes responsibility",
+      "transparency": "Reports errors honestly",
+      "learning": "Uses errors as learning opportunities"
+    },
+    "follow_ups": ["How do you prevent errors?", "What if error causes incident?", "How do you handle guilt?"]
+  }
+]

@@ -1,0 +1,362 @@
+[
+  {
+    "id": "journalist_media_001",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why do you want to become a journalist?",
+    "ideal_points": [
+      "Passion for truth and storytelling",
+      "Understands role in democracy",
+      "Motivated by public service",
+      "Aware of challenges and responsibilities",
+      "Clear vision for journalism career"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "understanding": "Do they understand journalism's role?",
+      "values": "Are values aligned with journalism ethics?",
+      "awareness": "Are they realistic about challenges?",
+      "missed_opportunities": ["Just wants fame", "Glamour-focused", "No understanding of responsibility", "Naive expectations"]
+    },
+    "follow_ups": ["What kind of journalism interests you?", "How have you prepared for this?", "What does press freedom mean to you?"]
+  },
+  {
+    "id": "journalist_media_002",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "values",
+    "difficulty": 2,
+    "question": "What role does media play in society?",
+    "ideal_points": [
+      "Fourth pillar of democracy",
+      "Accountability and transparency",
+      "Informing and educating public",
+      "Giving voice to voiceless",
+      "Balanced view of power and responsibility"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is understanding comprehensive?",
+      "balance": "Do they see both power and responsibility?",
+      "commitment": "Are they committed to this role?",
+      "awareness": "Do they understand current challenges?",
+      "missed_opportunities": ["Shallow understanding", "Only sees power", "Ignores responsibility", "Unrealistic idealism"]
+    },
+    "follow_ups": ["How has media failed its role?", "What does responsible journalism mean?", "How do you see media evolving?"]
+  },
+  {
+    "id": "journalist_media_003",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "ethics",
+    "difficulty": 3,
+    "question": "How do you ensure unbiased and objective reporting?",
+    "ideal_points": [
+      "Acknowledges all perspectives exist",
+      "Separates facts from opinions",
+      "Recognizes own biases",
+      "Multiple source verification",
+      "Presents balanced viewpoints"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Do they know about bias?",
+      "methods": "Do they have practical methods?",
+      "commitment": "Are they committed to objectivity?",
+      "honesty": "Do they acknowledge difficulty?",
+      "missed_opportunities": ["Claims perfect objectivity", "No awareness of bias", "No methods", "Confuses opinion with fact"]
+    },
+    "follow_ups": ["Describe recognizing your own bias.", "What if all sources are biased?", "Can journalism ever be truly objective?"]
+  },
+  {
+    "id": "journalist_media_004",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "verification",
+    "difficulty": 3,
+    "question": "How do you verify information before publishing?",
+    "ideal_points": [
+      "Multiple independent sources",
+      "Primary source verification",
+      "Cross-checking facts",
+      "Understanding verification hierarchy",
+      "Digital literacy and fact-checking tools"
+    ],
+    "evaluation_rubric": {
+      "rigor": "Is process rigorous?",
+      "methods": "Do they know verification methods?",
+      "tools": "Are they aware of tools available?",
+      "commitment": "Are they committed to accuracy?",
+      "missed_opportunities": ["No clear process", "Single source reliance", "Ignores digital tools", "Speed over accuracy"]
+    },
+    "follow_ups": ["What if you can't verify in time?", "How do you handle anonymous sources?", "Describe a verification failure."]
+  },
+  {
+    "id": "journalist_media_005",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "ethics",
+    "difficulty": 3,
+    "question": "What ethical challenges do journalists face today?",
+    "ideal_points": [
+      "Fake news and misinformation",
+      "Commercial pressures and bias",
+      "Privacy vs public interest",
+      "Source protection",
+      "Social media verification"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Are they aware of current challenges?",
+      "depth": "Do they understand complexity?",
+      "thinking": "Have they thought about solutions?",
+      "preparation": "Are they prepared to face these?",
+      "missed_opportunities": ["Not aware of challenges", "Oversimplifies", "No personal stance", "Naive view"]
+    },
+    "follow_ups": ["How would you handle these challenges?", "What's your stance on paid news?", "How do you balance speed and accuracy?"]
+  },
+  {
+    "id": "journalist_media_006",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 2,
+    "question": "How do you handle criticism and backlash?",
+    "ideal_points": [
+      "Distinguishes valid from invalid criticism",
+      "Learns from constructive feedback",
+      "Maintains composure under attack",
+      "Stands by ethical reporting",
+      "Separates personal from professional"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Can they handle pressure?",
+      "discernment": "Can they evaluate criticism?",
+      "learning": "Do they improve from feedback?",
+      "conviction": "Will they stand by good reporting?",
+      "missed_opportunities": ["Too defensive", "Takes all criticism personally", "No resilience", "Caves under pressure"]
+    },
+    "follow_ups": ["Describe handling harsh criticism.", "What if criticism threatens your safety?", "How do you maintain mental health?"]
+  },
+  {
+    "id": "journalist_media_007",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "judgment",
+    "difficulty": 3,
+    "question": "How do you balance speed versus accuracy in reporting?",
+    "ideal_points": [
+      "Accuracy always comes first",
+      "Understands cost of errors",
+      "Has rapid verification methods",
+      "Knows when to hold a story",
+      "Balances competition with responsibility"
+    ],
+    "evaluation_rubric": {
+      "priorities": "Are priorities correct?",
+      "methods": "Can they be fast AND accurate?",
+      "judgment": "Do they know when to wait?",
+      "responsibility": "Do they prioritize public interest?",
+      "missed_opportunities": ["Speed over accuracy", "No verification process", "Competitive pressure wins", "No ethical framework"]
+    },
+    "follow_ups": ["What if competitors publish first?", "Describe a time you held a story.", "How do you verify quickly?"]
+  },
+  {
+    "id": "journalist_media_008",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "sensitivity",
+    "difficulty": 3,
+    "question": "How do you approach reporting on sensitive or traumatic stories?",
+    "ideal_points": [
+      "Shows empathy and sensitivity",
+      "Respects dignity of subjects",
+      "Balances public interest with privacy",
+      "Aware of psychological impact",
+      "Takes care of own mental health"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Do they show genuine empathy?",
+      "balance": "Can they balance interests?",
+      "awareness": "Are they aware of impact?",
+      "responsibility": "Do they report responsibly?",
+      "missed_opportunities": ["Exploitative approach", "No empathy", "Ignores trauma", "Sensationalizes"]
+    },
+    "follow_ups": ["How do you interview trauma victims?", "What if family doesn't want coverage?", "How do you protect yourself emotionally?"]
+  },
+  {
+    "id": "journalist_media_009",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why should we hire you?",
+    "ideal_points": [
+      "Strong journalistic skills",
+      "Unique perspective or expertise",
+      "Commitment to ethical journalism",
+      "Demonstrates news judgment",
+      "Specific value proposition"
+    ],
+    "evaluation_rubric": {
+      "skills": "Do they have necessary skills?",
+      "differentiation": "What makes them unique?",
+      "commitment": "Are they committed to ethics?",
+      "fit": "Are they a good fit?",
+      "missed_opportunities": ["Generic answer", "No unique value", "Skills mismatch", "Wrong motivations"]
+    },
+    "follow_ups": ["What stories would you pursue?", "What's your reporting style?", "Where do you see journalism in 5 years?"]
+  },
+  {
+    "id": "journalist_media_010",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 3,
+    "question": "How do you handle pressure from authorities or powerful entities?",
+    "ideal_points": [
+      "Understands risks journalists face",
+      "Knows legal protections available",
+      "Has support network",
+      "Committed to truth despite pressure",
+      "Smart about managing risks"
+    ],
+    "evaluation_rubric": {
+      "courage": "Do they have courage for truth?",
+      "awareness": "Do they understand risks?",
+      "preparation": "Are they prepared for pressure?",
+      "support": "Do they have support systems?",
+      "missed_opportunities": ["Naive about risks", "Will cave easily", "No support network", "Reckless approach"]
+    },
+    "follow_ups": ["What if your safety is threatened?", "How do you protect sources?", "Describe standing up to pressure."]
+  },
+  {
+    "id": "journalist_media_011",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "situational_ethics",
+    "difficulty": 3,
+    "question": "Your editor asks you to change facts in a story to align with the publication's stance. What do you do?",
+    "ideal_points": [
+      "Refuses to compromise facts",
+      "Explains ethical implications",
+      "Offers alternative approaches",
+      "Documents the request",
+      "Prepared to escalate or leave if necessary"
+    ],
+    "evaluation_rubric": {
+      "integrity": "Will they protect truth?",
+      "courage": "Do they have moral courage?",
+      "diplomacy": "Can they handle it diplomatically?",
+      "preparation": "Are they ready for consequences?",
+      "missed_opportunities": ["Complies easily", "Aggressive confrontation", "Doesn't document", "No backbone"]
+    },
+    "follow_ups": ["What if it's a small change?", "What if this happens repeatedly?", "How do you protect your career?"]
+  },
+  {
+    "id": "journalist_media_012",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "situational_ethics",
+    "difficulty": 3,
+    "question": "You're covering a controversial issue where all sides claim you're biased. How do you handle this?",
+    "ideal_points": [
+      "Reviews own coverage objectively",
+      "Seeks feedback from neutral parties",
+      "Explains methodology and sources",
+      "Open to valid criticism",
+      "Stands by factual reporting"
+    ],
+    "evaluation_rubric": {
+      "objectivity": "Can they assess themselves objectively?",
+      "communication": "Can they explain their process?",
+      "openness": "Are they open to feedback?",
+      "conviction": "Will they stand by facts?",
+      "missed_opportunities": ["Defensive", "Ignores criticism", "Changes facts to please", "No self-reflection"]
+    },
+    "follow_ups": ["How do you prove balance?", "What if pressure is intense?", "How do you handle social media backlash?"]
+  },
+  {
+    "id": "journalist_media_013",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "situational_ethics",
+    "difficulty": 3,
+    "question": "A source provides you with damaging information but later says it was false. What do you do?",
+    "ideal_points": [
+      "Investigates claim immediately",
+      "Verifies with other sources",
+      "Issues correction if necessary",
+      "Evaluates source credibility",
+      "Reviews verification process"
+    ],
+    "evaluation_rubric": {
+      "responsibility": "Do they take responsibility?",
+      "action": "Do they act quickly?",
+      "transparency": "Are they transparent about errors?",
+      "learning": "Do they learn from it?",
+      "missed_opportunities": ["Ignores retraction", "Blames source", "No correction", "Defensive stance"]
+    },
+    "follow_ups": ["How do you issue corrections?", "What if damage is already done?", "How do you prevent this?"]
+  },
+  {
+    "id": "journalist_media_014",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "situational_ethics",
+    "difficulty": 3,
+    "question": "You have information that's in public interest but revealing it will harm your source. What do you do?",
+    "ideal_points": [
+      "Prioritizes source protection",
+      "Explores alternative ways to report",
+      "Consults legal and ethical experts",
+      "Weighs public interest carefully",
+      "Makes informed decision with source"
+    ],
+    "evaluation_rubric": {
+      "protection": "Do they protect sources?",
+      "creativity": "Can they find alternatives?",
+      "consultation": "Do they seek guidance?",
+      "balance": "Can they balance interests?",
+      "missed_opportunities": ["Burns source easily", "Ignores public interest", "No consultation", "Poor judgment"]
+    },
+    "follow_ups": ["What if source is in danger?", "How do you maintain trust?", "What's more important: story or source?"]
+  },
+  {
+    "id": "journalist_media_015",
+    "phase": "behavioral",
+    "role": "Journalist/Media",
+    "level": "any",
+    "skill": "situational_resilience",
+    "difficulty": 3,
+    "question": "Your story receives massive backlash online including threats. How do you handle this?",
+    "ideal_points": [
+      "Assesses nature of backlash objectively",
+      "Distinguishes trolls from valid criticism",
+      "Takes safety threats seriously",
+      "Has support from organization",
+      "Maintains mental health and resilience"
+    ],
+    "evaluation_rubric": {
+      "assessment": "Can they assess objectively?",
+      "discernment": "Can they separate trolls from critics?",
+      "safety": "Do they take threats seriously?",
+      "resilience": "Can they handle pressure?",
+      "missed_opportunities": ["Takes all personally", "Engages with trolls", "Ignores threats", "Mental health suffers"]
+    },
+    "follow_ups": ["How do you protect yourself online?", "What support do you need?", "How do you maintain perspective?"]
+  }
+]

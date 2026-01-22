@@ -1,0 +1,332 @@
+[
+  {
+    "id": "lawyer_001",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "Why did you choose law?",
+    "ideal_points": [
+      "Interest in justice and advocacy",
+      "Intellectual challenge",
+      "Desire to help people",
+      "Fascination with legal system",
+      "Career opportunities"
+    ],
+    "evaluation_rubric": {
+      "passion": "Genuine interest in legal profession",
+      "understanding": "Knows what legal practice involves",
+      "values": "Aligns with legal profession values"
+    },
+    "follow_ups": ["What area of law interests you?", "When did you decide on law?", "What challenges do you expect?"]
+  },
+  {
+    "id": "lawyer_002",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "What area of law interests you the most?",
+    "ideal_points": [
+      "Specific practice area (criminal, civil, corporate, etc.)",
+      "Reasons for interest",
+      "Relevant experience or exposure",
+      "Career goals in that area",
+      "Understanding of practice area"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Has clear area of interest",
+      "knowledge": "Understands chosen area",
+      "motivation": "Has genuine reasons for interest"
+    },
+    "follow_ups": ["What cases inspire you?", "How have you prepared for this area?", "What's challenging about it?"]
+  },
+  {
+    "id": "lawyer_003",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "What does justice mean to you?",
+    "ideal_points": [
+      "Fairness and equality",
+      "Access to legal representation",
+      "Upholding rights",
+      "Truth and due process",
+      "Balance of interests"
+    ],
+    "evaluation_rubric": {
+      "philosophy": "Has thoughtful perspective on justice",
+      "practicality": "Can apply concept to legal practice",
+      "values": "Shows strong ethical foundation"
+    },
+    "follow_ups": ["Is law always just?", "How do you handle unjust laws?", "Give an example of justice"]
+  },
+  {
+    "id": "lawyer_004",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "How do you handle ethical dilemmas?",
+    "ideal_points": [
+      "Consult professional ethics code",
+      "Seek guidance from seniors",
+      "Analyze all perspectives",
+      "Prioritize client interests within bounds",
+      "Make principled decisions"
+    ],
+    "evaluation_rubric": {
+      "ethics": "Strong ethical framework",
+      "judgment": "Can navigate complex situations",
+      "integrity": "Willing to uphold principles"
+    },
+    "follow_ups": ["Give an example of ethical dilemma", "What if client asks unethical action?", "When do you refuse a case?"]
+  },
+  {
+    "id": "lawyer_005",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "How do you deal with difficult clients?",
+    "ideal_points": [
+      "Active listening",
+      "Clear communication",
+      "Set realistic expectations",
+      "Maintain professionalism",
+      "Know when to withdraw"
+    ],
+    "evaluation_rubric": {
+      "patience": "Can handle challenging personalities",
+      "communication": "Explains complex issues clearly",
+      "boundaries": "Maintains professional boundaries"
+    },
+    "follow_ups": ["Tell me about a difficult client", "How do you manage expectations?", "When do you end representation?"]
+  },
+  {
+    "id": "lawyer_006",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "What are your strengths as an advocate?",
+    "ideal_points": [
+      "Research and analysis skills",
+      "Persuasive communication",
+      "Attention to detail",
+      "Critical thinking",
+      "Client relationship management"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Knows own strengths",
+      "relevance": "Mentions legal-specific strengths",
+      "evidence": "Can provide examples"
+    },
+    "follow_ups": ["Give an example of strong advocacy", "What weaknesses are you improving?", "How do you prepare cases?"]
+  },
+  {
+    "id": "lawyer_007",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "How do you handle high-pressure cases?",
+    "ideal_points": [
+      "Thorough preparation",
+      "Time management",
+      "Stay organized",
+      "Stress management techniques",
+      "Team collaboration"
+    ],
+    "evaluation_rubric": {
+      "composure": "Handles pressure well",
+      "preparation": "Emphasizes thorough preparation",
+      "methods": "Has concrete strategies"
+    },
+    "follow_ups": ["Tell me about a high-stakes case", "How do you avoid burnout?", "When do you ask for help?"]
+  },
+  {
+    "id": "lawyer_008",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "Why should we hire you?",
+    "ideal_points": [
+      "Relevant experience or skills",
+      "Strong academic background",
+      "Work ethic and dedication",
+      "Cultural fit with firm",
+      "Unique perspective or strengths"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Articulates value proposition",
+      "differentiation": "Shows what makes them unique",
+      "fit": "Understands firm's needs"
+    },
+    "follow_ups": ["What will you bring to our firm?", "How do you handle competition?", "What's your biggest achievement?"]
+  },
+  {
+    "id": "lawyer_009",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "What legal values do you stand by?",
+    "ideal_points": [
+      "Integrity and honesty",
+      "Confidentiality",
+      "Zealous advocacy",
+      "Access to justice",
+      "Professional responsibility"
+    ],
+    "evaluation_rubric": {
+      "values": "Has strong value system",
+      "alignment": "Values align with legal profession",
+      "commitment": "Shows commitment to upholding values"
+    },
+    "follow_ups": ["How do you apply these values?", "What if values conflict?", "Give an example"]
+  },
+  {
+    "id": "lawyer_010",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 2,
+    "question": "How do you manage long case durations?",
+    "ideal_points": [
+      "Maintain organization and documentation",
+      "Regular client updates",
+      "Break work into phases",
+      "Stay motivated",
+      "Balance multiple cases"
+    ],
+    "evaluation_rubric": {
+      "patience": "Can handle long timelines",
+      "organization": "Stays organized over time",
+      "communication": "Keeps clients informed"
+    },
+    "follow_ups": ["How do you track progress?", "How do you manage client frustration?", "What's your longest case?"]
+  },
+  {
+    "id": "lawyer_sit_001",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "What would you do if your client is guilty?",
+    "ideal_points": [
+      "Everyone deserves representation",
+      "Focus on ensuring fair trial",
+      "Challenge prosecution's evidence",
+      "Cannot reveal client confidences",
+      "Advocate within ethical bounds"
+    ],
+    "evaluation_rubric": {
+      "ethics": "Understands role of defense counsel",
+      "principles": "Can separate personal views from duty",
+      "professionalism": "Maintains professional obligations"
+    },
+    "follow_ups": ["How do you reconcile this?", "What if client admits guilt?", "Where do you draw the line?"]
+  },
+  {
+    "id": "lawyer_sit_002",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "How do you handle conflicts of interest?",
+    "ideal_points": [
+      "Identify conflicts early",
+      "Disclose to all parties",
+      "Obtain informed consent if possible",
+      "Withdraw if necessary",
+      "Follow ethics rules"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Can identify conflicts",
+      "ethics": "Follows professional rules",
+      "judgment": "Makes appropriate decisions"
+    },
+    "follow_ups": ["Give an example", "What if client insists?", "How do you prevent conflicts?"]
+  },
+  {
+    "id": "lawyer_sit_003",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "What if a judge disagrees with your argument?",
+    "ideal_points": [
+      "Respectfully stand ground with evidence",
+      "Provide additional authorities",
+      "Adjust argument if needed",
+      "Accept ruling professionally",
+      "Consider appeal if appropriate"
+    ],
+    "evaluation_rubric": {
+      "advocacy": "Continues strong advocacy",
+      "respect": "Maintains court decorum",
+      "adaptability": "Can adjust strategy"
+    },
+    "follow_ups": ["How do you handle unfavorable rulings?", "When do you concede?", "How do you maintain composure?"]
+  },
+  {
+    "id": "lawyer_sit_004",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "How do you handle losing a case?",
+    "ideal_points": [
+      "Analyze what went wrong",
+      "Support disappointed client",
+      "Learn from experience",
+      "Maintain professionalism",
+      "Move forward with other cases"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Bounces back from losses",
+      "reflection": "Learns from experience",
+      "client_care": "Supports client through loss"
+    },
+    "follow_ups": ["Tell me about a case you lost", "How do you avoid taking it personally?", "When do you advise appeal?"]
+  },
+  {
+    "id": "lawyer_sit_005",
+    "phase": "behavioral",
+    "role": "legal",
+    "level": "any",
+    "skill": "law",
+    "difficulty": 3,
+    "question": "How do you balance law and morality?",
+    "ideal_points": [
+      "Law provides framework, not always moral answer",
+      "Advocate within legal bounds",
+      "Personal morality guides ethical choices",
+      "Seek justice within system",
+      "Know when to refuse representation"
+    ],
+    "evaluation_rubric": {
+      "philosophy": "Has thoughtful perspective",
+      "practicality": "Can apply to practice",
+      "integrity": "Shows strong moral compass"
+    },
+    "follow_ups": ["Give an example of conflict", "What if law is unjust?", "How do you maintain integrity?"]
+  }
+]

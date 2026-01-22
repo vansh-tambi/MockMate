@@ -1,0 +1,362 @@
+[
+  {
+    "id": "entrepreneur_startup_001",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why did you decide to start your own business?",
+    "ideal_points": [
+      "Identified real problem to solve",
+      "Passion for the solution/industry",
+      "Desire for autonomy and impact",
+      "Calculated risk assessment",
+      "Long-term vision"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is motivation authentic?",
+      "problem_focus": "Are they solving real problems?",
+      "awareness": "Do they understand challenges?",
+      "vision": "Do they have clear vision?",
+      "missed_opportunities": ["Only wants to avoid job", "No clear problem identified", "Unrealistic expectations", "Short-term thinking"]
+    },
+    "follow_ups": ["What problem are you solving?", "Why is now the right time?", "What's your long-term vision?"]
+  },
+  {
+    "id": "entrepreneur_startup_002",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "problem_solving",
+    "difficulty": 3,
+    "question": "Describe a major challenge you faced and how you solved it.",
+    "ideal_points": [
+      "Clear problem identification",
+      "Analytical approach",
+      "Resourcefulness",
+      "Action-oriented",
+      "Learning from experience"
+    ],
+    "evaluation_rubric": {
+      "complexity": "Was it genuinely challenging?",
+      "approach": "Was approach systematic?",
+      "resourcefulness": "Did they find creative solutions?",
+      "learning": "Did they learn and adapt?",
+      "missed_opportunities": ["Trivial problem", "No systematic approach", "Blames others", "No learning"]
+    },
+    "follow_ups": ["What would you do differently?", "How has this shaped your approach?", "What did you learn?"]
+  },
+  {
+    "id": "entrepreneur_startup_003",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 3,
+    "question": "Tell me about a time you failed. How did you handle it?",
+    "ideal_points": [
+      "Takes ownership of failure",
+      "Analyzes what went wrong",
+      "Bounced back with action",
+      "Applied learnings",
+      "Shows resilience"
+    ],
+    "evaluation_rubric": {
+      "ownership": "Do they take responsibility?",
+      "learning": "Did they extract lessons?",
+      "resilience": "Did they bounce back?",
+      "growth": "Did they grow from it?",
+      "missed_opportunities": ["Blames others", "No real failure shared", "Defensive", "Didn't learn"]
+    },
+    "follow_ups": ["What was your biggest lesson?", "How long did recovery take?", "Would you try again?"]
+  },
+  {
+    "id": "entrepreneur_startup_004",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "risk_management",
+    "difficulty": 2,
+    "question": "How do you assess and manage risk?",
+    "ideal_points": [
+      "Calculated risk-taking",
+      "Data-driven decisions",
+      "Risk mitigation strategies",
+      "Balances risk with reward",
+      "Learning from failures"
+    ],
+    "evaluation_rubric": {
+      "approach": "Is approach systematic?",
+      "balance": "Do they balance risk/reward?",
+      "preparation": "Do they plan for risks?",
+      "learning": "Do they learn from outcomes?",
+      "missed_opportunities": ["Reckless", "Too risk-averse", "No methodology", "Doesn't learn"]
+    },
+    "follow_ups": ["What's the biggest risk you've taken?", "How do you decide when to pivot?", "What risks worry you most?"]
+  },
+  {
+    "id": "entrepreneur_startup_005",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "team_building",
+    "difficulty": 3,
+    "question": "How do you build and lead your team?",
+    "ideal_points": [
+      "Hires for skills and culture fit",
+      "Empowers and trusts team",
+      "Communicates vision clearly",
+      "Provides growth opportunities",
+      "Leads by example"
+    ],
+    "evaluation_rubric": {
+      "hiring": "Do they hire strategically?",
+      "leadership": "Are they effective leaders?",
+      "culture": "Do they build positive culture?",
+      "empowerment": "Do they empower team?",
+      "missed_opportunities": ["Micromanages", "Poor hiring criteria", "No vision sharing", "Doesn't develop people"]
+    },
+    "follow_ups": ["What do you look for in team members?", "How do you handle underperformance?", "What's your leadership style?"]
+  },
+  {
+    "id": "entrepreneur_startup_006",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "adaptability",
+    "difficulty": 3,
+    "question": "How do you handle uncertainty and ambiguity?",
+    "ideal_points": [
+      "Comfortable with ambiguity",
+      "Makes decisions with incomplete info",
+      "Stays flexible and adaptable",
+      "Focuses on what can control",
+      "Learns and adjusts quickly"
+    ],
+    "evaluation_rubric": {
+      "comfort": "Are they comfortable with uncertainty?",
+      "decisiveness": "Can they decide with incomplete data?",
+      "adaptability": "Do they adapt quickly?",
+      "focus": "Do they focus effectively?",
+      "missed_opportunities": ["Paralyzed by uncertainty", "Needs perfect information", "Inflexible", "Overly stressed"]
+    },
+    "follow_ups": ["Give an example of navigating ambiguity.", "How do you stay focused?", "What helps you adapt?"]
+  },
+  {
+    "id": "entrepreneur_startup_007",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "drive",
+    "difficulty": 2,
+    "question": "What drives you to keep going when things get tough?",
+    "ideal_points": [
+      "Strong belief in mission",
+      "Customer/user impact",
+      "Personal growth",
+      "Team reliance",
+      "Long-term vision"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Is motivation genuine?",
+      "sustainability": "Is it sustainable long-term?",
+      "depth": "Is it deeply rooted?",
+      "balance": "Is there healthy balance?",
+      "missed_opportunities": ["Only money-driven", "Ego-based", "No real purpose", "Unrealistic"]
+    },
+    "follow_ups": ["What's your toughest moment been?", "How do you maintain motivation?", "What would make you quit?"]
+  },
+  {
+    "id": "entrepreneur_startup_008",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "market_fit",
+    "difficulty": 2,
+    "question": "Why will your business idea succeed?",
+    "ideal_points": [
+      "Clear value proposition",
+      "Market validation",
+      "Competitive advantage",
+      "Understanding target customer",
+      "Realistic but confident"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Is value proposition clear?",
+      "evidence": "Do they have market validation?",
+      "differentiation": "What makes them unique?",
+      "realism": "Is it realistic?",
+      "missed_opportunities": ["No validation", "Unclear value prop", "No differentiation", "Overconfident/underconfident"]
+    },
+    "follow_ups": ["Who is your target customer?", "What's your competitive advantage?", "How have you validated demand?"]
+  },
+  {
+    "id": "entrepreneur_startup_009",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "metrics",
+    "difficulty": 3,
+    "question": "How do you measure success and track growth?",
+    "ideal_points": [
+      "Key metrics identified",
+      "Regular tracking systems",
+      "Both quantitative and qualitative",
+      "Customer-centric metrics",
+      "Adjusts based on data"
+    ],
+    "evaluation_rubric": {
+      "metrics": "Are metrics relevant?",
+      "tracking": "Do they track systematically?",
+      "data_driven": "Are decisions data-informed?",
+      "balance": "Do they balance different metrics?",
+      "missed_opportunities": ["Vague metrics", "No tracking", "Wrong metrics", "Ignores data"]
+    },
+    "follow_ups": ["What's your north star metric?", "How often do you review metrics?", "What metrics matter most now?"]
+  },
+  {
+    "id": "entrepreneur_startup_010",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "perseverance",
+    "difficulty": 2,
+    "question": "Why should investors/partners believe in you?",
+    "ideal_points": [
+      "Track record of execution",
+      "Deep domain expertise",
+      "Resilience and grit",
+      "Clear vision and strategy",
+      "Strong team or network"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Are they appropriately confident?",
+      "evidence": "Can they back it up?",
+      "credibility": "Are they credible?",
+      "vision": "Is vision compelling?",
+      "missed_opportunities": ["Arrogant", "No evidence", "Unclear vision", "Lacks credibility"]
+    },
+    "follow_ups": ["What's your biggest achievement?", "What makes you different?", "What's your unfair advantage?"]
+  },
+  {
+    "id": "entrepreneur_startup_011",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 3,
+    "question": "All your target investors said no. What do you do next?",
+    "ideal_points": [
+      "Seeks feedback to improve pitch",
+      "Analyzes patterns in rejections",
+      "Explores alternative funding",
+      "Bootstraps or adjusts strategy",
+      "Maintains persistence"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Do they bounce back?",
+      "learning": "Do they seek feedback?",
+      "resourcefulness": "Do they find alternatives?",
+      "persistence": "Do they keep going?",
+      "missed_opportunities": ["Gives up", "Blames investors", "No adaptation", "Takes no action"]
+    },
+    "follow_ups": ["How do you handle rejection?", "What alternative funding exists?", "When would you give up?"]
+  },
+  {
+    "id": "entrepreneur_startup_012",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "financial_management",
+    "difficulty": 3,
+    "question": "Your startup is running out of cash in 3 months. How do you handle this?",
+    "ideal_points": [
+      "Immediate expense audit",
+      "Accelerate revenue generation",
+      "Negotiate with vendors/creditors",
+      "Explore bridge funding",
+      "Transparent with team"
+    ],
+    "evaluation_rubric": {
+      "urgency": "Do they act quickly?",
+      "priorities": "Do they prioritize correctly?",
+      "creativity": "Are they resourceful?",
+      "communication": "Are they transparent?",
+      "missed_opportunities": ["Panics", "Hides from team", "No plan", "Unrealistic solutions"]
+    },
+    "follow_ups": ["How do you prioritize expenses?", "What would you cut first?", "How do you communicate this to team?"]
+  },
+  {
+    "id": "entrepreneur_startup_013",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "conflict_resolution",
+    "difficulty": 3,
+    "question": "Your co-founder disagrees with the company direction. How do you resolve this?",
+    "ideal_points": [
+      "Open and honest dialogue",
+      "Understand their perspective",
+      "Data-driven discussion",
+      "Seek external input if needed",
+      "Make decision and align or part ways"
+    ],
+    "evaluation_rubric": {
+      "communication": "Do they communicate openly?",
+      "respect": "Do they respect other views?",
+      "decisiveness": "Can they make tough calls?",
+      "maturity": "Do they handle it maturely?",
+      "missed_opportunities": ["Avoids conflict", "Dismissive", "Can't compromise", "No resolution"]
+    },
+    "follow_ups": ["How do you make big decisions?", "What if you can't agree?", "How do you maintain relationship?"]
+  },
+  {
+    "id": "entrepreneur_startup_014",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "adaptability",
+    "difficulty": 3,
+    "question": "Market feedback suggests you need to pivot. How do you decide?",
+    "ideal_points": [
+      "Analyzes data thoroughly",
+      "Talks to customers",
+      "Evaluates alternatives",
+      "Considers team and resources",
+      "Makes decisive, informed choice"
+    ],
+    "evaluation_rubric": {
+      "analysis": "Do they analyze properly?",
+      "customer_focus": "Do they listen to market?",
+      "decisiveness": "Can they make the call?",
+      "communication": "Do they bring team along?",
+      "missed_opportunities": ["Ignores market", "Pivots too easily", "Analysis paralysis", "Doesn't consult team"]
+    },
+    "follow_ups": ["How do you know when to pivot?", "What factors do you consider?", "How do you maintain team morale?"]
+  },
+  {
+    "id": "entrepreneur_startup_015",
+    "phase": "behavioral",
+    "role": "Entrepreneur/Startup Founder",
+    "level": "any",
+    "skill": "difficult_decisions",
+    "difficulty": 3,
+    "question": "You need to let someone go to save the company. How do you approach this?",
+    "ideal_points": [
+      "Makes decision for company survival",
+      "Handles with dignity and respect",
+      "Clear and honest communication",
+      "Provides support if possible",
+      "Transparent with remaining team"
+    ],
+    "evaluation_rubric": {
+      "decisiveness": "Can they make tough calls?",
+      "compassion": "Do they show empathy?",
+      "communication": "Is communication clear?",
+      "leadership": "Do they lead through it?",
+      "missed_opportunities": ["Avoids decision", "Handles poorly", "Not transparent", "No compassion"]
+    },
+    "follow_ups": ["How do you decide who to let go?", "How do you communicate to team?", "How do you support the person?"]
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "id": "prog_fund_001",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 1,
+    "question": "What is a compiler vs interpreter?",
+    "ideal_points": [
+      "Compiler translates entire code to machine code before execution",
+      "Interpreter executes code line by line",
+      "Compiler produces executable file",
+      "Interpreter doesn't create separate executable",
+      "Examples: C/C++ use compiler, Python uses interpreter"
+    ],
+    "follow_ups": ["Which is faster and why?", "What are pros and cons of each?", "Can a language use both?"]
+  },
+  {
+    "id": "prog_fund_002",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 1,
+    "question": "Difference between syntax error and runtime error.",
+    "ideal_points": [
+      "Syntax error: Code doesn't follow language rules",
+      "Runtime error: Error occurs during execution",
+      "Syntax errors caught by compiler/interpreter before execution",
+      "Runtime errors happen during program execution",
+      "Examples: missing semicolon (syntax), division by zero (runtime)"
+    ],
+    "follow_ups": ["What's a logical error?", "How do you debug each type?", "Which is harder to find?"]
+  },
+  {
+    "id": "prog_fund_003",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "What is memory allocation?",
+    "ideal_points": [
+      "Process of assigning memory to variables/data structures",
+      "Two types: static and dynamic",
+      "Static allocation happens at compile time",
+      "Dynamic allocation happens at runtime",
+      "Need to deallocate to prevent memory leaks"
+    ],
+    "follow_ups": ["What's a memory leak?", "Explain malloc and free", "What's garbage collection?"]
+  },
+  {
+    "id": "prog_fund_004",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "Explain stack vs heap.",
+    "ideal_points": [
+      "Stack: Automatic memory, LIFO structure",
+      "Heap: Manual memory, random access",
+      "Stack faster but limited size",
+      "Heap slower but larger, flexible",
+      "Local variables on stack, dynamic allocations on heap"
+    ],
+    "follow_ups": ["What's stack overflow?", "When do you use heap?", "What happens when stack is full?"]
+  },
+  {
+    "id": "prog_fund_005",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 1,
+    "question": "What is debugging?",
+    "ideal_points": [
+      "Process of finding and fixing errors in code",
+      "Uses tools like debuggers, breakpoints, logs",
+      "Systematic approach to isolate issues",
+      "Includes reproducing bug, identifying cause, fixing, testing",
+      "Essential skill for all developers"
+    ],
+    "follow_ups": ["What debugging techniques do you use?", "How do you debug production issues?", "What tools have you used?"]
+  },
+  {
+    "id": "prog_fund_006",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 1,
+    "question": "What is an algorithm?",
+    "ideal_points": [
+      "Step-by-step procedure to solve a problem",
+      "Has clear inputs and outputs",
+      "Finite number of steps",
+      "Each step is unambiguous",
+      "Should terminate eventually"
+    ],
+    "follow_ups": ["Give an example of an algorithm", "What makes a good algorithm?", "How do you measure algorithm efficiency?"]
+  },
+  {
+    "id": "prog_fund_007",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "What is time and space complexity?",
+    "ideal_points": [
+      "Time complexity: How runtime grows with input size",
+      "Space complexity: How memory usage grows with input size",
+      "Expressed in Big-O notation",
+      "Important for algorithm efficiency",
+      "Trade-offs between time and space"
+    ],
+    "follow_ups": ["What's O(n) vs O(n²)?", "Can you give examples?", "Why does it matter?"]
+  },
+  {
+    "id": "prog_fund_008",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "Difference between mutable and immutable data.",
+    "ideal_points": [
+      "Mutable: Can be changed after creation",
+      "Immutable: Cannot be modified once created",
+      "Examples: Lists are mutable, strings immutable (in Python)",
+      "Immutable objects are thread-safe",
+      "Performance implications for both"
+    ],
+    "follow_ups": ["Why use immutable objects?", "Give examples in your language", "What's the advantage of immutability?"]
+  },
+  {
+    "id": "prog_fund_009",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "What is recursion?",
+    "ideal_points": [
+      "Function calling itself",
+      "Needs base case to terminate",
+      "Breaks problem into smaller subproblems",
+      "Uses call stack",
+      "Can be replaced by iteration"
+    ],
+    "follow_ups": ["Give an example of recursion", "What's the risk?", "Recursion vs iteration?"]
+  },
+  {
+    "id": "prog_fund_010",
+    "phase": "technical",
+    "role": "any",
+    "level": "fresher",
+    "skill": "programming",
+    "difficulty": 2,
+    "question": "Explain OOP concepts.",
+    "ideal_points": [
+      "Encapsulation: Bundling data and methods",
+      "Inheritance: Deriving from parent class",
+      "Polymorphism: Same interface, different implementations",
+      "Abstraction: Hiding complexity",
+      "Promotes code reusability and organization"
+    ],
+    "follow_ups": ["Explain with an example", "What's the benefit of OOP?", "What are design patterns?"]
+  }
+]

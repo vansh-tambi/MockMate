@@ -1,0 +1,172 @@
+[
+  {
+    "id": "dsa_001",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "What is an array vs linked list?",
+    "ideal_points": [
+      "Array: Contiguous memory, fixed size, O(1) access",
+      "Linked list: Non-contiguous, dynamic size, O(n) access",
+      "Array better for random access",
+      "Linked list better for insertions/deletions",
+      "Trade-offs in memory and operations"
+    ],
+    "follow_ups": ["When would you use each?", "What's a dynamic array?", "How does memory allocation differ?"]
+  },
+  {
+    "id": "dsa_002",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "Explain stack and queue.",
+    "ideal_points": [
+      "Stack: LIFO (Last In First Out)",
+      "Queue: FIFO (First In First Out)",
+      "Stack operations: push, pop, peek",
+      "Queue operations: enqueue, dequeue",
+      "Applications: function calls (stack), task scheduling (queue)"
+    ],
+    "follow_ups": ["Implement a stack", "What's a priority queue?", "Real-world examples?"]
+  },
+  {
+    "id": "dsa_003",
+    "phase": "technical",
+    "role": "any",
+    "level": "fresher",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "What is hashing?",
+    "ideal_points": [
+      "Mapping data to fixed-size values using hash function",
+      "Used in hash tables/dictionaries",
+      "O(1) average lookup time",
+      "Hash collisions need resolution strategies",
+      "Important for fast data retrieval"
+    ],
+    "follow_ups": ["What's a hash collision?", "How do you handle collisions?", "Applications of hashing?"]
+  },
+  {
+    "id": "dsa_004",
+    "phase": "technical",
+    "role": "any",
+    "level": "fresher",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "Explain binary search.",
+    "ideal_points": [
+      "Search algorithm for sorted arrays",
+      "Divides search space in half each iteration",
+      "O(log n) time complexity",
+      "Requires sorted data",
+      "Much faster than linear search for large datasets"
+    ],
+    "follow_ups": ["Implement binary search", "Why does data need to be sorted?", "What if data is unsorted?"]
+  },
+  {
+    "id": "dsa_005",
+    "phase": "technical",
+    "role": "any",
+    "level": "intern",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "What is Big-O notation?",
+    "ideal_points": [
+      "Describes upper bound of algorithm complexity",
+      "Focuses on worst-case scenario",
+      "Ignores constants and lower-order terms",
+      "Common: O(1), O(log n), O(n), O(n²), O(2ⁿ)",
+      "Used to compare algorithm efficiency"
+    ],
+    "follow_ups": ["What's O(n log n)?", "Difference between Big-O, Big-Θ, Big-Ω?", "Why ignore constants?"]
+  },
+  {
+    "id": "dsa_006",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "dsa",
+    "difficulty": 3,
+    "question": "Difference between BFS and DFS.",
+    "ideal_points": [
+      "BFS: Breadth-First Search, explores level by level",
+      "DFS: Depth-First Search, explores as deep as possible first",
+      "BFS uses queue, DFS uses stack (or recursion)",
+      "BFS finds shortest path in unweighted graph",
+      "DFS uses less memory for deep graphs"
+    ],
+    "follow_ups": ["When would you use each?", "Implement BFS or DFS", "What's time complexity?"]
+  },
+  {
+    "id": "dsa_007",
+    "phase": "technical",
+    "role": "any",
+    "level": "fresher",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "What is a tree?",
+    "ideal_points": [
+      "Hierarchical data structure with nodes",
+      "Has root node and child nodes",
+      "No cycles (acyclic)",
+      "Each node has one parent (except root)",
+      "Types: Binary tree, BST, AVL, etc."
+    ],
+    "follow_ups": ["What's a binary search tree?", "Tree traversals?", "Balanced vs unbalanced?"]
+  },
+  {
+    "id": "dsa_008",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "dsa",
+    "difficulty": 3,
+    "question": "What is a graph?",
+    "ideal_points": [
+      "Collection of vertices and edges",
+      "Can be directed or undirected",
+      "Can be weighted or unweighted",
+      "May contain cycles",
+      "Representations: adjacency matrix, adjacency list"
+    ],
+    "follow_ups": ["Graph vs tree?", "Dijkstra's algorithm?", "Real-world graph examples?"]
+  },
+  {
+    "id": "dsa_009",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "dsa",
+    "difficulty": 3,
+    "question": "What is dynamic programming?",
+    "ideal_points": [
+      "Optimization technique using memoization",
+      "Stores results of subproblems to avoid recomputation",
+      "Breaks problem into overlapping subproblems",
+      "Bottom-up or top-down approach",
+      "Examples: Fibonacci, knapsack, shortest path"
+    ],
+    "follow_ups": ["DP vs recursion?", "Give an example", "What's memoization?"]
+  },
+  {
+    "id": "dsa_010",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "dsa",
+    "difficulty": 3,
+    "question": "What is a greedy algorithm?",
+    "ideal_points": [
+      "Makes locally optimal choice at each step",
+      "Hopes to find global optimum",
+      "Doesn't always guarantee optimal solution",
+      "Fast but not always correct",
+      "Examples: Dijkstra's, Huffman coding, activity selection"
+    ],
+    "follow_ups": ["When does greedy work?", "Greedy vs DP?", "Give an example where greedy fails"]
+  }
+]

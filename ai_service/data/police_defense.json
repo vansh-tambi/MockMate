@@ -1,0 +1,362 @@
+[
+  {
+    "id": "police_defense_001",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why do you want to serve in uniform?",
+    "ideal_points": [
+      "Genuine passion for public service",
+      "Understanding of sacrifice and responsibility",
+      "Clear motivation beyond salary or status",
+      "Awareness of role's challenges",
+      "Personal values align with service"
+    ],
+    "evaluation_rubric": {
+      "genuineness": "Is the motivation authentic?",
+      "understanding": "Do they understand what service means?",
+      "values": "Are their values aligned with the role?",
+      "awareness": "Do they know the challenges?",
+      "missed_opportunities": ["Generic answers", "Only mentions salary", "No personal connection", "Unrealistic expectations"]
+    },
+    "follow_ups": ["What does service mean to you personally?", "Are you prepared for the sacrifices?", "How will you handle being away from family?"]
+  },
+  {
+    "id": "police_defense_002",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "discipline",
+    "difficulty": 2,
+    "question": "How do you demonstrate discipline in your daily life?",
+    "ideal_points": [
+      "Concrete examples of disciplined behavior",
+      "Shows consistency and routine",
+      "Demonstrates self-control",
+      "Links discipline to achieving goals",
+      "Acknowledges challenges and how overcome"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Are examples specific and measurable?",
+      "consistency": "Do they show sustained discipline?",
+      "self_awareness": "Do they recognize their strengths/weaknesses?",
+      "application": "Can they apply discipline to this role?",
+      "missed_opportunities": ["Vague claims", "No examples", "Only talks about gym", "Can't explain process"]
+    },
+    "follow_ups": ["What happens when you break your routine?", "How do you maintain discipline during stress?", "Give an example of overcoming temptation."]
+  },
+  {
+    "id": "police_defense_003",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "authority",
+    "difficulty": 2,
+    "question": "How do you view authority and chain of command?",
+    "ideal_points": [
+      "Respects hierarchy and structure",
+      "Understands purpose of chain of command",
+      "Knows when to question vs when to follow",
+      "Can balance obedience with critical thinking",
+      "Shows maturity in understanding authority"
+    ],
+    "evaluation_rubric": {
+      "respect": "Do they respect authority appropriately?",
+      "understanding": "Do they grasp why hierarchy matters?",
+      "balance": "Can they think while following orders?",
+      "maturity": "Is their view nuanced and mature?",
+      "missed_opportunities": ["Blind obedience", "Rebellious attitude", "No understanding of hierarchy", "Can't explain limits"]
+    },
+    "follow_ups": ["What if you disagree with a superior?", "How do you handle unjust orders?", "Describe respecting someone you dislike."]
+  },
+  {
+    "id": "police_defense_004",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "values",
+    "difficulty": 2,
+    "question": "What are your core values and how do they align with service?",
+    "ideal_points": [
+      "Clearly articulated personal values",
+      "Values include duty, honor, integrity",
+      "Explains how values guide decisions",
+      "Shows consistency between values and actions",
+      "Links values to service profession"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Are values clearly defined?",
+      "alignment": "Do values match the profession?",
+      "authenticity": "Are these truly their values?",
+      "application": "Can they apply values to scenarios?",
+      "missed_opportunities": ["Generic values", "No personal examples", "Values conflict with role", "Can't explain why"]
+    },
+    "follow_ups": ["Describe a time you stood by your values.", "What if values conflict with orders?", "How do values help in tough situations?"]
+  },
+  {
+    "id": "police_defense_005",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "stress_management",
+    "difficulty": 3,
+    "question": "How do you manage stress in high-pressure situations?",
+    "ideal_points": [
+      "Specific stress management techniques",
+      "Examples of handling pressure effectively",
+      "Shows emotional regulation ability",
+      "Maintains performance under stress",
+      "Recognizes stress and takes action"
+    ],
+    "evaluation_rubric": {
+      "techniques": "Do they have actual coping mechanisms?",
+      "effectiveness": "Do their methods work?",
+      "self_awareness": "Can they recognize their stress?",
+      "performance": "Can they still function under pressure?",
+      "missed_opportunities": ["No real techniques", "Denies stress exists", "Unhealthy coping", "Never faced pressure"]
+    },
+    "follow_ups": ["Describe your most stressful experience.", "How do you prepare for stressful situations?", "What helps you stay calm?"]
+  },
+  {
+    "id": "police_defense_006",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "integrity",
+    "difficulty": 3,
+    "question": "Tell me about a time you had to demonstrate integrity.",
+    "ideal_points": [
+      "Uses STAR method effectively",
+      "Shows moral courage",
+      "Made difficult but right choice",
+      "Stood up despite personal cost",
+      "Reflects on importance of integrity"
+    ],
+    "evaluation_rubric": {
+      "courage": "Did they show moral courage?",
+      "cost": "Was there a personal sacrifice?",
+      "conviction": "Did they stand firm?",
+      "reflection": "Do they understand why integrity matters?",
+      "missed_opportunities": ["Easy situation", "No real conflict", "Vague story", "Compromised values"]
+    },
+    "follow_ups": ["What made that decision difficult?", "Would you do it again?", "How do you define integrity?"]
+  },
+  {
+    "id": "police_defense_007",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why this branch/force specifically?",
+    "ideal_points": [
+      "Research about the specific force",
+      "Understands unique aspects of this branch",
+      "Clear fit between candidate and branch",
+      "Aware of specific requirements",
+      "Passionate about branch's mission"
+    ],
+    "evaluation_rubric": {
+      "research": "Did they research this branch?",
+      "fit": "Is there genuine alignment?",
+      "specificity": "Can they explain what makes it unique?",
+      "commitment": "Are they serious about this choice?",
+      "missed_opportunities": ["Generic answer", "Applies to any branch", "No research done", "Wrong information"]
+    },
+    "follow_ups": ["What specific roles interest you?", "How did you prepare for this?", "What's unique about this force?"]
+  },
+  {
+    "id": "police_defense_008",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 2,
+    "question": "How do you handle failure or setbacks?",
+    "ideal_points": [
+      "Specific example of overcoming failure",
+      "Takes ownership of mistakes",
+      "Shows learning from setbacks",
+      "Demonstrates resilience and bounce-back",
+      "Growth mindset evident"
+    ],
+    "evaluation_rubric": {
+      "ownership": "Do they take responsibility?",
+      "learning": "Did they learn from failure?",
+      "resilience": "Did they bounce back?",
+      "growth": "Are they better for it?",
+      "missed_opportunities": ["Blames others", "No real failure", "Gave up", "No learning"]
+    },
+    "follow_ups": ["What did you learn?", "How did you recover?", "How has this prepared you for service?"]
+  },
+  {
+    "id": "police_defense_009",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "teamwork",
+    "difficulty": 2,
+    "question": "Describe your experience working in teams, especially in challenging conditions.",
+    "ideal_points": [
+      "Specific teamwork examples",
+      "Shows collaboration skills",
+      "Understands team dynamics",
+      "Can work with diverse people",
+      "Puts team before self"
+    ],
+    "evaluation_rubric": {
+      "collaboration": "Can they work effectively with others?",
+      "flexibility": "Can they adapt to different team members?",
+      "selflessness": "Do they prioritize team over self?",
+      "contribution": "What value do they add to teams?",
+      "missed_opportunities": ["Always a lone wolf", "Takes all credit", "Can't work with others", "No examples"]
+    },
+    "follow_ups": ["How do you handle difficult team members?", "Describe a time you sacrificed for the team.", "What makes a good team player?"]
+  },
+  {
+    "id": "police_defense_010",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "mental_resilience",
+    "difficulty": 3,
+    "question": "How do you maintain mental resilience in emotionally difficult situations?",
+    "ideal_points": [
+      "Understands emotional challenges of role",
+      "Has mental health awareness",
+      "Knows coping mechanisms",
+      "Can compartmentalize when needed",
+      "Seeks help when necessary"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Do they understand emotional toll?",
+      "preparation": "Are they mentally prepared?",
+      "mechanisms": "Do they have healthy coping strategies?",
+      "balance": "Can they process emotions appropriately?",
+      "missed_opportunities": ["Denies emotions", "No coping strategies", "Unhealthy approach", "Naive about challenges"]
+    },
+    "follow_ups": ["How do you process traumatic events?", "What support systems do you have?", "How do you maintain work-life balance?"]
+  },
+  {
+    "id": "police_defense_011",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You receive an order you believe is unethical. What do you do?",
+    "ideal_points": [
+      "Knows when to question orders",
+      "Follows proper chain of command",
+      "Balances obedience with ethics",
+      "Understands lawful vs unlawful orders",
+      "Shows moral courage"
+    ],
+    "evaluation_rubric": {
+      "judgment": "Can they distinguish ethical issues?",
+      "process": "Do they follow proper procedures?",
+      "courage": "Will they stand up if needed?",
+      "understanding": "Do they know their rights/duties?",
+      "missed_opportunities": ["Blind obedience", "Immediate rebellion", "No understanding of process", "Can't identify unethical"]
+    },
+    "follow_ups": ["What makes an order unlawful?", "How do you report concerns?", "What if your career is at risk?"]
+  },
+  {
+    "id": "police_defense_012",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You're dealing with hostile civilians during a tense situation. How do you handle it?",
+    "ideal_points": [
+      "Maintains composure and professionalism",
+      "Shows de-escalation skills",
+      "Balances authority with empathy",
+      "Prioritizes safety of all",
+      "Follows protocol while being adaptive"
+    ],
+    "evaluation_rubric": {
+      "composure": "Can they stay calm?",
+      "communication": "Can they de-escalate?",
+      "balance": "Can they be firm yet respectful?",
+      "judgment": "Do they prioritize correctly?",
+      "missed_opportunities": ["Gets aggressive", "Too passive", "Ignores protocol", "No empathy"]
+    },
+    "follow_ups": ["How do you de-escalate tensions?", "What if they physically resist?", "How do you protect your team?"]
+  },
+  {
+    "id": "police_defense_013",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You must make a quick decision in a life-threatening situation with incomplete information. Walk me through your thought process.",
+    "ideal_points": [
+      "Shows structured decision-making",
+      "Prioritizes life and safety",
+      "Can think under extreme pressure",
+      "Uses training and protocols",
+      "Accepts responsibility for decisions"
+    ],
+    "evaluation_rubric": {
+      "structure": "Do they have a decision framework?",
+      "priorities": "Are priorities correct?",
+      "speed": "Can they decide quickly?",
+      "accountability": "Will they own the decision?",
+      "missed_opportunities": ["Freezes up", "Ignores training", "No clear priorities", "Avoids responsibility"]
+    },
+    "follow_ups": ["How do you handle decision regret?", "What if you make the wrong call?", "How do you train for this?"]
+  },
+  {
+    "id": "police_defense_014",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 2,
+    "question": "A teammate makes a serious mistake during an operation. How do you respond?",
+    "ideal_points": [
+      "Prioritizes mission and safety first",
+      "Supports teammate appropriately",
+      "Follows proper reporting procedures",
+      "Balances accountability with support",
+      "Learns from the incident"
+    ],
+    "evaluation_rubric": {
+      "priorities": "Do they handle immediate situation first?",
+      "support": "Do they support without covering up?",
+      "accountability": "Is there appropriate accountability?",
+      "learning": "Is it treated as learning opportunity?",
+      "missed_opportunities": ["Covers up mistake", "Throws teammate under bus", "Ignores procedures", "No empathy"]
+    },
+    "follow_ups": ["What if the mistake cost lives?", "How do you rebuild trust?", "What's your responsibility as team member?"]
+  },
+  {
+    "id": "police_defense_015",
+    "phase": "behavioral",
+    "role": "Police/Defense/Armed Forces",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You're in a situation where emotions run high (personal loss, witnessing trauma). How do you balance emotional response with duty?",
+    "ideal_points": [
+      "Acknowledges emotions are natural",
+      "Can compartmentalize when necessary",
+      "Knows when to seek support",
+      "Maintains operational effectiveness",
+      "Processes emotions appropriately later"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Do they understand emotional impact?",
+      "control": "Can they maintain composure on duty?",
+      "health": "Do they have healthy processing methods?",
+      "effectiveness": "Can they still perform?",
+      "missed_opportunities": ["Denies emotions", "Can't separate duty from feelings", "No support system", "Unhealthy coping"]
+    },
+    "follow_ups": ["How do you process trauma?", "When do you ask for help?", "How do you stay mission-ready?"]
+  }
+]

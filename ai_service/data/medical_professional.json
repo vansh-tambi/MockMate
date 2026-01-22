@@ -1,0 +1,335 @@
+[
+  {
+    "id": "medical_001",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "Why did you choose medicine as a career?",
+    "ideal_points": [
+      "Genuine passion for helping people",
+      "Interest in medical science",
+      "Personal experience or inspiration",
+      "Commitment to lifelong learning",
+      "Desire to make a difference"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Answer feels genuine, not rehearsed",
+      "motivation": "Clear intrinsic motivation beyond salary",
+      "commitment": "Understands the challenges and still committed",
+      "values": "Aligns with medical profession values"
+    },
+    "follow_ups": ["What specialty interests you?", "How did you prepare for this career?", "What challenges do you anticipate?"]
+  },
+  {
+    "id": "medical_002",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "What qualities make a good doctor?",
+    "ideal_points": [
+      "Empathy and compassion",
+      "Strong clinical knowledge",
+      "Communication skills",
+      "Ethical integrity",
+      "Ability to handle pressure",
+      "Continuous learning mindset"
+    ],
+    "evaluation_rubric": {
+      "comprehensiveness": "Covers both soft and hard skills",
+      "prioritization": "Understands what matters most",
+      "self_awareness": "Can relate qualities to own strengths"
+    },
+    "follow_ups": ["Which quality do you need to improve?", "How do you develop these qualities?", "Give an example of compassion in practice"]
+  },
+  {
+    "id": "medical_003",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "How do you handle emotionally difficult patients?",
+    "ideal_points": [
+      "Maintain professional boundaries",
+      "Show empathy while staying objective",
+      "Active listening",
+      "Communicate with sensitivity",
+      "Seek support when needed"
+    ],
+    "evaluation_rubric": {
+      "emotional_intelligence": "Can balance empathy with professionalism",
+      "self_care": "Recognizes importance of own mental health",
+      "communication": "Can handle difficult conversations"
+    },
+    "follow_ups": ["Tell me about a specific difficult case", "How do you prevent burnout?", "When do you seek help?"]
+  },
+  {
+    "id": "medical_004",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "Describe a time you made a mistake. How did you handle it?",
+    "ideal_points": [
+      "Takes accountability",
+      "Immediate action to rectify",
+      "Informed supervisor/team",
+      "Learned from the mistake",
+      "Implemented preventive measures"
+    ],
+    "evaluation_rubric": {
+      "accountability": "Takes responsibility without deflecting",
+      "action_oriented": "Took concrete steps to fix issue",
+      "learning": "Demonstrates growth from experience",
+      "honesty": "Transparent about mistakes"
+    },
+    "follow_ups": ["What would you do differently?", "How has this changed your practice?", "How do you prevent similar mistakes?"]
+  },
+  {
+    "id": "medical_005",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "How do you manage long working hours?",
+    "ideal_points": [
+      "Prioritize self-care",
+      "Effective time management",
+      "Regular breaks when possible",
+      "Physical fitness routine",
+      "Work-life balance strategies"
+    ],
+    "evaluation_rubric": {
+      "realism": "Understands demands of medical profession",
+      "sustainability": "Has strategies for long-term health",
+      "adaptability": "Can adjust to varying schedules"
+    },
+    "follow_ups": ["How do you stay energized?", "How do you handle night shifts?", "When do you say no?"]
+  },
+  {
+    "id": "medical_006",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "How do you deal with patient relatives under stress?",
+    "ideal_points": [
+      "Show empathy and patience",
+      "Clear, honest communication",
+      "Manage expectations",
+      "Stay calm and professional",
+      "Involve team when needed"
+    ],
+    "evaluation_rubric": {
+      "communication": "Can explain complex situations simply",
+      "empathy": "Understands emotional state of families",
+      "professionalism": "Maintains composure under pressure"
+    },
+    "follow_ups": ["How do you deliver bad news?", "What if they become aggressive?", "How do you build trust?"]
+  },
+  {
+    "id": "medical_007",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "What does ethics mean to you in medicine?",
+    "ideal_points": [
+      "Patient autonomy and consent",
+      "Confidentiality",
+      "Non-maleficence (do no harm)",
+      "Beneficence (act in patient's interest)",
+      "Justice and fairness in care"
+    ],
+    "evaluation_rubric": {
+      "knowledge": "Understands medical ethics principles",
+      "application": "Can relate to practical scenarios",
+      "integrity": "Shows commitment to ethical practice"
+    },
+    "follow_ups": ["Give an example of ethical dilemma", "What if patient refuses treatment?", "How do you handle conflicts of interest?"]
+  },
+  {
+    "id": "medical_008",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "How do you keep yourself updated medically?",
+    "ideal_points": [
+      "Read medical journals",
+      "Attend conferences and CME",
+      "Online courses and webinars",
+      "Peer discussions",
+      "Follow latest research"
+    ],
+    "evaluation_rubric": {
+      "commitment": "Shows dedication to continuous learning",
+      "methods": "Has concrete strategies for staying updated",
+      "application": "Can apply new knowledge to practice"
+    },
+    "follow_ups": ["What was the last thing you learned?", "How do you verify new information?", "Which journals do you read?"]
+  },
+  {
+    "id": "medical_009",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "How do you handle failure or loss of a patient?",
+    "ideal_points": [
+      "Process emotions appropriately",
+      "Reflect on what could be learned",
+      "Seek peer support",
+      "Maintain professionalism",
+      "Continue caring for other patients"
+    ],
+    "evaluation_rubric": {
+      "emotional_maturity": "Can handle grief professionally",
+      "resilience": "Bounces back while learning",
+      "self_awareness": "Recognizes need for support"
+    },
+    "follow_ups": ["How do you separate personal and professional?", "When do you seek counseling?", "How do you support colleagues?"]
+  },
+  {
+    "id": "medical_010",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 2,
+    "question": "Why should we hire you over other candidates?",
+    "ideal_points": [
+      "Specific strengths relevant to role",
+      "Unique experiences or skills",
+      "Strong work ethic",
+      "Cultural fit with institution",
+      "Commitment to excellence"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Articulates value without arrogance",
+      "relevance": "Highlights applicable strengths",
+      "differentiation": "Shows what makes them unique"
+    },
+    "follow_ups": ["What's your biggest achievement?", "How do you handle competition?", "What will you bring to our team?"]
+  },
+  {
+    "id": "medical_sit_001",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "What would you do if a patient refuses treatment?",
+    "ideal_points": [
+      "Respect patient autonomy",
+      "Understand reasons for refusal",
+      "Explain consequences clearly",
+      "Document decision properly",
+      "Explore alternative options"
+    ],
+    "evaluation_rubric": {
+      "ethics": "Respects patient rights",
+      "communication": "Can handle difficult conversations",
+      "problem_solving": "Seeks alternatives"
+    },
+    "follow_ups": ["What if it's life-threatening?", "How do you handle family pressure?", "When do you involve ethics committee?"]
+  },
+  {
+    "id": "medical_sit_002",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "How would you handle a misdiagnosis?",
+    "ideal_points": [
+      "Acknowledge mistake immediately",
+      "Inform patient honestly",
+      "Take corrective action",
+      "Report to supervisor",
+      "Learn and implement safeguards"
+    ],
+    "evaluation_rubric": {
+      "accountability": "Takes responsibility",
+      "action": "Acts quickly to rectify",
+      "transparency": "Honest with all stakeholders"
+    },
+    "follow_ups": ["How do you prevent misdiagnosis?", "What if patient sues?", "How do you regain trust?"]
+  },
+  {
+    "id": "medical_sit_003",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "What if a senior doctor disagrees with you?",
+    "ideal_points": [
+      "Present evidence respectfully",
+      "Listen to their perspective",
+      "Seek second opinion if needed",
+      "Prioritize patient safety",
+      "Document discussion"
+    ],
+    "evaluation_rubric": {
+      "assertiveness": "Can advocate for position",
+      "respect": "Maintains professional hierarchy",
+      "patient_focus": "Keeps patient interests first"
+    },
+    "follow_ups": ["What if they're still opposed?", "When do you escalate?", "How do you build trust with seniors?"]
+  },
+  {
+    "id": "medical_sit_004",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "How do you prioritize patients in emergencies?",
+    "ideal_points": [
+      "Triage based on severity",
+      "Stabilize critical cases first",
+      "Use protocols and guidelines",
+      "Communicate with team",
+      "Stay calm and decisive"
+    ],
+    "evaluation_rubric": {
+      "clinical_judgment": "Makes sound medical decisions",
+      "composure": "Handles pressure well",
+      "teamwork": "Coordinates with team"
+    },
+    "follow_ups": ["What if resources are limited?", "How do you handle multiple critical cases?", "When do you call for help?"]
+  },
+  {
+    "id": "medical_sit_005",
+    "phase": "behavioral",
+    "role": "medical",
+    "level": "any",
+    "skill": "medical",
+    "difficulty": 3,
+    "question": "What would you do if you suspect medical negligence?",
+    "ideal_points": [
+      "Document observations",
+      "Report to appropriate authority",
+      "Prioritize patient safety",
+      "Follow institutional protocol",
+      "Maintain confidentiality"
+    ],
+    "evaluation_rubric": {
+      "integrity": "Willing to report wrongdoing",
+      "judgment": "Knows when and how to escalate",
+      "professionalism": "Handles sensitive situation appropriately"
+    },
+    "follow_ups": ["What if it involves a senior?", "How do you protect yourself?", "When do you involve external authorities?"]
+  }
+]

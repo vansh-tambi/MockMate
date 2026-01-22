@@ -4,12 +4,13 @@ from pydantic import BaseModel
 import httpx
 import json
 import re
-from typing import Optional
+from typing import Optional, List
 import os
 
 # Try to import RAG retriever (optional, graceful fallback if not available)
 try:
     from rag.retrieve import QuestionRetriever, extract_metadata
+    from session_context import InterviewSession, INTERVIEW_MODE_CONFIG
     retriever = QuestionRetriever()
     RAG_AVAILABLE = True
     print("✅ RAG retriever loaded successfully")
@@ -34,17 +35,46 @@ class EvaluateRequest(BaseModel):
     question: str
     user_answer: str
     ideal_points: list[str]
+    question_id: Optional[str] = None
+    session_id: Optional[str] = None
+    resume_context: Optional[dict] = None
 
 class EvaluateResponse(BaseModel):
     strengths: list[str]
     improvements: list[str]
     score: int
     feedback: str
+    follow_ups: Optional[list[dict]] = None
+    missed_opportunities: Optional[list[str]] = None
+
+class GenerateQARequest(BaseModel):
+    resume: Optional[str] = ""
+    jobDescription: Optional[str] = ""
+    skills: Optional[List[str]] = None
+    education: Optional[str] = ""
+    projects: Optional[List[str]] = None
+    experience_level: Optional[str] = "intern"
+    target_role: Optional[str] = ""
+    interview_mode: Optional[str] = "general"
+    session_id: Optional[str] = None
+    questionCount: Optional[int] = 10
+
+class SessionRequest(BaseModel):
+    session_id: Optional[str] = None
+    action: str  # create, get, update, delete
+
+class SessionResponse(BaseModel):
+    session_id: str
+    statistics: dict
+    current_phase: str
 
 # Ollama config
 OLLAMA_BASE_URL = "http://localhost:11434"
 MODEL_NAME = "phi3"
 TIMEOUT = 60.0
+
+# Session storage (in-memory for now, can move to Redis/DB later)
+active_sessions = {}
 
 # Health check
 @app.get("/health")
@@ -60,26 +90,168 @@ async def health_check():
                 "status": "healthy",
                 "ollama": "connected",
                 "available_models": model_names,
-                "active_model": MODEL_NAME
+                "active_model": MODEL_NAME,
+                "rag_enabled": RAG_AVAILABLE,
+                "active_sessions": len(active_sessions)
             }
     except Exception as e:
         raise HTTPException(status_code=503, detail=f"Ollama not available: {str(e)}")
 
+@app.post("/api/generate-qa")
+async def generate_qa(req: GenerateQARequest):
+    """Generate interview questions with phased ordering"""
+    
+    if not RAG_AVAILABLE:
+        raise HTTPException(status_code=503, detail="RAG system not available")
+    
+    try:
+        # Get or create session
+        session_id = req.session_id or f"session_{len(active_sessions)}"
+        
+        if session_id not in active_sessions:
+            session = InterviewSession(session_id)
+            session.set_user_context(
+                resume=req.resume or "",
+                job_description=req.jobDescription or "",
+                skills=req.skills or [],
+                education=req.education or "",
+                projects=req.projects or [],
+                experience_level=req.experience_level or "intern",
+                target_role=req.target_role or ""
+            )
+            session.set_interview_mode(req.interview_mode or "general")
+            active_sessions[session_id] = session
+        else:
+            session = active_sessions[session_id]
+        
+        # Retrieve questions with phased ordering
+        questions = retriever.retrieve_phased(
+            session=session,
+            resume_text=req.resume or "",
+            job_description=req.jobDescription or "",
+            top_k=req.questionCount or 10
+        )
+        
+        # Mark questions as asked
+        for q in questions:
+            session.mark_question_asked(q["id"])
+        
+        # Format for frontend
+        qa_pairs = [
+            {
+                "id": q["id"],
+                "question": q["question"],
+                "ideal_points": q.get("ideal_points", []),
+                "phase": q.get("phase", "technical"),
+                "difficulty": q.get("difficulty", 1),
+                "skill": q.get("skill", "general"),
+                "follow_ups": q.get("follow_ups", [])
+            }
+            for q in questions
+        ]
+        
+        return {
+            "qaPairs": qa_pairs,
+            "session_id": session_id,
+            "current_phase": session.current_phase,
+            "statistics": session.get_statistics()
+        }
+        
+    except Exception as e:
+        print(f"❌ Error generating questions: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/session")
+async def manage_session(req: SessionRequest):
+    """Manage interview sessions"""
+    
+    if req.action == "create":
+        session = InterviewSession()
+        active_sessions[session.session_id] = session
+        return {
+            "session_id": session.session_id,
+            "statistics": session.get_statistics(),
+            "current_phase": session.current_phase
+        }
+    
+    elif req.action == "get":
+        if not req.session_id or req.session_id not in active_sessions:
+            raise HTTPException(status_code=404, detail="Session not found")
+        
+        session = active_sessions[req.session_id]
+        return {
+            "session_id": session.session_id,
+            "statistics": session.get_statistics(),
+            "current_phase": session.current_phase
+        }
+    
+    elif req.action == "delete":
+        if req.session_id and req.session_id in active_sessions:
+            del active_sessions[req.session_id]
+        return {"message": "Session deleted"}
+    
+    else:
+        raise HTTPException(status_code=400, detail="Invalid action")
+
+@app.get("/api/interview-modes")
+async def get_interview_modes():
+    """Get available interview mode configurations"""
+    return {
+        "modes": INTERVIEW_MODE_CONFIG
+    }
+
 @app.post("/evaluate", response_model=EvaluateResponse)
 async def evaluate(req: EvaluateRequest):
-    """Evaluate candidate answer using LLM with RAG-enhanced context"""
+    """Evaluate candidate answer with context-aware feedback"""
     
     # Validate input
     if not req.user_answer.strip():
         raise HTTPException(status_code=400, detail="User answer cannot be empty")
     
-    # 🔥 STEP 3: RAG integration - retrieve relevant questions and use their ideal_points
+    # Get session if available
+    session = None
+    if req.session_id and req.session_id in active_sessions:
+        session = active_sessions[req.session_id]
+    
+    # Get question details if available
+    question_obj = None
+    evaluation_rubric = None
+    if RAG_AVAILABLE and retriever and req.question_id:
+        question_obj = retriever.get_by_id(req.question_id)
+        if question_obj:
+            evaluation_rubric = question_obj.get("evaluation_rubric", {})
+    
+    # Build context-aware evaluation prompt
+    context = ""
+    if req.resume_context or (session and session.resume_data):
+        resume_data = req.resume_context or session.resume_data
+        context = "\n\nCANDIDATE CONTEXT (from resume/JD):\n"
+        if resume_data.get("skills"):
+            context += f"Skills: {', '.join(resume_data['skills'])}\n"
+        if resume_data.get("education"):
+            context += f"Education: {resume_data['education']}\n"
+        if resume_data.get("projects"):
+            context += f"Projects: {', '.join(resume_data['projects'])}\n"
+        if resume_data.get("target_role"):
+            context += f"Target Role: {resume_data['target_role']}\n"
+    
+    # Build evaluation rubric
+    rubric_text = ""
+    missed_opportunity_categories = []
+    if evaluation_rubric:
+        rubric_text = "\n\nEVALUATION RUBRIC (judge on these specific criteria):\n"
+        for criterion, description in evaluation_rubric.items():
+            if criterion != "missed_opportunities":
+                rubric_text += f"• {criterion.replace('_', ' ').title()}: {description}\n"
+        
+        missed_opportunity_categories = evaluation_rubric.get("missed_opportunities", [])
+    
+    # RAG integration - retrieve relevant questions
     rag_context = ""
     if RAG_AVAILABLE and retriever:
         try:
-            # Retrieve similar questions from the question bank
             similar_questions = retriever.retrieve(
-                resume_text=req.question,  # Use current question as query
+                resume_text=req.question,
                 job_description="",
                 top_k=3
             )
@@ -96,16 +268,13 @@ async def evaluate(req: EvaluateRequest):
                     rag_context += f"{i}. Similar question (skill: {skill}, difficulty: {difficulty}):\n"
                     if ideal_points:
                         rag_context += "   Expected talking points:\n"
-                        for point in ideal_points[:4]:  # Top 4 points
+                        for point in ideal_points[:4]:
                             rag_context += f"   • {point}\n"
                     rag_context += "\n"
-                
-                print(f"  📊 RAG: Injected {len(similar_questions)} similar questions for context")
         except Exception as e:
             print(f"  ⚠️ RAG context failed (non-critical): {e}")
-            # Continue without RAG - not critical
     
-    # Build strict evaluation prompt with locked score band semantics
+    # Build strict evaluation prompt
     ideal_points_text = "\n".join([f"- {p}" for p in req.ideal_points]) if req.ideal_points else "- (none specified)"
     
     prompt = f"""You are a strict, fair interview evaluator judging against real industry standards.
@@ -129,6 +298,8 @@ EXPECTED TALKING POINTS:
 
 CANDIDATE'S ANSWER:
 {req.user_answer}
+{context}
+{rubric_text}
 {rag_context}
 
 ---
@@ -148,6 +319,8 @@ Give credit for:
 - Acknowledging tradeoffs and limitations
 - Depth beyond surface-level explanations
 
+{f"MISSED OPPORTUNITIES TO LOOK FOR: {', '.join(missed_opportunity_categories)}" if missed_opportunity_categories else ""}
+
 ---
 
 Return ONLY JSON (no markdown, no extra text):
@@ -162,7 +335,10 @@ Return ONLY JSON (no markdown, no extra text):
     "actionable improvement 2"
   ],
   "score": 7,
-  "feedback": "2-3 sentence summary explaining the score"
+  "feedback": "2-3 sentence summary explaining the score",
+  "missed_opportunities": [
+    "specific thing they should have mentioned based on their resume/context"
+  ]
 }}
 
 Score as integer 0–10. Pick from the bands above. Think carefully before scoring."""
@@ -177,7 +353,7 @@ Score as integer 0–10. Pick from the bands above. Think carefully before scori
                     "prompt": prompt,
                     "stream": False,
                     "options": {
-                        "temperature": 0.3,  # Low temperature for consistency
+                        "temperature": 0.3,
                         "top_p": 0.9,
                     }
                 }
@@ -192,23 +368,72 @@ Score as integer 0–10. Pick from the bands above. Think carefully before scori
             # Parse structured output
             parsed = parse_evaluation(raw_output)
             
+            # Update session if available
+            if session and req.question_id:
+                session.mark_question_answered(
+                    req.question_id, 
+                    req.user_answer, 
+                    parsed["score"]
+                )
+                
+                # Extract mentioned topics from answer
+                if question_obj:
+                    extract_mentioned_topics(req.user_answer, session)
+                    
+                    # Mark skill as covered
+                    skill = question_obj.get("skill")
+                    if skill:
+                        session.mark_skill_covered(skill)
+            
+            # Get follow-up questions
+            follow_ups = []
+            if question_obj and RAG_AVAILABLE and retriever and session:
+                follow_ups = retriever.get_follow_up_questions(
+                    question_obj,
+                    req.user_answer,
+                    session
+                )
+            
             return EvaluateResponse(
                 strengths=parsed["strengths"],
                 improvements=parsed["improvements"],
                 score=parsed["score"],
-                feedback=raw_output
+                feedback=raw_output,
+                follow_ups=follow_ups,
+                missed_opportunities=parsed.get("missed_opportunities", [])
             )
             
     except httpx.TimeoutException:
         raise HTTPException(status_code=504, detail="Evaluation timed out")
     except Exception as e:
+        print(f"❌ Evaluation error: {e}")
         raise HTTPException(status_code=500, detail=f"Evaluation failed: {str(e)}")
+
+def extract_mentioned_topics(answer: str, session: InterviewSession):
+    """Extract mentioned topics from answer for follow-up context"""
+    answer_lower = answer.lower()
+    
+    # Extract project mentions
+    for project in session.resume_data.get("projects", []):
+        if project.lower() in answer_lower:
+            session.add_mentioned_topic("projects", project)
+    
+    # Extract skill mentions
+    for skill in session.resume_data.get("skills", []):
+        if skill.lower() in answer_lower:
+            session.add_mentioned_topic("technologies", skill)
+    
+    # Extract education mentions (simplified)
+    education = session.resume_data.get("education", "")
+    if education and education.lower() in answer_lower:
+        session.add_mentioned_topic("education", education)
 
 def parse_evaluation(text: str) -> dict:
     """Parse LLM output into structured format"""
     
     strengths = []
     improvements = []
+    missed_opportunities = []
     score = 5  # Default fallback
     
     # Extract strengths
@@ -231,6 +456,16 @@ def parse_evaluation(text: str) -> dict:
             if line.strip() and line.strip().startswith(('-', '•'))
         ]
     
+    # Extract missed opportunities
+    missed_match = re.search(r'Missed[_ ]?Opportunities?:\s*\n((?:[-•]\s*.+\n?)+)', text, re.IGNORECASE)
+    if missed_match:
+        missed_text = missed_match.group(1)
+        missed_opportunities = [
+            line.strip().lstrip('-•').strip() 
+            for line in missed_text.split('\n') 
+            if line.strip() and line.strip().startswith(('-', '•'))
+        ]
+    
     # Extract score
     score_match = re.search(r'Score:\s*(\d+)', text, re.IGNORECASE)
     if score_match:
@@ -247,5 +482,6 @@ def parse_evaluation(text: str) -> dict:
     return {
         "strengths": strengths,
         "improvements": improvements,
-        "score": score
+        "score": score,
+        "missed_opportunities": missed_opportunities
     }
