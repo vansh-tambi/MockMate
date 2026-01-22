@@ -13,6 +13,10 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
+const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8000';
+const USE_LOCAL_AI = process.env.USE_LOCAL_AI === 'true';
+
+// 🔴 STEP 5: Gemini kept ONLY as emergency fallback (not primary path)
 if (!process.env.GEMINI_API_KEY) {
   console.error('❌ ERROR: GEMINI_API_KEY not found in .env file');
   console.error('Please add GEMINI_API_KEY to your .env file and restart the server');
@@ -21,6 +25,7 @@ if (!process.env.GEMINI_API_KEY) {
 
 console.log('🚀 Initializing MockMate Server...');
 console.log('📝 Loading dependencies...');
+console.log(`🤖 AI Mode: ${USE_LOCAL_AI ? 'Local AI Service (phi3)' : 'Gemini Cloud (fallback only)'}`);
 
 const upload = multer({ storage: multer.memoryStorage() });
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -797,7 +802,75 @@ app.post('/api/evaluate-answer', async (req,res)=>{
       });
     }
 
-    const prompt = `
+    console.log('  📊 Evaluating answer via AI service...');
+
+    // Check if we should use local AI
+    if (USE_LOCAL_AI) {
+      try {
+        // Try AI service first
+        const aiResponse = await fetch(`${AI_SERVICE_URL}/evaluate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question,
+          user_answer: userAnswer,
+          ideal_points: [] // Can add from question metadata later
+        }),
+        signal: AbortSignal.timeout(60000)
+      });
+
+      if (!aiResponse.ok) {
+        throw new Error(`AI service returned ${aiResponse.status}`);
+      }
+
+      const aiData = await aiResponse.json();
+      console.log('  ✅ AI service evaluation succeeded');
+
+      // Convert AI service format to frontend format
+      const score = Math.round((aiData.score / 10) * 100); // Convert 0-10 to 0-100
+      const rating = score >= 85 ? 'Green' : score >= 65 ? 'Yellow' : 'Red';
+
+      // Create justification from strengths/improvements
+      const strengthsText = aiData.strengths?.slice(0, 2).join('. ') || '';
+      const improvementsText = aiData.improvements?.slice(0, 1).join('. ') || '';
+      const justification = `${strengthsText}${strengthsText && improvementsText ? '. However, ' : ''}${improvementsText}`;
+
+      // Map to old breakdown format (distribute score)
+      const baseScore = Math.floor(score / 5);
+      const breakdown = {
+        relevance: baseScore,
+        clarity: baseScore,
+        structure: baseScore,
+        technical_depth: baseScore,
+        impact: baseScore
+      };
+
+      return res.json({
+        rating,
+        score,
+        justification: justification || 'Evaluation completed.',
+        breakdown,
+        improvement_tip: aiData.improvements?.[0] || 'Keep practicing',
+        // Include AI service data for frontend Phase 2
+        aiData: {
+          strengths: aiData.strengths,
+          improvements: aiData.improvements,
+          rawScore: aiData.score,
+          feedback: aiData.feedback
+        }
+      });
+
+    } catch (aiError) {
+      // Fallback to Gemini
+      console.warn('  ⚠️ AI service failed, falling back to Gemini:', aiError.message);
+    }
+  }
+
+    // Use Gemini (either as primary when USE_LOCAL_AI=false, or as fallback)
+    if (!USE_LOCAL_AI || !res.headersSent) {
+      console.log('  🤖 Using Gemini for evaluation...');
+
+      const prompt = `
 You are a candid, strict interviewer. Evaluate the candidate's answer with clear, honest feedback.
 
 Question: ${question}
@@ -829,32 +902,35 @@ Respond ONLY with a SINGLE JSON object (no markdown, no extra text):
 }
 `;
 
-    const raw = await tryGenerate(prompt, 30000);
-    const json = cleanJson(raw);
-    const result = JSON.parse(json);
-    
-    // Normalize result and compute defaults
-    const breakdown = result.breakdown || {};
-    const safeBreakdown = {
-      relevance: Math.min(20, Math.max(0, breakdown.relevance ?? 10)),
-      clarity: Math.min(20, Math.max(0, breakdown.clarity ?? 10)),
-      structure: Math.min(20, Math.max(0, breakdown.structure ?? 10)),
-      technical_depth: Math.min(20, Math.max(0, breakdown.technical_depth ?? 10)),
-      impact: Math.min(20, Math.max(0, breakdown.impact ?? 10))
-    };
-    const computedScore = safeBreakdown.relevance + safeBreakdown.clarity + safeBreakdown.structure + safeBreakdown.technical_depth + safeBreakdown.impact;
-    const score = typeof result.score === 'number' ? Math.max(0, Math.min(100, result.score)) : computedScore;
-    const rating = result.rating || (score >= 85 ? 'Green' : score >= 65 ? 'Yellow' : 'Red');
-    const justification = result.justification || 'Solid answer in parts, but could improve clarity and depth in examples.';
-    const tip = result.improvement_tip || 'Use STAR structure and quantify impact with metrics.';
+      const raw = await tryGenerate(prompt, 30000);
+      const json = cleanJson(raw);
+      const result = JSON.parse(json);
+      
+      // Normalize result and compute defaults
+      const breakdown = result.breakdown || {};
+      const safeBreakdown = {
+        relevance: Math.min(20, Math.max(0, breakdown.relevance ?? 10)),
+        clarity: Math.min(20, Math.max(0, breakdown.clarity ?? 10)),
+        structure: Math.min(20, Math.max(0, breakdown.structure ?? 10)),
+        technical_depth: Math.min(20, Math.max(0, breakdown.technical_depth ?? 10)),
+        impact: Math.min(20, Math.max(0, breakdown.impact ?? 10))
+      };
+      const computedScore = safeBreakdown.relevance + safeBreakdown.clarity + safeBreakdown.structure + safeBreakdown.technical_depth + safeBreakdown.impact;
+      const score = typeof result.score === 'number' ? Math.max(0, Math.min(100, result.score)) : computedScore;
+      const rating = result.rating || (score >= 85 ? 'Green' : score >= 65 ? 'Yellow' : 'Red');
+      const justification = result.justification || 'Solid answer in parts, but could improve clarity and depth in examples.';
+      const tip = result.improvement_tip || 'Use STAR structure and quantify impact with metrics.';
 
-    res.json({
-      rating,
-      score,
-      justification,
-      breakdown: safeBreakdown,
-      improvement_tip: tip
-    });
+      console.log('  ✅ Gemini fallback succeeded');
+
+      return res.json({
+        rating,
+        score,
+        justification,
+        breakdown: safeBreakdown,
+        improvement_tip: tip
+      });
+    }
   } catch (err) {
     console.error("Evaluate error:", err);
     res.status(500).json({ 
