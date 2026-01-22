@@ -9,6 +9,9 @@ Traditional AI interview tools give you arbitrary scores and generic feedback. M
 ![Built with React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat&logo=react)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?style=flat&logo=fastapi)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1-38B2AC?style=flat&logo=tailwind-css)
+![Portfolio](https://img.shields.io/badge/Portfolio-v1.0-gold?style=flat)
+
+📺 **[Demo Video Coming Soon]** | 📖 **[Read Case Study](CASE_STUDY.md)** | 📝 **[View Portfolio Descriptions](PORTFOLIO_DESCRIPTIONS.md)**
 
 ---
 
