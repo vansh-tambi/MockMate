@@ -1,0 +1,354 @@
+[
+  {
+    "id": "fe_react_001",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "react",
+    "difficulty": 1,
+    "question": "What is React and why is it popular?",
+    "ideal_points": [
+      "JavaScript library for building UIs",
+      "Component-based architecture",
+      "Virtual DOM for performance",
+      "Declarative syntax",
+      "Large ecosystem and community"
+    ],
+    "follow_ups": ["Can you explain the Virtual DOM?", "What are React hooks?"]
+  },
+  {
+    "id": "fe_react_002",
+    "role": "frontend",
+    "level": "fresher",
+    "skill": "react",
+    "difficulty": 2,
+    "question": "Explain the difference between state and props in React.",
+    "ideal_points": [
+      "State is internal and mutable",
+      "Props are passed from parent",
+      "Re-render behavior differs",
+      "State for component logic",
+      "Props for component communication"
+    ],
+    "follow_ups": ["When would you lift state up?", "How does useState trigger re-render?"]
+  },
+  {
+    "id": "fe_react_003",
+    "role": "frontend",
+    "level": "junior",
+    "skill": "react",
+    "difficulty": 3,
+    "question": "What are React hooks and why were they introduced?",
+    "ideal_points": [
+      "Hooks let functional components use state",
+      "Replaces class component complexity",
+      "useState for state, useEffect for side effects",
+      "Custom hooks for logic reuse",
+      "Composition over inheritance"
+    ],
+    "follow_ups": ["Write a custom hook", "What's the dependency array in useEffect?"]
+  },
+  {
+    "id": "fe_css_001",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "css",
+    "difficulty": 1,
+    "question": "What is the CSS box model?",
+    "ideal_points": [
+      "Content, padding, border, margin layers",
+      "Box-sizing property (content-box vs border-box)",
+      "Affects layout and spacing calculations",
+      "Visual representation of components"
+    ],
+    "follow_ups": ["Difference between margin and padding?", "How does box-sizing work?"]
+  },
+  {
+    "id": "fe_js_001",
+    "role": "frontend",
+    "level": "fresher",
+    "skill": "javascript",
+    "difficulty": 2,
+    "question": "Explain async/await and how it differs from Promises.",
+    "ideal_points": [
+      "async/await is syntactic sugar over Promises",
+      "Makes async code look synchronous",
+      "Try/catch for error handling",
+      "Easier to read and debug",
+      "Returns a Promise implicitly"
+    ],
+    "follow_ups": ["What happens if you forget await?", "Can you use async in forEach?"]
+  },
+  {
+    "id": "be_node_001",
+    "role": "backend",
+    "level": "intern",
+    "skill": "nodejs",
+    "difficulty": 1,
+    "question": "What is Node.js and what are its main advantages?",
+    "ideal_points": [
+      "JavaScript runtime built on V8",
+      "Non-blocking I/O model",
+      "Event-driven architecture",
+      "NPM ecosystem",
+      "Single-threaded event loop"
+    ],
+    "follow_ups": ["What is the event loop?", "When would you NOT use Node.js?"]
+  },
+  {
+    "id": "be_node_002",
+    "role": "backend",
+    "level": "junior",
+    "skill": "nodejs",
+    "difficulty": 2,
+    "question": "What is middleware in Express and how does it work?",
+    "ideal_points": [
+      "Functions that process requests before routes",
+      "Can modify request/response objects",
+      "Calls next() to pass control to next middleware",
+      "Order matters (executed sequentially)",
+      "Can be used for auth, logging, validation"
+    ],
+    "follow_ups": ["How do you handle errors in middleware?", "What's the difference between app.use and app.post?"]
+  },
+  {
+    "id": "be_sql_001",
+    "role": "backend",
+    "level": "intern",
+    "skill": "sql",
+    "difficulty": 1,
+    "question": "What is a JOIN in SQL and what are the different types?",
+    "ideal_points": [
+      "Combines rows from two or more tables",
+      "INNER JOIN: matching records only",
+      "LEFT JOIN: all from left + matching from right",
+      "RIGHT JOIN: all from right + matching from left",
+      "FULL OUTER JOIN: all records from both"
+    ],
+    "follow_ups": ["When would you use a LEFT JOIN?", "What's the performance difference?"]
+  },
+  {
+    "id": "be_sql_002",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "sql",
+    "difficulty": 2,
+    "question": "Explain indexes in SQL and why they matter.",
+    "ideal_points": [
+      "Speed up data retrieval on queries",
+      "Trade-off: faster reads, slower writes",
+      "Primary key is automatically indexed",
+      "Can index multiple columns",
+      "B-tree is common index structure"
+    ],
+    "follow_ups": ["When should you NOT create an index?", "How do you measure if an index helps?"]
+  },
+  {
+    "id": "be_api_001",
+    "role": "backend",
+    "level": "fresher",
+    "skill": "apis",
+    "difficulty": 2,
+    "question": "What is REST and what principles does it follow?",
+    "ideal_points": [
+      "Representational State Transfer",
+      "HTTP methods: GET, POST, PUT, DELETE",
+      "Resources identified by URLs",
+      "Stateless: each request has all info needed",
+      "Client-server separation"
+    ],
+    "follow_ups": ["What's the difference between PUT and PATCH?", "When would you use POST vs GET?"]
+  },
+  {
+    "id": "dsa_array_001",
+    "role": "software_engineer",
+    "level": "fresher",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "Explain the two-pointer technique.",
+    "ideal_points": [
+      "Uses two pointers to traverse data structure",
+      "Reduces time complexity from O(n²) to O(n)",
+      "Common in array and linked list problems",
+      "Examples: reverse array, find pair with sum",
+      "Often used with sorted arrays"
+    ],
+    "follow_ups": ["Can you solve 'two sum' with this?", "How about 'three sum'?"]
+  },
+  {
+    "id": "dsa_array_002",
+    "role": "software_engineer",
+    "level": "junior",
+    "skill": "dsa",
+    "difficulty": 3,
+    "question": "What is binary search and when can you use it?",
+    "ideal_points": [
+      "O(log n) time complexity",
+      "Requires sorted array",
+      "Divide and conquer approach",
+      "Compare with middle element",
+      "Left/right pointer movement based on comparison"
+    ],
+    "follow_ups": ["Can you implement it?", "What about binary search on answer?"]
+  },
+  {
+    "id": "dsa_string_001",
+    "role": "software_engineer",
+    "level": "fresher",
+    "skill": "dsa",
+    "difficulty": 2,
+    "question": "How would you check if a string is a palindrome?",
+    "ideal_points": [
+      "Two-pointer approach from ends",
+      "Can ignore spaces/punctuation/case",
+      "O(n) time, O(1) space (two-pointer)",
+      "Alternative: reverse string and compare",
+      "Handle edge cases (empty, single char)"
+    ],
+    "follow_ups": ["How about checking palindromic substrings?", "Can you do this with O(1) space?"]
+  },
+  {
+    "id": "system_design_001",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "system-design",
+    "difficulty": 3,
+    "question": "Design a URL shortener (like bit.ly).",
+    "ideal_points": [
+      "Discuss functional requirements",
+      "Scale: millions of requests per second",
+      "Database schema: unique ID, long URL, timestamps",
+      "Encoding: base62 for short codes",
+      "Trade-offs: memory vs database lookups",
+      "Caching strategy (Redis)"
+    ],
+    "follow_ups": ["How do you handle collisions?", "What about analytics/redirects?"]
+  },
+  {
+    "id": "behavioral_001",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Tell me about a time you faced a challenging technical problem.",
+    "ideal_points": [
+      "Use STAR format (Situation, Task, Action, Result)",
+      "Specific technical details",
+      "What you learned",
+      "Measurable outcomes/impact",
+      "How you'd approach it differently now"
+    ],
+    "follow_ups": ["What did you learn?", "How would you handle it now?"]
+  },
+  {
+    "id": "behavioral_002",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Describe a time you disagreed with a team member.",
+    "ideal_points": [
+      "Show respect for different perspectives",
+      "How you communicated the disagreement",
+      "Did you find compromise?",
+      "Focus on problem-solving, not conflict",
+      "What was the outcome?"
+    ],
+    "follow_ups": ["What would you do differently?", "How do you handle criticism?"]
+  },
+  {
+    "id": "behavioral_003",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a time you failed and how you handled it.",
+    "ideal_points": [
+      "Own the mistake, don't blame others",
+      "What caused the failure?",
+      "How did you recover?",
+      "Specific lessons learned",
+      "How it changed your approach"
+    ],
+    "follow_ups": ["What did this teach you?", "How do you prevent similar mistakes?"]
+  },
+  {
+    "id": "product_001",
+    "role": "product",
+    "level": "any",
+    "skill": "product-strategy",
+    "difficulty": 2,
+    "question": "How would you decide what feature to build next?",
+    "ideal_points": [
+      "User research and feedback",
+      "Business impact vs effort",
+      "Alignment with product strategy",
+      "Data-driven decision making",
+      "Stakeholder input and prioritization"
+    ],
+    "follow_ups": ["Give me an example", "How would you measure success?"]
+  },
+  {
+    "id": "data_sql_001",
+    "role": "data",
+    "level": "intern",
+    "skill": "sql",
+    "difficulty": 1,
+    "question": "What is a GROUP BY clause and when do you use it?",
+    "ideal_points": [
+      "Aggregates rows based on one or more columns",
+      "Used with aggregate functions (COUNT, SUM, AVG)",
+      "Returns one row per group",
+      "Often paired with HAVING for filtering groups",
+      "Example: count orders by customer"
+    ],
+    "follow_ups": ["What's the difference between WHERE and HAVING?", "Can you group by multiple columns?"]
+  },
+  {
+    "id": "data_python_001",
+    "role": "data",
+    "level": "fresher",
+    "skill": "python",
+    "difficulty": 1,
+    "question": "What is a list comprehension and why use it?",
+    "ideal_points": [
+      "Concise syntax for creating lists",
+      "More readable than for loops",
+      "Often faster than loops",
+      "Can include conditions",
+      "Example: [x*2 for x in range(10) if x > 5]"
+    ],
+    "follow_ups": ["Can you nest them?", "What about dict comprehensions?"]
+  },
+  {
+    "id": "devops_001",
+    "role": "devops",
+    "level": "fresher",
+    "skill": "docker",
+    "difficulty": 1,
+    "question": "What is Docker and what problems does it solve?",
+    "ideal_points": [
+      "Containerization platform",
+      "Ensures consistency across environments",
+      "Lightweight vs VMs",
+      "Isolation of dependencies",
+      "Easy scaling and deployment"
+    ],
+    "follow_ups": ["What's the difference between image and container?", "How about Docker Compose?"]
+  },
+  {
+    "id": "ml_001",
+    "role": "data",
+    "level": "junior",
+    "skill": "machine-learning",
+    "difficulty": 2,
+    "question": "Explain overfitting and how to prevent it.",
+    "ideal_points": [
+      "Model learns training data too well, fails on new data",
+      "High accuracy on train, low on test",
+      "Solutions: regularization, more data, cross-validation",
+      "L1/L2 regularization penalizes complexity",
+      "Early stopping during training"
+    ],
+    "follow_ups": ["What's underfitting?", "How do you detect overfitting?"]
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "roles": {
+    "frontend": ["react", "vue", "angular", "javascript", "css", "html"],
+    "backend": ["nodejs", "python", "java", "databases", "apis", "microservices"],
+    "fullstack": ["frontend", "backend", "deployment", "databases"],
+    "mobile": ["react-native", "flutter", "ios", "android"],
+    "data": ["sql", "python", "statistics", "machine-learning", "data-visualization"],
+    "ml_engineer": ["machine-learning", "deep-learning", "python", "tensorflow", "pytorch"],
+    "devops": ["docker", "kubernetes", "ci-cd", "aws", "linux"],
+    "product": ["product-strategy", "user-research", "roadmaps", "stakeholders"],
+    "business": ["strategy", "analytics", "communication", "problem-solving"]
+  },
+  "levels": ["intern", "fresher", "junior", "mid", "senior", "staff"],
+  "skills": {
+    "technical": ["dsa", "system-design", "databases", "apis", "testing"],
+    "frontend": ["react", "vue", "angular", "css", "html", "javascript", "typescript"],
+    "backend": ["nodejs", "python", "java", "go", "rust", "databases"],
+    "data": ["sql", "python", "r", "statistics", "ml", "visualization"],
+    "behavioral": ["leadership", "communication", "problem-solving", "teamwork", "conflict-resolution"]
+  },
+  "difficulty_scale": {
+    "1": "Basic concepts and definitions",
+    "2": "Practical application and examples",
+    "3": "Problem-solving and trade-offs",
+    "4": "System design and architecture",
+    "5": "Advanced optimization and scale"
+  }
+}

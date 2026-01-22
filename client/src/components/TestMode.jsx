@@ -2,6 +2,45 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
+// 🎯 STEP 2: Score band semantics (locked)
+const getScoreBand = (score) => {
+  if (score <= 30) return { 
+    label: "❌ INCORRECT", 
+    color: "text-red-500", 
+    bg: "bg-red-500/10", 
+    border: "border-red-500",
+    description: "Fundamentally incorrect. Review basics before retrying." 
+  };
+  if (score <= 50) return { 
+    label: "⚠️ SURFACE LEVEL", 
+    color: "text-orange-500", 
+    bg: "bg-orange-500/10", 
+    border: "border-orange-500",
+    description: "Some understanding but significant gaps. Study deeper." 
+  };
+  if (score <= 70) return { 
+    label: "✓ ACCEPTABLE", 
+    color: "text-yellow-400", 
+    bg: "bg-yellow-500/10", 
+    border: "border-yellow-500",
+    description: "Meets interview bar. Solid answer with room to improve." 
+  };
+  if (score <= 85) return { 
+    label: "✓✓ STRONG", 
+    color: "text-green-500", 
+    bg: "bg-green-500/10", 
+    border: "border-green-500",
+    description: "Better than most candidates. Demonstrates solid expertise." 
+  };
+  return { 
+    label: "✓✓✓ EXCEPTIONAL", 
+    color: "text-emerald-400", 
+    bg: "bg-emerald-500/10", 
+    border: "border-emerald-500",
+    description: "Exceptional mastery. Hire-this-person-now level." 
+  };
+};
+
 const TestMode = ({ userData, qaPairs, setQaPairs }) => {
   const API_BASE = import.meta.env.VITE_API_BASE || '';
   const [currentQIndex, setCurrentQIndex] = useState(0);
@@ -245,7 +284,7 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ type: 'spring', damping: 20 }}
-                className="absolute inset-0 bg-black/95 backdrop-blur-md p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 z-20"
+                className="absolute inset-0 bg-black/95 backdrop-blur-md p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 z-20 overflow-y-auto"
               >
                 {/* Left: Transcript */}
                 <div className="flex flex-col">
@@ -264,7 +303,7 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                     </motion.button>
                   </div>
                   
-                  {/* Breakdown Bars - Moved here */}
+                  {/* Breakdown Bars - Legacy format */}
                   {feedback.breakdown && (
                     <div className="grid grid-cols-1 gap-2 w-full mt-6">
                       {Object.entries(feedback.breakdown).map(([k,v]) => (
@@ -283,26 +322,80 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                 </div>
 
                 {/* Right: Evaluation */}
-                <div className="flex flex-col items-center text-center overflow-y-auto max-h-full pr-2 custom-scrollbar">
+                <div className="flex flex-col text-center overflow-y-auto max-h-full pr-2 custom-scrollbar">
+                  {/* Score band label */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05, type: 'spring' }}
+                    className={`text-2xl font-bold mb-2 ${getScoreBand(feedback.score).color}`}
+                  >
+                    {getScoreBand(feedback.score).label}
+                  </motion.div>
+                  
+                  {/* Score number */}
                   <motion.div 
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1, type: 'spring' }}
-                    className="text-5xl font-bold mb-4"
+                    className="text-6xl font-bold mb-2"
                   >
-                    <span className={feedback.rating === 'Green' ? 'text-green-400' : feedback.rating === 'Yellow' ? 'text-yellow-400' : 'text-red-400'}>
+                    <span className={getScoreBand(feedback.score).color}>
                       {feedback.score}/100
                     </span>
                   </motion.div>
+                  
+                  {/* Score band description */}
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className={`text-lg font-bold mb-4 ${feedback.rating === 'Green' ? 'text-green-400' : feedback.rating === 'Yellow' ? 'text-yellow-400' : 'text-red-400'}`}
+                    transition={{ delay: 0.15 }}
+                    className="text-xs text-gray-400 mb-6 px-4"
                   >
-                    {feedback.rating} Signal
+                    {getScoreBand(feedback.score).description}
                   </motion.div>
-                  {feedback.justification && (
+
+                  {/* AI Service Structured Feedback (if available) */}
+                  {feedback.aiData?.strengths?.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-green-500/10 p-4 rounded-xl text-left border-l-4 border-green-500 mb-4 w-full"
+                    >
+                      <p className="text-xs text-green-400 font-bold uppercase mb-2">💪 Strengths</p>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        {feedback.aiData.strengths.map((strength, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-green-400 mr-2">✓</span>
+                            <span>{strength}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+
+                  {feedback.aiData?.improvements?.length > 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="bg-yellow-500/10 p-4 rounded-xl text-left border-l-4 border-yellow-500 mb-4 w-full"
+                    >
+                      <p className="text-xs text-yellow-400 font-bold uppercase mb-2">📈 Areas to Improve</p>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        {feedback.aiData.improvements.map((improvement, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-yellow-400 mr-2">→</span>
+                            <span>{improvement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+
+                  {/* Legacy justification (fallback if no AI data) */}
+                  {feedback.justification && !feedback.aiData?.strengths && (
                     <motion.p 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -312,13 +405,15 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                       {feedback.justification}
                     </motion.p>
                   )}
+
+                  {/* Improvement tip */}
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="bg-white/5 p-4 rounded-xl text-left border-l-4 border-blue-500 mb-2 w-full max-w-md"
+                    transition={{ delay: 0.5 }}
+                    className="bg-blue-500/10 p-4 rounded-xl text-left border-l-4 border-blue-500 w-full"
                   >
-                    <p className="text-xs text-blue-400 font-bold uppercase">Tip</p>
+                    <p className="text-xs text-blue-400 font-bold uppercase">💡 Next Step</p>
                     <p className="text-sm text-gray-300">{feedback.improvement_tip}</p>
                   </motion.div>
                 </div>
