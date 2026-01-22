@@ -1,0 +1,242 @@
+[
+  {
+    "id": "behavioral_001",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a challenge you faced at work or college.",
+    "ideal_points": [
+      "Uses STAR method (Situation, Task, Action, Result)",
+      "Specific challenge clearly described",
+      "Actions taken were logical and effective",
+      "Result was positive or learning was demonstrated",
+      "Shows problem-solving ability"
+    ],
+    "evaluation_rubric": {
+      "star_structure": "Did they use STAR or similar structure?",
+      "specificity": "Was the challenge specific and clear?",
+      "action": "Did they explain what THEY did?",
+      "result": "Was there a measurable outcome or learning?",
+      "missed_opportunities": ["Too vague", "No clear result", "Didn't explain their role", "No STAR structure"]
+    },
+    "follow_ups": ["What did you learn from that experience?", "Would you do anything differently?", "How do you apply that learning now?"]
+  },
+  {
+    "id": "behavioral_002",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Describe a failure and what you learned from it.",
+    "ideal_points": [
+      "Takes ownership without blaming others",
+      "Describes failure honestly",
+      "Explains root cause analysis",
+      "Shows specific learning and growth",
+      "Demonstrates how they've improved since"
+    ],
+    "evaluation_rubric": {
+      "ownership": "Did they take responsibility?",
+      "honesty": "Were they genuinely reflective?",
+      "learning": "Did they extract meaningful lessons?",
+      "growth": "Have they improved based on the failure?",
+      "missed_opportunities": ["Blamed others", "No real failure shared", "No learning mentioned", "Defensive tone"]
+    },
+    "follow_ups": ["How has that failure changed your approach?", "What would you do differently now?", "How do you prevent similar failures?"]
+  },
+  {
+    "id": "behavioral_003",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a time you worked in a team.",
+    "ideal_points": [
+      "Describes their specific role in team",
+      "Shows collaboration and communication",
+      "Mentions how they handled disagreements",
+      "Team achieved a positive outcome",
+      "Demonstrates teamwork skills"
+    ],
+    "evaluation_rubric": {
+      "role_clarity": "Did they explain their role clearly?",
+      "collaboration": "Did they show genuine teamwork?",
+      "communication": "Was communication emphasized?",
+      "outcome": "Did team achieve results?",
+      "missed_opportunities": ["Took all credit", "No specific role mentioned", "Didn't mention others", "No outcome"]
+    },
+    "follow_ups": ["What was your role in the team?", "How did you handle conflicts?", "What made the team successful?"]
+  },
+  {
+    "id": "behavioral_004",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How do you handle conflicts?",
+    "ideal_points": [
+      "Provides specific conflict example",
+      "Shows emotional intelligence",
+      "Demonstrates active listening",
+      "Focuses on resolution, not winning",
+      "Maintains professional relationships"
+    ],
+    "evaluation_rubric": {
+      "maturity": "Did they handle conflict maturely?",
+      "resolution": "Was conflict resolved effectively?",
+      "empathy": "Did they consider other perspectives?",
+      "professionalism": "Remained professional throughout?",
+      "missed_opportunities": ["Avoided conflict entirely", "Focused on winning", "No empathy shown", "Generic answer"]
+    },
+    "follow_ups": ["What's your approach to difficult conversations?", "How do you prevent conflicts?", "What if the other person won't compromise?"]
+  },
+  {
+    "id": "behavioral_005",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Describe a situation where you took initiative.",
+    "ideal_points": [
+      "Identified problem or opportunity proactively",
+      "Took action without being asked",
+      "Demonstrated ownership and leadership",
+      "Created positive impact",
+      "Shows entrepreneurial mindset"
+    ],
+    "evaluation_rubric": {
+      "proactivity": "Did they identify need themselves?",
+      "action": "Did they take concrete steps?",
+      "impact": "Was there measurable positive impact?",
+      "leadership": "Did they show leadership qualities?",
+      "missed_opportunities": ["Waited for permission", "No clear impact", "Too small an initiative", "Didn't follow through"]
+    },
+    "follow_ups": ["What motivated you to take that initiative?", "What obstacles did you face?", "How was it received?"]
+  },
+  {
+    "id": "behavioral_006",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a time you missed a deadline.",
+    "ideal_points": [
+      "Takes responsibility for the miss",
+      "Explains circumstances honestly",
+      "Describes how they handled it",
+      "Shows what they learned",
+      "Demonstrates improved time management"
+    ],
+    "evaluation_rubric": {
+      "responsibility": "Did they take ownership?",
+      "communication": "Did they communicate proactively?",
+      "learning": "What did they learn?",
+      "prevention": "How do they prevent this now?",
+      "missed_opportunities": ["Blamed others", "Made excuses", "No learning", "Happens frequently"]
+    },
+    "follow_ups": ["How did you communicate the delay?", "What would you do differently?", "How do you manage deadlines now?"]
+  },
+  {
+    "id": "behavioral_007",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How do you handle criticism?",
+    "ideal_points": [
+      "Shows openness to feedback",
+      "Specific example of receiving criticism",
+      "Explains how they processed it",
+      "Demonstrates growth from feedback",
+      "Maintains professional composure"
+    ],
+    "evaluation_rubric": {
+      "openness": "Were they receptive to feedback?",
+      "professionalism": "Did they stay professional?",
+      "action": "Did they act on the feedback?",
+      "growth": "Did they improve?",
+      "missed_opportunities": ["Defensive", "Dismissed feedback", "No example", "Didn't improve"]
+    },
+    "follow_ups": ["How do you differentiate constructive vs destructive criticism?", "What's the hardest feedback you've received?", "How do you ask for feedback?"]
+  },
+  {
+    "id": "behavioral_008",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Describe a stressful situation and how you managed it.",
+    "ideal_points": [
+      "Specific high-pressure situation described",
+      "Explains stress management techniques",
+      "Remained calm and effective",
+      "Positive outcome despite pressure",
+      "Shows resilience"
+    ],
+    "evaluation_rubric": {
+      "pressure_handling": "Did they stay effective under pressure?",
+      "techniques": "Did they use specific coping strategies?",
+      "outcome": "Was situation resolved positively?",
+      "resilience": "Did they bounce back?",
+      "missed_opportunities": ["Panicked", "No coping strategies", "Avoided stress", "Negative outcome"]
+    },
+    "follow_ups": ["How do you prevent burnout?", "What stresses you most?", "How do you help others under stress?"]
+  },
+  {
+    "id": "behavioral_009",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a time you helped someone.",
+    "ideal_points": [
+      "Specific example of helping colleague/peer",
+      "Shows empathy and collaboration",
+      "Didn't seek recognition",
+      "Positive impact on person helped",
+      "Demonstrates team-player mentality"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Did they show genuine care?",
+      "impact": "Did their help make a difference?",
+      "humility": "Did they help without seeking credit?",
+      "collaboration": "Do they support team members?",
+      "missed_opportunities": ["Sought recognition", "Minimal help", "No impact mentioned", "Generic example"]
+    },
+    "follow_ups": ["How did you balance helping with your own work?", "What motivates you to help others?", "How do you know when to offer help?"]
+  },
+  {
+    "id": "behavioral_010",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Describe a situation where you had to adapt quickly.",
+    "ideal_points": [
+      "Significant change or challenge described",
+      "Shows flexibility and agility",
+      "Adapted approach effectively",
+      "Maintained performance despite change",
+      "Demonstrates learning agility"
+    ],
+    "evaluation_rubric": {
+      "flexibility": "Did they adapt quickly?",
+      "effectiveness": "Did they remain effective?",
+      "attitude": "Was attitude positive?",
+      "learning": "Did they learn from adaptation?",
+      "missed_opportunities": ["Resisted change", "Struggled to adapt", "Negative attitude", "No learning"]
+    },
+    "follow_ups": ["How do you handle unexpected changes?", "What helps you adapt quickly?", "What was the most difficult part?"]
+  }
+]

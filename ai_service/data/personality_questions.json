@@ -1,0 +1,242 @@
+[
+  {
+    "id": "personality_001",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "How would your friends describe you?",
+    "ideal_points": [
+      "Mentions 3-5 authentic traits",
+      "Includes both personal and professional qualities",
+      "Provides brief examples",
+      "Shows self-awareness",
+      "Traits align with role requirements"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Did it feel genuine?",
+      "relevance": "Are traits relevant to work?",
+      "self_awareness": "Shows understanding of own personality?",
+      "balance": "Mix of strengths and honest traits?",
+      "missed_opportunities": ["Too perfect", "No examples", "Not role-relevant", "Generic traits"]
+    },
+    "follow_ups": ["How do those traits help you at work?", "What trait would you like to develop?", "How do you leverage your personality in teams?"]
+  },
+  {
+    "id": "personality_002",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What kind of manager do you work best with?",
+    "ideal_points": [
+      "Describes preferred management style",
+      "Shows flexibility to adapt",
+      "Focuses on outcomes, not micromanaging",
+      "Balanced between autonomy and guidance",
+      "Shows maturity in understanding management"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Do they know what they need?",
+      "flexibility": "Can they work with different styles?",
+      "maturity": "Realistic expectations of managers?",
+      "red_flags": "Any concerning preferences (needs hand-holding)?",
+      "missed_opportunities": ["Too rigid", "Unrealistic expectations", "Needs excessive oversight", "Can't work independently"]
+    },
+    "follow_ups": ["What management style doesn't work for you?", "How do you adapt to different managers?", "How do you communicate with managers?"]
+  },
+  {
+    "id": "personality_003",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Do you prefer working alone or in a team?",
+    "ideal_points": [
+      "Shows ability to do both",
+      "Explains when each is appropriate",
+      "Provides examples of both scenarios",
+      "No extreme preference",
+      "Role-appropriate answer"
+    ],
+    "evaluation_rubric": {
+      "flexibility": "Can they do both?",
+      "awareness": "Do they understand when each is needed?",
+      "role_fit": "Does preference match role requirements?",
+      "collaboration": "Shows willingness to collaborate?",
+      "missed_opportunities": ["Extreme loner", "Can't work independently", "No examples", "Doesn't match role"]
+    },
+    "follow_ups": ["When do you prefer to work alone?", "How do you balance collaboration with focus time?", "What makes a good team?"]
+  },
+  {
+    "id": "personality_004",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "How do you define success?",
+    "ideal_points": [
+      "Balanced definition (not just money)",
+      "Includes personal and professional elements",
+      "Shows growth mindset",
+      "Aligned with role and company values",
+      "Demonstrates thoughtfulness"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is definition thoughtful?",
+      "balance": "Includes multiple dimensions?",
+      "alignment": "Matches company values?",
+      "maturity": "Shows mature perspective?",
+      "missed_opportunities": ["Only money", "Too vague", "Unrealistic", "No personal element"]
+    },
+    "follow_ups": ["How do you measure your own success?", "What's been your biggest success?", "How has your definition evolved?"]
+  },
+  {
+    "id": "personality_005",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What does work-life balance mean to you?",
+    "ideal_points": [
+      "Realistic understanding of balance",
+      "Shows commitment to work",
+      "Values personal time appropriately",
+      "Demonstrates boundaries",
+      "Role-appropriate expectations"
+    ],
+    "evaluation_rubric": {
+      "realism": "Are expectations realistic?",
+      "commitment": "Shows dedication to work?",
+      "boundaries": "Can set healthy boundaries?",
+      "flexibility": "Understands when extra effort is needed?",
+      "missed_opportunities": ["Expects 9-5 in demanding role", "No boundaries", "Workaholic tendency", "Unrealistic"]
+    },
+    "follow_ups": ["How do you maintain balance?", "What do you do outside work?", "How do you recharge?"]
+  },
+  {
+    "id": "personality_006",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What values are important to you?",
+    "ideal_points": [
+      "Names 3-5 core values",
+      "Explains why they matter",
+      "Provides examples of living values",
+      "Values align with company culture",
+      "Shows authenticity"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Do values feel genuine?",
+      "alignment": "Do values match company?",
+      "examples": "Can they demonstrate values?",
+      "depth": "Shows thoughtfulness?",
+      "missed_opportunities": ["Too generic", "No examples", "Values mismatch", "Can't articulate"]
+    },
+    "follow_ups": ["How do you live that value at work?", "What if company values conflict with yours?", "How do values guide decisions?"]
+  },
+  {
+    "id": "personality_007",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What kind of company culture do you prefer?",
+    "ideal_points": [
+      "Describes ideal culture traits",
+      "Shows research into company culture",
+      "Realistic expectations",
+      "Aligns with company's actual culture",
+      "Shows cultural awareness"
+    ],
+    "evaluation_rubric": {
+      "research": "Did they research company culture?",
+      "fit": "Does preference match company?",
+      "awareness": "Understands culture importance?",
+      "adaptability": "Can adapt to different cultures?",
+      "missed_opportunities": ["No research", "Mismatch with company", "Unrealistic", "Too vague"]
+    },
+    "follow_ups": ["What culture have you thrived in?", "What culture doesn't work for you?", "How do you contribute to culture?"]
+  },
+  {
+    "id": "personality_008",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "How do you handle monotony?",
+    "ideal_points": [
+      "Acknowledges that some work is repetitive",
+      "Finds ways to stay engaged",
+      "Looks for optimization opportunities",
+      "Maintains quality despite routine",
+      "Shows maturity about work reality"
+    ],
+    "evaluation_rubric": {
+      "realism": "Understands work has routine elements?",
+      "engagement": "Strategies to stay engaged?",
+      "quality": "Maintains standards despite monotony?",
+      "improvement": "Looks for ways to improve processes?",
+      "missed_opportunities": ["Can't handle routine", "No strategies", "Complains", "Quality drops"]
+    },
+    "follow_ups": ["What keeps you engaged?", "How do you automate or improve repetitive work?", "What's your ideal variety level?"]
+  },
+  {
+    "id": "personality_009",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What frustrates you at work?",
+    "ideal_points": [
+      "Names reasonable frustrations",
+      "Shows how they handle frustration",
+      "Focuses on process, not people",
+      "Demonstrates problem-solving",
+      "Maintains professionalism"
+    ],
+    "evaluation_rubric": {
+      "reasonableness": "Are frustrations reasonable?",
+      "handling": "Do they handle frustration maturely?",
+      "focus": "Focus on fixable issues, not people?",
+      "red_flags": "Any concerning patterns?",
+      "missed_opportunities": ["Blames people", "Too many frustrations", "Can't handle normal challenges", "Unprofessional"]
+    },
+    "follow_ups": ["How do you handle those frustrations?", "What do you do when frustrated?", "How do you prevent frustration?"]
+  },
+  {
+    "id": "personality_010",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What makes you excited about work?",
+    "ideal_points": [
+      "Shows genuine enthusiasm",
+      "Mentions specific aspects",
+      "Aligns with role responsibilities",
+      "Demonstrates passion",
+      "Provides examples"
+    ],
+    "evaluation_rubric": {
+      "enthusiasm": "Is excitement genuine?",
+      "specificity": "Mentions specific elements?",
+      "alignment": "Excited about aspects of this role?",
+      "authenticity": "Does it feel real?",
+      "missed_opportunities": ["Too generic", "Not aligned with role", "No enthusiasm", "Only money"]
+    },
+    "follow_ups": ["What project has excited you most?", "What would you work on for free?", "What energizes you?"]
+  }
+]

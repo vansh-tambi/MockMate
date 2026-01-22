@@ -1,0 +1,242 @@
+[
+  {
+    "id": "situational_001",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What would you do if your teammate is not contributing?",
+    "ideal_points": [
+      "Approach with empathy first",
+      "Have direct but professional conversation",
+      "Understand if there are blockers",
+      "Escalate to manager if needed",
+      "Focus on team success, not blame"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Did they consider reasons first?",
+      "communication": "Would they communicate directly?",
+      "professionalism": "Handled diplomatically?",
+      "escalation": "Knew when to involve manager?",
+      "missed_opportunities": ["Immediately escalated", "Avoided confrontation", "Blamed teammate", "No empathy"]
+    },
+    "follow_ups": ["How would you approach that conversation?", "What if they become defensive?", "How do you maintain team morale?"]
+  },
+  {
+    "id": "situational_002",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How would you handle an angry client?",
+    "ideal_points": [
+      "Stay calm and professional",
+      "Listen actively without interrupting",
+      "Acknowledge their concerns",
+      "Propose solution or next steps",
+      "Follow up to ensure resolution"
+    ],
+    "evaluation_rubric": {
+      "composure": "Would they stay calm?",
+      "listening": "Would they listen first?",
+      "empathy": "Would they acknowledge feelings?",
+      "solution_focus": "Would they focus on resolution?",
+      "missed_opportunities": ["Got defensive", "Didn't listen", "No solution offered", "Took it personally"]
+    },
+    "follow_ups": ["What if the client is unreasonable?", "How do you de-escalate situations?", "What if you can't solve the problem immediately?"]
+  },
+  {
+    "id": "situational_003",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What would you do if you disagree with your manager?",
+    "ideal_points": [
+      "Prepare data and reasoning",
+      "Request private conversation",
+      "Present perspective respectfully",
+      "Be open to their reasoning",
+      "Accept decision even if disagree"
+    ],
+    "evaluation_rubric": {
+      "respect": "Would they approach respectfully?",
+      "preparation": "Would they prepare arguments?",
+      "openness": "Would they listen to manager's view?",
+      "professionalism": "Would they accept final decision?",
+      "missed_opportunities": ["Publicly disagree", "No preparation", "Stubborn", "Didn't respect authority"]
+    },
+    "follow_ups": ["How do you choose your battles?", "What if the decision is clearly wrong?", "How do you maintain relationship after disagreement?"]
+  },
+  {
+    "id": "situational_004",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "If you are given a task with unclear requirements, what would you do?",
+    "ideal_points": [
+      "Ask clarifying questions immediately",
+      "Document understanding",
+      "Propose approach for confirmation",
+      "Set checkpoints for feedback",
+      "Don't assume or guess"
+    ],
+    "evaluation_rubric": {
+      "proactivity": "Would they ask questions?",
+      "documentation": "Would they document understanding?",
+      "validation": "Would they seek confirmation?",
+      "communication": "Would they communicate frequently?",
+      "missed_opportunities": ["Made assumptions", "Didn't ask questions", "Proceeded without clarity", "Waited too long"]
+    },
+    "follow_ups": ["How do you know when you have enough information?", "What questions would you ask?", "How do you handle ambiguity?"]
+  },
+  {
+    "id": "situational_005",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How would you manage multiple deadlines?",
+    "ideal_points": [
+      "Prioritize based on urgency and impact",
+      "Communicate with stakeholders",
+      "Break down tasks into smaller chunks",
+      "Set realistic expectations",
+      "Ask for help or extension if needed"
+    ],
+    "evaluation_rubric": {
+      "prioritization": "Do they know how to prioritize?",
+      "communication": "Would they communicate early?",
+      "realism": "Are they realistic about capacity?",
+      "help_seeking": "Would they ask for help if needed?",
+      "missed_opportunities": ["Overpromised", "Didn't prioritize", "Poor communication", "Worked in isolation"]
+    },
+    "follow_ups": ["How do you decide what's most important?", "What tools do you use?", "How do you handle conflicting priorities?"]
+  },
+  {
+    "id": "situational_006",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 3,
+    "question": "What would you do if you made a mistake that no one noticed?",
+    "ideal_points": [
+      "Disclose the mistake immediately",
+      "Assess impact and propose fix",
+      "Take ownership without excuses",
+      "Implement preventive measures",
+      "Shows integrity"
+    ],
+    "evaluation_rubric": {
+      "integrity": "Would they disclose it?",
+      "ownership": "Would they take responsibility?",
+      "solution": "Would they fix it?",
+      "prevention": "Would they prevent recurrence?",
+      "missed_opportunities": ["Hide mistake", "Wait for discovery", "No preventive action", "Make excuses"]
+    },
+    "follow_ups": ["How do you balance transparency with not causing panic?", "What if it's a small mistake?", "How do you build a culture of accountability?"]
+  },
+  {
+    "id": "situational_007",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How would you react if your idea was rejected?",
+    "ideal_points": [
+      "Ask for feedback on why",
+      "Listen to reasoning objectively",
+      "Look for ways to improve idea",
+      "Don't take it personally",
+      "Remain engaged and contribute"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Can they handle rejection?",
+      "curiosity": "Would they seek to understand why?",
+      "improvement": "Would they iterate?",
+      "ego": "Can they separate idea from self-worth?",
+      "missed_opportunities": ["Took it personally", "Got defensive", "Disengaged", "Didn't seek feedback"]
+    },
+    "follow_ups": ["How do you handle criticism of your work?", "What if you strongly believe in your idea?", "How do you stay motivated after rejection?"]
+  },
+  {
+    "id": "situational_008",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 3,
+    "question": "What would you do if you were asked to do something unethical?",
+    "ideal_points": [
+      "Refuse clearly but professionally",
+      "Explain ethical concerns",
+      "Escalate if necessary",
+      "Document the request",
+      "Shows strong moral compass"
+    ],
+    "evaluation_rubric": {
+      "integrity": "Would they refuse?",
+      "courage": "Would they speak up?",
+      "professionalism": "Would they handle it professionally?",
+      "escalation": "Would they escalate appropriately?",
+      "missed_opportunities": ["Would comply", "Avoided confrontation", "Didn't escalate", "Made excuses"]
+    },
+    "follow_ups": ["How do you define unethical?", "What if it comes from senior leadership?", "How do you protect yourself?"]
+  },
+  {
+    "id": "situational_009",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How would you onboard yourself in the first week?",
+    "ideal_points": [
+      "Set up 1:1s with team members",
+      "Review documentation and codebase",
+      "Ask questions and take notes",
+      "Understand team processes",
+      "Identify quick wins"
+    ],
+    "evaluation_rubric": {
+      "proactivity": "Would they take initiative?",
+      "relationship_building": "Would they meet people?",
+      "learning": "Would they learn systems?",
+      "contribution": "Would they look for ways to add value?",
+      "missed_opportunities": ["Wait for instructions", "Didn't meet team", "No questions", "Too passive"]
+    },
+    "follow_ups": ["What would you learn first?", "Who would you talk to?", "How do you make a good first impression?"]
+  },
+  {
+    "id": "situational_010",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What would you do if priorities suddenly change?",
+    "ideal_points": [
+      "Understand reason for change",
+      "Assess impact on current work",
+      "Communicate with stakeholders",
+      "Re-prioritize and adjust",
+      "Stay flexible and positive"
+    ],
+    "evaluation_rubric": {
+      "flexibility": "Can they adapt quickly?",
+      "communication": "Would they communicate impact?",
+      "understanding": "Would they seek to understand why?",
+      "attitude": "Would attitude be positive?",
+      "missed_opportunities": ["Resisted change", "Complained", "Didn't communicate", "Rigid thinking"]
+    },
+    "follow_ups": ["How do you handle constant change?", "What if you disagree with the new priority?", "How do you help team adapt?"]
+  }
+]

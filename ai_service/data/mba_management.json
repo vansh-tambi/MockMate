@@ -1,0 +1,362 @@
+[
+  {
+    "id": "mba_management_001",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why do you want to pursue a career in management?",
+    "ideal_points": [
+      "Clear vision for management career",
+      "Understands what management entails",
+      "Shows leadership potential",
+      "Passion for developing people and strategy",
+      "Realistic expectations about challenges"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Is their vision clear and specific?",
+      "understanding": "Do they know what managers do?",
+      "motivation": "Is motivation intrinsic and genuine?",
+      "awareness": "Are they aware of challenges?",
+      "missed_opportunities": ["Just wants title", "Only mentions money", "Vague aspirations", "No understanding of role"]
+    },
+    "follow_ups": ["What type of manager do you want to be?", "What aspects of management excite you most?", "How have you prepared for this?"]
+  },
+  {
+    "id": "mba_management_002",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "leadership",
+    "difficulty": 2,
+    "question": "How do you define leadership?",
+    "ideal_points": [
+      "Thoughtful, nuanced definition",
+      "Includes both people and results",
+      "Mentions empowerment and vision",
+      "Shows personal leadership philosophy",
+      "Backed by examples or experience"
+    ],
+    "evaluation_rubric": {
+      "depth": "Is definition thoughtful and comprehensive?",
+      "balance": "Does it balance people and results?",
+      "authenticity": "Is it their genuine philosophy?",
+      "application": "Can they apply it practically?",
+      "missed_opportunities": ["Generic textbook answer", "Only about authority", "No personal philosophy", "Can't explain"]
+    },
+    "follow_ups": ["Describe a leader you admire and why.", "How do you practice leadership?", "What's the difference between leadership and management?"]
+  },
+  {
+    "id": "mba_management_003",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "conflict_management",
+    "difficulty": 3,
+    "question": "Describe a time you had to resolve a conflict within a team.",
+    "ideal_points": [
+      "Uses STAR method effectively",
+      "Shows emotional intelligence",
+      "Neutral and fair approach",
+      "Achieved positive resolution",
+      "Learned from the experience"
+    ],
+    "evaluation_rubric": {
+      "approach": "Was approach fair and effective?",
+      "emotional_intelligence": "Did they understand all perspectives?",
+      "resolution": "Was conflict truly resolved?",
+      "learning": "What did they take away?",
+      "missed_opportunities": ["Took sides", "Avoided conflict", "No real resolution", "Vague details"]
+    },
+    "follow_ups": ["How did you ensure fairness?", "What would you do differently?", "How do you prevent conflicts?"]
+  },
+  {
+    "id": "mba_management_004",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "management_style",
+    "difficulty": 2,
+    "question": "What is your management style?",
+    "ideal_points": [
+      "Clearly articulated style",
+      "Shows flexibility and adaptation",
+      "Balances multiple approaches",
+      "Backed by experience or examples",
+      "Self-aware about strengths and weaknesses"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Can they articulate their style?",
+      "flexibility": "Can they adapt to situations?",
+      "effectiveness": "Does their style work?",
+      "awareness": "Do they know their impact?",
+      "missed_opportunities": ["No clear style", "Rigid approach", "Micromanager", "Too hands-off"]
+    },
+    "follow_ups": ["How do you adapt your style?", "Describe managing different personality types.", "What's your biggest management challenge?"]
+  },
+  {
+    "id": "mba_management_005",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "decision_making",
+    "difficulty": 3,
+    "question": "Tell me about a significant decision you made with limited data.",
+    "ideal_points": [
+      "Shows analytical thinking",
+      "Explains decision-making process",
+      "Used available data effectively",
+      "Managed risk appropriately",
+      "Owned the outcome"
+    ],
+    "evaluation_rubric": {
+      "process": "Did they have a structured approach?",
+      "analysis": "Did they use data effectively?",
+      "risk_management": "Did they consider and manage risks?",
+      "outcome": "What was the result?",
+      "missed_opportunities": ["No process", "Ignored available data", "Reckless decision", "Blamed circumstances"]
+    },
+    "follow_ups": ["How did you mitigate risks?", "What data did you wish you had?", "How do you make decisions under uncertainty?"]
+  },
+  {
+    "id": "mba_management_006",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "How do you motivate team members with different personalities and goals?",
+    "ideal_points": [
+      "Understands individual motivation",
+      "Tailors approach to individuals",
+      "Connects work to personal goals",
+      "Creates positive environment",
+      "Shows empathy and emotional intelligence"
+    ],
+    "evaluation_rubric": {
+      "personalization": "Do they customize motivation?",
+      "understanding": "Do they understand what drives people?",
+      "effectiveness": "Do their techniques work?",
+      "empathy": "Do they genuinely care?",
+      "missed_opportunities": ["One-size-fits-all", "Only uses money", "Doesn't understand people", "No examples"]
+    },
+    "follow_ups": ["How do you identify what motivates someone?", "Describe motivating an unmotivated person.", "What motivates you?"]
+  },
+  {
+    "id": "mba_management_007",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 2,
+    "question": "Describe a professional failure and how you handled it.",
+    "ideal_points": [
+      "Takes full ownership",
+      "Genuine reflection on failure",
+      "Explains root cause",
+      "Shows specific learning",
+      "Demonstrates growth since"
+    ],
+    "evaluation_rubric": {
+      "ownership": "Did they take responsibility?",
+      "honesty": "Were they genuinely reflective?",
+      "analysis": "Did they understand why it failed?",
+      "growth": "Have they improved?",
+      "missed_opportunities": ["Blames others", "Minimizes failure", "No real learning", "Defensive"]
+    },
+    "follow_ups": ["How did this change your approach?", "What would you do differently?", "How do you handle failure in your team?"]
+  },
+  {
+    "id": "mba_management_008",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "values",
+    "difficulty": 2,
+    "question": "How do you define success?",
+    "ideal_points": [
+      "Balanced definition (not just money)",
+      "Includes personal and professional",
+      "Shows values and priorities",
+      "Meaningful and authentic",
+      "Actionable and measurable"
+    ],
+    "evaluation_rubric": {
+      "balance": "Is definition balanced and holistic?",
+      "authenticity": "Is it genuinely theirs?",
+      "clarity": "Can they articulate it clearly?",
+      "alignment": "Does it align with their actions?",
+      "missed_opportunities": ["Only money/title", "Too vague", "Contradicts their behavior", "No personal element"]
+    },
+    "follow_ups": ["How do you measure your success?", "What success are you most proud of?", "How has your definition evolved?"]
+  },
+  {
+    "id": "mba_management_009",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "motivation",
+    "difficulty": 2,
+    "question": "Why should we hire you for this management program/role?",
+    "ideal_points": [
+      "Clear understanding of role requirements",
+      "Matches skills to requirements",
+      "Shows unique value proposition",
+      "Confidence without arrogance",
+      "Specific examples of capabilities"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Do they know what's required?",
+      "fit": "Are they a good match?",
+      "differentiation": "What makes them unique?",
+      "confidence": "Are they appropriately confident?",
+      "missed_opportunities": ["Generic answer", "Can't explain fit", "Arrogant", "No specific examples"]
+    },
+    "follow_ups": ["What makes you different from other candidates?", "What's your biggest strength for this role?", "What concerns should we have?"]
+  },
+  {
+    "id": "mba_management_010",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "value_creation",
+    "difficulty": 2,
+    "question": "What value will you add to our organization/program?",
+    "ideal_points": [
+      "Specific and concrete contributions",
+      "Understands organization's needs",
+      "Shows strategic thinking",
+      "Balances immediate and long-term value",
+      "Demonstrates collaborative mindset"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Are contributions specific?",
+      "alignment": "Do they understand needs?",
+      "feasibility": "Are contributions realistic?",
+      "impact": "Will they create meaningful value?",
+      "missed_opportunities": ["Too vague", "All about taking", "Unrealistic claims", "No research done"]
+    },
+    "follow_ups": ["How will you achieve this?", "What do you need from us?", "What's your 100-day plan?"]
+  },
+  {
+    "id": "mba_management_011",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "Your team is falling behind on a critical deadline. How do you handle it?",
+    "ideal_points": [
+      "Assesses situation objectively",
+      "Communicates with stakeholders",
+      "Prioritizes and reprioritizes",
+      "Supports team while driving results",
+      "Takes accountability"
+    ],
+    "evaluation_rubric": {
+      "assessment": "Do they diagnose the problem?",
+      "communication": "Do they manage expectations?",
+      "action": "Are actions practical and effective?",
+      "leadership": "Do they lead through crisis?",
+      "missed_opportunities": ["Panics", "Blames team", "Ignores stakeholders", "No action plan"]
+    },
+    "follow_ups": ["How do you prevent this situation?", "What if it's due to poor planning?", "How do you support stressed team members?"]
+  },
+  {
+    "id": "mba_management_012",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You have a consistently underperforming team member. Walk me through how you address this.",
+    "ideal_points": [
+      "Addresses issue directly but empathetically",
+      "Seeks to understand root cause",
+      "Creates improvement plan with metrics",
+      "Provides support and resources",
+      "Has clear consequences if no improvement"
+    ],
+    "evaluation_rubric": {
+      "directness": "Do they address it promptly?",
+      "empathy": "Do they seek to understand?",
+      "structure": "Is there a clear improvement plan?",
+      "fairness": "Is the process fair?",
+      "missed_opportunities": ["Avoids confrontation", "Too harsh", "No support given", "No clear expectations"]
+    },
+    "follow_ups": ["What if they don't improve?", "How do you balance empathy and accountability?", "What support do you provide?"]
+  },
+  {
+    "id": "mba_management_013",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You're managing multiple high-priority projects with competing demands. How do you decide what to focus on?",
+    "ideal_points": [
+      "Has clear prioritization framework",
+      "Considers impact and urgency",
+      "Communicates with stakeholders",
+      "Delegates effectively",
+      "Makes tough trade-off decisions"
+    ],
+    "evaluation_rubric": {
+      "framework": "Do they have a decision framework?",
+      "stakeholder_management": "Do they manage expectations?",
+      "delegation": "Can they leverage their team?",
+      "decisiveness": "Can they make tough calls?",
+      "missed_opportunities": ["No clear process", "Tries to do everything", "Can't say no", "Poor communication"]
+    },
+    "follow_ups": ["How do you communicate priorities to stakeholders?", "What's your delegation strategy?", "How do you handle pushback?"]
+  },
+  {
+    "id": "mba_management_014",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "Your senior leadership makes a decision you strongly disagree with. How do you respond?",
+    "ideal_points": [
+      "Expresses disagreement professionally",
+      "Provides data and rationale",
+      "Seeks to understand leadership's perspective",
+      "Commits to decision once made",
+      "Manages own team's concerns"
+    ],
+    "evaluation_rubric": {
+      "professionalism": "Do they handle disagreement well?",
+      "courage": "Do they speak up appropriately?",
+      "flexibility": "Can they commit after disagreeing?",
+      "team_management": "How do they manage their team?",
+      "missed_opportunities": ["Silent disagreement", "Undermines decision", "Can't let go", "Too aggressive"]
+    },
+    "follow_ups": ["What if the decision seems unethical?", "How do you explain it to your team?", "When do you escalate concerns?"]
+  },
+  {
+    "id": "mba_management_015",
+    "phase": "behavioral",
+    "role": "MBA/Management/Corporate",
+    "level": "any",
+    "skill": "situational_judgment",
+    "difficulty": 3,
+    "question": "You need to drive change in an organization resistant to change. What's your approach?",
+    "ideal_points": [
+      "Understands change management principles",
+      "Builds coalition and buy-in",
+      "Communicates vision and rationale",
+      "Addresses concerns empathetically",
+      "Creates quick wins"
+    ],
+    "evaluation_rubric": {
+      "strategy": "Do they have a change strategy?",
+      "stakeholder_management": "Can they build support?",
+      "communication": "Can they articulate the why?",
+      "execution": "Can they drive implementation?",
+      "missed_opportunities": ["Forces change top-down", "Ignores resistance", "No communication plan", "No quick wins"]
+    },
+    "follow_ups": ["How do you handle resistors?", "What if leadership isn't fully supportive?", "How do you measure success?"]
+  }
+]

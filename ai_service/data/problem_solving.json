@@ -1,0 +1,238 @@
+[
+  {
+    "id": "problem_solve_001",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "problem-solving",
+    "difficulty": 3,
+    "question": "How would you optimize slow code?",
+    "ideal_points": [
+      "First, identify bottleneck using profiling tools",
+      "Check algorithm complexity (Big-O)",
+      "Look for unnecessary loops or nested operations",
+      "Consider caching frequently accessed data",
+      "Database query optimization",
+      "Parallel processing where applicable"
+    ],
+    "evaluation_rubric": {
+      "systematic_approach": "Does candidate have structured debugging methodology?",
+      "technical_knowledge": "Understands profiling, complexity analysis, optimization techniques",
+      "practical_examples": "Can provide concrete optimization strategies",
+      "trade_offs": "Recognizes when optimization may not be worth the complexity"
+    },
+    "follow_ups": ["What profiling tools have you used?", "Give an example of code you optimized", "How do you measure improvement?"]
+  },
+  {
+    "id": "problem_solve_002",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "problem-solving",
+    "difficulty": 3,
+    "question": "How do you approach an unknown problem?",
+    "ideal_points": [
+      "Break down problem into smaller parts",
+      "Research similar problems and solutions",
+      "Try simple solution first",
+      "Use print statements or debugger to understand flow",
+      "Ask for help when stuck",
+      "Document learning for future"
+    ],
+    "evaluation_rubric": {
+      "methodology": "Has structured approach to problem-solving",
+      "resourcefulness": "Knows how to find information",
+      "persistence": "Doesn't give up easily but knows when to ask for help",
+      "learning_mindset": "Sees problems as learning opportunities"
+    },
+    "follow_ups": ["Tell me about a time you solved a difficult problem", "What resources do you use?", "When do you ask for help?"]
+  },
+  {
+    "id": "problem_solve_003",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "debugging",
+    "difficulty": 3,
+    "question": "How do you debug production issues?",
+    "ideal_points": [
+      "Check logs first",
+      "Try to reproduce issue",
+      "Use monitoring tools (APM, error tracking)",
+      "Roll back if critical",
+      "Add more logging if needed",
+      "Fix and deploy with thorough testing"
+    ],
+    "evaluation_rubric": {
+      "crisis_management": "Can handle pressure of production issues",
+      "systematic_debugging": "Methodical approach, not random guessing",
+      "communication": "Keeps stakeholders informed",
+      "prevention": "Thinks about preventing similar issues"
+    },
+    "follow_ups": ["What's your worst production bug?", "How do you prevent issues?", "Experience with monitoring tools?"]
+  },
+  {
+    "id": "problem_solve_004",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "problem-solving",
+    "difficulty": 2,
+    "question": "How do you handle edge cases?",
+    "ideal_points": [
+      "Think about boundary conditions",
+      "Consider null/empty/zero inputs",
+      "Test with maximum and minimum values",
+      "Handle unexpected user input",
+      "Add validation and error handling",
+      "Write tests for edge cases"
+    ],
+    "evaluation_rubric": {
+      "thoroughness": "Thinks beyond happy path",
+      "defensive_programming": "Anticipates potential issues",
+      "testing_mindset": "Includes edge cases in testing strategy"
+    },
+    "follow_ups": ["Give an example of edge case you missed", "How do you identify edge cases?", "What's your testing approach?"]
+  },
+  {
+    "id": "problem_solve_005",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "architecture",
+    "difficulty": 3,
+    "question": "How do you write scalable code?",
+    "ideal_points": [
+      "Use efficient algorithms and data structures",
+      "Design modular, loosely coupled components",
+      "Consider horizontal scaling",
+      "Use caching strategies",
+      "Optimize database queries",
+      "Monitor performance metrics"
+    ],
+    "evaluation_rubric": {
+      "architectural_thinking": "Understands scalability principles",
+      "practical_knowledge": "Can apply concepts to real systems",
+      "trade_offs": "Recognizes complexity vs performance balance"
+    },
+    "follow_ups": ["Vertical vs horizontal scaling?", "Experience with high-traffic systems?", "How do you measure scalability?"]
+  },
+  {
+    "id": "problem_solve_006",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "architecture",
+    "difficulty": 3,
+    "question": "What trade-offs do you consider while designing systems?",
+    "ideal_points": [
+      "Performance vs readability",
+      "Time to market vs perfect solution",
+      "Complexity vs maintainability",
+      "Cost vs performance",
+      "Flexibility vs simplicity",
+      "No one-size-fits-all answer"
+    ],
+    "evaluation_rubric": {
+      "critical_thinking": "Can analyze pros and cons",
+      "business_awareness": "Considers business constraints",
+      "pragmatism": "Makes practical decisions",
+      "communication": "Can articulate reasoning"
+    },
+    "follow_ups": ["Give an example of a trade-off you made", "How do you make these decisions?", "Ever had to choose between quality and speed?"]
+  },
+  {
+    "id": "problem_solve_007",
+    "phase": "technical",
+    "role": "any",
+    "level": "junior",
+    "skill": "testing",
+    "difficulty": 2,
+    "question": "How do you test your code?",
+    "ideal_points": [
+      "Unit tests for individual functions",
+      "Integration tests for component interaction",
+      "Manual testing for user flows",
+      "Edge case testing",
+      "Use testing frameworks (Jest, pytest, etc.)",
+      "Test-driven development when appropriate"
+    ],
+    "evaluation_rubric": {
+      "testing_knowledge": "Understands different types of testing",
+      "practical_application": "Actually writes tests",
+      "quality_mindset": "Values code quality and reliability"
+    },
+    "follow_ups": ["What testing frameworks do you use?", "What's your test coverage?", "TDD experience?"]
+  },
+  {
+    "id": "problem_solve_008",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "security",
+    "difficulty": 3,
+    "question": "How do you ensure security in your applications?",
+    "ideal_points": [
+      "Input validation and sanitization",
+      "Use HTTPS/SSL",
+      "Implement authentication and authorization",
+      "Protect against common attacks (SQL injection, XSS, CSRF)",
+      "Keep dependencies updated",
+      "Follow security best practices"
+    ],
+    "evaluation_rubric": {
+      "security_awareness": "Understands common vulnerabilities",
+      "proactive_approach": "Thinks about security from start",
+      "knowledge_breadth": "Knows multiple security concepts"
+    },
+    "follow_ups": ["What's SQL injection?", "Ever had a security incident?", "How do you stay updated on security?"]
+  },
+  {
+    "id": "problem_solve_009",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "performance",
+    "difficulty": 3,
+    "question": "How do you improve performance of an application?",
+    "ideal_points": [
+      "Profile to find bottlenecks",
+      "Optimize database queries",
+      "Implement caching",
+      "Use lazy loading",
+      "Minify and bundle assets",
+      "Use CDN for static content",
+      "Consider server-side optimizations"
+    ],
+    "evaluation_rubric": {
+      "holistic_view": "Considers frontend, backend, database performance",
+      "measurement": "Knows how to measure performance",
+      "practical_knowledge": "Has implemented optimizations"
+    },
+    "follow_ups": ["What performance metrics matter?", "Biggest performance win you achieved?", "Tools for performance monitoring?"]
+  },
+  {
+    "id": "problem_solve_010",
+    "phase": "advanced",
+    "role": "any",
+    "level": "junior",
+    "skill": "debugging",
+    "difficulty": 3,
+    "question": "How do you handle failure in production?",
+    "ideal_points": [
+      "Immediate response: assess impact, communicate",
+      "Rollback if necessary",
+      "Investigate root cause",
+      "Implement fix with testing",
+      "Post-mortem analysis",
+      "Implement prevention measures"
+    ],
+    "evaluation_rubric": {
+      "crisis_response": "Can handle high-pressure situations",
+      "accountability": "Takes ownership of issues",
+      "learning_orientation": "Uses failures as learning opportunities",
+      "process_improvement": "Implements systems to prevent recurrence"
+    },
+    "follow_ups": ["Tell me about a production failure", "How do you communicate during outages?", "What's your incident response process?"]
+  }
+]

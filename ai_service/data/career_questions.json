@@ -1,0 +1,242 @@
+[
+  {
+    "id": "career_001",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What are your long-term goals?",
+    "ideal_points": [
+      "Clear vision beyond 5 years",
+      "Realistic and achievable",
+      "Shows ambition balanced with patience",
+      "Aligns with career trajectory",
+      "Demonstrates strategic thinking"
+    ],
+    "evaluation_rubric": {
+      "clarity": "Are goals clear?",
+      "realism": "Are they achievable?",
+      "alignment": "Do they align with this role?",
+      "ambition": "Shows drive without being unrealistic?",
+      "missed_opportunities": ["Too vague", "Unrealistic", "No alignment", "No clear direction"]
+    },
+    "follow_ups": ["How does this role fit into those goals?", "What steps are you taking?", "What might change your goals?"]
+  },
+  {
+    "id": "career_002",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "fresher",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why are you leaving your current role?",
+    "ideal_points": [
+      "Honest but professional reason",
+      "Focuses on growth, not negativity",
+      "Shows what they're looking for",
+      "Doesn't badmouth current employer",
+      "Demonstrates forward-thinking"
+    ],
+    "evaluation_rubric": {
+      "professionalism": "Remained professional?",
+      "honesty": "Was honest without burning bridges?",
+      "growth_focus": "Focused on growth opportunities?",
+      "red_flags": "Any concerning patterns (frequent changes)?",
+      "missed_opportunities": ["Badmouthed employer", "Red flag reasons", "Too many job changes", "Defensive"]
+    },
+    "follow_ups": ["What did you learn from that role?", "What would make you stay at a company?", "What are you looking for next?"]
+  },
+  {
+    "id": "career_003",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why this company?",
+    "ideal_points": [
+      "Shows research on company",
+      "Mentions specific aspects (mission, products, culture)",
+      "Aligns personal values with company values",
+      "Demonstrates genuine interest",
+      "Goes beyond generic reasons"
+    ],
+    "evaluation_rubric": {
+      "research": "Did they research the company?",
+      "specificity": "Mentions specific details?",
+      "alignment": "Shows values alignment?",
+      "enthusiasm": "Shows genuine interest?",
+      "missed_opportunities": ["Generic reasons", "No research", "Only mentions perks", "Can't articulate"]
+    },
+    "follow_ups": ["What excites you most about us?", "What do you know about our products?", "What concerns do you have?"]
+  },
+  {
+    "id": "career_004",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What other companies are you interviewing with?",
+    "ideal_points": [
+      "Honest about interview process",
+      "Shows this company is top choice",
+      "Mentions similar companies/roles",
+      "Professional discretion",
+      "Demonstrates market awareness"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Were they honest?",
+      "discretion": "Maintained appropriate confidentiality?",
+      "interest": "Showed interest in this company?",
+      "strategy": "Shows thoughtful job search?",
+      "missed_opportunities": ["Too secretive", "Listed competitors only", "No clear preference", "Desperate"]
+    },
+    "follow_ups": ["What factors will influence your decision?", "What's your timeline?", "Why is our company your top choice?"]
+  },
+  {
+    "id": "career_005",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "How do you stay updated in your field?",
+    "ideal_points": [
+      "Lists specific resources (blogs, courses, communities)",
+      "Shows continuous learning mindset",
+      "Demonstrates curiosity",
+      "Applies learning to work",
+      "Stays current with industry trends"
+    ],
+    "evaluation_rubric": {
+      "methods": "Has specific learning methods?",
+      "consistency": "Regular learning habit?",
+      "application": "Applies learning to work?",
+      "curiosity": "Shows genuine interest?",
+      "missed_opportunities": ["Doesn't stay updated", "No specific methods", "Only formal training", "No application"]
+    },
+    "follow_ups": ["What have you learned recently?", "What's your favorite learning resource?", "How do you apply new knowledge?"]
+  },
+  {
+    "id": "career_006",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What skills are you currently working on?",
+    "ideal_points": [
+      "Names 2-3 specific skills",
+      "Explains why they're important",
+      "Shows proactive learning",
+      "Relevant to role or career goals",
+      "Demonstrates growth mindset"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Named specific skills?",
+      "relevance": "Skills relevant to role?",
+      "proactivity": "Taking initiative to learn?",
+      "growth": "Shows growth mindset?",
+      "missed_opportunities": ["No current learning", "Irrelevant skills", "Too vague", "Complacent"]
+    },
+    "follow_ups": ["How are you learning those skills?", "Why those skills specifically?", "How will you apply them?"]
+  },
+  {
+    "id": "career_007",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What does your ideal job look like?",
+    "ideal_points": [
+      "Describes realistic ideal",
+      "Focuses on work content, not just perks",
+      "Shows alignment with this role",
+      "Balanced expectations",
+      "Demonstrates self-awareness"
+    ],
+    "evaluation_rubric": {
+      "realism": "Is ideal realistic?",
+      "alignment": "Does it match this role?",
+      "priorities": "Right priorities (work over perks)?",
+      "awareness": "Shows self-awareness?",
+      "missed_opportunities": ["Unrealistic", "No alignment", "Only mentions perks", "Too vague"]
+    },
+    "follow_ups": ["What aspects of this role match your ideal?", "What compromises are you willing to make?", "What's non-negotiable?"]
+  },
+  {
+    "id": "career_008",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What would you do if you don't get this role?",
+    "ideal_points": [
+      "Shows resilience and backup plan",
+      "Maintains professional relationship",
+      "Asks for feedback",
+      "Continues pursuing career goals",
+      "No desperation or negativity"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Can handle rejection?",
+      "professionalism": "Would maintain relationship?",
+      "growth": "Would seek feedback?",
+      "plan": "Has backup plan?",
+      "missed_opportunities": ["Desperate", "Negative reaction", "No backup plan", "Wouldn't seek feedback"]
+    },
+    "follow_ups": ["How do you handle rejection?", "What's your backup plan?", "How do you maintain professional relationships?"]
+  },
+  {
+    "id": "career_009",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "How do you measure personal growth?",
+    "ideal_points": [
+      "Has specific metrics or indicators",
+      "Includes skill development",
+      "Mentions impact and responsibilities",
+      "Shows reflection habit",
+      "Demonstrates self-awareness"
+    ],
+    "evaluation_rubric": {
+      "metrics": "Has clear way to measure growth?",
+      "reflection": "Reflects on progress?",
+      "holistic": "Considers multiple dimensions?",
+      "awareness": "Shows self-awareness?",
+      "missed_opportunities": ["No measurement method", "Only external validation", "Too vague", "No reflection"]
+    },
+    "follow_ups": ["What growth have you seen recently?", "How often do you reflect?", "What's your next growth goal?"]
+  },
+  {
+    "id": "career_010",
+    "phase": "behavioral",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What would make you leave a job?",
+    "ideal_points": [
+      "Names reasonable deal-breakers",
+      "Focuses on growth and values",
+      "Shows loyalty but not blind commitment",
+      "Professional boundaries",
+      "Demonstrates self-respect"
+    ],
+    "evaluation_rubric": {
+      "reasonableness": "Are reasons reasonable?",
+      "priorities": "Shows right priorities?",
+      "loyalty": "Shows commitment but not desperation?",
+      "red_flags": "Any concerning patterns?",
+      "missed_opportunities": ["Unreasonable reasons", "Too many deal-breakers", "No boundaries", "Job hopper signals"]
+    },
+    "follow_ups": ["What makes you stay?", "How do you define toxic culture?", "What would you try before leaving?"]
+  }
+]

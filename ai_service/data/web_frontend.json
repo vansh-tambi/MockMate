@@ -1,0 +1,172 @@
+[
+  {
+    "id": "web_front_001",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "web",
+    "difficulty": 2,
+    "question": "What happens when you type a URL in a browser?",
+    "ideal_points": [
+      "DNS lookup to resolve domain to IP",
+      "TCP connection established",
+      "HTTP/HTTPS request sent",
+      "Server processes request and sends response",
+      "Browser renders HTML, CSS, JS"
+    ],
+    "follow_ups": ["What's DNS?", "Explain HTTP vs HTTPS", "What's the critical rendering path?"]
+  },
+  {
+    "id": "web_front_002",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "html",
+    "difficulty": 1,
+    "question": "What is HTML semantic markup?",
+    "ideal_points": [
+      "HTML tags that convey meaning",
+      "Examples: <header>, <nav>, <article>, <section>, <footer>",
+      "Improves accessibility",
+      "Better SEO",
+      "Makes code more readable"
+    ],
+    "follow_ups": ["Why use semantic tags?", "div vs section?", "Accessibility benefits?"]
+  },
+  {
+    "id": "web_front_003",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "css",
+    "difficulty": 1,
+    "question": "Difference between class and id in CSS.",
+    "ideal_points": [
+      "ID: Unique, used once per page",
+      "Class: Reusable, can be used multiple times",
+      "ID has higher specificity",
+      "Class preferred for styling",
+      "ID often used for JavaScript targeting"
+    ],
+    "follow_ups": ["What's CSS specificity?", "When to use ID?", "Can element have multiple classes?"]
+  },
+  {
+    "id": "web_front_004",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "fresher",
+    "skill": "css",
+    "difficulty": 2,
+    "question": "What is responsive design?",
+    "ideal_points": [
+      "Design that adapts to different screen sizes",
+      "Uses media queries",
+      "Flexible layouts, images, grids",
+      "Mobile-first approach common",
+      "Essential for modern web development"
+    ],
+    "follow_ups": ["What's mobile-first design?", "Flexbox vs Grid?", "Breakpoints you use?"]
+  },
+  {
+    "id": "web_front_005",
+    "phase": "technical",
+    "role": "fullstack",
+    "level": "fresher",
+    "skill": "web",
+    "difficulty": 2,
+    "question": "What is CORS?",
+    "ideal_points": [
+      "Cross-Origin Resource Sharing",
+      "Browser security feature",
+      "Prevents unauthorized cross-origin requests",
+      "Server must explicitly allow cross-origin access",
+      "Common issue in API integration"
+    ],
+    "follow_ups": ["How do you fix CORS errors?", "What's same-origin policy?", "Preflight requests?"]
+  },
+  {
+    "id": "web_front_006",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "intern",
+    "skill": "javascript",
+    "difficulty": 2,
+    "question": "What is DOM?",
+    "ideal_points": [
+      "Document Object Model",
+      "Tree representation of HTML document",
+      "JavaScript can manipulate DOM",
+      "Allows dynamic content changes",
+      "Browser API for interacting with web pages"
+    ],
+    "follow_ups": ["DOM manipulation methods?", "Virtual DOM?", "Performance implications?"]
+  },
+  {
+    "id": "web_front_007",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "junior",
+    "skill": "react",
+    "difficulty": 2,
+    "question": "What is state management?",
+    "ideal_points": [
+      "Managing data that changes over time",
+      "In React: useState, useContext, Redux, etc.",
+      "Keeps UI in sync with data",
+      "Patterns: local state, global state, server state",
+      "Critical for complex applications"
+    ],
+    "follow_ups": ["Redux vs Context API?", "When to use global state?", "Your experience with state management?"]
+  },
+  {
+    "id": "web_front_008",
+    "phase": "technical",
+    "role": "frontend",
+    "level": "junior",
+    "skill": "web",
+    "difficulty": 3,
+    "question": "Difference between SSR and CSR.",
+    "ideal_points": [
+      "SSR: Server-Side Rendering, HTML generated on server",
+      "CSR: Client-Side Rendering, JavaScript renders in browser",
+      "SSR better for SEO and initial load",
+      "CSR better for interactivity after load",
+      "Modern frameworks support both (Next.js, Nuxt)"
+    ],
+    "follow_ups": ["What's SSG?", "When to use each?", "Performance trade-offs?"]
+  },
+  {
+    "id": "web_front_009",
+    "phase": "technical",
+    "role": "fullstack",
+    "level": "fresher",
+    "skill": "security",
+    "difficulty": 2,
+    "question": "What is JWT?",
+    "ideal_points": [
+      "JSON Web Token",
+      "Compact token for authentication",
+      "Contains header, payload, signature",
+      "Stateless authentication",
+      "Used in modern web APIs"
+    ],
+    "follow_ups": ["Where do you store JWT?", "JWT vs sessions?", "Security concerns?"]
+  },
+  {
+    "id": "web_front_010",
+    "phase": "technical",
+    "role": "fullstack",
+    "level": "fresher",
+    "skill": "architecture",
+    "difficulty": 2,
+    "question": "What is MVC architecture?",
+    "ideal_points": [
+      "Model-View-Controller design pattern",
+      "Model: Data and business logic",
+      "View: User interface",
+      "Controller: Handles requests, updates model/view",
+      "Separation of concerns"
+    ],
+    "follow_ups": ["Benefits of MVC?", "Other architecture patterns?", "Have you used MVC frameworks?"]
+  }
+]
