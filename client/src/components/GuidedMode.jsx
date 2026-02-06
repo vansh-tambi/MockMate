@@ -2,11 +2,45 @@ import React, { useState, useEffect, useCallback } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
-const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
+const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionState, setSessionState }) => {
   const API_BASE = import.meta.env.VITE_API_BASE || '';
   const [loading, setLoading] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
   const [error, setError] = useState(null);
+
+  // Stage emoji mapping
+  const stageEmoji = {
+    warmup: '🤝',
+    introduction: '👋',
+    resume: '📋',
+    role_fit: '🎯',
+    fundamentals: '💻',
+    technical_frontend: '⚛️',
+    technical_backend: '🗄️',
+    technical_dsa: '🧮',
+    system_design: '🏗️',
+    problem_solving: '🧩',
+    behavioral: '💬',
+    pressure: '⚡',
+    closing: '🎯'
+  };
+
+  // Stage display names
+  const stageNames = {
+    warmup: 'Warmup',
+    introduction: 'Introduction',
+    resume: 'Resume Deep Dive',
+    role_fit: 'Role Fit',
+    fundamentals: 'Fundamentals',
+    technical_frontend: 'Frontend Technical',
+    technical_backend: 'Backend Technical',
+    technical_dsa: 'DSA & Algorithms',
+    system_design: 'System Design',
+    problem_solving: 'Problem Solving',
+    behavioral: 'Behavioral',
+    pressure: 'Pressure Questions',
+    closing: 'Closing'
+  };
 
   const fetchQuestions = useCallback(async () => {
     setLoading(true);
@@ -17,10 +51,23 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 45000);
 
+      // Limit resume text to first 3000 chars to avoid large payloads (413 error)
+      const truncatedResumeText = userData?.resumeText?.slice(0, 3000) || '';
+      
       const res = await fetch(`${API_BASE}/api/generate-qa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...userData, questionCount: qaPairs.length }),
+        body: JSON.stringify({ 
+          resumeText: truncatedResumeText, 
+          jobDescription: userData?.jobDescription || '', 
+          questionIndex: sessionState.questionIndex,
+          questionCount: 10,
+          sessionMemory: {
+            askedQuestions: sessionState.askedQuestions || [],
+            weakTopics: sessionState.weakTopics || [],
+            strongTopics: sessionState.strongTopics || []
+          }
+        }),
         signal: controller.signal
       });
       clearTimeout(timer);
@@ -33,6 +80,21 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
       
       if (data.qaPairs && data.qaPairs.length > 0) {
         setQaPairs(data.qaPairs);
+        
+        // Update session state with backend response including resume analysis
+        setSessionState(prev => ({
+          ...prev,
+          sessionId: data.sessionId || prev.sessionId,
+          role: data.detectedRole || prev.role,
+          sequence: data.sequence || prev.sequence,
+          questionIndex: prev.questionIndex + data.qaPairs.length,
+          currentStage: data.qaPairs[data.qaPairs.length - 1]?.stage || prev.currentStage,
+          askedQuestions: data.sessionMemory?.askedQuestions || [...prev.askedQuestions, ...data.qaPairs.map(q => q.question)],
+          weakTopics: data.sessionMemory?.weakTopics || prev.weakTopics,
+          strongTopics: data.sessionMemory?.strongTopics || prev.strongTopics,
+          resumeAnalysis: data.resumeAnalysis || prev.resumeAnalysis
+        }));
+        
         setError(null);
       } else {
         setError('No questions generated. Please try again.');
@@ -47,7 +109,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
       setLoading(false);
       setIsGenerating?.(false);
     }
-  }, [API_BASE, setIsGenerating, setQaPairs, userData]);
+  }, [API_BASE, setIsGenerating, setQaPairs, setSessionState, userData, sessionState.questionIndex]);
 
   useEffect(() => {
     // Only fetch questions if empty (initial load)
@@ -56,6 +118,90 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
 
   return (
     <div className="max-w-4xl mx-auto pt-20 pb-10">
+      {/* Resume Analysis Banner */}
+      {sessionState.resumeAnalysis && sessionState.resumeAnalysis.totalSkills > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-4 p-4 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-gray-400">Detected Skills</p>
+              <p className="text-lg font-semibold text-purple-400">
+                {sessionState.resumeAnalysis.totalSkills} skills found
+              </p>
+              {sessionState.resumeAnalysis.skills && sessionState.resumeAnalysis.skills.length > 0 && (
+                <div className="flex gap-2 mt-2 flex-wrap">
+                  {sessionState.resumeAnalysis.skills.slice(0, 5).map((skill, idx) => (
+                    <span key={idx} className="text-xs px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                  {sessionState.resumeAnalysis.skills.length > 5 && (
+                    <span className="text-xs px-2 py-1 bg-purple-500/10 text-purple-400 rounded-full">
+                      +{sessionState.resumeAnalysis.skills.length - 5} more
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-400">Experience Level</p>
+              <p className="text-lg font-semibold text-pink-400 capitalize">
+                {sessionState.resumeAnalysis.experienceLevel}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Session Info Banner */}
+      {sessionState.role && sessionState.sequence.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-gray-400">Interview Role</p>
+              <p className="text-xl font-bold text-cyan-400 capitalize">{sessionState.role}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Current Stage</p>
+              <p className="text-lg font-semibold text-white flex items-center gap-2">
+                <span>{stageEmoji[sessionState.currentStage] || '📝'}</span>
+                {stageNames[sessionState.currentStage] || sessionState.currentStage}
+              </p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-400">Progress</p>
+              <p className="text-lg font-semibold text-white">{sessionState.questionIndex}/{sessionState.sequence.length * 3}</p>
+            </div>
+          </div>
+          
+          {/* Stage Progress Bar */}
+          <div className="mt-4 flex gap-1">
+            {sessionState.sequence.map((stage, idx) => {
+              const stageStartIndex = idx * 3;
+              const isCompleted = sessionState.questionIndex > stageStartIndex + 2;
+              const isActive = sessionState.questionIndex >= stageStartIndex && sessionState.questionIndex <= stageStartIndex + 2;
+              
+              return (
+                <div 
+                  key={idx}
+                  className={`flex-1 h-2 rounded-full transition-all ${
+                    isCompleted ? 'bg-green-500' : isActive ? 'bg-cyan-500 animate-pulse' : 'bg-gray-700'
+                  }`}
+                  title={stageNames[stage]}
+                />
+              );
+            })}
+          </div>
+        </motion.div>
+      )}
+
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -128,6 +274,14 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating }) => {
                   {index + 1}
                 </motion.span>
                 <div className="grow">
+                  {/* Stage Badge */}
+                  {item.stage && (
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20 font-semibold">
+                        {stageEmoji[item.stage]} {stageNames[item.stage] || item.stage}
+                      </span>
+                    </div>
+                  )}
                   <h3 className="text-lg font-medium text-gray-200">{item.question}</h3>
                 </div>
               </motion.button>

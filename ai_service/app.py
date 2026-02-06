@@ -7,6 +7,13 @@ import re
 from typing import Optional, List
 import os
 
+# Try to import Google Generative AI (for Gemini backup)
+try:
+    import google.generativeai as genai
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
+
 # Try to import RAG retriever (optional, graceful fallback if not available)
 try:
     from rag.retrieve import QuestionRetriever, extract_metadata
@@ -18,6 +25,19 @@ except Exception as e:
     RAG_AVAILABLE = False
     retriever = None
     print(f"⚠️ RAG retriever not available: {e}")
+
+# Gemini API configuration
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+if GEMINI_API_KEY and GEMINI_AVAILABLE:
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        print("✅ Gemini API configured successfully (backup available)")
+    except Exception as e:
+        print(f"⚠️ Gemini API configuration failed: {e}")
+        GEMINI_AVAILABLE = False
+elif GEMINI_AVAILABLE and not GEMINI_API_KEY:
+    GEMINI_AVAILABLE = False
+    print("⚠️ Gemini API key not provided (set GEMINI_API_KEY env var)")
 
 app = FastAPI(title="MockMate AI Service", version="1.0.0")
 
@@ -91,11 +111,21 @@ async def health_check():
                 "ollama": "connected",
                 "available_models": model_names,
                 "active_model": MODEL_NAME,
+                "gemini_backup": "available" if GEMINI_AVAILABLE else "not available",
                 "rag_enabled": RAG_AVAILABLE,
                 "active_sessions": len(active_sessions)
             }
     except Exception as e:
-        raise HTTPException(status_code=503, detail=f"Ollama not available: {str(e)}")
+        # If Ollama is down, check if Gemini is available as backup
+        gemini_status = "available" if GEMINI_AVAILABLE else "not available"
+        return {
+            "status": "degraded",
+            "ollama": "disconnected",
+            "gemini_backup": gemini_status,
+            "error": str(e),
+            "rag_enabled": RAG_AVAILABLE,
+            "active_sessions": len(active_sessions)
+        }
 
 @app.post("/api/generate-qa")
 async def generate_qa(req: GenerateQARequest):
@@ -343,8 +373,11 @@ Return ONLY JSON (no markdown, no extra text):
 
 Score as integer 0–10. Pick from the bands above. Think carefully before scoring."""
 
+    raw_output = None
+    used_service = "ollama"
+    
+    # Try Ollama first
     try:
-        # Call Ollama API
         async with httpx.AsyncClient(timeout=TIMEOUT) as client:
             response = await client.post(
                 f"{OLLAMA_BASE_URL}/api/generate",
@@ -359,55 +392,72 @@ Score as integer 0–10. Pick from the bands above. Think carefully before scori
                 }
             )
             
-            if response.status_code != 200:
-                raise HTTPException(status_code=500, detail="Ollama API error")
-            
-            result = response.json()
-            raw_output = result.get("response", "").strip()
-            
-            # Parse structured output
-            parsed = parse_evaluation(raw_output)
-            
-            # Update session if available
-            if session and req.question_id:
-                session.mark_question_answered(
-                    req.question_id, 
-                    req.user_answer, 
-                    parsed["score"]
-                )
+            if response.status_code == 200:
+                result = response.json()
+                raw_output = result.get("response", "").strip()
+                used_service = "ollama"
+                print(f"✅ Evaluation using Ollama")
+            else:
+                raise Exception(f"Ollama returned status {response.status_code}")
                 
-                # Extract mentioned topics from answer
-                if question_obj:
-                    extract_mentioned_topics(req.user_answer, session)
-                    
-                    # Mark skill as covered
-                    skill = question_obj.get("skill")
-                    if skill:
-                        session.mark_skill_covered(skill)
-            
-            # Get follow-up questions
-            follow_ups = []
-            if question_obj and RAG_AVAILABLE and retriever and session:
-                follow_ups = retriever.get_follow_up_questions(
-                    question_obj,
-                    req.user_answer,
-                    session
-                )
-            
-            return EvaluateResponse(
-                strengths=parsed["strengths"],
-                improvements=parsed["improvements"],
-                score=parsed["score"],
-                feedback=raw_output,
-                follow_ups=follow_ups,
-                missed_opportunities=parsed.get("missed_opportunities", [])
-            )
-            
-    except httpx.TimeoutException:
-        raise HTTPException(status_code=504, detail="Evaluation timed out")
     except Exception as e:
-        print(f"❌ Evaluation error: {e}")
-        raise HTTPException(status_code=500, detail=f"Evaluation failed: {str(e)}")
+        print(f"❌ Ollama failed: {e}")
+        
+        # Fallback to Gemini if available
+        if GEMINI_AVAILABLE:
+            try:
+                print("⚠️ Falling back to Gemini API...")
+                model = genai.GenerativeModel('gemini-pro')
+                response = model.generate_content(prompt)
+                raw_output = response.text.strip()
+                used_service = "gemini"
+                print(f"✅ Evaluation using Gemini API (backup)")
+            except Exception as gemini_error:
+                print(f"❌ Gemini also failed: {gemini_error}")
+                raise HTTPException(status_code=503, detail="Both Ollama and Gemini are unavailable")
+        else:
+            raise HTTPException(status_code=503, detail="Ollama not available and Gemini backup not configured")
+    
+    if not raw_output:
+        raise HTTPException(status_code=500, detail="Failed to get response from AI service")
+    
+    # Parse structured output
+    parsed = parse_evaluation(raw_output)
+    
+    # Update session if available
+    if session and req.question_id:
+        session.mark_question_answered(
+            req.question_id, 
+            req.user_answer, 
+            parsed["score"]
+        )
+        
+        # Extract mentioned topics from answer
+        if question_obj:
+            extract_mentioned_topics(req.user_answer, session)
+            
+            # Mark skill as covered
+            skill = question_obj.get("skill")
+            if skill:
+                session.mark_skill_covered(skill)
+    
+    # Get follow-up questions
+    follow_ups = []
+    if question_obj and RAG_AVAILABLE and retriever and session:
+        follow_ups = retriever.get_follow_up_questions(
+            question_obj,
+            req.user_answer,
+            session
+        )
+    
+    return EvaluateResponse(
+        strengths=parsed["strengths"],
+        improvements=parsed["improvements"],
+        score=parsed["score"],
+        feedback=raw_output,
+        follow_ups=follow_ups,
+        missed_opportunities=parsed.get("missed_opportunities", [])
+    )
 
 def extract_mentioned_topics(answer: str, session: InterviewSession):
     """Extract mentioned topics from answer for follow-up context"""

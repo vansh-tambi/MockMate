@@ -37,20 +37,49 @@ const SetupScreen = ({ onComplete }) => {
 
     if (!resume || !jobDescription) return alert("Required fields missing");
 
+    console.log('🚀 Starting resume upload...', {
+      fileName: resume.name,
+      fileSize: resume.size,
+      fileType: resume.type
+    });
+
     setLoading(true);
-    const API_BASE = import.meta.env.VITE_API_BASE || '';
+    const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
     const formData = new FormData();
     formData.append('resume', resume);
 
     try {
+      console.log('📤 Sending request to:', `${API_BASE}/api/parse-resume`);
+      
       const res = await fetch(`${API_BASE}/api/parse-resume`, {
         method: 'POST',
         body: formData
       });
-      const data = await res.json();
-      onComplete({ resumeText: data.text, jobDescription });
+      
+      console.log('📥 Response status:', res.status, res.statusText);
+      
+      const responseData = await res.json();
+      console.log('📝 Response data:', responseData);
+      
+      if (!res.ok) {
+        throw new Error(responseData.error || 'Failed to parse resume');
+      }
+      
+      console.log('✅ Resume parsed successfully:', responseData.data);
+      
+      // Pass the parsed data along with resume text
+      onComplete({ 
+        resumeText: responseData.text || responseData.data?.summary || '',
+        jobDescription,
+        parsedResume: responseData.data // Include all parsed resume data
+      });
     } catch (error) {
-      alert("Setup failed. Check console.");
+      console.error('❌ Resume parsing error:', error);
+      const errorMessage = error.message || 'Failed to parse resume';
+      const suggestion = errorMessage.includes('PDF') 
+        ? '\n\n💡 Tip: Try using the "Manual" mode to paste your resume text instead.'
+        : '';
+      alert(`Setup failed: ${errorMessage}${suggestion}`);
     } finally {
       setLoading(false);
     }
@@ -65,7 +94,8 @@ const SetupScreen = ({ onComplete }) => {
           scale: [1, 1.1, 1]
         }}
         transition={{ duration: 8, repeat: Infinity }}
-        className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]" 
+        style={{ backgroundColor: 'rgba(37, 99, 235, 0.2)' }}
+        className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-[100px]" 
       />
       <motion.div 
         animate={{ 
@@ -73,14 +103,16 @@ const SetupScreen = ({ onComplete }) => {
           scale: [1, 1.1, 1]
         }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px]" 
+        style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}
+        className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-[100px]" 
       />
 
       <motion.div 
         variants={cardVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 bg-gray-900/60 backdrop-blur-2xl p-10 rounded-3xl border border-white/10 shadow-2xl max-w-lg w-full mx-4"
+        style={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }}
+        className="relative z-10 backdrop-blur-2xl p-10 rounded-3xl border border-white/10 shadow-2xl max-w-lg w-full mx-4"
       >
         <motion.div
           variants={fadeUp}

@@ -17,6 +17,24 @@ function App() {
     return saved ? JSON.parse(saved) : { resumeText: null, jobDescription: '', isReady: false };
   });
 
+  // Session state with stage tracking and interview memory
+  const [sessionState, setSessionState] = useState(() => {
+    const saved = localStorage.getItem('mockMateSession');
+    return saved ? JSON.parse(saved) : {
+      sessionId: null,
+      role: null,
+      currentStage: 'warmup',
+      questionIndex: 0,
+      sequence: [],
+      askedQuestions: [],
+      weakTopics: [],
+      strongTopics: [],
+      answers: [],
+      evaluation: [],
+      resumeAnalysis: null
+    };
+  });
+
   // Lift questions state to persist across tab switches
   const [qaPairs, setQaPairs] = useState([]);
 
@@ -39,19 +57,59 @@ function App() {
     }
   }, []);
 
-  // Save to LocalStorage whenever userData changes
+  // Save to LocalStorage whenever userData or sessionState changes
   useEffect(() => {
     localStorage.setItem('mockMateUser', JSON.stringify(userData));
   }, [userData]);
 
+  useEffect(() => {
+    localStorage.setItem('mockMateSession', JSON.stringify(sessionState));
+  }, [sessionState]);
+
   const handleSetupComplete = (data) => {
+    console.log('Setup complete with data:', data);
+    
     setUserData({
       resumeText: data.resumeText,
       jobDescription: data.jobDescription,
       isReady: true
     });
-    // Reset questions when starting new session
+    
+    // Reset questions and session when starting new session
     setQaPairs([]);
+    
+    // Initialize session state with parsed resume data
+    const resumeAnalysis = data.parsedResume ? {
+      skills: data.parsedResume.skills || [],
+      totalSkills: data.parsedResume.totalSkills || 0,
+      experienceLevel: data.parsedResume.experienceLevel || 'mid-level',
+      skillsByCategory: data.parsedResume.skillsByCategory || {},
+      projects: data.parsedResume.projects || [],
+      experience: data.parsedResume.experience || [],
+      education: data.parsedResume.education || []
+    } : {
+      skills: [],
+      totalSkills: 0,
+      experienceLevel: 'mid-level',
+      skillsByCategory: {},
+      projects: [],
+      experience: [],
+      education: []
+    };
+    
+    setSessionState({
+      sessionId: null,
+      role: null,
+      currentStage: 'warmup',
+      questionIndex: 0,
+      sequence: [],
+      askedQuestions: [],
+      weakTopics: [],
+      strongTopics: [],
+      answers: [],
+      evaluation: [],
+      resumeAnalysis
+    });
   };
 
   const handleNewSession = () => {
@@ -60,7 +118,21 @@ function App() {
     if (confirmed) {
       setUserData({ resumeText: null, jobDescription: '', isReady: false });
       setQaPairs([]);
+      setSessionState({
+        sessionId: null,
+        role: null,
+        currentStage: 'warmup',
+        questionIndex: 0,
+        sequence: [],
+        askedQuestions: [],
+        weakTopics: [],
+        strongTopics: [],
+        answers: [],
+        evaluation: [],
+        resumeAnalysis: null
+      });
       localStorage.removeItem('mockMateUser');
+      localStorage.removeItem('mockMateSession');
     }
   };
 
@@ -75,9 +147,22 @@ function App() {
           
           <main className="max-w-7xl mx-auto p-6 md:p-8">
             {activeMode === 'guided' ? (
-              <GuidedMode userData={userData} qaPairs={qaPairs} setQaPairs={setQaPairs} setIsGenerating={setIsGenerating} />
+              <GuidedMode 
+                userData={userData} 
+                qaPairs={qaPairs} 
+                setQaPairs={setQaPairs} 
+                setIsGenerating={setIsGenerating}
+                sessionState={sessionState}
+                setSessionState={setSessionState}
+              />
             ) : (
-              <TestMode userData={userData} qaPairs={qaPairs} setQaPairs={setQaPairs} />
+              <TestMode 
+                userData={userData} 
+                qaPairs={qaPairs} 
+                setQaPairs={setQaPairs}
+                sessionState={sessionState}
+                setSessionState={setSessionState}
+              />
             )}
           </main>
         </>
