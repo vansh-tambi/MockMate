@@ -10,10 +10,21 @@ const pdfParse = require('pdf-parse');
 const pdf = pdfParse.default || pdfParse;
 
 const app = express();
-app.use(cors());
+
+// CORS configuration - restrict to frontend domain in production
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://mock-mate-ai-interview.vercel.app'
+    : ['http://localhost:5173', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 // Increase JSON payload limit to handle large resume text
 app.use(express.json({ limit: '5mb' }));
-app.use(express.urlencoded({ limit: '5mb', extended: true }));
+app.use(express.urlencoded({ limit: '5mb', extended: true });
 
 const PORT = process.env.PORT || 5000;
 const upload = multer({ storage: multer.memoryStorage() });

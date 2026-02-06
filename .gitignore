@@ -1,7 +1,14 @@
 # Environment variables with secrets
 .env
 .env.local
+.env.production
+.env.development
 server/.env
+server/.env.local
+server/.env.production
+server/.env.development
+client/.env.production
+client/.env.development
 
 # Dependencies
 node_modules/
