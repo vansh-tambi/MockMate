@@ -10,11 +10,12 @@ class QuestionSelector {
    * @param {String} criteria.stage - Interview stage
    * @param {String} criteria.role - Candidate role
    * @param {String} criteria.level - Candidate level
-   * @param {Array} criteria.askedQuestionIds - Already asked question IDs
+   * @param {Array} criteria.excludeQuestionIds - Questions to exclude (current + previous sessions)
    * @param {Array} criteria.availableQuestions - Pool of available questions
+   * @param {Boolean} criteria.strictMode - Avoid questions from previous sessions (default true)
    * @returns {Object|null} Selected question or null if none available
    */
-  static selectQuestion({stage, role, level, askedQuestionIds = [], availableQuestions = []}) {
+  static selectQuestion({stage, role, level, excludeQuestionIds = [], availableQuestions = [], strictMode = true}) {
     if (!availableQuestions || availableQuestions.length === 0) {
       return null;
     }
@@ -54,19 +55,34 @@ class QuestionSelector {
       return null;
     }
 
-    // Filter 4: Avoid already asked questions
-    const unaskedQuestions = candidates.filter(q => !askedQuestionIds.includes(q.id));
+    // Filter 4: Exclude already asked questions (current + previous sessions)
+    // This prevents repetition within current session AND optionally across sessions
+    const unaskedQuestions = candidates.filter(q => !excludeQuestionIds.includes(q.id));
     candidates = unaskedQuestions.length > 0 ? unaskedQuestions : candidates;
 
     if (candidates.length === 0) {
       return null;
     }
 
-    // Filter 5: Sort by weight (descending) - higher weight = more discriminating
+    // Filter 5: Sort by usage count (ascending) - prefer least-used questions
+    // This distributes question load evenly across the dataset
     candidates.sort((a, b) => {
-      const weightA = a.weight || 1.5;
-      const weightB = b.weight || 1.5;
-      return weightB - weightA;
+      const usageA = a.usageCount || 0;
+      const usageB = b.usageCount || 0;
+      return usageA - usageB; // Lower usage first
+    });
+
+    // If multiple questions have same usage, secondary sort by weight (descending)
+    candidates.sort((a, b) => {
+      const usageA = a.usageCount || 0;
+      const usageB = b.usageCount || 0;
+      
+      if (usageA === usageB) {
+        const weightA = a.weight || 1.5;
+        const weightB = b.weight || 1.5;
+        return weightB - weightA;
+      }
+      return usageA - usageB;
     });
 
     // Return the top candidate
@@ -79,23 +95,24 @@ class QuestionSelector {
    * @param {Number} count - Number of questions to select
    * @returns {Array} Selected questions
    */
-  static selectMultipleQuestions({stage, role, level, askedQuestionIds = [], availableQuestions = []}, count = 3) {
+  static selectMultipleQuestions({stage, role, level, excludeQuestionIds = [], availableQuestions = [], strictMode = true}, count = 3) {
     const selected = [];
-    let tempAsked = [...askedQuestionIds];
+    let tempExcluded = [...excludeQuestionIds];
 
     for (let i = 0; i < count; i++) {
       const question = this.selectQuestion({
         stage,
         role,
         level,
-        askedQuestionIds: tempAsked,
-        availableQuestions
+        excludeQuestionIds: tempExcluded,
+        availableQuestions,
+        strictMode
       });
 
       if (!question) break; // No more questions available
 
       selected.push(question);
-      tempAsked.push(question.id);
+      tempExcluded.push(question.id);
     }
 
     return selected;

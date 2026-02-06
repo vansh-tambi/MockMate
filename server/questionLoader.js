@@ -1,16 +1,48 @@
 /**
  * Question Loader for MockMate Interview System
  * Loads all questions from data directory once on server startup
+ * Initializes usage tracking for smart question selection
  */
 
 const fs = require("fs");
 const path = require("path");
 
 const DATA_DIR = path.join(__dirname, "..", "ai_service", "data");
+const USAGE_STATS_FILE = path.join(__dirname, "..", "data", "question_usage_stats.json");
+
+/**
+ * Load usage statistics from file (if exists)
+ */
+function loadUsageStats() {
+  try {
+    if (fs.existsSync(USAGE_STATS_FILE)) {
+      const data = fs.readFileSync(USAGE_STATS_FILE, "utf8");
+      return JSON.parse(data);
+    }
+  } catch (err) {
+    console.warn("⚠️  Could not load usage stats:", err.message);
+  }
+  return {};
+}
+
+/**
+ * Save usage statistics to file
+ */
+function saveUsageStats(stats) {
+  try {
+    const dir = path.dirname(USAGE_STATS_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(USAGE_STATS_FILE, JSON.stringify(stats, null, 2));
+  } catch (err) {
+    console.error("❌ Failed to save usage stats:", err.message);
+  }
+}
 
 /**
  * Load all questions from all JSON files in data directory
- * @returns {Array} Array of all question objects
+ * @returns {Array} Array of all question objects with usage tracking
  */
 function loadAllQuestions() {
   console.log("\n📚 Loading all questions from data directory...");
@@ -18,6 +50,9 @@ function loadAllQuestions() {
   let allQuestions = [];
   let fileCount = 0;
   let errorCount = 0;
+
+  // Load existing usage stats
+  const usageStats = loadUsageStats();
 
   try {
     const files = fs.readdirSync(DATA_DIR);
@@ -44,6 +79,12 @@ function loadAllQuestions() {
         }
 
         if (questions.length > 0) {
+          // Initialize or load usage count for each question
+          questions = questions.map(q => ({
+            ...q,
+            usageCount: usageStats[q.id] || 0  // Load from stats or default to 0
+          }));
+
           allQuestions.push(...questions);
           fileCount++;
           console.log(`   ✅ ${file.padEnd(40)} → ${questions.length} questions`);
@@ -70,5 +111,56 @@ function loadAllQuestions() {
 
 // Load questions once on module import
 const allQuestions = loadAllQuestions();
+const usageStats = loadUsageStats();
 
-module.exports = allQuestions;
+module.exports = {
+  questions: allQuestions,
+  
+  /**
+   * Get all questions
+   */
+  getAllQuestions() {
+    return allQuestions;
+  },
+
+  /**
+   * Increment usage count for a question
+   */
+  incrementUsage(questionId) {
+    usageStats[questionId] = (usageStats[questionId] || 0) + 1;
+    
+    // Update in-memory questions
+    const question = allQuestions.find(q => q.id === questionId);
+    if (question) {
+      question.usageCount = usageStats[questionId];
+    }
+
+    // Save to file (asynchronously to not block)
+    setImmediate(() => saveUsageStats(usageStats));
+    
+    return usageStats[questionId];
+  },
+
+  /**
+   * Get usage stats for a question
+   */
+  getUsageCount(questionId) {
+    return usageStats[questionId] || 0;
+  },
+
+  /**
+   * Get all usage stats
+   */
+  getAllUsageStats() {
+    return usageStats;
+  },
+
+  /**
+   * Reset usage count for testing
+   */
+  resetUsageStats() {
+    Object.keys(usageStats).forEach(key => delete usageStats[key]);
+    saveUsageStats(usageStats);
+  }
+};
+

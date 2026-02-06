@@ -1363,29 +1363,47 @@ Respond ONLY in JSON:
 
 // Initialize questions from dataset on first request
 app.get('/api/questions/load', (req, res) => {
-  if (allQuestions.length === 0) {
-    allQuestions = questionLoader.loadAllQuestions();
+  try {
+    if (allQuestions.length === 0) {
+      // Updated: questionLoader now exports object with methods
+      allQuestions = questionLoader.getAllQuestions();
+    }
+    
+    res.json({
+      success: true,
+      message: 'Questions loaded from dataset',
+      totalQuestions: allQuestions.length,
+      usageStats: questionLoader.getAllUsageStats ? questionLoader.getAllUsageStats() : {}
+    });
+  } catch (error) {
+    console.error('Error loading questions:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to load questions'
+    });
   }
-  
-  res.json({
-    success: true,
-    message: 'Questions loaded from dataset',
-    totalQuestions: allQuestions.length,
-    statistics: questionLoader.getStats ? questionLoader.getStats() : {}
-  });
 });
 
 // Get all questions
 app.get('/api/questions', (req, res) => {
-  if (allQuestions.length === 0) {
-    allQuestions = questionLoader.loadAllQuestions();
+  try {
+    if (allQuestions.length === 0) {
+      // Updated: questionLoader now exports object with methods
+      allQuestions = questionLoader.getAllQuestions();
+    }
+    
+    res.json({
+      success: true,
+      totalQuestions: allQuestions.length,
+      questions: allQuestions
+    });
+  } catch (error) {
+    console.error('Error fetching questions:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch questions'
+    });
   }
-  
-  res.json({
-    success: true,
-    totalQuestions: allQuestions.length,
-    questions: allQuestions
-  });
 });
 
 // Mount interview routes

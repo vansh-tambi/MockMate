@@ -40,13 +40,336 @@ Traditional interview tools:
 
 **Rating: 9.5/10** - Equivalent to industry leaders (Pramp, Interviewing.io, Exponent)
 
+# 🎯 MockMate
+
+> **Smart interview simulator with persistent session management and intelligent question selection**
+
+MockMate is an intelligent interview preparation platform that prevents repeated questions across sessions, tracks question usage fairly, and provides role-specific interview simulation.
+
+![Built with React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=node.js)
+![Questions](https://img.shields.io/badge/Questions-720%2B-blue?style=flat)
+![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=flat)
+
 ---
 
-## ✨ Key Features
+## ✨ Key System Features
 
-### 🧠 Intelligent Resume Analysis
+### 🎯 Prevents Repeated Questions
 
-**Auto Skill Extraction:**
+**Problem Solved:**
+- ❌ Without fix: Same candidate gets Question 42 in first interview, then gets Question 42 again in a different session
+- ✅ With fix: SessionManager tracks all previously-asked questions, prevents any repeats across all sessions
+
+**How It Works:**
+- **SessionManager.js** - File-based persistent storage at `/data/sessions/`
+- **Usage Tracking** - `/data/question_usage_stats.json` tracks how many times each question has been asked
+- **Smart Selection** - Questions sorted by usage count (least-used first) for fair distribution
+- **Cross-Session Exclusion** - userId parameter links all interviews, prevents repeats across sessions
+
+### 🔄 Fair Question Distribution
+
+**Intelligent Selection Algorithm:**
+```
+1. Get all previously-asked questions for this userId
+2. Get all questions asked in current session
+3. Build excludeQuestionIds list = previous + current
+4. Sort remaining candidates by usageCount (ascending)
+5. Return the best candidate question
+```
+
+**Benefits:**
+- ✅ No question asked more than others
+- ✅ Popular questions asked exactly as often as obscure ones
+- ✅ Fair for all candidates over many interviews
+- ✅ Configurable for strict or lenient mode
+
+### 💾 Persistent Session Storage
+
+**File-Based Architecture:**
+- Sessions stored in `/data/sessions/session_*.json`
+- Usage stats in `/data/question_usage_stats.json`
+- No database required
+- Easy to migrate to MongoDB later
+- Privacy-first (data stays on file system)
+
+**Session Tracking:**
+```json
+{
+  "sessionId": "uuid",
+  "userId": "candidate_123",
+  "role": "frontend",
+  "level": "mid",
+  "askedQuestionIds": ["Q1", "Q2", "Q3"],
+  "timestamp": "2024-01-15T10:30:00Z",
+  "completed": false
+}
+```
+
+---
+
+## 🚀 Quick Start (3 minutes)
+
+### 1. Install Dependencies
+
+```bash
+# Backend
+cd server
+npm install
+
+# Frontend
+cd ../client
+npm install
+```
+
+### 2. Start Servers
+
+```bash
+# Terminal 1: Backend (Port 5000)
+cd server
+npm start
+
+# Terminal 2: Frontend (Port 5173)
+cd client
+npm run dev
+```
+
+### 3. Open Browser
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📊 System Architecture
+
+### 6-Stage Interview Flow
+
+```
+Interview Stages:
+├── Introduction (Q1-3)
+├── Warmup (Q4-6)
+├── Resume Deep Dive (Q7-9)
+├── Resume Technical (Q10-12)
+├── Real-Life Scenario (Q13-15)
+└── HR Closing (Q16-18)
+
+~60 minutes total, 18 questions per interview
+```
+
+### Backend Modules
+
+**Core Components:**
+- **sessionManager.js** - File-based session persistence
+- **QuestionSelector.js** - Intelligent question selection with exclusion
+- **QuestionLoader.js** - Load questions + track usage
+- **InterviewEngine.js** - Orchestrate interview flow with persistent sessions
+- **interviewRoutes.js** - REST API endpoints
+
+### Data Storage
+
+**Question Dataset:**
+- 720+ questions across 56 JSON files
+- 56 different role/level combinations
+- Each question has: id, stage, role, level, weight, text, rubric
+
+**Usage Tracking:**
+```json
+{
+  "Q001": 15,
+  "Q002": 8,
+  "Q003": 22
+}
+```
+
+---
+
+## 🔌 API Endpoints
+
+### Core Interview Endpoints
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/interview/start` | POST | Start new interview (includes userId) |
+| `/api/interview/next-question` | GET | Get next question with exclusion |
+| `/api/interview/submit` | POST | Submit answer (increments usage) |
+| `/api/interview/end` | POST | Complete interview |
+| `/api/interview/resume` | POST | Resume previous session |
+| `/api/interview/stats` | GET | Get interview statistics |
+| `/api/interview/usage-stats` | GET | **NEW** - View question usage distribution |
+
+### POST /api/interview/start
+
+**Request:**
+```json
+{
+  "userId": "candidate_123",
+  "role": "frontend",
+  "level": "mid"
+}
+```
+
+**Response:**
+```json
+{
+  "sessionId": "uuid-xxx",
+  "userId": "candidate_123",
+  "role": "frontend",
+  "level": "mid",
+  "message": "Interview session created"
+}
+```
+
+### GET /api/interview/next-question
+
+**Response:**
+```json
+{
+  "questionId": "Q042",
+  "stage": "technical_frontend",
+  "text": "Explain React's reconciliation algorithm",
+  "rubric": "Should mention Virtual DOM, diffing algorithm...",
+  "usageCount": 12
+}
+```
+
+### POST /api/interview/submit
+
+**Request:**
+```json
+{
+  "sessionId": "uuid-xxx",
+  "questionId": "Q042",
+  "answer": "React uses a Virtual DOM process..."
+}
+```
+
+**Response:**
+```json
+{
+  "saved": true,
+  "usageCount": 13,
+  "nextQuestion": {}
+}
+```
+
+### GET /api/interview/usage-stats **[NEW]**
+
+**Response:**
+```json
+{
+  "totalQuestions": 720,
+  "askedCount": 245,
+  "topAsked": [
+    {"id": "Q001", "count": 45},
+    {"id": "Q002", "count": 42},
+    {"id": "Q003", "count": 41}
+  ],
+  "leastAsked": [
+    {"id": "Q720", "count": 0},
+    {"id": "Q719", "count": 1},
+    {"id": "Q718", "count": 1}
+  ],
+  "distribution": "well-balanced"
+}
+```
+
+---
+
+## 📁 Project Structure
+
+```
+MockMate/
+├── client/                          # React Frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── GuidedMode.jsx
+│   │   │   ├── TestMode.jsx
+│   │   │   ├── SetupScreen.jsx
+│   │   │   └── Navbar.jsx
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/                          # Express Backend
+│   ├── index.js
+│   ├── SessionManager.js            # NEW - Session persistence
+│   ├── QuestionSelector.js          # ENHANCED - Smart selection
+│   ├── QuestionLoader.js            # ENHANCED - Usage tracking
+│   ├── InterviewEngine.js           # ENHANCED - Session integration
+│   ├── interviewRoutes.js           # ENHANCED - API endpoints
+│   ├── data/                        # Question banks (56 JSON files)
+│   │   ├── sessions/                # NEW - Session files
+│   │   └── question_usage_stats.json # NEW - Usage tracking
+│   ├── package.json
+│   └── .env
+│
+├── documentation/
+│   ├── REPEATED_QUESTIONS_FIX.md    # Technical guide
+│   ├── IMPLEMENTATION_SUMMARY.md    # Changes overview
+│   └── QUICK_REFERENCE.md           # API reference
+│
+└── README.md                        # This file
+```
+
+---
+
+## 🎓 Usage Guide
+
+### Start an Interview
+
+```bash
+# Terminal 1
+cd server && npm start
+
+# Terminal 2
+cd client && npm run dev
+```
+
+**In Browser:**
+1. Open http://localhost:5173
+2. Enter userId, role, and level
+3. Start interview
+4. Answer questions progressively
+5. Track which questions you've seen
+
+### Testing Features
+
+**Single Session Test:**
+```bash
+# Q1, Q2, Q3 from Interview 1
+# Should not repeat within same interview
+```
+
+**Cross-Session Test:**
+```bash
+# Session 1 with userId="test"
+# Get questions Q1, Q2, Q3
+
+# Session 2 with userId="test" 
+# First question should be Q4, Q5, or later (never Q1, Q2, Q3)
+# Because excludeQuestionIds includes previous session questions
+```
+
+**Usage Distribution Test:**
+```bash
+# After multiple interviews:
+curl http://localhost:5000/api/interview/usage-stats
+
+# Should show balanced distribution
+# No question with significantly higher count
+```
+
+---
+
+## 🔧 What's New (Repeated Questions Fix)
+
+### Changes Summary
+
+**6 Backend Files Modified:**
 - Automatically detects technical skills from resume text
 - Categorizes: Frontend, Backend, Database, Cloud, Mobile
 - Identifies experience level: Fresher, Mid-level, Senior

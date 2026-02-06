@@ -1,13 +1,16 @@
 /**
  * InterviewEngine - Orchestrates the complete interview flow
- * Manages state, question progression, and scoring
+ * Manages state, question progression, scoring, and session persistence
+ * Integrates with SessionManager for tracking across sessions
  */
 
 const QuestionSelector = require('./QuestionSelector');
+const SessionManager = require('./SessionManager');
 
 class InterviewEngine {
   constructor(questions = []) {
     this.allQuestions = questions;
+    this.sessionManager = new SessionManager();
     this.stageOrder = [
       'introduction',
       'warmup',
@@ -30,11 +33,22 @@ class InterviewEngine {
    * Initialize a new interview
    * @param {String} role - Candidate's role (frontend, backend, fullstack, etc.)
    * @param {String} level - Candidate's level (entry, mid, senior, principal)
+   * @param {String} userId - Optional user ID for tracking across sessions
    * @returns {Object} Interview state
    */
-  startInterview(role = 'any', level = 'mid') {
+  startInterview(role = 'any', level = 'mid', userId = null) {
+    const sessionId = this._generateSessionId();
+    
+    // Create session in persistent storage
+    const session = this.sessionManager.createSession(sessionId, { 
+      role, 
+      level, 
+      userId 
+    });
+
     this.state = {
-      id: this._generateInterviewId(),
+      sessionId: session.sessionId,
+      userId: session.userId,
       role,
       level,
       currentStageIndex: 0,
@@ -58,12 +72,14 @@ class InterviewEngine {
     const firstQuestion = this.getNextQuestion();
     return {
       state: this.state,
-      question: firstQuestion
+      question: firstQuestion,
+      sessionId: sessionId
     };
   }
 
   /**
    * Get the next question for the interview
+   * Smart question selection with session-aware exclusion
    * @returns {Object|null} Next question or null if interview complete
    */
   getNextQuestion() {
@@ -79,13 +95,30 @@ class InterviewEngine {
       }
     }
 
-    // Select a question for the current stage
+    // Build comprehensive exclusion list:
+    // 1. Questions asked in THIS interview
+    const currentSessionAsked = this.state.askedQuestions.map(q => q.id);
+    
+    // 2. Questions asked in PREVIOUS sessions (if userId provided)
+    let previousSessionAsked = [];
+    if (this.state.userId) {
+      previousSessionAsked = this.sessionManager.getPreviouslyAskedQuestionIds(
+        this.state.userId,
+        this.state.sessionId
+      );
+    }
+
+    // Combine exclusion lists
+    const excludeQuestionIds = [...currentSessionAsked, ...previousSessionAsked];
+
+    // Select a question with smart exclusion logic
     const question = QuestionSelector.selectQuestion({
       stage: this.state.currentStage,
       role: this.state.role,
       level: this.state.level,
-      askedQuestionIds: this.state.askedQuestions.map(q => q.id),
-      availableQuestions: this.allQuestions
+      excludeQuestionIds: excludeQuestionIds,  // NEW: Comprehensive exclusion
+      availableQuestions: this.allQuestions,
+      strictMode: true  // Prevent repeats across sessions
     });
 
     if (question) {
@@ -97,6 +130,7 @@ class InterviewEngine {
 
   /**
    * Submit an answer to the current question
+   * Persists both to session and increments usage count
    * @param {String} questionId - ID of the question being answered
    * @param {String} answer - Candidate's answer
    * @returns {Object} {success, feedback, nextQuestion}
@@ -118,6 +152,13 @@ class InterviewEngine {
       timestamp: new Date(),
       stage: this.state.currentStage
     });
+
+    // Persist to session storage
+    this.sessionManager.addAskedQuestion(
+      this.state.sessionId,
+      questionId,
+      currentQuestion.question
+    );
 
     // Get next question
     const nextQuestion = this.getNextQuestion();
@@ -153,8 +194,8 @@ class InterviewEngine {
    * @returns {Object} Complete interview summary
    */
   getInterviewSummary() {
-    return {
-      id: this.state.id,
+    const summary = {
+      id: this.state.sessionId,
       role: this.state.role,
       level: this.state.level,
       startedAt: this.state.interviewStarted,
@@ -174,6 +215,19 @@ class InterviewEngine {
         skill: q.skill
       }))
     };
+
+    // Mark session as complete in persistent storage
+    try {
+      this.sessionManager.completeSession(this.state.sessionId, {
+        totalQuestionsAsked: this.state.askedQuestions.length,
+        durationMinutes: summary.duration_minutes,
+        scores: this.state.scores
+      });
+    } catch (err) {
+      console.error('Error completing session:', err);
+    }
+
+    return summary;
   }
 
   /**
@@ -189,11 +243,11 @@ class InterviewEngine {
   }
 
   /**
-   * Generate unique interview ID
-   * @returns {String} Interview ID
+   * Generate unique session ID
+   * @returns {String} Session ID
    */
-  _generateInterviewId() {
-    return `interview_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  _generateSessionId() {
+    return `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   }
 
   /**
@@ -217,8 +271,62 @@ class InterviewEngine {
     const skippedQuestion = { ...this.state.currentQuestion, skipped: true };
     this.state.askedQuestions.push(skippedQuestion);
 
+    // Also record in persistent storage
+    this.sessionManager.addAskedQuestion(
+      this.state.sessionId,
+      skippedQuestion.id,
+      skippedQuestion.question
+    );
+
     return this.getNextQuestion();
+  }
+
+  /**
+   * Load an interview session from persistent storage
+   * Useful for resuming interrupted interviews
+   * @param {String} sessionId - ID of session to load
+   * @returns {Object|null} Interview state or null if not found
+   */
+  loadSession(sessionId) {
+    const session = this.sessionManager.getSession(sessionId);
+    if (!session) {
+      return null;
+    }
+
+    this.state = {
+      sessionId: session.sessionId,
+      userId: session.userId,
+      role: session.role,
+      level: session.level,
+      currentStageIndex: 0,
+      currentStage: this.stageOrder[0],
+      askedQuestions: [],
+      answers: [],
+      scores: {
+        technical: 0,
+        behavioral: 0,
+        communication: 0,
+        culture_fit: 0,
+        overall: 0
+      },
+      strengths: [],
+      weaknesses: [],
+      interviewStarted: new Date(session.startedAt),
+      currentQuestion: null
+    };
+
+    return this.getState();
+  }
+
+  /**
+   * Get session statistics
+   * @param {String} sessionId - ID of session
+   * @returns {Object} Session stats
+   */
+  getSessionStats(sessionId) {
+    return this.sessionManager.getSessionStats(sessionId);
   }
 }
 
 module.exports = InterviewEngine;
+
