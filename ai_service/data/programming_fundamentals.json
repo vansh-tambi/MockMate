@@ -1,7 +1,7 @@
 [
   {
     "id": "prog_fund_001",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -14,11 +14,20 @@
       "Interpreter doesn't create separate executable",
       "Examples: C/C++ use compiler, Python uses interpreter"
     ],
-    "follow_ups": ["Which is faster and why?", "What are pros and cons of each?", "Can a language use both?"]
+    "follow_ups": [
+      "Which is faster and why?",
+      "What are pros and cons of each?",
+      "Can a language use both?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "prog_fund_002",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -31,11 +40,20 @@
       "Runtime errors happen during program execution",
       "Examples: missing semicolon (syntax), division by zero (runtime)"
     ],
-    "follow_ups": ["What's a logical error?", "How do you debug each type?", "Which is harder to find?"]
+    "follow_ups": [
+      "What's a logical error?",
+      "How do you debug each type?",
+      "Which is harder to find?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "prog_fund_003",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -48,11 +66,20 @@
       "Dynamic allocation happens at runtime",
       "Need to deallocate to prevent memory leaks"
     ],
-    "follow_ups": ["What's a memory leak?", "Explain malloc and free", "What's garbage collection?"]
+    "follow_ups": [
+      "What's a memory leak?",
+      "Explain malloc and free",
+      "What's garbage collection?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "prog_fund_004",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -65,11 +92,20 @@
       "Heap slower but larger, flexible",
       "Local variables on stack, dynamic allocations on heap"
     ],
-    "follow_ups": ["What's stack overflow?", "When do you use heap?", "What happens when stack is full?"]
+    "follow_ups": [
+      "What's stack overflow?",
+      "When do you use heap?",
+      "What happens when stack is full?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "prog_fund_005",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -82,11 +118,20 @@
       "Includes reproducing bug, identifying cause, fixing, testing",
       "Essential skill for all developers"
     ],
-    "follow_ups": ["What debugging techniques do you use?", "How do you debug production issues?", "What tools have you used?"]
+    "follow_ups": [
+      "What debugging techniques do you use?",
+      "How do you debug production issues?",
+      "What tools have you used?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "prog_fund_006",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -99,11 +144,20 @@
       "Each step is unambiguous",
       "Should terminate eventually"
     ],
-    "follow_ups": ["Give an example of an algorithm", "What makes a good algorithm?", "How do you measure algorithm efficiency?"]
+    "follow_ups": [
+      "Give an example of an algorithm",
+      "What makes a good algorithm?",
+      "How do you measure algorithm efficiency?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "prog_fund_007",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -116,11 +170,20 @@
       "Important for algorithm efficiency",
       "Trade-offs between time and space"
     ],
-    "follow_ups": ["What's O(n) vs O(n²)?", "Can you give examples?", "Why does it matter?"]
+    "follow_ups": [
+      "What's O(n) vs O(n²)?",
+      "Can you give examples?",
+      "Why does it matter?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "prog_fund_008",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -133,11 +196,20 @@
       "Immutable objects are thread-safe",
       "Performance implications for both"
     ],
-    "follow_ups": ["Why use immutable objects?", "Give examples in your language", "What's the advantage of immutability?"]
+    "follow_ups": [
+      "Why use immutable objects?",
+      "Give examples in your language",
+      "What's the advantage of immutability?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "prog_fund_009",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "intern",
     "skill": "programming",
@@ -150,11 +222,20 @@
       "Uses call stack",
       "Can be replaced by iteration"
     ],
-    "follow_ups": ["Give an example of recursion", "What's the risk?", "Recursion vs iteration?"]
+    "follow_ups": [
+      "Give an example of recursion",
+      "What's the risk?",
+      "Recursion vs iteration?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "prog_fund_010",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "fresher",
     "skill": "programming",
@@ -167,6 +248,15 @@
       "Abstraction: Hiding complexity",
       "Promotes code reusability and organization"
     ],
-    "follow_ups": ["Explain with an example", "What's the benefit of OOP?", "What are design patterns?"]
+    "follow_ups": [
+      "Explain with an example",
+      "What's the benefit of OOP?",
+      "What are design patterns?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   }
 ]

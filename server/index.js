@@ -25,7 +25,183 @@ if (!process.env.GEMINI_API_KEY) {
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-/* ---------------- UNIVERSAL INTERVIEW STAGES ---------------- */
+/* ============= STAGE-BASED PROGRESSION MODULES ============= */
+const {
+  getStageFromIndex,
+  getQuestionsForStage,
+  filterByResume,
+  filterByRole,
+  filterByDifficulty,
+  getUnusedQuestion,
+  getStageProgress,
+  getSmartQuestion
+} = require('./stageManager');
+
+const { STAGE_ORDER, QUESTIONS_PER_STAGE } = require('./stageConfig');
+
+/* ============= NEW INTERVIEW ENGINE MODULES ============= */
+const InterviewEngine = require('./InterviewEngine');
+const QuestionSelector = require('./QuestionSelector');
+const interviewRoutes = require('./interviewRoutes');
+
+// Load questions once at startup
+const questionLoader = require('./questionLoader');
+let allQuestions = [];
+
+/* ============= NEW STAGED PROGRESSION SYSTEM ============= */
+
+// Stage files - strict 7-stage progression for realistic interview experience
+const STAGE_FILES = {
+  introduction: [
+    'introductory_icebreaker.json',
+    'self_awareness.json',
+    'personality_questions.json'
+  ],
+  warmup: [
+    'warmup_questions.json',
+    'hr_basic_questions.json'
+  ],
+  resume_based: [
+    'resume_deep_dive.json',
+    'work_ethic_professionalism.json',
+    'career_questions.json'
+  ],
+  technical: [
+    'programming_fundamentals.json',
+    'web_frontend.json',
+    'database_backend.json',
+    'backend_intermediate_advanced.json',
+    'dsa_questions.json',
+    'problem_solving.json',
+    'frontend_advanced.json',
+    'backend_advanced.json',
+    'system_design.json'
+  ],
+  behavioral: [
+    'behavioral_questions.json',
+    'communication_teamwork.json',
+    'situational_questions.json',
+    'values_ethics_integrity.json'
+  ],
+  real_world: [
+    'pressure_trick_questions.json',
+    'leadership_questions.json',
+    'leadership_behavioral.json'
+  ],
+  hr_closing: [
+    'hr_closing.json',
+    'company_role_fit.json'
+  ]
+};
+
+// Strict stage order - never changes (simulates real interview flow)
+const STAGE_ORDER = [
+  'introduction',
+  'warmup',
+  'resume_based',
+  'technical',
+  'behavioral',
+  'real_world',
+  'hr_closing'
+];
+
+// Questions per stage - controls total interview length (25 total by default)
+const QUESTIONS_PER_STAGE = {
+  introduction: 2,
+  warmup: 2,
+  resume_based: 3,
+  technical: 10,
+  behavioral: 5,
+  real_world: 2,
+  hr_closing: 1
+};
+
+// Calculate total interview questions
+const TOTAL_INTERVIEW_QUESTIONS = Object.values(QUESTIONS_PER_STAGE).reduce((a, b) => a + b, 0);
+console.log(`📋 Interview will have ${TOTAL_INTERVIEW_QUESTIONS} total questions across 7 stages`);
+
+// Initialize stages on startup
+console.log('\n🚀 Initializing 7-Stage Interview Progression System:');
+for (let stage of STAGE_ORDER) {
+  const files = STAGE_FILES[stage];
+  const count = QUESTIONS_PER_STAGE[stage];
+  console.log(`   ✅ ${stage.padEnd(20)} → ${count} questions from ${files.length} files`);
+}
+
+/* ============= STAGE PROGRESSION FUNCTIONS ============= */
+
+/**
+ * Determine which stage based on question index
+ * Ensures strict progression: introduction → warmup → resume_based → technical → behavioral → real_world → hr_closing
+ */
+function getCurrentStage(questionIndex) {
+  let total = 0;
+  for (let stage of STAGE_ORDER) {
+    total += QUESTIONS_PER_STAGE[stage];
+    if (questionIndex < total) {
+      return stage;
+    }
+  }
+  return 'hr_closing'; // Final stage
+}
+
+/**
+ * Load all questions for a specific stage from its data files
+ */
+function loadStageQuestions(stage) {
+  const files = STAGE_FILES[stage];
+  if (!files) {
+    console.warn(`⚠️ No files defined for stage: ${stage}`);
+    return [];
+  }
+
+  let questions = [];
+  for (let file of files) {
+    try {
+      const filePath = path.join(DATA_DIR, file);
+      const fileData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      
+      // Extract questions depending on data structure
+      if (Array.isArray(fileData)) {
+        questions.push(...fileData);
+      } else if (fileData.questions) {
+        questions.push(...fileData.questions);
+      } else if (fileData.data) {
+        questions.push(...fileData.data);
+      }
+    } catch (err) {
+      console.error(`❌ Failed to load ${file}:`, err.message);
+    }
+  }
+
+  console.log(`📂 Stage "${stage}" loaded ${questions.length} questions from ${files.length} files`);
+  return questions;
+}
+
+/**
+ * Select a random unused question from the pool
+ * Prevents duplicate questions in the interview
+ */
+function getUnusedQuestion(questions, askedQuestions = []) {
+  if (!Array.isArray(questions) || questions.length === 0) {
+    return null;
+  }
+
+  // Filter to only questions not yet asked
+  const unused = questions.filter(q => {
+    const qText = typeof q === 'string' ? q : q.question || JSON.stringify(q);
+    return !askedQuestions.includes(qText);
+  });
+
+  if (unused.length === 0) {
+    console.warn('⚠️ All questions in stage have been asked, cycling back to full pool');
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+
+  return unused[Math.floor(Math.random() * unused.length)];
+}
+
+/* ============= LEGACY STAGES (kept for compatibility) ============= */
 
 // Stage definitions - this NEVER changes
 const STAGES = {
@@ -471,6 +647,24 @@ app.get('/api/test', (req, res) => {
   });
 });
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    environment: {
+      nodeEnv: process.env.NODE_ENV,
+      hasGeminiKey: !!process.env.GEMINI_API_KEY,
+      dataDir: DATA_DIR,
+      dataLoaded: {
+        stages: STAGE_ORDER.length,
+        totalQuestions: TOTAL_INTERVIEW_QUESTIONS,
+      }
+    }
+  });
+});
+
+// Parse resume endpoint
 app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
   try {
     console.log('📄 ===== RESUME PARSING REQUEST RECEIVED =====');
@@ -601,29 +795,64 @@ Return ONLY the JSON object, no additional text or markdown.
     let result;
     let responseText;
     
-    try {
-      console.log('🔄 Calling Gemini API...');
-      result = await model.generateContent(parsePrompt);
-      console.log('✅ Gemini response received');
-      responseText = result.response.text();
-      console.log('📝 Response length:', responseText.length);
-    } catch (aiError) {
-      console.error('❌ Gemini API error:', {
-        message: aiError.message,
-        status: aiError.status,
-        code: aiError.code
-      });
-      
-      // Provide helpful error message
-      if (aiError.message?.includes('API key')) {
-        return res.status(500).json({
-          error: 'AI service not configured',
-          details: 'GEMINI_API_KEY is missing or invalid',
-          suggestion: 'Contact administrator to configure API key'
+    // Retry logic for rate limiting (429 errors) - 5 attempts with exponential backoff
+    let retries = 5;
+    let lastError = null;
+    
+    while (retries > 0) {
+      try {
+        console.log(`🔄 Calling Gemini API (attempt ${4 - retries}/3)...`);
+        result = await model.generateContent(parsePrompt);
+        console.log('✅ Gemini response received');
+        responseText = result.response.text();
+        console.log('📝 Response length:', responseText.length);
+        break; // Success, exit retry loop
+        
+      } catch (aiError) {
+        lastError = aiError;
+        console.error(`❌ Gemini API error (attempt ${4 - retries}/3):`, {
+          message: aiError.message,
+          status: aiError.status,
+          code: aiError.code
         });
+        
+        // Check if it's a rate limit error (429, quota exceeded, rate limited)
+        const isRateLimitError = aiError.message?.toLowerCase().includes('429') ||
+          aiError.message?.toLowerCase().includes('rate limit') ||
+          aiError.message?.toLowerCase().includes('quota') ||
+          aiError.message?.toLowerCase().includes('resource exhausted') ||
+          aiError.code === 429 ||
+          aiError.status === 429;
+        
+        if (isRateLimitError) {
+          retries--;
+          if (retries > 0) {
+            // Exponential backoff: 2s, 4s, 8s, 16s
+            const delayMs = Math.pow(2, 5 - retries) * 1000;
+            console.log(`⏳ Rate limited. Retrying in ${delayMs}ms...`);
+            await new Promise(resolve => setTimeout(resolve, delayMs));
+            continue;
+          }
+        } else if (aiError.message?.includes('API key')) {
+          return res.status(500).json({
+            error: 'AI service not configured',
+            details: 'GEMINI_API_KEY is missing or invalid',
+            suggestion: 'Contact administrator to configure API key'
+          });
+        } else {
+          throw aiError; // Non-retryable error
+        }
       }
-      
-      throw aiError; // Re-throw to be caught by outer catch block
+    }
+    
+    // If we exhausted retries, throw the last error
+    if (lastError && retries === 0) {
+      console.error('❌ Failed after 3 retry attempts');
+      return res.status(503).json({
+        error: 'AI service temporarily unavailable (rate limited)',
+        details: 'The AI service is experiencing high load. Please try again in a moment.',
+        suggestion: 'Please wait 30-60 seconds and try again.'
+      });
     }
     
     // Clean and parse JSON
@@ -704,177 +933,350 @@ Return ONLY the JSON object, no additional text or markdown.
   }
 });
 
+// Debug endpoint to check stage data loading
+app.get('/api/debug/stages', (req, res) => {
+  const stageInfo = {};
+  
+  for (let stage of STAGE_ORDER) {
+    try {
+      const questions = loadStageQuestions(stage);
+      stageInfo[stage] = {
+        fileCount: STAGE_FILES[stage].length,
+        questionCount: questions.length,
+        expectedCount: QUESTIONS_PER_STAGE[stage],
+        files: STAGE_FILES[stage]
+      };
+    } catch (err) {
+      stageInfo[stage] = {
+        error: err.message
+      };
+    }
+  }
+
+  res.json({
+    DATA_DIR,
+    totalInterview: TOTAL_INTERVIEW_QUESTIONS,
+    stages: STAGE_ORDER,
+    stageInfo,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Test endpoint to verify a question can be generated
+app.post('/api/debug/test-question', async (req, res) => {
+  try {
+    const { questionIndex = 0 } = req.body;
+    
+    const stage = getCurrentStage(questionIndex);
+    const questions = loadStageQuestions(stage);
+    const selected = getUnusedQuestion(questions, []);
+
+    res.json({
+      questionIndex,
+      stage,
+      questionsInStage: questions.length,
+      selectedQuestion: selected,
+      responseWillHave: {
+        success: true,
+        question: {
+          text: typeof selected === 'string' ? selected : selected.question,
+          index: questionIndex,
+          stage
+        }
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+      stack: err.stack
+    });
+  }
+});
+
+/* ============= MAIN GENERATE-QA ENDPOINT ============= */
 app.post('/api/generate-qa', async (req, res) => {
   try {
     const {
       resumeText = '',
       jobDescription = '',
       questionIndex = 0,
-      questionCount = 10,
-      sessionMemory = { askedQuestions: [], weakTopics: [], strongTopics: [] }
+      askedQuestions = [],
+      role = 'any',
+      level = 'mid'
     } = req.body;
 
-    console.log('📥 Received request:', { 
-      resumeText: resumeText.length, 
-      jobDescription: jobDescription.length, 
-      questionIndex, 
-      questionCount 
-    });
+    console.log('\n🚀 ===== GENERATE Q&A REQUEST (STAGED) =====');
+    console.log('📊 Current question index:', questionIndex);
+    console.log('📝 Already asked question IDs:', askedQuestions.length);
+    console.log('🎭 Role:', role);
+    console.log('📊 Level:', level);
 
-    // Extract skills from resume
-    const resumeAnalysis = extractSkills(resumeText);
-    console.log('🔍 Resume Analysis:', {
-      skills: resumeAnalysis.totalSkills,
-      level: resumeAnalysis.experienceLevel,
-      frontend: resumeAnalysis.skills.frontend.length,
-      backend: resumeAnalysis.skills.backend.length
-    });
-
-    // Detect role from BOTH resume and job description
-    const detectedRole = detectRole(resumeText, jobDescription);
-    console.log(`🎯 Detected role: ${detectedRole}`);
-
-    // Validate datasets loaded
-    const totalQuestions = Object.values(STAGE_QUESTIONS).reduce((sum, arr) => sum + arr.length, 0);
-    if (totalQuestions === 0) {
-      console.error('❌ Data loading failed - no questions loaded');
-      return res.status(500).json({ error: 'Data loading failed. Please check data files.' });
-    }
-
-    const qaPairs = [];
-    const numQuestions = Math.min(Math.max(questionCount, 1), 20); // Between 1 and 20 questions
-
-    console.log(`🔄 Generating ${numQuestions} questions for ${detectedRole} role...`);
-
-    for (let i = 0; i < numQuestions; i++) {
-      const currentIndex = questionIndex + i;
-      
-      // Determine stage based on role and question index
-      const stage = getStageForQuestion(detectedRole, currentIndex);
-      console.log(`   Q${currentIndex}: ${stage}`);
-      
-      // Get question pool for this stage
-      let pool = STAGE_QUESTIONS[stage] || [];
-
-      // Safety check
-      if (!pool || pool.length === 0) {
-        console.warn(`⚠️ No questions in pool for stage ${stage}, using warmup instead`);
-        pool = STAGE_QUESTIONS[STAGES.WARMUP] || [];
-        if (pool.length === 0) {
-          console.error('❌ Even warmup questions are missing!');
-          continue;
-        }
-      }
-
-      // Filter out already asked questions (interview memory)
-      const availablePool = pool.filter(q => {
-        const qText = typeof q === 'string' ? q : q.question;
-        return !sessionMemory.askedQuestions.includes(qText);
+    // ===== STEP 1: Determine current stage based on question index =====
+    let currentStage;
+    let stageProgress;
+    try {
+      currentStage = getStageFromIndex(questionIndex);
+      stageProgress = getStageProgress(questionIndex);
+      console.log(`\n📍 Current Stage: ${currentStage.toUpperCase()}`);
+      console.log(`   Description: ${stageProgress.description}`);
+      console.log(`   Stage progress: ${stageProgress.stageProgress}`);
+      console.log(`   Overall progress: ${stageProgress.overallProgress} (${stageProgress.percentComplete}%)`);
+    } catch (stageError) {
+      console.error('❌ Error determining stage:', stageError.message);
+      return res.status(400).json({ 
+        error: 'Failed to determine interview stage',
+        details: stageError.message
       });
-
-      const finalPool = availablePool.length > 0 ? availablePool : pool;
-
-      // Use adaptive difficulty selection
-      const rawQuestion = selectQuestionByDifficulty(finalPool, 2, resumeAnalysis.experienceLevel);
-      if (!rawQuestion) {
-        console.warn(`⚠️ No question available for ${stage}`);
-        continue;
-      }
-
-      const question = shorten(rawQuestion.question || rawQuestion);
-
-      // Use context for all questions except warmup
-      const useContext = stage !== STAGES.WARMUP;
-
-      const prompt = `
-You are an interview coach preparing a candidate.
-
-${resumeAnalysis.totalSkills > 0 ? `Candidate has ${resumeAnalysis.totalSkills} skills including: ${resumeAnalysis.skills.all.slice(0, 5).join(', ')}` : ''}
-${resumeAnalysis.experienceLevel ? `Experience Level: ${resumeAnalysis.experienceLevel}` : ''}
-
-Give:
-1. One-line direction (coaching tip)
-2. A short, professional sample answer (3–4 sentences max)
-
-${useContext ? `Resume: ${resumeText.slice(0,500)}` : ''}
-${useContext ? `Job: ${jobDescription.slice(0,300)}` : ''}
-${useContext ? `Interview Stage: ${stage}` : ''}
-
-QUESTION: "${question}"
-
-Respond ONLY in JSON:
-{"direction":"","answer":""}
-`;
-
-      try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
-        const out = await model.generateContent(prompt);
-        
-        if (!out || !out.response) {
-          console.warn(`⚠️ Empty response for question ${i + 1}, using defaults`);
-          qaPairs.push({
-            question,
-            direction: 'Answer clearly and concisely',
-            answer: 'Provide a brief, structured response.',
-            stage
-          });
-          continue;
-        }
-
-        const responseText = out.response.text();
-        const cleaned = cleanJson(responseText);
-        const parsed = JSON.parse(cleaned);
-
-        qaPairs.push({
-          question,
-          direction: parsed.direction || 'Answer clearly and concisely',
-          answer: parsed.answer || 'Provide a brief, structured response.',
-          stage
-        });
-
-      } catch (err) {
-        console.warn(`⚠️ Error generating answer for question ${i + 1}:`, err.message);
-        qaPairs.push({
-          question,
-          direction: 'Answer clearly and concisely',
-          answer: 'Provide a brief, structured response.',
-          stage
-        });
-      }
     }
 
-    console.log(`✅ Successfully generated ${qaPairs.length} questions`);
+    // ===== STEP 2: Smart Question Selection (combines all filtering) =====
+    let selectedQuestion;
+    try {
+      selectedQuestion = getSmartQuestion(
+        currentStage,
+        role,
+        level,
+        resumeText,
+        askedQuestions
+      );
+      
+      if (!selectedQuestion) {
+        console.error('❌ Could not select a question');
+        return res.status(500).json({ 
+          error: 'Could not select a question from the available pool',
+          stage: currentStage,
+          role,
+          level
+        });
+      }
+    } catch (selectError) {
+      console.error('❌ Error selecting question:', selectError.message);
+      return res.status(500).json({ 
+        error: 'Failed to select question',
+        details: selectError.message
+      });
+    }
 
-    // Update session memory with newly asked questions
-    const updatedMemory = {
-      askedQuestions: [...sessionMemory.askedQuestions, ...qaPairs.map(q => q.question)],
-      weakTopics: sessionMemory.weakTopics || [],
-      strongTopics: sessionMemory.strongTopics || []
+    const questionText = typeof selectedQuestion === 'string' 
+      ? selectedQuestion 
+      : selectedQuestion.question || JSON.stringify(selectedQuestion);
+
+    console.log(`\n❓ Selected Question: ${questionText.slice(0, 80)}...`);
+
+    // ===== STEP 4: Extract resume analysis for context =====
+    let resumeAnalysis;
+    try {
+      resumeAnalysis = extractSkills(resumeText);
+      console.log(`\n👤 Resume Analysis:
+   Skills: ${resumeAnalysis.totalSkills}
+   Level: ${resumeAnalysis.experienceLevel}
+   Frontend: ${resumeAnalysis.skills.frontend.length}
+   Backend: ${resumeAnalysis.skills.backend.length}`);
+    } catch (analysisError) {
+      console.error('⚠️ Error analyzing resume:', analysisError.message);
+      resumeAnalysis = { skills: { all: [], frontend: [], backend: [] }, experienceLevel: 'mid-level', totalSkills: 0 };
+    }
+
+    // ===== STEP 5: Contextualize question using Gemini =====
+    console.log('\n🤖 Generating contextual answer...');
+    
+    const prompt = `You are an interview coach preparing a candidate.
+
+Stage: ${currentStage.replace('_', ' ').toUpperCase()}
+
+Candidate Profile:
+- Skills: ${resumeAnalysis.totalSkills > 0 ? resumeAnalysis.skills.all.slice(0, 5).join(', ') : 'Not specified'}
+- Experience Level: ${resumeAnalysis.experienceLevel}
+- Target Role: ${jobDescription || 'Not specified'}
+
+Resume Summary:
+${resumeText.slice(0, 500)}
+
+Job Requirements:
+${jobDescription.slice(0, 300)}
+
+Interview Question:
+"${questionText}"
+
+Provide a JSON response with:
+1. "direction": One-line coaching tip for answering this question
+2. "answer": Brief, professional sample answer (3-4 sentences max)
+3. "tips": Array of 2-3 tips to improve the answer
+
+Respond ONLY with valid JSON (no markdown, no extra text):`;
+
+    let direction = 'Answer clearly and concisely, relating to your experience.';
+    let answer = 'Provide a brief, structured response with specific examples when relevant.';
+    let tips = ['Be specific with examples', 'Keep it concise'];
+
+  // Retry logic for rate limiting (429 errors) - 5 attempts with exponential backoff
+  let retries = 5;
+    let lastError = null;
+    
+    while (retries > 0) {
+      try {
+        console.log(`🔐 Checking Gemini API key...`);
+        if (!process.env.GEMINI_API_KEY) {
+          console.error('❌ GEMINI_API_KEY not set in environment');
+          throw new Error('Gemini API key not configured');
+        }
+        console.log('✓ API key found');
+
+  console.log(`⏳ Calling Gemini API (attempt ${6 - retries}/5)...`);
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+        const response = await model.generateContent(prompt);
+        
+        if (!response || !response.response || !response.response.text) {
+          console.warn('⚠️ Empty response from Gemini, using defaults');
+        } else {
+          const responseText = response.response.text();
+          console.log('✓ Gemini returned text response');
+          
+          const cleaned = responseText
+            .replace(/```json\s*/g, '')
+            .replace(/```\s*/g, '')
+            .trim();
+
+          console.log('📝 Gemini response (first 100 chars):', cleaned.slice(0, 100));
+
+          try {
+            const parsed = JSON.parse(cleaned);
+            direction = parsed.direction || direction;
+            answer = parsed.answer || answer;
+            tips = parsed.tips || tips;
+            console.log('✅ Contextual answer generated successfully');
+          } catch (parseError) {
+            console.warn('⚠️ Could not parse Gemini JSON, using defaults:', parseError.message);
+            console.warn('   Output was:', cleaned.slice(0, 200));
+          }
+        }
+        break; // Success, exit retry loop
+        
+      } catch (aiError) {
+        lastError = aiError;
+        console.error(`❌ Gemini API error (attempt ${6 - retries}/5):`, aiError.message);
+        
+        // Check if it's a rate limit error (429, quota exceeded, rate limited)
+        const isRateLimitError = aiError.message?.toLowerCase().includes('429') ||
+          aiError.message?.toLowerCase().includes('rate limit') ||
+          aiError.message?.toLowerCase().includes('quota') ||
+          aiError.message?.toLowerCase().includes('resource exhausted') ||
+          aiError.code === 429 ||
+          aiError.status === 429;
+        
+        if (isRateLimitError) {
+          retries--;
+          if (retries > 0) {
+            // Exponential backoff: 2s, 4s, 8s, 16s
+            const delayMs = Math.pow(2, 5 - retries) * 1000;
+            console.log(`⏳ Rate limited. Retrying in ${delayMs}ms...`);
+            await new Promise(resolve => setTimeout(resolve, delayMs));
+            continue;
+          }
+        } else {
+          console.warn('⚠️ Gemini API error (non-retryable), using defaults:', aiError.message);
+          break; // Non-retryable error, use defaults and continue
+        }
+      }
+    }
+    
+    if (lastError && retries === 0 && lastError.message?.includes('429')) {
+      console.warn('❌ Rate limited after 3 attempts, using default answers');
+    }
+
+    // ===== STEP 6: Validate response structure before sending =====
+    console.log('\n🔍 Building response payload...');
+    
+    const responsePayload = {
+      success: true,
+      stage: currentStage,
+      stageProgress: {
+        current: questionIndex,
+        total: TOTAL_INTERVIEW_QUESTIONS,
+        stageQuestionsRemaining: QUESTIONS_PER_STAGE[currentStage] - (questionIndex - getQuestionIndexForStage(currentStage))
+      },
+      question: {
+        id: selectedQuestion.id || `q_${questionIndex}`,
+        text: questionText,
+        index: questionIndex,
+        stage: currentStage
+      },
+      guidance: {
+        direction: String(direction),
+        answer: String(answer),
+        tips: Array.isArray(tips) ? tips.map(t => String(t)) : [String(tips)]
+      },
+      nextAction: questionIndex < TOTAL_INTERVIEW_QUESTIONS - 1 
+        ? `Next question will be in "${STAGE_ORDER[getStageIndexFromStage(currentStage) + 1] || 'final'}" stage`
+        : 'This is the final question of your interview',
+      sessionState: {
+        askedQuestions: [...askedQuestions, selectedQuestion.id || questionText],
+        currentStage,
+        questionIndex
+      }
     };
 
-    res.json({
-      qaPairs,
-      sessionId: crypto.randomUUID(),
-      totalQuestions: qaPairs.length,
-      detectedRole,
-      sequence: ROLE_SEQUENCES[detectedRole] || ROLE_SEQUENCES.default,
-      resumeAnalysis: {
-        skills: resumeAnalysis.skills.all,
-        experienceLevel: resumeAnalysis.experienceLevel,
-        totalSkills: resumeAnalysis.totalSkills
-      },
-      sessionMemory: updatedMemory
-    });
+    // Validate response payload
+    console.log('✓ Checking success flag:', !!responsePayload.success);
+    console.log('✓ Checking question object:', !!responsePayload.question);
+    console.log('✓ Checking question.text length:', responsePayload.question.text?.length || 0);
+    console.log('✓ Checking question.index:', responsePayload.question.index);
+    console.log('✓ Checking stage:', responsePayload.question.stage);
+    console.log('✓ Checking guidance.direction length:', responsePayload.guidance.direction?.length || 0);
+    console.log('✓ Checking guidance.answer length:', responsePayload.guidance.answer?.length || 0);
+    console.log('✓ Checking guidance.tips length:', responsePayload.guidance.tips?.length || 0);
 
-  } catch (e) {
-    console.error('❌ API Error:', {
-      message: e.message,
-      stack: e.stack,
-      name: e.name
+    if (!responsePayload.success || !responsePayload.question || !responsePayload.question.text) {
+      console.error('❌ Invalid response payload structure');
+      console.error('   success:', responsePayload.success);
+      console.error('   question:', responsePayload.question);
+      console.error('   question.text:', responsePayload.question?.text);
+      return res.status(500).json({ 
+        error: 'Response payload validation failed',
+        debug: { 
+          hasSuccess: !!responsePayload.success,
+          hasQuestion: !!responsePayload.question,
+          hasText: !!responsePayload.question?.text,
+          questiony: responsePayload.question
+        }
+      });
+    }
+
+    console.log('\n✅ Response ready to send to frontend');
+    console.log('   Question text preview:', questionText.slice(0, 60) + '...');
+    console.log('   Guidance direction:', direction.slice(0, 60) + '...');
+    
+    res.json(responsePayload);
+
+  } catch (error) {
+    console.error('\n❌ ERROR in /api/generate-qa:', error.message);
+    console.error('Stack:', error.stack);
+    res.status(500).json({ 
+      error: 'Failed to generate question',
+      details: error.message,
+      timestamp: new Date().toISOString()
     });
-    res.status(500).json({ error: e.message || 'Internal server error' });
   }
 });
+
+/**
+ * Helper function to get starting question index for a stage
+ */
+function getQuestionIndexForStage(stage) {
+  let index = 0;
+  for (let s of STAGE_ORDER) {
+    if (s === stage) return index;
+    index += QUESTIONS_PER_STAGE[s];
+  }
+  return index;
+}
+
+/**
+ * Helper function to get stage position in order
+ */
+function getStageIndexFromStage(stage) {
+  return STAGE_ORDER.indexOf(stage);
+}
 
 /* ---------------- EVALUATION ENDPOINT ---------------- */
 
@@ -956,6 +1358,40 @@ Respond ONLY in JSON:
     });
   }
 });
+
+/* ============= NEW INTERVIEW FLOW API ============= */
+
+// Initialize questions from dataset on first request
+app.get('/api/questions/load', (req, res) => {
+  if (allQuestions.length === 0) {
+    allQuestions = questionLoader.loadAllQuestions();
+  }
+  
+  res.json({
+    success: true,
+    message: 'Questions loaded from dataset',
+    totalQuestions: allQuestions.length,
+    statistics: questionLoader.getStats ? questionLoader.getStats() : {}
+  });
+});
+
+// Get all questions
+app.get('/api/questions', (req, res) => {
+  if (allQuestions.length === 0) {
+    allQuestions = questionLoader.loadAllQuestions();
+  }
+  
+  res.json({
+    success: true,
+    totalQuestions: allQuestions.length,
+    questions: allQuestions
+  });
+});
+
+// Mount interview routes
+app.use('/api/interview', interviewRoutes);
+
+/* ============= END NEW INTERVIEW FLOW API ============= */
 
 /* ---------------- START ---------------- */
 

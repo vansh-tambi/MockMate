@@ -1,0 +1,181 @@
+[
+  {
+    "id": "networking_tcp_elite_001",
+    "category": "networking",
+    "role": "backend",
+    "level": "mid",
+    "skill": "networking",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Explain the TCP handshake and why it's needed. What happens if a packet gets lost?",
+    "ideal_points": [
+      "SYN, SYN-ACK, ACK sequence",
+      "Establishes reliable connection",
+      "Sets initial sequence numbers",
+      "Lost packets trigger retransmission",
+      "Timeout and exponential backoff",
+      "Congestion control",
+      "Sliding window protocol",
+      "Resource allocation per connection"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains TCP handshake",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses reliability mechanisms",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear state transitions",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References packet loss scenarios",
+        "weight": 0.2
+      },
+      "confidence": "Networking knowledge evident"
+    },
+    "strong_signals": [
+      "Draws sequence diagram",
+      "Explains timeout behavior",
+      "Mentions RTT estimation"
+    ],
+    "weak_signals": [
+      "Correct but memorized answer"
+    ],
+    "red_flags": [
+      "Cannot explain why handshake needed",
+      "Confuses with UDP",
+      "Unknown packet loss handling"
+    ],
+    "follow_ups": [
+      "What about connection closing?",
+      "How is congestion detected?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "networking_dns_elite_001",
+    "category": "networking",
+    "role": "backend",
+    "level": "mid",
+    "skill": "networking",
+    "difficulty": 3,
+    "weight": 1.5,
+    "expected_duration_sec": 120,
+    "stage": "technical",
+    "question": "How does DNS resolution work? What happens when you type google.com?",
+    "ideal_points": [
+      "Recursive query from client to resolver",
+      "Resolver queries root nameserver",
+      "Root directs to TLD nameserver",
+      "TLD directs to authoritative nameserver",
+      "Caching at multiple levels",
+      "TTL (Time To Live) values",
+      "DNS propagation delays",
+      "DNSSEC for security"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains DNS process",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses caching and propagation",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear step-by-step flow",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References DNS issues encountered",
+        "weight": 0.2
+      },
+      "confidence": "Practical understanding"
+    },
+    "strong_signals": [
+      "Mentions caching layers",
+      "Discusses TTL implications",
+      "Knows DNS records (A, CNAME, MX)"
+    ],
+    "weak_signals": [
+      "Basic understanding only"
+    ],
+    "red_flags": [
+      "Cannot explain resolver vs authoritative",
+      "Unknown caching behavior"
+    ],
+    "follow_ups": [
+      "What are DNS records?",
+      "How do you debug DNS issues?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
+  },
+  {
+    "id": "networking_http_elite_001",
+    "category": "networking",
+    "role": "backend",
+    "level": "mid",
+    "skill": "networking",
+    "difficulty": 4,
+    "weight": 1.6,
+    "expected_duration_sec": 150,
+    "stage": "technical",
+    "question": "Explain HTTP/1.1 vs HTTP/2 vs HTTP/3. What problems does each solve?",
+    "ideal_points": [
+      "HTTP/1.1: keep-alive, but head-of-line blocking",
+      "HTTP/2: multiplexing, server push, binary framing",
+      "HTTP/3: QUIC, UDP-based, faster handshake",
+      "Connection multiplexing benefits",
+      "Stream prioritization",
+      "Connection pre-warming",
+      "Backward compatibility"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately compares HTTP versions",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses performance implications",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear problem-solution mapping",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References production performance gains",
+        "weight": 0.2
+      },
+      "confidence": "Web protocols knowledge"
+    },
+    "strong_signals": [
+      "Mentions head-of-line blocking",
+      "Discusses stream multiplexing",
+      "Knows QUIC basics"
+    ],
+    "weak_signals": [
+      "Knows versions but not tradeoffs"
+    ],
+    "red_flags": [
+      "Cannot explain multiplexing benefit",
+      "Unknown protocol differences"
+    ],
+    "follow_ups": [
+      "When would you choose HTTP/3?",
+      "What about WebSockets?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  }
+]

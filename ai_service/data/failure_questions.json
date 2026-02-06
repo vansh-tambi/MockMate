@@ -1,0 +1,199 @@
+[
+  {
+    "id": "fail_001",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "learning-from-failure",
+    "difficulty": 2,
+    "question": "Tell me about your biggest technical failure. What happened and what did you learn?",
+    "ideal_points": [
+      "Real, significant failure described",
+      "Responsibility acknowledged",
+      "Root cause analysis provided",
+      "Clear learning shown",
+      "Prevention strategy discussed"
+    ],
+    "evaluation_rubric": {
+      "honesty": {
+        "description": "Is the failure genuine and significant?",
+        "weight": 0.30
+      },
+      "ownership": {
+        "description": "Acknowledges own responsibility?",
+        "weight": 0.30
+      },
+      "analysis": {
+        "description": "Understands root cause?",
+        "weight": 0.20
+      },
+      "growth": {
+        "description": "Actual learning demonstrated?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Real, significant failure recounted",
+      "Takes responsibility clearly",
+      "Root cause identified",
+      "Specific learnings mentioned",
+      "Changes made to prevent recurrence"
+    ],
+    "weak_signals": [
+      "Failure sounds trivial",
+      "Blames others",
+      "Cannot articulate root cause",
+      "No clear learning",
+      "Similar issues happen again"
+    ],
+    "red_flags": [
+      "Refuses to discuss failure",
+      "Cannot name any failure",
+      "Completely blames others",
+      "Shows no growth mindset",
+      "Cannot admit mistakes"
+    ],
+    "follow_ups": [
+      "What was your role specifically?",
+      "What would you do differently?",
+      "Did this happen again?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess growth mindset and honesty",
+    "weight": 1.6,
+    "expected_duration_sec": 150
+  },
+  {
+    "id": "fail_002",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "mid",
+    "skill": "learning-from-failure",
+    "difficulty": 2,
+    "question": "When was the last time you broke production? What happened?",
+    "ideal_points": [
+      "Honest account of production incident",
+      "Impact assessment",
+      "Root cause and prevention discussed",
+      "Team communication handled well",
+      "System improvements made"
+    ],
+    "evaluation_rubric": {
+      "transparency": {
+        "description": "Honest about incident?",
+        "weight": 0.30
+      },
+      "impact": {
+        "description": "Understands impact?",
+        "weight": 0.25
+      },
+      "recovery": {
+        "description": "How incident was resolved?",
+        "weight": 0.25
+      },
+      "prevention": {
+        "description": "Prevents future incidents?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Specific production incident described",
+      "Impact on users/business understood",
+      "Root cause identified",
+      "Quick resolution process",
+      "Improvements implemented (alerts, tests, etc.)"
+    ],
+    "weak_signals": [
+      "Vague about what happened",
+      "Downplays impact",
+      "No root cause analysis",
+      "No improvements made",
+      "Cannot clearly explain issue"
+    ],
+    "red_flags": [
+      "Never broken production",
+      "Completely blames others",
+      "Major incident, low accountability",
+      "Same type of failure happened again",
+      "Secretive about incident"
+    ],
+    "follow_ups": [
+      "How would you prevent this again?",
+      "What monitoring would help?",
+      "Did the team get angry?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess production awareness and accountability",
+    "weight": 1.7,
+    "expected_duration_sec": 150
+  },
+  {
+    "id": "fail_003",
+    "stage": "real_life",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "learning-from-failure",
+    "difficulty": 3,
+    "question": "Tell me about the largest scale failure you've overseen. How did you lead through it?",
+    "ideal_points": [
+      "Significant scale incident",
+      "Clear leadership response",
+      "Team coordination",
+      "Communication strategy",
+      "Systemic improvements made"
+    ],
+    "evaluation_rubric": {
+      "scale": {
+        "description": "Was impact significant?",
+        "weight": 0.25
+      },
+      "leadership": {
+        "description": "Led team through crisis?",
+        "weight": 0.30
+      },
+      "communication": {
+        "description": "Managed stakeholder communication?",
+        "weight": 0.20
+      },
+      "improvement": {
+        "description": "Major improvements made?",
+        "weight": 0.25
+      }
+    },
+    "strong_signals": [
+      "Significant incident recounted",
+      "Takes leadership responsibility",
+      "Team was coordinated",
+      "Clear communication plan",
+      "Major systemic improvements made",
+      "Prevents similar incidents"
+    ],
+    "weak_signals": [
+      "Downplays incident scale",
+      "Unclear leadership role",
+      "Little team coordination",
+      "Ad hoc response",
+      "No systemic improvements"
+    ],
+    "red_flags": [
+      "Never led incident response",
+      "Blamed the team",
+      "Communication was poor",
+      "Similar incidents happened again",
+      "No process improvements",
+      "Lost team trust"
+    ],
+    "follow_ups": [
+      "What did you learn about leadership?",
+      "How did team feel about your response?",
+      "What would you do differently?"
+    ],
+    "category": "behavioral",
+    "priority": "strategic",
+    "interviewer_goal": "assess senior leadership and crisis management",
+    "weight": 1.9,
+    "expected_duration_sec": 180
+  }
+]

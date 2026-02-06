@@ -1,0 +1,224 @@
+{
+  "description": "Question weight calibration for adaptive difficulty and candidate assessment",
+  "weight_categories": {
+    "foundation_questions": {
+      "range": [1.0, 1.3],
+      "description": "Easy questions, mostly everyone passes",
+      "purpose": "Build confidence, establish baseline",
+      "typical_difficulty": [1, 2],
+      "discriminating_power": "low"
+    },
+    "standard_questions": {
+      "range": [1.4, 1.6],
+      "description": "Medium questions, good discrimination",
+      "purpose": "Main assessment, differentiate levels",
+      "typical_difficulty": [2, 3],
+      "discriminating_power": "high"
+    },
+    "challenging_questions": {
+      "range": [1.7, 1.95],
+      "description": "Hard questions, few pass well",
+      "purpose": "Identify top performers",
+      "typical_difficulty": [3, 4],
+      "discriminating_power": "very_high"
+    },
+    "elite_questions": {
+      "range": [2.0, 2.5],
+      "description": "Very hard, only experts excel",
+      "purpose": "Identify elite/principal level",
+      "typical_difficulty": [4, 5],
+      "discriminating_power": "extreme"
+    }
+  },
+  "weight_by_skill": {
+    "fundamental_skills": {
+      "examples": ["basic_coding", "critical_thinking", "communication"],
+      "weight_adjustment": -0.1,
+      "reason": "Everyone should have these"
+    },
+    "role_core_skills": {
+      "examples": ["react_for_frontend", "SQL_for_backend", "sysadmin_for_sre"],
+      "weight_adjustment": 0.2,
+      "reason": "Critical for role success"
+    },
+    "nice_to_have_skills": {
+      "examples": ["TypeScript", "Kubernetes", "advanced_CSS"],
+      "weight_adjustment": -0.05,
+      "reason": "Can be learned on job"
+    },
+    "differentiator_skills": {
+      "examples": ["system_design", "architectural_thinking", "mentoring"],
+      "weight_adjustment": 0.3,
+      "reason": "Sets apart excellent from good"
+    }
+  },
+  "weight_calibration_algorithm": {
+    "step_1_base_weight": {
+      "rule": "Assign based on question difficulty and discriminating power",
+      "formula": "base_weight = 1.0 + (difficulty_level * 0.35)"
+    },
+    "step_2_skill_adjustment": {
+      "rule": "Adjust based on skill category importance",
+      "adds": "skill_adjustment from weight_by_skill table"
+    },
+    "step_3_stage_adjustment": {
+      "rule": "Adjust based on interview stage",
+      "rules": {
+        "warmup_stage": "-0.2 (should be easy)",
+        "resume_technical_stage": "+0.1 (more rigorous)",
+        "real_life_stage": "+0.15 (practical matters)",
+        "hr_closing_stage": "-0.1 (less technical)"
+      }
+    },
+    "step_4_level_adjustment": {
+      "rule": "Adjust based on candidate level",
+      "rules": {
+        "entry_level": "0.0 (baseline)",
+        "mid_level": "+0.1 (expect more)",
+        "senior_level": "+0.3 (much higher bar)",
+        "principal_level": "+0.4 (expert bar)"
+      }
+    },
+    "step_5_validation": {
+      "rule": "Ensure weights are in valid range",
+      "constraints": "1.0 <= final_weight <= 2.5"
+    }
+  },
+  "weight_impact_on_scoring": {
+    "low_weight_question": {
+      "weight": 1.0,
+      "impact": "Minor impact on overall score",
+      "use_case": "Warmup, confidence building",
+      "scoring_multiplier": 0.8
+    },
+    "standard_weight_question": {
+      "weight": 1.5,
+      "impact": "Normal impact on overall score",
+      "use_case": "Most interview questions",
+      "scoring_multiplier": 1.0
+    },
+    "high_weight_question": {
+      "weight": 1.9,
+      "impact": "Significant impact on overall score",
+      "use_case": "Critical assessment questions",
+      "scoring_multiplier": 1.25
+    },
+    "elite_weight_question": {
+      "weight": 2.2,
+      "impact": "Major impact on overall score",
+      "use_case": "Principal/architect assessment",
+      "scoring_multiplier": 1.5
+    }
+  },
+  "adaptive_weight_adjustment": {
+    "rule": "Dynamically adjust weight based on candidate performance",
+    "mechanism": {
+      "if_candidate_struggling": {
+        "rule": "Reduce weight of next questions slightly",
+        "adjustment": "-0.1 per struggle",
+        "purpose": "Give them chance to recover"
+      },
+      "if_candidate_excelling": {
+        "rule": "Increase weight of next questions",
+        "adjustment": "+0.15 per excellent answer",
+        "purpose": "Push to find their limits"
+      },
+      "if_candidate_average": {
+        "rule": "Keep weight consistent",
+        "adjustment": "0.0",
+        "purpose": "Continue normal assessment"
+      }
+    }
+  },
+  "weight_validation_rules": {
+    "question_weight_too_low": {
+      "if": "weight < 1.0",
+      "action": "Adjust to 1.0, likely too easy"
+    },
+    "question_weight_too_high": {
+      "if": "weight > 2.5",
+      "action": "Adjust to 2.5, likely too hard or role-irrelevant"
+    },
+    "weight_mismatched_difficulty": {
+      "if": "difficulty_level = 1 but weight = 1.9",
+      "action": "Recalibrate, likely mistake in weight"
+    },
+    "stage_weight_imbalance": {
+      "if": "All questions in stage have weight < 1.3",
+      "action": "Review stage design, might be too easy"
+    }
+  },
+  "role_specific_weight_overrides": {
+    "backend_systems_design": {
+      "system_design_questions": {
+        "base_weight": 1.5,
+        "override_weight": 2.0,
+        "reason": "Critical for backend roles"
+      }
+    },
+    "frontend_performance": {
+      "performance_questions": {
+        "base_weight": 1.5,
+        "override_weight": 1.8,
+        "reason": "Important for frontend"
+      }
+    },
+    "sre_production": {
+      "production_debugging_questions": {
+        "base_weight": 1.5,
+        "override_weight": 2.1,
+        "reason": "Critical for SRE success"
+      }
+    }
+  },
+  "benchmarking_targets": {
+    "by_level": {
+      "entry": {
+        "avg_question_weight": 1.2,
+        "difficulty_range": [1, 2],
+        "expected_score_range": [0.5, 0.9]
+      },
+      "mid": {
+        "avg_question_weight": 1.5,
+        "difficulty_range": [2, 3],
+        "expected_score_range": [0.45, 0.85]
+      },
+      "senior": {
+        "avg_question_weight": 1.7,
+        "difficulty_range": [3, 4],
+        "expected_score_range": [0.4, 0.8]
+      },
+      "principal": {
+        "avg_question_weight": 1.95,
+        "difficulty_range": [4, 5],
+        "expected_score_range": [0.3, 0.75]
+      }
+    }
+  },
+  "weight_distribution_across_stages": {
+    "introduction": {
+      "max_weight": 1.3,
+      "reason": "Should be easy warmup"
+    },
+    "warmup": {
+      "max_weight": 1.5,
+      "reason": "Build confidence"
+    },
+    "resume": {
+      "max_weight": 1.5,
+      "reason": "Verify claims"
+    },
+    "resume_technical": {
+      "max_weight": 2.0,
+      "reason": "Assess core skills"
+    },
+    "real_life": {
+      "max_weight": 2.1,
+      "reason": "Most discriminating stage"
+    },
+    "hr_closing": {
+      "max_weight": 1.4,
+      "reason": "Culture fit, not technical"
+    }
+  }
+}

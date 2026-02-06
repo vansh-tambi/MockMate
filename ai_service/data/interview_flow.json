@@ -1,0 +1,141 @@
+{
+  "interview_flow": [
+    {
+      "stage": "introduction",
+      "stage_name": "Introduction & Icebreaker",
+      "question_count": 3,
+      "allowed_categories": ["technical", "behavioral"],
+      "difficulty_range": [1, 2],
+      "duration_seconds": 180,
+      "purpose": "Build rapport, establish baseline, candidate feels comfortable",
+      "examples": [
+        "What are your biggest strengths?",
+        "What motivates you in your work?",
+        "How would your colleagues describe you?"
+      ]
+    },
+    {
+      "stage": "warmup",
+      "stage_name": "Technical Warmup",
+      "question_count": 2,
+      "allowed_categories": ["technical", "behavioral"],
+      "difficulty_range": [1, 2],
+      "duration_seconds": 120,
+      "purpose": "Get candidate thinking technically, build confidence with easy wins",
+      "examples": [
+        "What is React and why use it?",
+        "Explain async/await in JavaScript",
+        "What's the difference between let and var?"
+      ]
+    },
+    {
+      "stage": "resume",
+      "stage_name": "Resume Deep Dive",
+      "question_count": 4,
+      "allowed_categories": ["behavioral", "engineering_ownership", "technical"],
+      "difficulty_range": [2, 3],
+      "duration_seconds": 240,
+      "purpose": "Verify project authenticity, understand real contributions, assess ownership",
+      "examples": [
+        "Walk me through your best project",
+        "What was your biggest technical challenge?",
+        "How did you approach technology choices?",
+        "If database crashed, what would happen?"
+      ]
+    },
+    {
+      "stage": "resume_technical",
+      "stage_name": "Technical Deep Dive",
+      "question_count": 5,
+      "allowed_categories": ["technical", "system_design", "code_quality", "debugging", "backend", "frontend"],
+      "difficulty_range": [2, 4],
+      "duration_seconds": 300,
+      "purpose": "Assess technical depth, problem-solving, architecture thinking, real experience",
+      "examples": [
+        "Debugging strategy and toughest bug",
+        "Git workflow and code review process",
+        "System design (scale to 1M users)",
+        "Architecture design and trade-offs"
+      ]
+    },
+    {
+      "stage": "real_life",
+      "stage_name": "Real-Life Scenarios",
+      "question_count": 4,
+      "allowed_categories": ["behavioral", "engineering_ownership"],
+      "difficulty_range": [2, 4],
+      "duration_seconds": 240,
+      "purpose": "Assess maturity, handling ambiguity, ownership, working in teams",
+      "examples": [
+        "Teammate not contributing, what do you do?",
+        "Disagreement with manager on technical approach",
+        "Big mistake made, how you handle it",
+        "Vague requirements from product, what next?"
+      ]
+    },
+    {
+      "stage": "hr_closing",
+      "stage_name": "HR Closing & Culture Fit",
+      "question_count": 2,
+      "allowed_categories": ["behavioral", "closing"],
+      "difficulty_range": [1, 3],
+      "duration_seconds": 120,
+      "purpose": "Assess values, motivations, culture fit, and give candidate opportunity to ask questions",
+      "examples": [
+        "Why are you interested in this role?",
+        "Do you have any questions for us?",
+        "What's important to you in a team?"
+      ]
+    }
+  ],
+  "stage_mapping_rules": {
+    "introduction": {
+      "maps_from": ["introductory_icebreaker", "introduction", "self_awareness"],
+      "question_criteria": "Easy, rapport-building, non-technical",
+      "typical_questions": ["strengths", "motivation", "colleagues describe", "interests"]
+    },
+    "warmup": {
+      "maps_from": ["warmup_questions", "technical (easy)", "programming_fundamentals"],
+      "question_criteria": "Easy technical, builds confidence, quick wins",
+      "typical_questions": ["basic concepts", "definitions", "how does X work"]
+    },
+    "resume": {
+      "maps_from": ["resume_deep_dive", "project_questions", "ownership"],
+      "question_criteria": "Project verification, authenticity checks, ownership assessment",
+      "typical_questions": ["explain project", "why tech choice", "biggest challenge", "database crash"]
+    },
+    "resume_technical": {
+      "maps_from": ["backend_advanced", "frontend_advanced", "system_design", "version_control", "code_quality", "dsa_questions", "technical"],
+      "question_criteria": "Technical depth, architecture, debugging, workflow knowledge",
+      "typical_questions": ["debugging story", "git workflow", "system design", "architecture", "algorithms"]
+    },
+    "real_life": {
+      "maps_from": ["situational_questions", "behavioral_questions", "real_life", "leadership_behavioral"],
+      "question_criteria": "Ambiguity, conflict, mistakes, teamwork, maturity",
+      "typical_questions": ["teammate issues", "disagreements", "mistakes", "vague requirements", "conflicts"]
+    },
+    "hr_closing": {
+      "maps_from": ["hr_closing", "hr_basic_questions", "company_role_fit", "work_ethic_professionalism"],
+      "question_criteria": "Values, motivation, culture fit, closing",
+      "typical_questions": ["why interested", "questions for us", "work-life balance", "company values"]
+    }
+  },
+  "total_interview_time": 1200,
+  "total_interview_time_minutes": 20,
+  "total_questions": 20,
+  "question_distribution": {
+    "introduction": "15% - Build rapport",
+    "warmup": "10% - Build confidence",
+    "resume": "20% - Verify authenticity",
+    "resume_technical": "25% - Assess technical skills",
+    "real_life": "20% - Assess maturity",
+    "hr_closing": "10% - Culture fit & closing"
+  },
+  "difficulty_progression": {
+    "1": "Trivial - anyone can answer",
+    "2": "Basic - tests knowledge",
+    "3": "Intermediate - tests application",
+    "4": "Advanced - tests depth and experience",
+    "5": "Expert - tests mastery"
+  }
+}

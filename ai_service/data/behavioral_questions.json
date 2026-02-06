@@ -1,7 +1,7 @@
 [
   {
     "id": "behavioral_001",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -19,13 +19,27 @@
       "specificity": "Was the challenge specific and clear?",
       "action": "Did they explain what THEY did?",
       "result": "Was there a measurable outcome or learning?",
-      "missed_opportunities": ["Too vague", "No clear result", "Didn't explain their role", "No STAR structure"]
+      "missed_opportunities": [
+        "Too vague",
+        "No clear result",
+        "Didn't explain their role",
+        "No STAR structure"
+      ]
     },
-    "follow_ups": ["What did you learn from that experience?", "Would you do anything differently?", "How do you apply that learning now?"]
+    "follow_ups": [
+      "What did you learn from that experience?",
+      "Would you do anything differently?",
+      "How do you apply that learning now?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_002",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -39,17 +53,34 @@
       "Demonstrates how they've improved since"
     ],
     "evaluation_rubric": {
-      "ownership": "Did they take responsibility?",
+      "ownership": {
+        "description": "Did they take responsibility?",
+        "weight": 0.2
+      },
       "honesty": "Were they genuinely reflective?",
       "learning": "Did they extract meaningful lessons?",
       "growth": "Have they improved based on the failure?",
-      "missed_opportunities": ["Blamed others", "No real failure shared", "No learning mentioned", "Defensive tone"]
+      "missed_opportunities": [
+        "Blamed others",
+        "No real failure shared",
+        "No learning mentioned",
+        "Defensive tone"
+      ]
     },
-    "follow_ups": ["How has that failure changed your approach?", "What would you do differently now?", "How do you prevent similar failures?"]
+    "follow_ups": [
+      "How has that failure changed your approach?",
+      "What would you do differently now?",
+      "How do you prevent similar failures?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_003",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -64,16 +95,36 @@
     ],
     "evaluation_rubric": {
       "role_clarity": "Did they explain their role clearly?",
-      "collaboration": "Did they show genuine teamwork?",
-      "communication": "Was communication emphasized?",
+      "collaboration": {
+        "description": "Did they show genuine teamwork?",
+        "weight": 0.15
+      },
+      "communication": {
+        "description": "Was communication emphasized?",
+        "weight": 0.2
+      },
       "outcome": "Did team achieve results?",
-      "missed_opportunities": ["Took all credit", "No specific role mentioned", "Didn't mention others", "No outcome"]
+      "missed_opportunities": [
+        "Took all credit",
+        "No specific role mentioned",
+        "Didn't mention others",
+        "No outcome"
+      ]
     },
-    "follow_ups": ["What was your role in the team?", "How did you handle conflicts?", "What made the team successful?"]
+    "follow_ups": [
+      "What was your role in the team?",
+      "How did you handle conflicts?",
+      "What made the team successful?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_004",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -91,13 +142,27 @@
       "resolution": "Was conflict resolved effectively?",
       "empathy": "Did they consider other perspectives?",
       "professionalism": "Remained professional throughout?",
-      "missed_opportunities": ["Avoided conflict entirely", "Focused on winning", "No empathy shown", "Generic answer"]
+      "missed_opportunities": [
+        "Avoided conflict entirely",
+        "Focused on winning",
+        "No empathy shown",
+        "Generic answer"
+      ]
     },
-    "follow_ups": ["What's your approach to difficult conversations?", "How do you prevent conflicts?", "What if the other person won't compromise?"]
+    "follow_ups": [
+      "What's your approach to difficult conversations?",
+      "How do you prevent conflicts?",
+      "What if the other person won't compromise?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_005",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -114,14 +179,31 @@
       "proactivity": "Did they identify need themselves?",
       "action": "Did they take concrete steps?",
       "impact": "Was there measurable positive impact?",
-      "leadership": "Did they show leadership qualities?",
-      "missed_opportunities": ["Waited for permission", "No clear impact", "Too small an initiative", "Didn't follow through"]
+      "leadership": {
+        "description": "Did they show leadership qualities?",
+        "weight": 0.25
+      },
+      "missed_opportunities": [
+        "Waited for permission",
+        "No clear impact",
+        "Too small an initiative",
+        "Didn't follow through"
+      ]
     },
-    "follow_ups": ["What motivated you to take that initiative?", "What obstacles did you face?", "How was it received?"]
+    "follow_ups": [
+      "What motivated you to take that initiative?",
+      "What obstacles did you face?",
+      "How was it received?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_006",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -136,16 +218,33 @@
     ],
     "evaluation_rubric": {
       "responsibility": "Did they take ownership?",
-      "communication": "Did they communicate proactively?",
+      "communication": {
+        "description": "Did they communicate proactively?",
+        "weight": 0.2
+      },
       "learning": "What did they learn?",
       "prevention": "How do they prevent this now?",
-      "missed_opportunities": ["Blamed others", "Made excuses", "No learning", "Happens frequently"]
+      "missed_opportunities": [
+        "Blamed others",
+        "Made excuses",
+        "No learning",
+        "Happens frequently"
+      ]
     },
-    "follow_ups": ["How did you communicate the delay?", "What would you do differently?", "How do you manage deadlines now?"]
+    "follow_ups": [
+      "How did you communicate the delay?",
+      "What would you do differently?",
+      "How do you manage deadlines now?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_007",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -163,13 +262,27 @@
       "professionalism": "Did they stay professional?",
       "action": "Did they act on the feedback?",
       "growth": "Did they improve?",
-      "missed_opportunities": ["Defensive", "Dismissed feedback", "No example", "Didn't improve"]
+      "missed_opportunities": [
+        "Defensive",
+        "Dismissed feedback",
+        "No example",
+        "Didn't improve"
+      ]
     },
-    "follow_ups": ["How do you differentiate constructive vs destructive criticism?", "What's the hardest feedback you've received?", "How do you ask for feedback?"]
+    "follow_ups": [
+      "How do you differentiate constructive vs destructive criticism?",
+      "What's the hardest feedback you've received?",
+      "How do you ask for feedback?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_008",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -187,13 +300,27 @@
       "techniques": "Did they use specific coping strategies?",
       "outcome": "Was situation resolved positively?",
       "resilience": "Did they bounce back?",
-      "missed_opportunities": ["Panicked", "No coping strategies", "Avoided stress", "Negative outcome"]
+      "missed_opportunities": [
+        "Panicked",
+        "No coping strategies",
+        "Avoided stress",
+        "Negative outcome"
+      ]
     },
-    "follow_ups": ["How do you prevent burnout?", "What stresses you most?", "How do you help others under stress?"]
+    "follow_ups": [
+      "How do you prevent burnout?",
+      "What stresses you most?",
+      "How do you help others under stress?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_009",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -210,14 +337,31 @@
       "empathy": "Did they show genuine care?",
       "impact": "Did their help make a difference?",
       "humility": "Did they help without seeking credit?",
-      "collaboration": "Do they support team members?",
-      "missed_opportunities": ["Sought recognition", "Minimal help", "No impact mentioned", "Generic example"]
+      "collaboration": {
+        "description": "Do they support team members?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "Sought recognition",
+        "Minimal help",
+        "No impact mentioned",
+        "Generic example"
+      ]
     },
-    "follow_ups": ["How did you balance helping with your own work?", "What motivates you to help others?", "How do you know when to offer help?"]
+    "follow_ups": [
+      "How did you balance helping with your own work?",
+      "What motivates you to help others?",
+      "How do you know when to offer help?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_010",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -235,8 +379,307 @@
       "effectiveness": "Did they remain effective?",
       "attitude": "Was attitude positive?",
       "learning": "Did they learn from adaptation?",
-      "missed_opportunities": ["Resisted change", "Struggled to adapt", "Negative attitude", "No learning"]
+      "missed_opportunities": [
+        "Resisted change",
+        "Struggled to adapt",
+        "Negative attitude",
+        "No learning"
+      ]
     },
-    "follow_ups": ["How do you handle unexpected changes?", "What helps you adapt quickly?", "What was the most difficult part?"]
+    "follow_ups": [
+      "How do you handle unexpected changes?",
+      "What helps you adapt quickly?",
+      "What was the most difficult part?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "behavioral_011",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "decision_making",
+    "difficulty": 3,
+    "question": "Tell me about a difficult decision you had to make with limited information.",
+    "ideal_points": [
+      "Explains uncertainty clearly",
+      "Evaluated available options logically",
+      "Balanced risks and rewards",
+      "Made timely decision",
+      "Reflects on outcome and learning"
+    ],
+    "evaluation_rubric": {
+      "logic": "Was decision-making structured?",
+      "risk_awareness": "Did they consider risks?",
+      "timeliness": "Did they act decisively?",
+      "reflection": "Did they learn from outcome?",
+      "missed_opportunities": [
+        "Avoided decision",
+        "Acted impulsively",
+        "No reflection",
+        "Blamed external factors"
+      ]
+    },
+    "follow_ups": [
+      "Would you make the same decision today?",
+      "What information was missing?",
+      "How did you handle uncertainty?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "behavioral_012",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "ownership",
+    "difficulty": 3,
+    "question": "Describe a time you took responsibility for something outside your role.",
+    "ideal_points": [
+      "Identified gap proactively",
+      "Stepped beyond role boundaries",
+      "Delivered meaningful impact",
+      "Demonstrated ownership",
+      "Improved system or process"
+    ],
+    "evaluation_rubric": {
+      "proactivity": "Did they identify the gap?",
+      "initiative": "Did they take action without being asked?",
+      "impact": "Was the outcome meaningful?",
+      "ownership": {
+        "description": "Did they truly own it?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Waited to be told",
+        "No real impact",
+        "Only did minimum",
+        "Didn't follow through"
+      ]
+    },
+    "follow_ups": [
+      "Why did you decide to get involved?",
+      "What was the risk of taking ownership?",
+      "How did others respond?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "behavioral_013",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "leadership",
+    "difficulty": 4,
+    "question": "Tell me about a time you influenced others without authority.",
+    "ideal_points": [
+      "Used persuasion instead of authority",
+      "Presented logical arguments",
+      "Understood stakeholders",
+      "Built consensus",
+      "Achieved positive outcome"
+    ],
+    "evaluation_rubric": {
+      "influence": "Did they influence effectively?",
+      "persuasion": "Were arguments logical?",
+      "empathy": "Did they understand others?",
+      "consensus": "Did they build agreement?",
+      "missed_opportunities": [
+        "Used force or pressure",
+        "Ignored stakeholders",
+        "No consensus",
+        "Poor outcome"
+      ]
+    },
+    "follow_ups": [
+      "What resistance did you face?",
+      "How did you understand their perspective?",
+      "What would you do differently?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "behavioral_014",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "conflict_resolution",
+    "difficulty": 4,
+    "question": "Describe a major disagreement with a team member and how you resolved it.",
+    "ideal_points": [
+      "Stayed professional",
+      "Understood other perspective",
+      "Communicated effectively",
+      "Focused on common goal",
+      "Achieved resolution"
+    ],
+    "evaluation_rubric": {
+      "professionalism": "Did they stay professional?",
+      "empathy": "Did they understand the other side?",
+      "communication": {
+        "description": "Did they communicate well?",
+        "weight": 0.2
+      },
+      "resolution": "Was conflict resolved?",
+      "missed_opportunities": [
+        "Got personal",
+        "Didn't listen",
+        "No resolution",
+        "Damaged relationship"
+      ]
+    },
+    "follow_ups": [
+      "What was the root cause?",
+      "How did you keep emotions in check?",
+      "What was the long-term outcome?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "behavioral_015",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "failure_management",
+    "difficulty": 4,
+    "question": "Tell me about a major mistake that had serious consequences.",
+    "ideal_points": [
+      "Takes full responsibility",
+      "Explains root cause",
+      "Mitigated damage",
+      "Learned deeply",
+      "Prevented recurrence"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Did they take full responsibility?",
+        "weight": 0.2
+      },
+      "root_cause": "Did they understand why?",
+      "mitigation": "Did they fix the damage?",
+      "learning": "Did they learn deeply?",
+      "missed_opportunities": [
+        "Blamed others",
+        "Minimized impact",
+        "No real learning",
+        "Repeated mistakes"
+      ]
+    },
+    "follow_ups": [
+      "What was the impact on others?",
+      "What systems did you put in place?",
+      "How do you prevent similar mistakes now?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "behavioral_016",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "prioritization",
+    "difficulty": 3,
+    "question": "You have 5 urgent tasks and limited time. How do you prioritize?",
+    "ideal_points": [
+      "Evaluates impact",
+      "Considers deadlines",
+      "Communicates expectations",
+      "Delegates if possible",
+      "Uses structured prioritization"
+    ],
+    "evaluation_rubric": {
+      "framework": "Do they have a prioritization framework?",
+      "impact": "Do they consider business impact?",
+      "communication": {
+        "description": "Do they communicate with stakeholders?",
+        "weight": 0.2
+      },
+      "delegation": "Do they delegate effectively?",
+      "missed_opportunities": [
+        "Randomly picks",
+        "No communication",
+        "Tries to do everything",
+        "Panics"
+      ]
+    },
+    "follow_ups": [
+      "What framework do you use?",
+      "How do you decide what's truly urgent?",
+      "How do you communicate delays?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "behavioral_017",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "crisis_management",
+    "difficulty": 5,
+    "question": "Your system fails during peak usage. What do you do?",
+    "ideal_points": [
+      "Stays calm",
+      "Identifies root cause",
+      "Communicates stakeholders",
+      "Implements mitigation",
+      "Prevents future failures"
+    ],
+    "evaluation_rubric": {
+      "composure": "Do they stay calm under pressure?",
+      "troubleshooting": "Do they debug systematically?",
+      "communication": {
+        "description": "Do they keep stakeholders informed?",
+        "weight": 0.2
+      },
+      "prevention": "Do they prevent recurrence?",
+      "missed_opportunities": [
+        "Panics",
+        "No systematic approach",
+        "Poor communication",
+        "No prevention plan"
+      ]
+    },
+    "follow_ups": [
+      "How do you communicate during a crisis?",
+      "What's your debugging process?",
+      "How do you prevent future incidents?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
   }
 ]

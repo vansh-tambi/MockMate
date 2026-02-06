@@ -1,7 +1,7 @@
 [
   {
     "id": "problem_solve_001",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "problem-solving",
@@ -21,11 +21,20 @@
       "practical_examples": "Can provide concrete optimization strategies",
       "trade_offs": "Recognizes when optimization may not be worth the complexity"
     },
-    "follow_ups": ["What profiling tools have you used?", "Give an example of code you optimized", "How do you measure improvement?"]
+    "follow_ups": [
+      "What profiling tools have you used?",
+      "Give an example of code you optimized",
+      "How do you measure improvement?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_002",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "problem-solving",
@@ -45,11 +54,20 @@
       "persistence": "Doesn't give up easily but knows when to ask for help",
       "learning_mindset": "Sees problems as learning opportunities"
     },
-    "follow_ups": ["Tell me about a time you solved a difficult problem", "What resources do you use?", "When do you ask for help?"]
+    "follow_ups": [
+      "Tell me about a time you solved a difficult problem",
+      "What resources do you use?",
+      "When do you ask for help?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_003",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "debugging",
@@ -66,14 +84,26 @@
     "evaluation_rubric": {
       "crisis_management": "Can handle pressure of production issues",
       "systematic_debugging": "Methodical approach, not random guessing",
-      "communication": "Keeps stakeholders informed",
+      "communication": {
+        "description": "Keeps stakeholders informed",
+        "weight": 0.2
+      },
       "prevention": "Thinks about preventing similar issues"
     },
-    "follow_ups": ["What's your worst production bug?", "How do you prevent issues?", "Experience with monitoring tools?"]
+    "follow_ups": [
+      "What's your worst production bug?",
+      "How do you prevent issues?",
+      "Experience with monitoring tools?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_004",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "problem-solving",
@@ -92,11 +122,20 @@
       "defensive_programming": "Anticipates potential issues",
       "testing_mindset": "Includes edge cases in testing strategy"
     },
-    "follow_ups": ["Give an example of edge case you missed", "How do you identify edge cases?", "What's your testing approach?"]
+    "follow_ups": [
+      "Give an example of edge case you missed",
+      "How do you identify edge cases?",
+      "What's your testing approach?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "problem_solve_005",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "architecture",
@@ -115,11 +154,20 @@
       "practical_knowledge": "Can apply concepts to real systems",
       "trade_offs": "Recognizes complexity vs performance balance"
     },
-    "follow_ups": ["Vertical vs horizontal scaling?", "Experience with high-traffic systems?", "How do you measure scalability?"]
+    "follow_ups": [
+      "Vertical vs horizontal scaling?",
+      "Experience with high-traffic systems?",
+      "How do you measure scalability?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_006",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "architecture",
@@ -137,13 +185,25 @@
       "critical_thinking": "Can analyze pros and cons",
       "business_awareness": "Considers business constraints",
       "pragmatism": "Makes practical decisions",
-      "communication": "Can articulate reasoning"
+      "communication": {
+        "description": "Can articulate reasoning",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["Give an example of a trade-off you made", "How do you make these decisions?", "Ever had to choose between quality and speed?"]
+    "follow_ups": [
+      "Give an example of a trade-off you made",
+      "How do you make these decisions?",
+      "Ever had to choose between quality and speed?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_007",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "testing",
@@ -162,11 +222,20 @@
       "practical_application": "Actually writes tests",
       "quality_mindset": "Values code quality and reliability"
     },
-    "follow_ups": ["What testing frameworks do you use?", "What's your test coverage?", "TDD experience?"]
+    "follow_ups": [
+      "What testing frameworks do you use?",
+      "What's your test coverage?",
+      "TDD experience?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "problem_solve_008",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "security",
@@ -185,11 +254,20 @@
       "proactive_approach": "Thinks about security from start",
       "knowledge_breadth": "Knows multiple security concepts"
     },
-    "follow_ups": ["What's SQL injection?", "Ever had a security incident?", "How do you stay updated on security?"]
+    "follow_ups": [
+      "What's SQL injection?",
+      "Ever had a security incident?",
+      "How do you stay updated on security?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_009",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "performance",
@@ -209,11 +287,20 @@
       "measurement": "Knows how to measure performance",
       "practical_knowledge": "Has implemented optimizations"
     },
-    "follow_ups": ["What performance metrics matter?", "Biggest performance win you achieved?", "Tools for performance monitoring?"]
+    "follow_ups": [
+      "What performance metrics matter?",
+      "Biggest performance win you achieved?",
+      "Tools for performance monitoring?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "problem_solve_010",
-    "phase": "advanced",
+    "stage": "resume_technical",
     "role": "any",
     "level": "junior",
     "skill": "debugging",
@@ -233,6 +320,15 @@
       "learning_orientation": "Uses failures as learning opportunities",
       "process_improvement": "Implements systems to prevent recurrence"
     },
-    "follow_ups": ["Tell me about a production failure", "How do you communicate during outages?", "What's your incident response process?"]
+    "follow_ups": [
+      "Tell me about a production failure",
+      "How do you communicate during outages?",
+      "What's your incident response process?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

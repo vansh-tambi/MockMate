@@ -16,7 +16,13 @@
     "follow_ups": [
       "Can you explain the Virtual DOM?",
       "What are React hooks?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "fe_react_002",
@@ -35,7 +41,13 @@
     "follow_ups": [
       "When would you lift state up?",
       "How does useState trigger re-render?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_react_003",
@@ -54,7 +66,13 @@
     "follow_ups": [
       "Write a custom hook",
       "What's the dependency array in useEffect?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "fe_css_001",
@@ -72,7 +90,13 @@
     "follow_ups": [
       "Difference between margin and padding?",
       "How does box-sizing work?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "fe_js_001",
@@ -91,7 +115,13 @@
     "follow_ups": [
       "What happens if you forget await?",
       "Can you use async in forEach?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_node_001",
@@ -110,7 +140,13 @@
     "follow_ups": [
       "What is the event loop?",
       "When would you NOT use Node.js?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "be_node_002",
@@ -129,7 +165,13 @@
     "follow_ups": [
       "How do you handle errors in middleware?",
       "What's the difference between app.use and app.post?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_sql_001",
@@ -148,7 +190,13 @@
     "follow_ups": [
       "When would you use a LEFT JOIN?",
       "What's the performance difference?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "be_sql_002",
@@ -167,7 +215,13 @@
     "follow_ups": [
       "When should you NOT create an index?",
       "How do you measure if an index helps?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_api_001",
@@ -186,7 +240,13 @@
     "follow_ups": [
       "What's the difference between PUT and PATCH?",
       "When would you use POST vs GET?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_array_001",
@@ -197,7 +257,7 @@
     "question": "Explain the two-pointer technique.",
     "ideal_points": [
       "Uses two pointers to traverse data structure",
-      "Reduces time complexity from O(n\u00c2\u00b2) to O(n)",
+      "Reduces time complexity from O(nÂ²) to O(n)",
       "Common in array and linked list problems",
       "Examples: reverse array, find pair with sum",
       "Often used with sorted arrays"
@@ -205,7 +265,13 @@
     "follow_ups": [
       "Can you solve 'two sum' with this?",
       "How about 'three sum'?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_array_002",
@@ -224,7 +290,13 @@
     "follow_ups": [
       "Can you implement it?",
       "What about binary search on answer?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_string_001",
@@ -243,7 +315,13 @@
     "follow_ups": [
       "How about checking palindromic substrings?",
       "Can you do this with O(1) space?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "system_design_001",
@@ -263,7 +341,13 @@
     "follow_ups": [
       "How do you handle collisions?",
       "What about analytics/redirects?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "behavioral_001",
@@ -282,7 +366,13 @@
     "follow_ups": [
       "What did you learn?",
       "How would you handle it now?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "behavioral_002",
@@ -301,7 +391,13 @@
     "follow_ups": [
       "What would you do differently?",
       "How do you handle criticism?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_003",
@@ -320,7 +416,13 @@
     "follow_ups": [
       "What did this teach you?",
       "How do you prevent similar mistakes?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "product_001",
@@ -339,7 +441,13 @@
     "follow_ups": [
       "Give me an example",
       "How would you measure success?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "data_sql_001",
@@ -358,7 +466,13 @@
     "follow_ups": [
       "What's the difference between WHERE and HAVING?",
       "Can you group by multiple columns?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "data_python_001",
@@ -377,7 +491,13 @@
     "follow_ups": [
       "Can you nest them?",
       "What about dict comprehensions?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "devops_001",
@@ -396,7 +516,13 @@
     "follow_ups": [
       "What's the difference between image and container?",
       "How about Docker Compose?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "ml_001",
@@ -415,7 +541,13 @@
     "follow_ups": [
       "What's underfitting?",
       "How do you detect overfitting?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_react_004",
@@ -434,7 +566,13 @@
     "follow_ups": [
       "What happens if you omit the dependency array?",
       "How do you clean up?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "fe_react_005",
@@ -453,7 +591,14 @@
     "follow_ups": [
       "Why are keys important?",
       "What's React.memo?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_js_002",
@@ -472,7 +617,13 @@
     "follow_ups": [
       "What is hoisting?",
       "Can you mutate a const object?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "fe_js_003",
@@ -491,7 +642,13 @@
     "follow_ups": [
       "Give me a practical example",
       "What's a common pitfall?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_perf_001",
@@ -510,7 +667,13 @@
     "follow_ups": [
       "When should you use useMemo?",
       "What's lazy loading?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "fe_css_002",
@@ -529,7 +692,13 @@
     "follow_ups": [
       "What's the difference with Grid?",
       "How do you center a div?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_css_003",
@@ -548,7 +717,13 @@
     "follow_ups": [
       "What's the specificity of .class #id?",
       "When should you use !important?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_node_003",
@@ -567,7 +742,13 @@
     "follow_ups": [
       "What's the difference between setImmediate and setTimeout?",
       "How does it scale?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_auth_001",
@@ -586,7 +767,13 @@
     "follow_ups": [
       "Where do you store them?",
       "What's the difference with sessions?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_auth_002",
@@ -605,7 +792,13 @@
     "follow_ups": [
       "What's the difference between OAuth and OpenID?",
       "How do refresh tokens work?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_db_001",
@@ -624,7 +817,13 @@
     "follow_ups": [
       "When would you use NoSQL?",
       "What is ACID?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_db_002",
@@ -643,7 +842,13 @@
     "follow_ups": [
       "What's a deadlock?",
       "How do you handle transaction rollbacks?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_api_002",
@@ -662,7 +867,13 @@
     "follow_ups": [
       "What are the downsides?",
       "When would you use REST instead?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_linked_list_001",
@@ -681,7 +892,13 @@
     "follow_ups": [
       "How do you find the start of the cycle?",
       "What if the list is very large?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_tree_001",
@@ -700,7 +917,13 @@
     "follow_ups": [
       "How do you balance a BST?",
       "What's the difference with a heap?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_dp_001",
@@ -719,7 +942,14 @@
     "follow_ups": [
       "What's the difference with divide and conquer?",
       "Solve the coin change problem"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "dsa_hash_001",
@@ -738,7 +968,13 @@
     "follow_ups": [
       "How do you handle collisions?",
       "What makes a good hash function?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "system_design_002",
@@ -757,7 +993,14 @@
     "follow_ups": [
       "How would you implement sliding window?",
       "What about DDoS protection?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "system_design_003",
@@ -776,7 +1019,13 @@
     "follow_ups": [
       "What's cache stampede?",
       "How do you handle cache consistency?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "behavioral_004",
@@ -795,7 +1044,13 @@
     "follow_ups": [
       "Give me a specific example",
       "How do you handle conflicting priorities?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_005",
@@ -814,7 +1069,13 @@
     "follow_ups": [
       "What demotivates you?",
       "What's your ideal work environment?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "behavioral_006",
@@ -833,7 +1094,13 @@
     "follow_ups": [
       "How do you typically learn new technologies?",
       "What's the hardest thing you've learned?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "product_002",
@@ -852,7 +1119,13 @@
     "follow_ups": [
       "What's a vanity metric?",
       "How do you choose the right metrics?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "product_003",
@@ -871,7 +1144,13 @@
     "follow_ups": [
       "What if users say they want something?",
       "How many users should you interview?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "marketing_001",
@@ -890,7 +1169,13 @@
     "follow_ups": [
       "How do you measure funnel effectiveness?",
       "What's the AIDA model?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "marketing_002",
@@ -909,7 +1194,13 @@
     "follow_ups": [
       "What's a good engagement metric?",
       "How do you avoid being too pushy?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "data_stats_001",
@@ -928,7 +1219,13 @@
     "follow_ups": [
       "How do you test for causation?",
       "What's confounding?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "devops_002",
@@ -947,7 +1244,13 @@
     "follow_ups": [
       "What's the difference between CD and continuous delivery?",
       "What goes in a CI pipeline?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "security_001",
@@ -966,7 +1269,13 @@
     "follow_ups": [
       "What's XSS?",
       "How do you sanitize user input?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "security_002",
@@ -985,6 +1294,12 @@
     "follow_ups": [
       "What's a certificate authority?",
       "What's the difference between symmetric and asymmetric encryption?"
-    ]
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

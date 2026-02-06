@@ -1,7 +1,6 @@
 [
   {
     "id": "mba_management_001",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "motivation",
@@ -15,17 +14,34 @@
       "Realistic expectations about challenges"
     ],
     "evaluation_rubric": {
-      "clarity": "Is their vision clear and specific?",
+      "clarity": {
+        "description": "Is their vision clear and specific?",
+        "weight": 0.15
+      },
       "understanding": "Do they know what managers do?",
       "motivation": "Is motivation intrinsic and genuine?",
       "awareness": "Are they aware of challenges?",
-      "missed_opportunities": ["Just wants title", "Only mentions money", "Vague aspirations", "No understanding of role"]
+      "missed_opportunities": [
+        "Just wants title",
+        "Only mentions money",
+        "Vague aspirations",
+        "No understanding of role"
+      ]
     },
-    "follow_ups": ["What type of manager do you want to be?", "What aspects of management excite you most?", "How have you prepared for this?"]
+    "follow_ups": [
+      "What type of manager do you want to be?",
+      "What aspects of management excite you most?",
+      "How have you prepared for this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_002",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "leadership",
@@ -39,17 +55,34 @@
       "Backed by examples or experience"
     ],
     "evaluation_rubric": {
-      "depth": "Is definition thoughtful and comprehensive?",
+      "depth": {
+        "description": "Is definition thoughtful and comprehensive?",
+        "weight": 0.2
+      },
       "balance": "Does it balance people and results?",
       "authenticity": "Is it their genuine philosophy?",
       "application": "Can they apply it practically?",
-      "missed_opportunities": ["Generic textbook answer", "Only about authority", "No personal philosophy", "Can't explain"]
+      "missed_opportunities": [
+        "Generic textbook answer",
+        "Only about authority",
+        "No personal philosophy",
+        "Can't explain"
+      ]
     },
-    "follow_ups": ["Describe a leader you admire and why.", "How do you practice leadership?", "What's the difference between leadership and management?"]
+    "follow_ups": [
+      "Describe a leader you admire and why.",
+      "How do you practice leadership?",
+      "What's the difference between leadership and management?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_003",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "conflict_management",
@@ -67,13 +100,27 @@
       "emotional_intelligence": "Did they understand all perspectives?",
       "resolution": "Was conflict truly resolved?",
       "learning": "What did they take away?",
-      "missed_opportunities": ["Took sides", "Avoided conflict", "No real resolution", "Vague details"]
+      "missed_opportunities": [
+        "Took sides",
+        "Avoided conflict",
+        "No real resolution",
+        "Vague details"
+      ]
     },
-    "follow_ups": ["How did you ensure fairness?", "What would you do differently?", "How do you prevent conflicts?"]
+    "follow_ups": [
+      "How did you ensure fairness?",
+      "What would you do differently?",
+      "How do you prevent conflicts?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_004",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "management_style",
@@ -87,17 +134,34 @@
       "Self-aware about strengths and weaknesses"
     ],
     "evaluation_rubric": {
-      "clarity": "Can they articulate their style?",
+      "clarity": {
+        "description": "Can they articulate their style?",
+        "weight": 0.15
+      },
       "flexibility": "Can they adapt to situations?",
       "effectiveness": "Does their style work?",
       "awareness": "Do they know their impact?",
-      "missed_opportunities": ["No clear style", "Rigid approach", "Micromanager", "Too hands-off"]
+      "missed_opportunities": [
+        "No clear style",
+        "Rigid approach",
+        "Micromanager",
+        "Too hands-off"
+      ]
     },
-    "follow_ups": ["How do you adapt your style?", "Describe managing different personality types.", "What's your biggest management challenge?"]
+    "follow_ups": [
+      "How do you adapt your style?",
+      "Describe managing different personality types.",
+      "What's your biggest management challenge?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_005",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "decision_making",
@@ -115,13 +179,27 @@
       "analysis": "Did they use data effectively?",
       "risk_management": "Did they consider and manage risks?",
       "outcome": "What was the result?",
-      "missed_opportunities": ["No process", "Ignored available data", "Reckless decision", "Blamed circumstances"]
+      "missed_opportunities": [
+        "No process",
+        "Ignored available data",
+        "Reckless decision",
+        "Blamed circumstances"
+      ]
     },
-    "follow_ups": ["How did you mitigate risks?", "What data did you wish you had?", "How do you make decisions under uncertainty?"]
+    "follow_ups": [
+      "How did you mitigate risks?",
+      "What data did you wish you had?",
+      "How do you make decisions under uncertainty?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_006",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "motivation",
@@ -139,13 +217,27 @@
       "understanding": "Do they understand what drives people?",
       "effectiveness": "Do their techniques work?",
       "empathy": "Do they genuinely care?",
-      "missed_opportunities": ["One-size-fits-all", "Only uses money", "Doesn't understand people", "No examples"]
+      "missed_opportunities": [
+        "One-size-fits-all",
+        "Only uses money",
+        "Doesn't understand people",
+        "No examples"
+      ]
     },
-    "follow_ups": ["How do you identify what motivates someone?", "Describe motivating an unmotivated person.", "What motivates you?"]
+    "follow_ups": [
+      "How do you identify what motivates someone?",
+      "Describe motivating an unmotivated person.",
+      "What motivates you?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_007",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "resilience",
@@ -159,17 +251,34 @@
       "Demonstrates growth since"
     ],
     "evaluation_rubric": {
-      "ownership": "Did they take responsibility?",
+      "ownership": {
+        "description": "Did they take responsibility?",
+        "weight": 0.2
+      },
       "honesty": "Were they genuinely reflective?",
       "analysis": "Did they understand why it failed?",
       "growth": "Have they improved?",
-      "missed_opportunities": ["Blames others", "Minimizes failure", "No real learning", "Defensive"]
+      "missed_opportunities": [
+        "Blames others",
+        "Minimizes failure",
+        "No real learning",
+        "Defensive"
+      ]
     },
-    "follow_ups": ["How did this change your approach?", "What would you do differently?", "How do you handle failure in your team?"]
+    "follow_ups": [
+      "How did this change your approach?",
+      "What would you do differently?",
+      "How do you handle failure in your team?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_008",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "values",
@@ -185,15 +294,32 @@
     "evaluation_rubric": {
       "balance": "Is definition balanced and holistic?",
       "authenticity": "Is it genuinely theirs?",
-      "clarity": "Can they articulate it clearly?",
+      "clarity": {
+        "description": "Can they articulate it clearly?",
+        "weight": 0.15
+      },
       "alignment": "Does it align with their actions?",
-      "missed_opportunities": ["Only money/title", "Too vague", "Contradicts their behavior", "No personal element"]
+      "missed_opportunities": [
+        "Only money/title",
+        "Too vague",
+        "Contradicts their behavior",
+        "No personal element"
+      ]
     },
-    "follow_ups": ["How do you measure your success?", "What success are you most proud of?", "How has your definition evolved?"]
+    "follow_ups": [
+      "How do you measure your success?",
+      "What success are you most proud of?",
+      "How has your definition evolved?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_009",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "motivation",
@@ -211,13 +337,27 @@
       "fit": "Are they a good match?",
       "differentiation": "What makes them unique?",
       "confidence": "Are they appropriately confident?",
-      "missed_opportunities": ["Generic answer", "Can't explain fit", "Arrogant", "No specific examples"]
+      "missed_opportunities": [
+        "Generic answer",
+        "Can't explain fit",
+        "Arrogant",
+        "No specific examples"
+      ]
     },
-    "follow_ups": ["What makes you different from other candidates?", "What's your biggest strength for this role?", "What concerns should we have?"]
+    "follow_ups": [
+      "What makes you different from other candidates?",
+      "What's your biggest strength for this role?",
+      "What concerns should we have?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_010",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "value_creation",
@@ -235,13 +375,27 @@
       "alignment": "Do they understand needs?",
       "feasibility": "Are contributions realistic?",
       "impact": "Will they create meaningful value?",
-      "missed_opportunities": ["Too vague", "All about taking", "Unrealistic claims", "No research done"]
+      "missed_opportunities": [
+        "Too vague",
+        "All about taking",
+        "Unrealistic claims",
+        "No research done"
+      ]
     },
-    "follow_ups": ["How will you achieve this?", "What do you need from us?", "What's your 100-day plan?"]
+    "follow_ups": [
+      "How will you achieve this?",
+      "What do you need from us?",
+      "What's your 100-day plan?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "mba_management_011",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "situational_judgment",
@@ -256,16 +410,36 @@
     ],
     "evaluation_rubric": {
       "assessment": "Do they diagnose the problem?",
-      "communication": "Do they manage expectations?",
+      "communication": {
+        "description": "Do they manage expectations?",
+        "weight": 0.2
+      },
       "action": "Are actions practical and effective?",
-      "leadership": "Do they lead through crisis?",
-      "missed_opportunities": ["Panics", "Blames team", "Ignores stakeholders", "No action plan"]
+      "leadership": {
+        "description": "Do they lead through crisis?",
+        "weight": 0.25
+      },
+      "missed_opportunities": [
+        "Panics",
+        "Blames team",
+        "Ignores stakeholders",
+        "No action plan"
+      ]
     },
-    "follow_ups": ["How do you prevent this situation?", "What if it's due to poor planning?", "How do you support stressed team members?"]
+    "follow_ups": [
+      "How do you prevent this situation?",
+      "What if it's due to poor planning?",
+      "How do you support stressed team members?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_012",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "situational_judgment",
@@ -283,13 +457,27 @@
       "empathy": "Do they seek to understand?",
       "structure": "Is there a clear improvement plan?",
       "fairness": "Is the process fair?",
-      "missed_opportunities": ["Avoids confrontation", "Too harsh", "No support given", "No clear expectations"]
+      "missed_opportunities": [
+        "Avoids confrontation",
+        "Too harsh",
+        "No support given",
+        "No clear expectations"
+      ]
     },
-    "follow_ups": ["What if they don't improve?", "How do you balance empathy and accountability?", "What support do you provide?"]
+    "follow_ups": [
+      "What if they don't improve?",
+      "How do you balance empathy and accountability?",
+      "What support do you provide?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_013",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "situational_judgment",
@@ -307,13 +495,27 @@
       "stakeholder_management": "Do they manage expectations?",
       "delegation": "Can they leverage their team?",
       "decisiveness": "Can they make tough calls?",
-      "missed_opportunities": ["No clear process", "Tries to do everything", "Can't say no", "Poor communication"]
+      "missed_opportunities": [
+        "No clear process",
+        "Tries to do everything",
+        "Can't say no",
+        "Poor communication"
+      ]
     },
-    "follow_ups": ["How do you communicate priorities to stakeholders?", "What's your delegation strategy?", "How do you handle pushback?"]
+    "follow_ups": [
+      "How do you communicate priorities to stakeholders?",
+      "What's your delegation strategy?",
+      "How do you handle pushback?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_014",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "situational_judgment",
@@ -331,13 +533,27 @@
       "courage": "Do they speak up appropriately?",
       "flexibility": "Can they commit after disagreeing?",
       "team_management": "How do they manage their team?",
-      "missed_opportunities": ["Silent disagreement", "Undermines decision", "Can't let go", "Too aggressive"]
+      "missed_opportunities": [
+        "Silent disagreement",
+        "Undermines decision",
+        "Can't let go",
+        "Too aggressive"
+      ]
     },
-    "follow_ups": ["What if the decision seems unethical?", "How do you explain it to your team?", "When do you escalate concerns?"]
+    "follow_ups": [
+      "What if the decision seems unethical?",
+      "How do you explain it to your team?",
+      "When do you escalate concerns?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "mba_management_015",
-    "phase": "behavioral",
     "role": "MBA/Management/Corporate",
     "level": "any",
     "skill": "situational_judgment",
@@ -351,12 +567,101 @@
       "Creates quick wins"
     ],
     "evaluation_rubric": {
-      "strategy": "Do they have a change strategy?",
+      "strategy": {
+        "description": "Do they have a change strategy?",
+        "weight": 0.15
+      },
       "stakeholder_management": "Can they build support?",
-      "communication": "Can they articulate the why?",
+      "communication": {
+        "description": "Can they articulate the why?",
+        "weight": 0.2
+      },
       "execution": "Can they drive implementation?",
-      "missed_opportunities": ["Forces change top-down", "Ignores resistance", "No communication plan", "No quick wins"]
+      "missed_opportunities": [
+        "Forces change top-down",
+        "Ignores resistance",
+        "No communication plan",
+        "No quick wins"
+      ]
     },
-    "follow_ups": ["How do you handle resistors?", "What if leadership isn't fully supportive?", "How do you measure success?"]
+    "follow_ups": [
+      "How do you handle resistors?",
+      "What if leadership isn't fully supportive?",
+      "How do you measure success?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "mba_management_016",
+    "stage": "stakeholder_management",
+    "role": "MBA/Management/Corporate",
+    "difficulty": 4,
+    "question": "Tell me about a time you had to influence someone senior to you.",
+    "ideal_points": [
+      "Clear influence strategy",
+      "Used data and logic",
+      "Understood stakeholder priorities",
+      "Communicated effectively",
+      "Achieved outcome"
+    ],
+    "evaluation_rubric": {
+      "influence": "Used persuasion effectively",
+      "strategy": {
+        "description": "Had structured approach",
+        "weight": 0.15
+      },
+      "outcome": "Achieved result"
+    },
+    "interviewer_intent": "Tests executive influence capability",
+    "failure_signals": [
+      "Avoids influencing seniors",
+      "Uses authority instead of persuasion",
+      "No real outcome"
+    ],
+    "weight": 1.4,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "mba_management_017",
+    "stage": "execution",
+    "role": "MBA/Management/Corporate",
+    "difficulty": 4,
+    "question": "Tell me about a goal you failed to achieve.",
+    "ideal_points": [
+      "Admits real failure",
+      "Explains root cause",
+      "Shows ownership",
+      "Demonstrates learning",
+      "Shows improved future performance"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Accepts responsibility",
+        "weight": 0.2
+      },
+      "learning": "Shows growth",
+      "honesty": "Admits real failure"
+    },
+    "interviewer_intent": "Tests resilience and self-awareness",
+    "failure_signals": [
+      "Blames others",
+      "Denies failure",
+      "No learning"
+    ],
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

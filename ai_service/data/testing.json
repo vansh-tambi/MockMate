@@ -1,0 +1,188 @@
+[
+  {
+    "id": "testing_strategy_elite_001",
+    "category": "testing",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "How do you approach testing? What's your strategy for achieving good coverage without over-testing?",
+    "ideal_points": [
+      "Test pyramid: unit > integration > e2e",
+      "Unit tests for business logic",
+      "Integration tests for system interaction",
+      "E2E tests for user workflows",
+      "Mocking vs integration testing tradeoffs",
+      "Test maintainability as code maintainability",
+      "Coverage metrics and their limits",
+      "Regression testing strategy"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands testing fundamentals",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses tradeoffs thoughtfully",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear test strategy",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual testing practices",
+        "weight": 0.2
+      },
+      "confidence": "Testing expertise evident"
+    },
+    "strong_signals": [
+      "Explains test pyramid",
+      "Discusses mocking decisions",
+      "Mentions test maintainability",
+      "Discusses coverage targets (not 100%)"
+    ],
+    "weak_signals": [
+      "Tests but without strategy",
+      "No discussion of levels"
+    ],
+    "red_flags": [
+      "Aims for 100% coverage",
+      "No testing at all",
+      "Cannot discuss when to mock",
+      "Over-complicated tests"
+    ],
+    "follow_ups": [
+      "How do you test async code?",
+      "What about flaky tests?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess quality mindset and testing knowledge",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "testing_tdd_elite_001",
+    "category": "testing",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 3,
+    "weight": 1.5,
+    "expected_duration_sec": 120,
+    "stage": "technical",
+    "question": "Do you practice Test-Driven Development? What are its benefits and drawbacks?",
+    "ideal_points": [
+      "TDD: Red-Green-Refactor cycle",
+      "Benefits: design emerges, fewer bugs, confidence",
+      "Drawbacks: slower initial development, requires discipline",
+      "When TDD is appropriate",
+      "Integration vs TDD",
+      "Over-specification risk"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands TDD cycle",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Balanced view of tradeoffs",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear process explanation",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "TDD usage experience",
+        "weight": 0.2
+      },
+      "confidence": "Practical understanding"
+    },
+    "strong_signals": [
+      "Practices TDD consistently",
+      "Discusses design benefits",
+      "Knows when to apply it"
+    ],
+    "weak_signals": [
+      "Familiar but doesn't practice",
+      "One-sided view"
+    ],
+    "red_flags": [
+      "Never heard of TDD",
+      "Dismissive of testing",
+      "Tests written after implementation always"
+    ],
+    "follow_ups": [
+      "How do you avoid over-specification?",
+      "What about legacy code?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess quality mindset and testing knowledge"
+  },
+  {
+    "id": "testing_quality_elite_001",
+    "category": "testing",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "testing",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "How do you ensure tests are reliable and meaningful? What makes a test bad?",
+    "ideal_points": [
+      "Tests should be deterministic",
+      "Independent test execution",
+      "Testing behavior, not implementation",
+      "Avoiding test brittleness",
+      "Clear assertions and failure messages",
+      "Test readability matters",
+      "Avoiding false negatives/positives",
+      "Flaky test detection and fixing"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands test quality attributes",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses common pitfalls",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear quality guidelines",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Stories about fixing/improving tests",
+        "weight": 0.2
+      },
+      "confidence": "Deep testing expertise"
+    },
+    "strong_signals": [
+      "Discusses flaky tests",
+      "Emphasizes readability",
+      "Tests behavior not implementation",
+      "Mentions test maintenance"
+    ],
+    "weak_signals": [
+      "Tests work but not well-designed"
+    ],
+    "red_flags": [
+      "Writes brittle tests",
+      "Tests depend on test order",
+      "Tests are hard to understand",
+      "Frequent false failures"
+    ],
+    "follow_ups": [
+      "How would you debug a flaky test?",
+      "What about testing UI?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess quality mindset and testing knowledge",
+    "prerequisite_difficulty": 3
+  }
+]

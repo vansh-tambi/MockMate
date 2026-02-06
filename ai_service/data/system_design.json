@@ -1,98 +1,318 @@
 [
   {
-    "id": "sys_001",
-    "phase": "system_design",
+    "id": "systemdesign_instagram_senior_001",
+    "stage": "resume_technical",
+    "category": "system_design",
     "role": "backend",
     "level": "senior",
     "skill": "architecture",
-    "difficulty": 4,
-    "question": "Design a URL shortener like bit.ly. How would you handle high traffic?",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 300,
+    "question": "Design Instagram backend. How would you handle 1B users and 500M daily active users?",
     "ideal_points": [
-      "Hash generation for short URLs",
-      "Database schema for URL mapping",
-      "Caching layer (Redis) for frequently accessed URLs",
-      "Load balancing strategy",
-      "Analytics tracking"
-    ]
+      "User service architecture",
+      "Feed generation and ranking algorithm",
+      "Image/video storage (S3 + CDN)",
+      "Caching strategy (Redis for feeds)",
+      "Database sharding and replication",
+      "Search indexing (Elasticsearch)",
+      "Real-time notifications",
+      "Monitoring and alerting"
+    ],
+    "evaluation_rubric": {
+      "completeness": {
+        "description": "Covers all major services completely",
+        "weight": 0.15
+      },
+      "scalability": {
+        "description": "Addresses 1B user scale thoughtfully",
+        "weight": 0.15
+      },
+      "storage": "Production-ready image/video storage",
+      "performance": {
+        "description": "Efficient feed generation (<100ms)",
+        "weight": 0.15
+      },
+      "reliability": {
+        "description": "Fault tolerance and recovery",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual production decisions",
+        "weight": 0.2
+      }
+    },
+    "strong_signals": [
+      "Mentions database sharding strategy",
+      "Discusses CDN and image optimization",
+      "Mentions feed ranking algorithm",
+      "Discusses message queues for async work",
+      "Mentions caching layers and TTL"
+    ],
+    "weak_signals": [
+      "High-level design without depth",
+      "Missing caching strategy",
+      "Doesn't mention sharding"
+    ],
+    "red_flags": [
+      "Single database for everything",
+      "No caching strategy",
+      "Cannot explain scaling limitations",
+      "Synchronous request handling only"
+    ],
+    "follow_ups": [
+      "How do you handle feed ranking?",
+      "Describe your database schema"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 4
   },
   {
-    "id": "sys_002",
-    "phase": "system_design",
-    "role": "fullstack",
-    "level": "senior",
-    "skill": "architecture",
-    "difficulty": 4,
-    "question": "Design Instagram's feed system. How would you scale it to millions of users?",
-    "ideal_points": [
-      "Database partitioning/sharding strategy",
-      "CDN for image delivery",
-      "Feed generation algorithm",
-      "Caching strategy for feeds",
-      "Real-time updates architecture"
-    ]
-  },
-  {
-    "id": "sys_003",
-    "phase": "system_design",
+    "id": "systemdesign_whatsapp_senior_001",
+    "stage": "resume_technical",
+    "category": "system_design",
     "role": "backend",
     "level": "senior",
     "skill": "architecture",
-    "difficulty": 4,
-    "question": "Design a real-time chat system like WhatsApp. How would you ensure message delivery?",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 300,
+    "question": "Design a real-time chat system like WhatsApp handling 1.5B users. How do you ensure message delivery and ordering?",
     "ideal_points": [
-      "WebSocket connection management",
-      "Message queue architecture",
-      "Database design for chat history",
+      "WebSocket or long-polling for real-time",
+      "Message queue (Kafka/RabbitMQ) for reliability",
+      "Database schema for chat history",
+      "Delivery guarantees (at-least-once)",
+      "Message ordering per conversation",
       "Offline message handling",
-      "End-to-end encryption approach"
-    ]
+      "End-to-end encryption approach",
+      "Presence/typing indicators",
+      "Group chat support",
+      "Failover and replication"
+    ],
+    "evaluation_rubric": {
+      "realtime": "Handles real-time communication correctly",
+      "reliability": {
+        "description": "Ensures at-least-once delivery",
+        "weight": 0.15
+      },
+      "scalability": {
+        "description": "Scales to 1.5B users",
+        "weight": 0.15
+      },
+      "ordering": "Message ordering per conversation",
+      "architecture": "Clear, scalable architecture"
+    },
+    "strong_signals": [
+      "Mentions message ordering challenges",
+      "Discusses delivery guarantees",
+      "Mentions offline message storage",
+      "Discusses idempotency for retries",
+      "Mentions monitoring message lag"
+    ],
+    "weak_signals": [
+      "Missing message ordering discussion",
+      "No offline handling"
+    ],
+    "red_flags": [
+      "Cannot explain delivery guarantees",
+      "Missing failure handling",
+      "No encryption discussion",
+      "Synchronous only"
+    ],
+    "follow_ups": [
+      "How do you detect connection loss?",
+      "What about group chat scaling?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 4
   },
   {
-    "id": "sys_004",
-    "phase": "system_design",
-    "role": "fullstack",
-    "level": "senior",
-    "skill": "architecture",
-    "difficulty": 4,
-    "question": "Design a notification system that can handle millions of push notifications per day.",
-    "ideal_points": [
-      "Message broker (Kafka/RabbitMQ)",
-      "Worker pool architecture",
-      "Priority queue for urgent notifications",
-      "Rate limiting strategy",
-      "Failure handling and retries"
-    ]
-  },
-  {
-    "id": "sys_005",
-    "phase": "system_design",
-    "role": "fullstack",
-    "level": "senior",
-    "skill": "architecture",
-    "difficulty": 4,
-    "question": "Design a scalable interview preparation platform like MockMate.",
-    "ideal_points": [
-      "Microservices architecture",
-      "Real-time speech processing",
-      "AI service integration",
-      "Session management",
-      "Scalable storage for recordings"
-    ]
-  },
-  {
-    "id": "sys_006",
-    "phase": "system_design",
+    "id": "systemdesign_bitly_senior_001",
+    "stage": "resume_technical",
+    "category": "system_design",
     "role": "backend",
     "level": "senior",
     "skill": "architecture",
     "difficulty": 4,
-    "question": "Design a rate limiting system for an API gateway.",
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "question": "Design a URL shortener like bit.ly handling 1M requests/second. How would you generate short codes and handle collisions?",
+    "ideal_points": [
+      "Base62 encoding for short code generation",
+      "Collision handling strategy",
+      "Database schema optimization",
+      "Caching layer (Redis)",
+      "Load balancing",
+      "Analytics tracking",
+      "Rate limiting",
+      "Export and API design"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Sound technical approach",
+        "weight": 0.25
+      },
+      "scalability": {
+        "description": "Handles 1M req/sec",
+        "weight": 0.15
+      },
+      "storage": "Efficient key-value design",
+      "performance": {
+        "description": "Caching strategy clear",
+        "weight": 0.15
+      },
+      "trade_offs": "Discusses design tradeoffs"
+    },
+    "strong_signals": [
+      "Discusses base62 vs UUID tradeoff",
+      "Mentions counter-based generation",
+      "Discusses collision probability",
+      "Mentions CDN for redirects",
+      "Discusses TTL for URLs"
+    ],
+    "weak_signals": [
+      "Basic design only",
+      "Missing analytics"
+    ],
+    "red_flags": [
+      "No collision strategy",
+      "Single database bottleneck",
+      "Cannot handle high load"
+    ],
+    "follow_ups": [
+      "How do you handle code collisions?",
+      "What about URL expiration?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "systemdesign_notification_senior_001",
+    "stage": "resume_technical",
+    "category": "system_design",
+    "role": "backend",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 200,
+    "question": "Design a notification system that can handle 100M push notifications per day across multiple channels (email, SMS, push). How do you ensure reliability?",
+    "ideal_points": [
+      "Message broker (Kafka) for queuing",
+      "Worker pool for processing",
+      "Multi-channel support (email, SMS, push)",
+      "Priority queue for urgent notifications",
+      "Rate limiting and throttling",
+      "Retry logic with exponential backoff",
+      "Dead letter queue for failures",
+      "Idempotency for deduplication",
+      "Analytics and delivery tracking",
+      "Circuit breaker for third-party APIs"
+    ],
+    "evaluation_rubric": {
+      "reliability": {
+        "description": "Handles failures gracefully",
+        "weight": 0.15
+      },
+      "scalability": {
+        "description": "100M/day throughput",
+        "weight": 0.15
+      },
+      "architecture": "Event-driven design",
+      "monitoring": "Delivery tracking discussed",
+      "resilience": "Backpressure and failover"
+    },
+    "strong_signals": [
+      "Mentions dead letter queue",
+      "Discusses retry strategy",
+      "Mentions circuit breaker",
+      "Idempotency for safety",
+      "Monitoring and alerting"
+    ],
+    "weak_signals": [
+      "Basic queue design",
+      "Missing retry logic"
+    ],
+    "red_flags": [
+      "No failure handling",
+      "Lost notifications acceptable",
+      "Synchronous processing"
+    ],
+    "follow_ups": [
+      "How do you handle API failures?",
+      "What about notification deduplication?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "systemdesign_rate_limiter_senior_001",
+    "stage": "resume_technical",
+    "category": "system_design",
+    "role": "backend",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "weight": 1.6,
+    "expected_duration_sec": 150,
+    "question": "Design a distributed rate limiting system for an API gateway that can handle 1M requests/second. How would you implement token bucket across multiple servers?",
     "ideal_points": [
       "Token bucket algorithm",
-      "Distributed rate limiting (Redis)",
-      "Per-user vs per-IP tracking",
-      "Sliding window implementation",
-      "Response headers for rate limit info"
-    ]
+      "Distributed token sharing (Redis)",
+      "Per-user and per-IP limiting",
+      "Sliding window vs fixed window",
+      "Consistency across servers",
+      "Response headers (X-RateLimit-*)",
+      "Backpressure and graceful degradation",
+      "Analytics on rate limit hits"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Algorithm implemented correctly",
+        "weight": 0.25
+      },
+      "scalability": {
+        "description": "1M req/sec across servers",
+        "weight": 0.15
+      },
+      "consistency": "Distributed consistency",
+      "clarity": {
+        "description": "Clear tradeoffs explained",
+        "weight": 0.15
+      },
+      "reliability": {
+        "description": "Handles edge cases",
+        "weight": 0.15
+      }
+    },
+    "strong_signals": [
+      "Mentions Redis atomic operations",
+      "Discusses consistency tradeoffs",
+      "Mentions sliding window benefits",
+      "Discusses burst handling",
+      "Monitoring rate limit effectiveness"
+    ],
+    "weak_signals": [
+      "Single server implementation",
+      "Basic algorithm only"
+    ],
+    "red_flags": [
+      "Cannot explain distributed coordination",
+      "Race conditions possible",
+      "Synchronous implementation"
+    ],
+    "follow_ups": [
+      "How do you handle burst traffic?",
+      "What about geographically distributed limits?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 3
   }
 ]

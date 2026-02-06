@@ -1,7 +1,7 @@
 [
   {
     "id": "personality_001",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -19,13 +19,27 @@
       "relevance": "Are traits relevant to work?",
       "self_awareness": "Shows understanding of own personality?",
       "balance": "Mix of strengths and honest traits?",
-      "missed_opportunities": ["Too perfect", "No examples", "Not role-relevant", "Generic traits"]
+      "missed_opportunities": [
+        "Too perfect",
+        "No examples",
+        "Not role-relevant",
+        "Generic traits"
+      ]
     },
-    "follow_ups": ["How do those traits help you at work?", "What trait would you like to develop?", "How do you leverage your personality in teams?"]
+    "follow_ups": [
+      "How do those traits help you at work?",
+      "What trait would you like to develop?",
+      "How do you leverage your personality in teams?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_002",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -43,13 +57,27 @@
       "flexibility": "Can they work with different styles?",
       "maturity": "Realistic expectations of managers?",
       "red_flags": "Any concerning preferences (needs hand-holding)?",
-      "missed_opportunities": ["Too rigid", "Unrealistic expectations", "Needs excessive oversight", "Can't work independently"]
+      "missed_opportunities": [
+        "Too rigid",
+        "Unrealistic expectations",
+        "Needs excessive oversight",
+        "Can't work independently"
+      ]
     },
-    "follow_ups": ["What management style doesn't work for you?", "How do you adapt to different managers?", "How do you communicate with managers?"]
+    "follow_ups": [
+      "What management style doesn't work for you?",
+      "How do you adapt to different managers?",
+      "How do you communicate with managers?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_003",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -66,14 +94,31 @@
       "flexibility": "Can they do both?",
       "awareness": "Do they understand when each is needed?",
       "role_fit": "Does preference match role requirements?",
-      "collaboration": "Shows willingness to collaborate?",
-      "missed_opportunities": ["Extreme loner", "Can't work independently", "No examples", "Doesn't match role"]
+      "collaboration": {
+        "description": "Shows willingness to collaborate?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "Extreme loner",
+        "Can't work independently",
+        "No examples",
+        "Doesn't match role"
+      ]
     },
-    "follow_ups": ["When do you prefer to work alone?", "How do you balance collaboration with focus time?", "What makes a good team?"]
+    "follow_ups": [
+      "When do you prefer to work alone?",
+      "How do you balance collaboration with focus time?",
+      "What makes a good team?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_004",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -87,17 +132,34 @@
       "Demonstrates thoughtfulness"
     ],
     "evaluation_rubric": {
-      "depth": "Is definition thoughtful?",
+      "depth": {
+        "description": "Is definition thoughtful?",
+        "weight": 0.2
+      },
       "balance": "Includes multiple dimensions?",
       "alignment": "Matches company values?",
       "maturity": "Shows mature perspective?",
-      "missed_opportunities": ["Only money", "Too vague", "Unrealistic", "No personal element"]
+      "missed_opportunities": [
+        "Only money",
+        "Too vague",
+        "Unrealistic",
+        "No personal element"
+      ]
     },
-    "follow_ups": ["How do you measure your own success?", "What's been your biggest success?", "How has your definition evolved?"]
+    "follow_ups": [
+      "How do you measure your own success?",
+      "What's been your biggest success?",
+      "How has your definition evolved?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_005",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -115,13 +177,27 @@
       "commitment": "Shows dedication to work?",
       "boundaries": "Can set healthy boundaries?",
       "flexibility": "Understands when extra effort is needed?",
-      "missed_opportunities": ["Expects 9-5 in demanding role", "No boundaries", "Workaholic tendency", "Unrealistic"]
+      "missed_opportunities": [
+        "Expects 9-5 in demanding role",
+        "No boundaries",
+        "Workaholic tendency",
+        "Unrealistic"
+      ]
     },
-    "follow_ups": ["How do you maintain balance?", "What do you do outside work?", "How do you recharge?"]
+    "follow_ups": [
+      "How do you maintain balance?",
+      "What do you do outside work?",
+      "How do you recharge?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_006",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -138,14 +214,31 @@
       "authenticity": "Do values feel genuine?",
       "alignment": "Do values match company?",
       "examples": "Can they demonstrate values?",
-      "depth": "Shows thoughtfulness?",
-      "missed_opportunities": ["Too generic", "No examples", "Values mismatch", "Can't articulate"]
+      "depth": {
+        "description": "Shows thoughtfulness?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Too generic",
+        "No examples",
+        "Values mismatch",
+        "Can't articulate"
+      ]
     },
-    "follow_ups": ["How do you live that value at work?", "What if company values conflict with yours?", "How do values guide decisions?"]
+    "follow_ups": [
+      "How do you live that value at work?",
+      "What if company values conflict with yours?",
+      "How do values guide decisions?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_007",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -163,13 +256,27 @@
       "fit": "Does preference match company?",
       "awareness": "Understands culture importance?",
       "adaptability": "Can adapt to different cultures?",
-      "missed_opportunities": ["No research", "Mismatch with company", "Unrealistic", "Too vague"]
+      "missed_opportunities": [
+        "No research",
+        "Mismatch with company",
+        "Unrealistic",
+        "Too vague"
+      ]
     },
-    "follow_ups": ["What culture have you thrived in?", "What culture doesn't work for you?", "How do you contribute to culture?"]
+    "follow_ups": [
+      "What culture have you thrived in?",
+      "What culture doesn't work for you?",
+      "How do you contribute to culture?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_008",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -187,13 +294,27 @@
       "engagement": "Strategies to stay engaged?",
       "quality": "Maintains standards despite monotony?",
       "improvement": "Looks for ways to improve processes?",
-      "missed_opportunities": ["Can't handle routine", "No strategies", "Complains", "Quality drops"]
+      "missed_opportunities": [
+        "Can't handle routine",
+        "No strategies",
+        "Complains",
+        "Quality drops"
+      ]
     },
-    "follow_ups": ["What keeps you engaged?", "How do you automate or improve repetitive work?", "What's your ideal variety level?"]
+    "follow_ups": [
+      "What keeps you engaged?",
+      "How do you automate or improve repetitive work?",
+      "What's your ideal variety level?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_009",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -211,13 +332,27 @@
       "handling": "Do they handle frustration maturely?",
       "focus": "Focus on fixable issues, not people?",
       "red_flags": "Any concerning patterns?",
-      "missed_opportunities": ["Blames people", "Too many frustrations", "Can't handle normal challenges", "Unprofessional"]
+      "missed_opportunities": [
+        "Blames people",
+        "Too many frustrations",
+        "Can't handle normal challenges",
+        "Unprofessional"
+      ]
     },
-    "follow_ups": ["How do you handle those frustrations?", "What do you do when frustrated?", "How do you prevent frustration?"]
+    "follow_ups": [
+      "How do you handle those frustrations?",
+      "What do you do when frustrated?",
+      "How do you prevent frustration?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "personality_010",
-    "phase": "behavioral",
+    "stage": "introduction",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -235,8 +370,331 @@
       "specificity": "Mentions specific elements?",
       "alignment": "Excited about aspects of this role?",
       "authenticity": "Does it feel real?",
-      "missed_opportunities": ["Too generic", "Not aligned with role", "No enthusiasm", "Only money"]
+      "missed_opportunities": [
+        "Too generic",
+        "Not aligned with role",
+        "No enthusiasm",
+        "Only money"
+      ]
     },
-    "follow_ups": ["What project has excited you most?", "What would you work on for free?", "What energizes you?"]
+    "follow_ups": [
+      "What project has excited you most?",
+      "What would you work on for free?",
+      "What energizes you?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "personality_011",
+    "stage": "introduction",
+    "role": "any",
+    "difficulty": 2,
+    "skill": "self_awareness",
+    "question": "What is a misconception people often have about you?",
+    "ideal_points": [
+      "Shows self-awareness",
+      "Explains perception vs reality",
+      "Demonstrates emotional intelligence",
+      "Provides example",
+      "Shows maturity"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Understands how others perceive them",
+      "maturity": "Handles perception maturely",
+      "reflection": "Shows introspection"
+    },
+    "failure_signals": [
+      "Claims no misconceptions exist",
+      "Blames others",
+      "Shows defensiveness",
+      "Lacks self-awareness"
+    ],
+    "follow_ups": [
+      "Why do people perceive you that way?",
+      "How do you address it?",
+      "What did you learn from it?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "personality_012",
+    "stage": "introduction",
+    "role": "any",
+    "difficulty": 2,
+    "skill": "coachability",
+    "question": "Tell me about a piece of difficult feedback you received.",
+    "ideal_points": [
+      "Shares real feedback",
+      "Shows emotional maturity",
+      "Accepted feedback constructively",
+      "Improved behavior",
+      "Demonstrates growth"
+    ],
+    "evaluation_rubric": {
+      "openness": "Open to feedback",
+      "growth": "Improved after feedback",
+      "maturity": "Handled professionally"
+    },
+    "failure_signals": [
+      "Claims never received criticism",
+      "Rejects feedback",
+      "Blames giver",
+      "No improvement"
+    ],
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "personality_013",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 3,
+    "skill": "accountability",
+    "question": "Tell me about a time you were wrong.",
+    "ideal_points": [
+      "Admits mistake honestly",
+      "Explains reasoning",
+      "Shows accountability",
+      "Corrected mistake",
+      "Learned from it"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Admits real mistake",
+      "ownership": {
+        "description": "Accepts responsibility",
+        "weight": 0.2
+      },
+      "growth": "Shows learning"
+    },
+    "failure_signals": [
+      "Claims never wrong",
+      "Blames others",
+      "Minimizes mistake",
+      "No learning"
+    ],
+    "weight": 1.6,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "personality_014",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 3,
+    "skill": "ownership",
+    "question": "Tell me about something you failed at.",
+    "ideal_points": [
+      "Admits real failure",
+      "Explains root cause",
+      "Shows ownership",
+      "Describes learning",
+      "Shows improvement"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Takes responsibility",
+        "weight": 0.2
+      },
+      "analysis": "Understands why failed",
+      "growth": "Improved afterward"
+    },
+    "weight": 1.6,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "personality_015",
+    "stage": "introduction",
+    "role": "any",
+    "difficulty": 2,
+    "skill": "motivation",
+    "question": "What drives you when things get difficult?",
+    "ideal_points": [
+      "Shows internal motivation",
+      "Demonstrates resilience",
+      "Gives real examples",
+      "Shows persistence",
+      "Emotionally mature answer"
+    ],
+    "evaluation_rubric": {
+      "resilience": "Can push through difficulty",
+      "motivation": "Intrinsic motivation",
+      "authenticity": "Feels genuine"
+    },
+    "weight": 1.4,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "personality_016",
+    "stage": "introduction",
+    "role": "any",
+    "difficulty": 2,
+    "skill": "initiative",
+    "question": "Tell me about something you achieved without being asked.",
+    "ideal_points": [
+      "Shows initiative",
+      "Demonstrates ownership",
+      "Created impact",
+      "Self-driven action"
+    ],
+    "evaluation_rubric": {
+      "initiative": "Acts independently",
+      "ownership": {
+        "description": "Takes responsibility",
+        "weight": 0.2
+      },
+      "impact": "Created measurable value"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "personality_017",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 3,
+    "skill": "emotional_intelligence",
+    "question": "Tell me about a time you had to work with someone you disliked.",
+    "ideal_points": [
+      "Maintained professionalism",
+      "Focused on work goals",
+      "Managed emotions maturely",
+      "Achieved outcome"
+    ],
+    "evaluation_rubric": {
+      "professionalism": "Stayed professional",
+      "emotional_control": "Managed emotions well",
+      "maturity": "Handled situation maturely"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "personality_018",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 3,
+    "skill": "conflict_resolution",
+    "question": "Tell me about a time you disagreed with someone.",
+    "ideal_points": [
+      "Handled disagreement respectfully",
+      "Used logic and communication",
+      "Maintained relationship",
+      "Reached resolution"
+    ],
+    "evaluation_rubric": {
+      "communication": {
+        "description": "Communicated effectively",
+        "weight": 0.2
+      },
+      "maturity": "Handled disagreement maturely",
+      "resolution": "Reached productive outcome"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "personality_019",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 3,
+    "skill": "ego_management",
+    "question": "Tell me about a time you received unfair criticism.",
+    "ideal_points": [
+      "Handled maturely",
+      "Did not react emotionally",
+      "Analyzed criticism objectively",
+      "Maintained professionalism"
+    ],
+    "evaluation_rubric": {
+      "emotional_control": "Handled calmly",
+      "maturity": "Shows emotional intelligence",
+      "judgment": "Handled appropriately"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "personality_020",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 4,
+    "skill": "self_awareness",
+    "question": "What is something you need to improve about yourself?",
+    "ideal_points": [
+      "Honest weakness",
+      "Shows self-awareness",
+      "Working to improve",
+      "Shows growth"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Admits real weakness",
+      "growth": "Working to improve",
+      "maturity": "Shows self-awareness"
+    },
+    "weight": 1.6,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "personality_021",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 4,
+    "skill": "ownership",
+    "question": "What is the hardest thing you have ever done?",
+    "weight": 1.7,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "personality_022",
+    "stage": "behavioral",
+    "role": "any",
+    "difficulty": 4,
+    "skill": "resilience",
+    "question": "Tell me about a time you wanted to quit but didn't.",
+    "weight": 1.7,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

@@ -1,0 +1,185 @@
+[
+  {
+    "id": "concurrency_locks_elite_001",
+    "category": "concurrency",
+    "role": "backend",
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Explain different types of locks and synchronization primitives. How do you avoid deadlocks?",
+    "ideal_points": [
+      "Mutex (mutual exclusion)",
+      "Semaphore (counting semaphore)",
+      "Read-write locks",
+      "Spin locks vs blocking locks",
+      "Deadlock conditions: mutual exclusion, hold and wait, no preemption, circular wait",
+      "Deadlock prevention: ordered locking",
+      "Deadlock detection and recovery",
+      "Lock-free algorithms",
+      "Compare-and-swap (CAS)"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains lock mechanisms",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses deadlock prevention strategies",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear code examples provided",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual deadlock debugging",
+        "weight": 0.2
+      },
+      "confidence": "Concurrency expertise evident"
+    },
+    "strong_signals": [
+      "Explains Coffman conditions",
+      "Discusses performance implications",
+      "Knows lock-free alternatives"
+    ],
+    "weak_signals": [
+      "Knows locks but not deadlock prevention"
+    ],
+    "red_flags": [
+      "Cannot explain deadlock",
+      "Unknown lock types",
+      "Thinks all locks are equivalent"
+    ],
+    "follow_ups": [
+      "How would you detect a deadlock?",
+      "What's a race condition?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "concurrency_async_elite_001",
+    "category": "concurrency",
+    "role": "backend",
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Explain async/await and event-driven programming. How do you handle concurrency without threads?",
+    "ideal_points": [
+      "Single-threaded event loop",
+      "Async operations don't block",
+      "Callbacks and promises",
+      "Await keyword pauses execution",
+      "Event-driven architecture",
+      "Non-blocking I/O benefits",
+      "Backpressure handling",
+      "Error handling in async code"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains async model",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses event loop mechanics",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear code examples",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References async/await usage",
+        "weight": 0.2
+      },
+      "confidence": "Async programming expertise"
+    },
+    "strong_signals": [
+      "Explains event loop",
+      "Discusses callback hell solutions",
+      "Mentions promise chain vs async/await"
+    ],
+    "weak_signals": [
+      "Basic async understanding"
+    ],
+    "red_flags": [
+      "Thinks async means parallel",
+      "Unknown event loop mechanics",
+      "Cannot handle errors in async code"
+    ],
+    "follow_ups": [
+      "What about Promise.all vs Promise.race?",
+      "How do you avoid callback hell?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "concurrency_transactions_elite_001",
+    "category": "concurrency",
+    "role": "backend",
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 200,
+    "stage": "technical",
+    "question": "Explain database isolation levels and their impact on concurrent transactions.",
+    "ideal_points": [
+      "Isolation levels: Read Uncommitted, Read Committed, Repeatable Read, Serializable",
+      "Dirty reads, non-repeatable reads, phantom reads",
+      "MVCC (Multi-Version Concurrency Control)",
+      "Locks and latches",
+      "Optimistic vs pessimistic locking",
+      "Trade-off between consistency and performance",
+      "Choosing isolation level for use case"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains isolation levels",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discussion of anomalies and solutions",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Concrete examples provided",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References production choices made",
+        "weight": 0.2
+      },
+      "confidence": "Deep database expertise"
+    },
+    "strong_signals": [
+      "Explains MVCC concept",
+      "Discusses when to use each level",
+      "Mentions database-specific behaviors"
+    ],
+    "weak_signals": [
+      "Knows levels but not tradeoffs"
+    ],
+    "red_flags": [
+      "Cannot explain dirty reads",
+      "Unknown isolation levels",
+      "Thinks all levels give same safety"
+    ],
+    "follow_ups": [
+      "How does your database implement these?",
+      "What's a phantom read?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  }
+]

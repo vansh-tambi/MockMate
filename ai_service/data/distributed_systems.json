@@ -1,0 +1,185 @@
+[
+  {
+    "id": "distributed_consistency_elite_001",
+    "category": "distributed_systems",
+    "role": "backend",
+    "level": "senior",
+    "skill": "distributed-systems",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 240,
+    "stage": "technical",
+    "question": "Explain the CAP theorem and how it impacts distributed system design. What consistency model do you choose for a transaction system?",
+    "ideal_points": [
+      "CAP: Consistency, Availability, Partition tolerance",
+      "Can achieve at most 2 of 3 during network partition",
+      "Strong consistency vs eventual consistency",
+      "ACID vs BASE models",
+      "Consensus algorithms (Paxos, Raft)",
+      "Quorum-based approaches",
+      "Conflict resolution strategies",
+      "Real-world tradeoffs per use case"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains CAP implications",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses model selection reasoning",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear tradeoff analysis",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References choices in production",
+        "weight": 0.2
+      },
+      "confidence": "Distributed systems expertise"
+    },
+    "strong_signals": [
+      "Discusses Raft/Paxos",
+      "Explains quorum concept",
+      "Discusses failure modes"
+    ],
+    "weak_signals": [
+      "Knows CAP but not implications"
+    ],
+    "red_flags": [
+      "Cannot explain CAP",
+      "Thinks you can have all 3",
+      "Unknown consistency models"
+    ],
+    "follow_ups": [
+      "What's eventual consistency?",
+      "How do you detect network partitions?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "distributed_scaling_elite_001",
+    "category": "distributed_systems",
+    "role": "backend",
+    "level": "senior",
+    "skill": "distributed-systems",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 220,
+    "stage": "technical",
+    "question": "Design a distributed system that handles 1 billion requests per day with 99.99% uptime. How do you scale horizontally and handle failures?",
+    "ideal_points": [
+      "Load balancing strategies",
+      "Database sharding",
+      "Caching layers (Redis, Memcached)",
+      "Message queues for async work",
+      "Circuit breakers and bulkheads",
+      "Health checks and failover",
+      "Monitoring and alerting",
+      "Disaster recovery planning",
+      "Regional replication"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Architecture handles scale/availability requirements",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers failure modes comprehensively",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear component interactions",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References production scaling",
+        "weight": 0.2
+      },
+      "confidence": "Systems engineering expertise"
+    },
+    "strong_signals": [
+      "Discusses single point of failures",
+      "Explains circuit breaker pattern",
+      "Mentions geographical distribution"
+    ],
+    "weak_signals": [
+      "Missing redundancy discussion"
+    ],
+    "red_flags": [
+      "Single point of failure present",
+      "No failure recovery plan",
+      "Underestimated load handling"
+    ],
+    "follow_ups": [
+      "How do you handle database failures?",
+      "What's your monitoring strategy?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "distributed_consensus_elite_001",
+    "category": "distributed_systems",
+    "role": "backend",
+    "level": "senior",
+    "skill": "distributed-systems",
+    "difficulty": 5,
+    "weight": 1.8,
+    "expected_duration_sec": 240,
+    "stage": "technical",
+    "question": "Explain consensus algorithms like Raft. How does a distributed system agree on state when nodes fail?",
+    "ideal_points": [
+      "Leader election mechanism",
+      "Log replication across nodes",
+      "Quorum for safety",
+      "Term-based voting",
+      "Snapshot and log compaction",
+      "Stale node recovery",
+      "Network partition handling",
+      "Byzantine vs non-Byzantine failures"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains Raft mechanics",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses failure scenarios",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "State transitions clear",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References consensus in production",
+        "weight": 0.2
+      },
+      "confidence": "Deep distributed expertise"
+    },
+    "strong_signals": [
+      "Explains term concept",
+      "Discusses log matching",
+      "Mentions stale read problems"
+    ],
+    "weak_signals": [
+      "Basic Raft knowledge"
+    ],
+    "red_flags": [
+      "Cannot explain election process",
+      "Unknown quorum requirements"
+    ],
+    "follow_ups": [
+      "What's Byzantine consensus?",
+      "How does etcd use Raft?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  }
+]

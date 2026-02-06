@@ -1,0 +1,190 @@
+[
+  {
+    "id": "git_workflow_elite_001",
+    "category": "version_control",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "version-control",
+    "difficulty": 3,
+    "weight": 1.4,
+    "expected_duration_sec": 120,
+    "stage": "technical",
+    "question": "Explain your Git workflow. How do you handle branches, commits, and reviews?",
+    "ideal_points": [
+      "Clear branching strategy (main, develop, feature branches)",
+      "Meaningful commit messages",
+      "Small, focused commits",
+      "Rebase vs merge philosophy",
+      "Code review process",
+      "Squashing commits when appropriate",
+      "Tags for releases",
+      "Handling merge conflicts"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Workflow is sound and practical",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers team collaboration",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear process explanation",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References team workflows",
+        "weight": 0.2
+      },
+      "confidence": "Git proficiency evident"
+    },
+    "strong_signals": [
+      "Uses git rebase when appropriate",
+      "Writes clear commit messages",
+      "Discusses collaboration",
+      "Knows Git internals basics"
+    ],
+    "weak_signals": [
+      "Basic Git knowledge only",
+      "No clear strategy"
+    ],
+    "red_flags": [
+      "Frequently force pushes",
+      "Commits everything at once",
+      "No understanding of branches",
+      "Cannot resolve merge conflicts"
+    ],
+    "follow_ups": [
+      "How do you handle hotfixes?",
+      "What about git bisect?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate development workflow knowledge"
+  },
+  {
+    "id": "git_advanced_elite_001",
+    "category": "version_control",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "version-control",
+    "difficulty": 4,
+    "weight": 1.6,
+    "expected_duration_sec": 150,
+    "stage": "technical",
+    "question": "How would you rewrite git history safely? When is it appropriate to rebase vs merge?",
+    "ideal_points": [
+      "Interactive rebase for cleaning history",
+      "Rebase vs merge architectural decisions",
+      "Force push safety (using force-with-lease)",
+      "Cherry-picking use cases",
+      "Losing commits and recovery",
+      "Bisecting to find bugs",
+      "Stashing and applying changes",
+      "Protected branches and CI/CD integration"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands git mechanics deeply",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses team implications",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear reasoning for choices",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Real workflow decisions made",
+        "weight": 0.2
+      },
+      "confidence": "Advanced git expertise"
+    },
+    "strong_signals": [
+      "Uses force-with-lease",
+      "Interactive rebase for cleanup",
+      "Bisect for debugging",
+      "Explains rebase vs merge tradeoff"
+    ],
+    "weak_signals": [
+      "Knows techniques but no judgment"
+    ],
+    "red_flags": [
+      "Uses force push unsafely",
+      "Doesn't understand rebase dangers",
+      "Lost commits without recovery plan"
+    ],
+    "follow_ups": [
+      "How would you recover deleted commits?",
+      "What about split commits?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate development workflow knowledge",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "version_control_strategy_elite_001",
+    "category": "version_control",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "version-control",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "How would you design a version control strategy for a large team with multiple releases?",
+    "ideal_points": [
+      "Branching model (Git Flow, Trunk-Based Development, GitHub Flow)",
+      "Release management process",
+      "Hotfix handling",
+      "Artifact versioning",
+      "Semantic versioning",
+      "Changelog maintenance",
+      "CI/CD integration points",
+      "Backport strategy"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Strategy supports business needs",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers team scale and release cadence",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear process and roles",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Strategy from real team experience",
+        "weight": 0.2
+      },
+      "confidence": "Strategic thinking evident"
+    },
+    "strong_signals": [
+      "Compares branching models",
+      "Discusses trunk-based development",
+      "Includes CI/CD in strategy",
+      "Handles hotfixes well"
+    ],
+    "weak_signals": [
+      "Single branching model only"
+    ],
+    "red_flags": [
+      "No hotfix strategy",
+      "Frequent release conflicts",
+      "No versioning scheme",
+      "Deployment surprises"
+    ],
+    "follow_ups": [
+      "How do you handle release branches?",
+      "What's your versioning scheme?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate development workflow knowledge",
+    "prerequisite_difficulty": 3
+  }
+]

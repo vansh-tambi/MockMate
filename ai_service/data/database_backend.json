@@ -1,7 +1,7 @@
 [
   {
     "id": "db_back_001",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "database",
@@ -14,11 +14,20 @@
       "Provides data security and integrity",
       "Examples: MySQL, PostgreSQL, MongoDB"
     ],
-    "follow_ups": ["What's the difference between DBMS and database?", "Types of DBMS?", "Why use DBMS vs flat files?"]
+    "follow_ups": [
+      "What's the difference between DBMS and database?",
+      "Types of DBMS?",
+      "Why use DBMS vs flat files?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "db_back_002",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "database",
@@ -31,11 +40,20 @@
       "NoSQL better for scalability and unstructured data",
       "Use cases depend on data structure and requirements"
     ],
-    "follow_ups": ["When would you choose each?", "What's your experience with databases?", "What's BASE vs ACID?"]
+    "follow_ups": [
+      "When would you choose each?",
+      "What's your experience with databases?",
+      "What's BASE vs ACID?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_003",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "fresher",
     "skill": "database",
@@ -48,11 +66,20 @@
       "Improves data integrity",
       "Can impact query performance (denormalization sometimes preferred)"
     ],
-    "follow_ups": ["Explain 1NF, 2NF, 3NF", "What's denormalization?", "When to denormalize?"]
+    "follow_ups": [
+      "Explain 1NF, 2NF, 3NF",
+      "What's denormalization?",
+      "When to denormalize?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_004",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "database",
@@ -65,11 +92,20 @@
       "Foreign key establishes relationships",
       "Essential for relational database design"
     ],
-    "follow_ups": ["Can a table have multiple primary keys?", "What's a composite key?", "What happens if foreign key constraint violated?"]
+    "follow_ups": [
+      "Can a table have multiple primary keys?",
+      "What's a composite key?",
+      "What happens if foreign key constraint violated?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "db_back_005",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "fresher",
     "skill": "database",
@@ -82,11 +118,20 @@
       "Common types: B-tree, hash, bitmap",
       "Should index frequently queried columns"
     ],
-    "follow_ups": ["What's the cost of indexing?", "When should you not index?", "Clustered vs non-clustered index?"]
+    "follow_ups": [
+      "What's the cost of indexing?",
+      "When should you not index?",
+      "Clustered vs non-clustered index?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_006",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "fresher",
     "skill": "database",
@@ -99,11 +144,20 @@
       "Durability: Changes persist after commit",
       "Guarantees reliable database transactions"
     ],
-    "follow_ups": ["Give an example of ACID", "What happens when ACID violated?", "NoSQL and ACID?"]
+    "follow_ups": [
+      "Give an example of ACID",
+      "What happens when ACID violated?",
+      "NoSQL and ACID?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_007",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "database",
@@ -116,11 +170,20 @@
       "Ensures data consistency",
       "Example: Bank transfer (debit and credit)"
     ],
-    "follow_ups": ["What's a rollback?", "Transaction isolation levels?", "Deadlocks?"]
+    "follow_ups": [
+      "What's a rollback?",
+      "Transaction isolation levels?",
+      "Deadlocks?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_008",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "api",
@@ -133,11 +196,20 @@
       "Stateless communication",
       "Resources identified by URLs"
     ],
-    "follow_ups": ["REST vs SOAP?", "What's RESTful design?", "Have you built REST APIs?"]
+    "follow_ups": [
+      "REST vs SOAP?",
+      "What's RESTful design?",
+      "Have you built REST APIs?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "db_back_009",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "intern",
     "skill": "api",
@@ -150,11 +222,20 @@
       "POST data in request body",
       "GET cached, POST not cached"
     ],
-    "follow_ups": ["What's idempotent?", "PUT vs POST?", "When to use DELETE?"]
+    "follow_ups": [
+      "What's idempotent?",
+      "PUT vs POST?",
+      "When to use DELETE?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "db_back_010",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "fresher",
     "skill": "security",
@@ -167,6 +248,15 @@
       "Examples: Login (authentication), access control (authorization)",
       "Essential for application security"
     ],
-    "follow_ups": ["Common authentication methods?", "What's OAuth?", "JWT tokens?"]
+    "follow_ups": [
+      "Common authentication methods?",
+      "What's OAuth?",
+      "JWT tokens?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   }
 ]

@@ -1,10 +1,13 @@
 [
   {
-    "id": "fe_react_001",
+    "id": "frontend_react_intern_001",
+    "category": "frontend",
     "role": "frontend",
     "level": "intern",
     "skill": "react",
     "difficulty": 1,
+    "weight": 1.2,
+    "expected_duration_sec": 60,
     "question": "What is React and why is it popular?",
     "ideal_points": [
       "JavaScript library for building UIs",
@@ -13,14 +16,57 @@
       "Declarative syntax",
       "Large ecosystem and community"
     ],
-    "follow_ups": ["Can you explain the Virtual DOM?", "What are React hooks?"]
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately describes React's core purpose and mechanism",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Explains Virtual DOM concept clearly",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Well-structured explanation without jargon overload",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Shows actual usage context",
+        "weight": 0.2
+      },
+      "confidence": "Speaks with appropriate confidence level"
+    },
+    "strong_signals": [
+      "Mentions component reusability",
+      "Explains Virtual DOM benefits",
+      "References ecosystem (Redux, libraries)"
+    ],
+    "weak_signals": [
+      "Only gives surface-level definition",
+      "Cannot explain why Virtual DOM matters",
+      "No mention of component-based architecture"
+    ],
+    "red_flags": [
+      "Confuses React with jQuery or vanilla JS",
+      "Cannot explain any React concepts",
+      "Memorized textbook answer with no understanding"
+    ],
+    "follow_ups": [
+      "Can you explain the Virtual DOM?",
+      "What are React hooks?"
+    ],
+    "stage": "technical",
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
   },
   {
-    "id": "fe_react_002",
+    "id": "frontend_react_fresher_001",
+    "category": "frontend",
     "role": "frontend",
     "level": "fresher",
     "skill": "react",
     "difficulty": 2,
+    "weight": 1.3,
+    "expected_duration_sec": 90,
     "question": "Explain the difference between state and props in React.",
     "ideal_points": [
       "State is internal and mutable",
@@ -29,14 +75,57 @@
       "State for component logic",
       "Props for component communication"
     ],
-    "follow_ups": ["When would you lift state up?", "How does useState trigger re-render?"]
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Clearly distinguishes state and props semantics",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Explains mutable vs immutable distinction",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Uses concrete examples or analogies",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual React code patterns",
+        "weight": 0.2
+      },
+      "confidence": "Demonstrates working knowledge"
+    },
+    "strong_signals": [
+      "Provides code example",
+      "Explains data flow direction",
+      "Mentions re-render implications"
+    ],
+    "weak_signals": [
+      "Correct but vague explanation",
+      "Struggles with mutable/immutable difference",
+      "No practical examples"
+    ],
+    "red_flags": [
+      "Confuses state and props",
+      "Claims props are mutable",
+      "Cannot explain when to use each"
+    ],
+    "follow_ups": [
+      "When would you lift state up?",
+      "How does useState trigger re-render?"
+    ],
+    "stage": "technical",
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
   },
   {
-    "id": "fe_react_003",
+    "id": "frontend_react_junior_001",
+    "category": "frontend",
     "role": "frontend",
     "level": "junior",
     "skill": "react",
     "difficulty": 3,
+    "weight": 1.4,
+    "expected_duration_sec": 120,
     "question": "What are React hooks and why were they introduced?",
     "ideal_points": [
       "Hooks let functional components use state",
@@ -45,7 +134,47 @@
       "Custom hooks for logic reuse",
       "Composition over inheritance"
     ],
-    "follow_ups": ["Write a custom hook", "What's the dependency array in useEffect?"]
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains hooks mechanism and benefits",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses before/after and architectural benefits",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear examples and use cases",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References custom hooks or complex patterns",
+        "weight": 0.2
+      },
+      "confidence": "Deep understanding evident"
+    },
+    "strong_signals": [
+      "Mentions rules of hooks",
+      "Explains useState and useEffect relationship",
+      "Discusses custom hooks abstraction"
+    ],
+    "weak_signals": [
+      "Correct but basic understanding",
+      "Cannot explain hook dependencies",
+      "Misses architectural benefits"
+    ],
+    "red_flags": [
+      "Cannot explain useState fundamentals",
+      "Confuses hooks with other patterns",
+      "Breaks rules of hooks unknowingly"
+    ],
+    "follow_ups": [
+      "Write a custom hook",
+      "What's the dependency array in useEffect?"
+    ],
+    "stage": "technical",
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
   },
   {
     "id": "fe_css_001",
@@ -60,7 +189,16 @@
       "Affects layout and spacing calculations",
       "Visual representation of components"
     ],
-    "follow_ups": ["Difference between margin and padding?", "How does box-sizing work?"]
+    "follow_ups": [
+      "Difference between margin and padding?",
+      "How does box-sizing work?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "fe_js_001",
@@ -76,7 +214,16 @@
       "Easier to read and debug",
       "Returns a Promise implicitly"
     ],
-    "follow_ups": ["What happens if you forget await?", "Can you use async in forEach?"]
+    "follow_ups": [
+      "What happens if you forget await?",
+      "Can you use async in forEach?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_node_001",
@@ -92,7 +239,16 @@
       "NPM ecosystem",
       "Single-threaded event loop"
     ],
-    "follow_ups": ["What is the event loop?", "When would you NOT use Node.js?"]
+    "follow_ups": [
+      "What is the event loop?",
+      "When would you NOT use Node.js?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "be_node_002",
@@ -108,7 +264,16 @@
       "Order matters (executed sequentially)",
       "Can be used for auth, logging, validation"
     ],
-    "follow_ups": ["How do you handle errors in middleware?", "What's the difference between app.use and app.post?"]
+    "follow_ups": [
+      "How do you handle errors in middleware?",
+      "What's the difference between app.use and app.post?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_sql_001",
@@ -124,7 +289,16 @@
       "RIGHT JOIN: all from right + matching from left",
       "FULL OUTER JOIN: all records from both"
     ],
-    "follow_ups": ["When would you use a LEFT JOIN?", "What's the performance difference?"]
+    "follow_ups": [
+      "When would you use a LEFT JOIN?",
+      "What's the performance difference?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "be_sql_002",
@@ -140,7 +314,16 @@
       "Can index multiple columns",
       "B-tree is common index structure"
     ],
-    "follow_ups": ["When should you NOT create an index?", "How do you measure if an index helps?"]
+    "follow_ups": [
+      "When should you NOT create an index?",
+      "How do you measure if an index helps?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_api_001",
@@ -156,7 +339,16 @@
       "Stateless: each request has all info needed",
       "Client-server separation"
     ],
-    "follow_ups": ["What's the difference between PUT and PATCH?", "When would you use POST vs GET?"]
+    "follow_ups": [
+      "What's the difference between PUT and PATCH?",
+      "When would you use POST vs GET?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_array_001",
@@ -172,7 +364,16 @@
       "Examples: reverse array, find pair with sum",
       "Often used with sorted arrays"
     ],
-    "follow_ups": ["Can you solve 'two sum' with this?", "How about 'three sum'?"]
+    "follow_ups": [
+      "Can you solve 'two sum' with this?",
+      "How about 'three sum'?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_array_002",
@@ -188,7 +389,16 @@
       "Compare with middle element",
       "Left/right pointer movement based on comparison"
     ],
-    "follow_ups": ["Can you implement it?", "What about binary search on answer?"]
+    "follow_ups": [
+      "Can you implement it?",
+      "What about binary search on answer?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_string_001",
@@ -204,7 +414,16 @@
       "Alternative: reverse string and compare",
       "Handle edge cases (empty, single char)"
     ],
-    "follow_ups": ["How about checking palindromic substrings?", "Can you do this with O(1) space?"]
+    "follow_ups": [
+      "How about checking palindromic substrings?",
+      "Can you do this with O(1) space?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "system_design_001",
@@ -221,7 +440,16 @@
       "Trade-offs: memory vs database lookups",
       "Caching strategy (Redis)"
     ],
-    "follow_ups": ["How do you handle collisions?", "What about analytics/redirects?"]
+    "follow_ups": [
+      "How do you handle collisions?",
+      "What about analytics/redirects?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "behavioral_001",
@@ -237,7 +465,16 @@
       "Measurable outcomes/impact",
       "How you'd approach it differently now"
     ],
-    "follow_ups": ["What did you learn?", "How would you handle it now?"]
+    "follow_ups": [
+      "What did you learn?",
+      "How would you handle it now?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "behavioral_002",
@@ -253,7 +490,16 @@
       "Focus on problem-solving, not conflict",
       "What was the outcome?"
     ],
-    "follow_ups": ["What would you do differently?", "How do you handle criticism?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "How do you handle criticism?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_003",
@@ -269,7 +515,16 @@
       "Specific lessons learned",
       "How it changed your approach"
     ],
-    "follow_ups": ["What did this teach you?", "How do you prevent similar mistakes?"]
+    "follow_ups": [
+      "What did this teach you?",
+      "How do you prevent similar mistakes?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "product_001",
@@ -285,7 +540,16 @@
       "Data-driven decision making",
       "Stakeholder input and prioritization"
     ],
-    "follow_ups": ["Give me an example", "How would you measure success?"]
+    "follow_ups": [
+      "Give me an example",
+      "How would you measure success?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "data_sql_001",
@@ -301,7 +565,16 @@
       "Often paired with HAVING for filtering groups",
       "Example: count orders by customer"
     ],
-    "follow_ups": ["What's the difference between WHERE and HAVING?", "Can you group by multiple columns?"]
+    "follow_ups": [
+      "What's the difference between WHERE and HAVING?",
+      "Can you group by multiple columns?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "data_python_001",
@@ -317,7 +590,16 @@
       "Can include conditions",
       "Example: [x*2 for x in range(10) if x > 5]"
     ],
-    "follow_ups": ["Can you nest them?", "What about dict comprehensions?"]
+    "follow_ups": [
+      "Can you nest them?",
+      "What about dict comprehensions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "devops_001",
@@ -333,7 +615,16 @@
       "Isolation of dependencies",
       "Easy scaling and deployment"
     ],
-    "follow_ups": ["What's the difference between image and container?", "How about Docker Compose?"]
+    "follow_ups": [
+      "What's the difference between image and container?",
+      "How about Docker Compose?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "ml_001",
@@ -349,7 +640,16 @@
       "L1/L2 regularization penalizes complexity",
       "Early stopping during training"
     ],
-    "follow_ups": ["What's underfitting?", "How do you detect overfitting?"]
+    "follow_ups": [
+      "What's underfitting?",
+      "How do you detect overfitting?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_react_004",
@@ -365,7 +665,16 @@
       "Cleanup function for subscriptions/timers",
       "Empty array means run once on mount"
     ],
-    "follow_ups": ["What happens if you omit the dependency array?", "How do you clean up?"]
+    "follow_ups": [
+      "What happens if you omit the dependency array?",
+      "How do you clean up?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "fe_react_005",
@@ -381,7 +690,17 @@
       "Avoids unnecessary re-renders",
       "O(n) complexity through heuristics"
     ],
-    "follow_ups": ["Why are keys important?", "What's React.memo?"]
+    "follow_ups": [
+      "Why are keys important?",
+      "What's React.memo?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_js_002",
@@ -397,7 +716,16 @@
       "var gets hoisted, let/const have temporal dead zone",
       "Modern code uses let/const"
     ],
-    "follow_ups": ["What is hoisting?", "Can you mutate a const object?"]
+    "follow_ups": [
+      "What is hoisting?",
+      "Can you mutate a const object?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "fe_js_003",
@@ -413,7 +741,16 @@
       "Used for data privacy and encapsulation",
       "Common in callbacks and event handlers"
     ],
-    "follow_ups": ["Give me a practical example", "What's a common pitfall?"]
+    "follow_ups": [
+      "Give me a practical example",
+      "What's a common pitfall?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_perf_001",
@@ -429,7 +766,16 @@
       "Virtualize long lists (react-window)",
       "Optimize bundle size and reduce re-renders"
     ],
-    "follow_ups": ["When should you use useMemo?", "What's lazy loading?"]
+    "follow_ups": [
+      "When should you use useMemo?",
+      "What's lazy loading?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "fe_css_002",
@@ -445,7 +791,16 @@
       "Great for responsive layouts",
       "Better than floats for alignment"
     ],
-    "follow_ups": ["What's the difference with Grid?", "How do you center a div?"]
+    "follow_ups": [
+      "What's the difference with Grid?",
+      "How do you center a div?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "fe_css_003",
@@ -461,7 +816,16 @@
       "Calculate: (inline, IDs, classes, elements)",
       "More specific rules win"
     ],
-    "follow_ups": ["What's the specificity of .class #id?", "When should you use !important?"]
+    "follow_ups": [
+      "What's the specificity of .class #id?",
+      "When should you use !important?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_node_003",
@@ -477,7 +841,16 @@
       "process.nextTick and microtasks",
       "Non-blocking I/O model"
     ],
-    "follow_ups": ["What's the difference between setImmediate and setTimeout?", "How does it scale?"]
+    "follow_ups": [
+      "What's the difference between setImmediate and setTimeout?",
+      "How does it scale?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_auth_001",
@@ -493,7 +866,16 @@
       "Signed with secret key",
       "Include claims like user ID, expiry"
     ],
-    "follow_ups": ["Where do you store them?", "What's the difference with sessions?"]
+    "follow_ups": [
+      "Where do you store them?",
+      "What's the difference with sessions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_auth_002",
@@ -509,7 +891,16 @@
       "Scope-based permissions",
       "Used for 'Login with Google/Facebook'"
     ],
-    "follow_ups": ["What's the difference between OAuth and OpenID?", "How do refresh tokens work?"]
+    "follow_ups": [
+      "What's the difference between OAuth and OpenID?",
+      "How do refresh tokens work?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_db_001",
@@ -525,7 +916,16 @@
       "Trade-offs: consistency vs scalability",
       "Choose based on use case"
     ],
-    "follow_ups": ["When would you use NoSQL?", "What is ACID?"]
+    "follow_ups": [
+      "When would you use NoSQL?",
+      "What is ACID?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "be_db_002",
@@ -541,7 +941,16 @@
       "Durable: committed changes persist",
       "Ensures data integrity"
     ],
-    "follow_ups": ["What's a deadlock?", "How do you handle transaction rollbacks?"]
+    "follow_ups": [
+      "What's a deadlock?",
+      "How do you handle transaction rollbacks?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "be_api_002",
@@ -557,7 +966,16 @@
       "Reduces over-fetching and under-fetching",
       "Strongly typed schema"
     ],
-    "follow_ups": ["What are the downsides?", "When would you use REST instead?"]
+    "follow_ups": [
+      "What are the downsides?",
+      "When would you use REST instead?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_linked_list_001",
@@ -573,7 +991,16 @@
       "O(n) time, O(1) space",
       "Alternative: hash set (O(n) space)"
     ],
-    "follow_ups": ["How do you find the start of the cycle?", "What if the list is very large?"]
+    "follow_ups": [
+      "How do you find the start of the cycle?",
+      "What if the list is very large?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "dsa_tree_001",
@@ -589,7 +1016,16 @@
       "O(n) worst case (skewed tree)",
       "In-order traversal gives sorted sequence"
     ],
-    "follow_ups": ["How do you balance a BST?", "What's the difference with a heap?"]
+    "follow_ups": [
+      "How do you balance a BST?",
+      "What's the difference with a heap?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "dsa_dp_001",
@@ -605,7 +1041,17 @@
       "Example: Fibonacci, longest common subsequence",
       "Reduces exponential to polynomial time"
     ],
-    "follow_ups": ["What's the difference with divide and conquer?", "Solve the coin change problem"]
+    "follow_ups": [
+      "What's the difference with divide and conquer?",
+      "Solve the coin change problem"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "dsa_hash_001",
@@ -621,7 +1067,16 @@
       "Load factor affects performance",
       "Used in dictionaries, sets, caching"
     ],
-    "follow_ups": ["How do you handle collisions?", "What makes a good hash function?"]
+    "follow_ups": [
+      "How do you handle collisions?",
+      "What makes a good hash function?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "system_design_002",
@@ -637,7 +1092,17 @@
       "Return 429 status code when exceeded",
       "Consider edge cases: burst traffic, multiple servers"
     ],
-    "follow_ups": ["How would you implement sliding window?", "What about DDoS protection?"]
+    "follow_ups": [
+      "How would you implement sliding window?",
+      "What about DDoS protection?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "system_design_003",
@@ -653,7 +1118,16 @@
       "TTL (Time To Live) for expiration",
       "Trade-offs: memory vs database load"
     ],
-    "follow_ups": ["What's cache stampede?", "How do you handle cache consistency?"]
+    "follow_ups": [
+      "What's cache stampede?",
+      "How do you handle cache consistency?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "behavioral_004",
@@ -669,7 +1143,16 @@
       "Delegate when possible",
       "Set realistic expectations"
     ],
-    "follow_ups": ["Give me a specific example", "How do you handle conflicting priorities?"]
+    "follow_ups": [
+      "Give me a specific example",
+      "How do you handle conflicting priorities?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "behavioral_005",
@@ -685,7 +1168,16 @@
       "Working with talented team",
       "Specific examples from experience"
     ],
-    "follow_ups": ["What demotivates you?", "What's your ideal work environment?"]
+    "follow_ups": [
+      "What demotivates you?",
+      "What's your ideal work environment?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "behavioral_006",
@@ -701,7 +1193,16 @@
       "How you applied it",
       "Outcome and lessons learned"
     ],
-    "follow_ups": ["How do you typically learn new technologies?", "What's the hardest thing you've learned?"]
+    "follow_ups": [
+      "How do you typically learn new technologies?",
+      "What's the hardest thing you've learned?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "product_002",
@@ -717,7 +1218,16 @@
       "User feedback and satisfaction",
       "A/B testing for validation"
     ],
-    "follow_ups": ["What's a vanity metric?", "How do you choose the right metrics?"]
+    "follow_ups": [
+      "What's a vanity metric?",
+      "How do you choose the right metrics?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "product_003",
@@ -733,7 +1243,16 @@
       "Run small experiments or beta tests",
       "Define success criteria upfront"
     ],
-    "follow_ups": ["What if users say they want something?", "How many users should you interview?"]
+    "follow_ups": [
+      "What if users say they want something?",
+      "How many users should you interview?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "marketing_001",
@@ -749,7 +1268,16 @@
       "Optimize weak points in the funnel",
       "Content tailored to each stage"
     ],
-    "follow_ups": ["How do you measure funnel effectiveness?", "What's the AIDA model?"]
+    "follow_ups": [
+      "How do you measure funnel effectiveness?",
+      "What's the AIDA model?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "marketing_002",
@@ -765,7 +1293,16 @@
       "Personalization and recommendations",
       "Email campaigns and push notifications"
     ],
-    "follow_ups": ["What's a good engagement metric?", "How do you avoid being too pushy?"]
+    "follow_ups": [
+      "What's a good engagement metric?",
+      "How do you avoid being too pushy?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "data_stats_001",
@@ -781,7 +1318,16 @@
       "Need experiments to prove causation",
       "Example: ice cream sales and drowning"
     ],
-    "follow_ups": ["How do you test for causation?", "What's confounding?"]
+    "follow_ups": [
+      "How do you test for causation?",
+      "What's confounding?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "devops_002",
@@ -797,7 +1343,16 @@
       "Reduces manual errors",
       "Tools: Jenkins, GitHub Actions, GitLab CI"
     ],
-    "follow_ups": ["What's the difference between CD and continuous delivery?", "What goes in a CI pipeline?"]
+    "follow_ups": [
+      "What's the difference between CD and continuous delivery?",
+      "What goes in a CI pipeline?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "security_001",
@@ -813,7 +1368,16 @@
       "Never concatenate user input into SQL",
       "Use ORM frameworks"
     ],
-    "follow_ups": ["What's XSS?", "How do you sanitize user input?"]
+    "follow_ups": [
+      "What's XSS?",
+      "How do you sanitize user input?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "security_002",
@@ -829,6 +1393,742 @@
       "Handshake establishes secure connection",
       "Prevents man-in-the-middle attacks"
     ],
-    "follow_ups": ["What's a certificate authority?", "What's the difference between symmetric and asymmetric encryption?"]
+    "follow_ups": [
+      "What's a certificate authority?",
+      "What's the difference between symmetric and asymmetric encryption?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "closing_011",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 4,
+    "skill": "commitment",
+    "question": "Why do you want this role specifically, not just any job?",
+    "ideal_points": [
+      "Shows specific interest in role",
+      "Understands responsibilities",
+      "Aligns with career goals",
+      "Demonstrates research",
+      "Genuine motivation"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Clearly wants this role",
+      "alignment": "Matches career goals",
+      "authenticity": "Motivation feels genuine"
+    },
+    "weight": 1.7,
+    "priority": "high",
+    "category": "closing",
+    "interviewer_goal": "evaluate candidate skills",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "closing_012",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 5,
+    "skill": "risk_assessment",
+    "question": "Why should we hire you over someone else?",
+    "ideal_points": [
+      "Clear differentiation",
+      "Strong value proposition",
+      "Confidence with humility",
+      "Specific strengths",
+      "Business impact mindset"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Projects confidence",
+      "differentiation": "Clearly stands out",
+      "value": "Shows business value"
+    },
+    "weight": 1.8,
+    "priority": "high",
+    "category": "closing",
+    "interviewer_goal": "evaluate candidate skills",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "closing_013",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 4,
+    "skill": "intent",
+    "question": "Where else are you interviewing?",
+    "ideal_points": [
+      "Honest but professional",
+      "Shows market demand",
+      "Doesn't appear desperate",
+      "Shows selective approach"
+    ],
+    "evaluation_rubric": {
+      "confidence": "Shows employability",
+      "professionalism": "Handles tactfully",
+      "credibility": "Feels believable"
+    },
+    "weight": 1.6,
+    "priority": "high",
+    "category": "closing",
+    "interviewer_goal": "evaluate candidate skills",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "closing_014",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 5,
+    "skill": "commitment",
+    "question": "If we offer you this role, will you accept?",
+    "ideal_points": [
+      "Shows genuine interest",
+      "Professional response",
+      "Shows serious intent",
+      "Not overly desperate"
+    ],
+    "evaluation_rubric": {
+      "intent": "Serious about role",
+      "confidence": "Shows professionalism"
+    },
+    "weight": 1.8,
+    "priority": "high",
+    "category": "closing",
+    "interviewer_goal": "evaluate candidate skills",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "closing_015",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 5,
+    "skill": "self_awareness",
+    "question": "What questions should I have asked you but didn't?",
+    "ideal_points": [
+      "Shows self-awareness",
+      "Highlights strengths",
+      "Demonstrates insight",
+      "Shows preparation"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Understands own strengths",
+      "insight": "Demonstrates strategic thinking",
+      "preparation": "Shows interview readiness"
+    },
+    "weight": 1.9,
+    "priority": "high",
+    "category": "closing",
+    "interviewer_goal": "evaluate candidate skills",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "problem_solve_011",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "difficulty": 4,
+    "skill": "system_design",
+    "question": "How would you design a system to handle 1 million users?",
+    "ideal_points": [
+      "Load balancing",
+      "Horizontal scaling",
+      "Database scaling",
+      "Caching",
+      "Monitoring"
+    ],
+    "evaluation_rubric": {
+      "architecture": "Understands scaling concepts",
+      "systems_thinking": "Holistic design",
+      "practicality": "Real-world approach"
+    },
+    "weight": 1.8,
+    "priority": "high",
+    "category": "technical",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "problem_solve_012",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "difficulty": 4,
+    "skill": "architecture",
+    "question": "How would you design a URL shortener like bit.ly?",
+    "ideal_points": [
+      "Unique ID generation",
+      "Database mapping",
+      "Scaling strategy",
+      "Caching",
+      "Redirection logic"
+    ],
+    "evaluation_rubric": {
+      "architecture": "Structured approach",
+      "scalability": {
+        "description": "Handles growth",
+        "weight": 0.15
+      },
+      "implementation": "Practical solution"
+    },
+    "weight": 1.8,
+    "priority": "high",
+    "category": "technical",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "problem_solve_013",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "difficulty": 4,
+    "skill": "debugging",
+    "question": "A feature works locally but fails in production. What do you do?",
+    "ideal_points": [
+      "Check environment differences",
+      "Check logs",
+      "Check configurations",
+      "Check dependencies",
+      "Reproduce issue"
+    ],
+    "evaluation_rubric": {
+      "methodology": "Systematic approach",
+      "debugging": "Uses debugging techniques",
+      "maturity": "Engineers vs tutorial followers"
+    },
+    "weight": 1.7,
+    "priority": "high",
+    "category": "technical",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "problem_solve_014",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "difficulty": 4,
+    "skill": "engineering",
+    "question": "How do you ensure your code is maintainable?",
+    "ideal_points": [
+      "Clean code principles",
+      "Proper naming",
+      "Documentation",
+      "Modular design",
+      "Testing"
+    ],
+    "evaluation_rubric": {
+      "practices": "Follows best practices",
+      "maturity": "Shows engineering maturity",
+      "quality": "Prioritizes code quality"
+    },
+    "weight": 1.6,
+    "priority": "high",
+    "category": "technical",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "prog_fund_011",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "level": "intern",
+    "difficulty": 2,
+    "skill": "memory",
+    "question": "What is a pointer?",
+    "ideal_points": [
+      "Stores memory address",
+      "Used for indirect access",
+      "Efficient memory usage",
+      "Important in C/C++"
+    ],
+    "follow_ups": [
+      "How do you use pointers?",
+      "What's the difference with references?"
+    ],
+    "weight": 1.4,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "prog_fund_012",
+    "stage": "resume_technical",
+    "role": "software_engineer",
+    "level": "fresher",
+    "difficulty": 3,
+    "skill": "os",
+    "question": "Difference between process and thread.",
+    "ideal_points": [
+      "Process has separate memory",
+      "Thread shares memory",
+      "Threads lighter weight",
+      "Faster context switching"
+    ],
+    "follow_ups": [
+      "When would you use threads?",
+      "What about multiprocessing?"
+    ],
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "prog_fund_013",
+    "stage": "resume_technical",
+    "role": "any",
+    "level": "intern",
+    "difficulty": 2,
+    "skill": "web",
+    "question": "What is an API?",
+    "ideal_points": [
+      "Interface between systems",
+      "Allows communication",
+      "Request-response model",
+      "Used in web development"
+    ],
+    "follow_ups": [
+      "What's a REST API?",
+      "How do you design a good API?"
+    ],
+    "weight": 1.4,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "prog_fund_014",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "junior",
+    "difficulty": 2,
+    "skill": "database",
+    "question": "What is indexing in databases?",
+    "ideal_points": [
+      "Improves query speed",
+      "Uses data structure",
+      "Trade-off with storage",
+      "Common in large databases"
+    ],
+    "follow_ups": [
+      "When should you create an index?",
+      "What's a composite index?"
+    ],
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "frontend_react_elite_001",
+    "category": "frontend",
+    "role": "frontend",
+    "level": "mid",
+    "skill": "react",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Why does React re-render components and how do you prevent unnecessary re-renders?",
+    "ideal_points": [
+      "State changes trigger re-render",
+      "Parent re-render causes child re-render",
+      "useMemo prevents expensive recalculations",
+      "useCallback prevents function recreation",
+      "React.memo prevents unnecessary child renders",
+      "Mentions reconciliation algorithm",
+      "Explains referential equality"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains React's re-render mechanism",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses optimization strategies with nuance",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Uses concrete code examples",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References real performance problems solved",
+        "weight": 0.2
+      },
+      "confidence": "Shows deep architectural understanding"
+    },
+    "strong_signals": [
+      "Mentions reconciliation and key prop",
+      "Explains useCallback/useMemo use cases",
+      "Provides production code examples",
+      "Discusses performance profiling"
+    ],
+    "weak_signals": [
+      "Knows techniques but not root causes",
+      "Cannot explain when to use each optimization",
+      "Oversimplifies re-render logic"
+    ],
+    "red_flags": [
+      "Cannot explain why re-renders happen",
+      "Confuses component lifecycle",
+      "Recommends premature optimization",
+      "Doesn't understand referential equality"
+    ],
+    "follow_ups": [
+      "Show me how you'd optimize a slow list component",
+      "What's the performance cost of useMemo?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "backend_api_design_elite_001",
+    "category": "backend",
+    "role": "backend",
+    "level": "mid",
+    "skill": "api-design",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Design an API for a social media post system with proper authentication, pagination, and error handling.",
+    "ideal_points": [
+      "POST /posts with authentication",
+      "GET /posts with pagination (limit, offset)",
+      "GET /posts/{id} for single post",
+      "DELETE /posts/{id}",
+      "PUT /posts/{id} for updates",
+      "Proper HTTP status codes (201, 400, 401, 404, 500)",
+      "Request validation",
+      "Response consistency",
+      "Error message standardization"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "API design follows REST principles",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers edge cases and errors",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear endpoint structure",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References production constraints",
+        "weight": 0.2
+      },
+      "confidence": "Architectural thinking evident"
+    },
+    "strong_signals": [
+      "Mentions authentication headers",
+      "Discusses pagination strategies",
+      "Includes error response format",
+      "Considers rate limiting",
+      "Discusses versioning strategy"
+    ],
+    "weak_signals": [
+      "Basic CRUD endpoints only",
+      "Missing error handling",
+      "No pagination thought"
+    ],
+    "red_flags": [
+      "Ignores authentication",
+      "Uses GET for state-changing operations",
+      "No HTTP status code understanding",
+      "Missing error handling discussion"
+    ],
+    "follow_ups": [
+      "How would you handle concurrent updates?",
+      "What about filtering and sorting?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "debugging_realworld_elite_001",
+    "category": "debugging",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "debugging",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 240,
+    "stage": "technical",
+    "question": "Users report your website is slow. It sometimes takes 10-30 seconds to load. How do you systematically investigate?",
+    "ideal_points": [
+      "Check frontend performance (DevTools, waterfall)",
+      "Check network requests (HTTP timing)",
+      "Check backend latency (server logs)",
+      "Check database query performance",
+      "Check for memory leaks",
+      "Check third-party scripts (analytics, ads)",
+      "Use profiling tools (Chrome DevTools, server profilers)",
+      "Reproduce issue consistently",
+      "Measure baseline and improvements",
+      "Consider caching strategies"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Methodology is systematic and thorough",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers infrastructure and dependencies",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Explains tools and reasoning",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References real incidents troubleshot",
+        "weight": 0.2
+      },
+      "confidence": "Demonstrates production expertise"
+    },
+    "strong_signals": [
+      "Mentions specific tools (DevTools, Lighthouse, APM)",
+      "References server logs and monitoring",
+      "Discusses metrics (FCP, LCP, FID)",
+      "Considers caching at multiple levels",
+      "Mentions database query analysis"
+    ],
+    "weak_signals": [
+      "Generic approach without specifics",
+      "Ignores backend investigation",
+      "No metrics or benchmarking"
+    ],
+    "red_flags": [
+      "Starts debugging without methodology",
+      "Guesses randomly at solutions",
+      "Cannot use DevTools effectively",
+      "No understanding of full stack",
+      "Ignores production monitoring/logging"
+    ],
+    "follow_ups": [
+      "How would you set up monitoring to catch this earlier?",
+      "What's your approach to performance budgets?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "behavioral_ownership_elite_001",
+    "category": "behavioral",
+    "role": "any",
+    "level": "mid",
+    "skill": "ownership",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 150,
+    "stage": "behavioral",
+    "question": "Tell me about a time you took ownership without being asked—something that wasn't your job but you felt needed doing.",
+    "ideal_points": [
+      "Identified problem independently",
+      "Took initiative without being asked",
+      "Delivered measurable result",
+      "Demonstrated leadership/influence",
+      "Drove decision-making",
+      "Overcame obstacles",
+      "Specific metrics/outcomes"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Story demonstrates true ownership",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Shows initiative and accountability",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear impact and outcome",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Genuine story with details",
+        "weight": 0.2
+      },
+      "confidence": "Proud of accomplishment"
+    },
+    "strong_signals": [
+      "Story is specific with names/dates",
+      "Outcome was significant",
+      "Mentions resistance overcome",
+      "Shows business impact",
+      "Demonstrates problem-solving"
+    ],
+    "weak_signals": [
+      "Generic story lacking specifics",
+      "Helped but didn't lead",
+      "No measurable outcome"
+    ],
+    "red_flags": [
+      "Generic or memorized-sounding story",
+      "No measurable impact",
+      "Task was actually their job",
+      "Bragging without substance",
+      "Couldn't articulate challenges faced"
+    ],
+    "follow_ups": [
+      "How did you know it needed doing?",
+      "What would you do differently?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "thinking_ability_elite_001",
+    "category": "behavioral",
+    "role": "any",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 180,
+    "stage": "behavioral",
+    "question": "Explain something complex you've learned recently in a way a non-technical colleague would understand.",
+    "ideal_points": [
+      "Clarity without jargon",
+      "Breaks down concept logically",
+      "Uses analogies effectively",
+      "Identifies core insight",
+      "Shows genuine understanding",
+      "Engages listener"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Explanation is accurate",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Captures essence of topic",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Accessible to non-expert",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Genuine recent learning",
+        "weight": 0.2
+      },
+      "confidence": "Speaks naturally, not rehearsed"
+    },
+    "strong_signals": [
+      "Uses strong analogies",
+      "Checks listener understanding",
+      "Emphasizes why it matters",
+      "Shows enthusiasm",
+      "Builds from simple to complex"
+    ],
+    "weak_signals": [
+      "Uses too much jargon",
+      "Unclear structure",
+      "Cannot simplify concept"
+    ],
+    "red_flags": [
+      "Memorized explanation (sounds canned)",
+      "Heavy jargon for simple concept",
+      "Cannot answer follow-up questions",
+      "Shows shallow understanding",
+      "Overly complex explanation of simple idea"
+    ],
+    "follow_ups": [
+      "Why is this important to your work?",
+      "What was hardest about learning it?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "systemdesign_whatsapp_elite_001",
+    "category": "system_design",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "system-design",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 300,
+    "stage": "technical",
+    "question": "Design a real-time messaging system like WhatsApp. How would you handle 100M active users sending billions of messages daily?",
+    "ideal_points": [
+      "WebSocket or long-polling for real-time",
+      "Message queues (Kafka, RabbitMQ)",
+      "Database sharding (user_id based)",
+      "Distributed caching (Redis)",
+      "Load balancing across regions",
+      "Delivery guarantees (at-least-once)",
+      "Offline message storage",
+      "Presence/status system",
+      "Media handling (images, videos)",
+      "Monitoring and alerting"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Architecture handles scale requirements",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers failure modes and recovery",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Explains trade-offs clearly",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References production decisions",
+        "weight": 0.2
+      },
+      "confidence": "Technical depth evident"
+    },
+    "strong_signals": [
+      "Discusses message ordering",
+      "Mentions idempotency",
+      "Considers failure recovery",
+      "Discusses data consistency models",
+      "Mentions monitoring metrics"
+    ],
+    "weak_signals": [
+      "Missing queue/event streaming",
+      "No mention of sharding",
+      "Ignores real-time constraints"
+    ],
+    "red_flags": [
+      "Single database for all users",
+      "No consideration of scale",
+      "Synchronous request-response only",
+      "Cannot handle failures",
+      "Missing delivery guarantees discussion"
+    ],
+    "follow_ups": [
+      "How do you ensure message ordering?",
+      "What happens if a user comes back online after days?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate architecture and scalability thinking",
+    "prerequisite_difficulty": 4
   }
 ]

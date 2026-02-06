@@ -1,0 +1,194 @@
+{
+  "description": "Hiring decision logic based on interview scores and signals",
+  "decision_thresholds": {
+    "strong_yes": {
+      "min_score": 0.75,
+      "signal_requirements": {
+        "strong_signals": 7,
+        "red_flags": 0,
+        "weak_signals": 1
+      },
+      "decision": "HIRE",
+      "confidence": "high",
+      "action": "Make offer immediately"
+    },
+    "yes": {
+      "min_score": 0.65,
+      "signal_requirements": {
+        "strong_signals": 5,
+        "red_flags": 0,
+        "weak_signals": 2
+      },
+      "decision": "HIRE",
+      "confidence": "medium",
+      "action": "Make offer with standard timeline"
+    },
+    "maybe": {
+      "min_score": 0.55,
+      "signal_requirements": {
+        "strong_signals": 3,
+        "red_flags": 0,
+        "weak_signals": 3
+      },
+      "decision": "CONSIDER",
+      "confidence": "low",
+      "action": "Continue evaluation, might need additional rounds"
+    },
+    "no": {
+      "min_score": 0.45,
+      "signal_requirements": {
+        "strong_signals": 1,
+        "red_flags": 1,
+        "weak_signals": 4
+      },
+      "decision": "NO HIRE",
+      "confidence": "high",
+      "action": "Polite rejection"
+    },
+    "strong_no": {
+      "min_score": 0.0,
+      "signal_requirements": {
+        "strong_signals": 0,
+        "red_flags": 2
+      },
+      "decision": "NO HIRE",
+      "confidence": "very_high",
+      "action": "Immediate rejection"
+    }
+  },
+  "score_components": {
+    "technical_score": {
+      "weight": 0.40,
+      "min_threshold": 0.40,
+      "required_for_hire": true
+    },
+    "communication_score": {
+      "weight": 0.15,
+      "min_threshold": 0.35,
+      "required_for_hire": false
+    },
+    "behavioral_score": {
+      "weight": 0.25,
+      "min_threshold": 0.35,
+      "required_for_hire": false
+    },
+    "culture_fit_score": {
+      "weight": 0.20,
+      "min_threshold": 0.30,
+      "required_for_hire": false
+    }
+  },
+  "red_flag_override_rules": {
+    "cannot_handle_own_codebase": {
+      "severity": "critical",
+      "auto_reject": true,
+      "reason": "Fundamental job requirement unmet"
+    },
+    "cannot_debug_basic_issues": {
+      "severity": "critical",
+      "auto_reject": true,
+      "reason": "Core job skill missing"
+    },
+    "shows_dishonesty": {
+      "severity": "critical",
+      "auto_reject": true,
+      "reason": "Trust is fundamental"
+    },
+    "cannot_work_in_team": {
+      "severity": "critical",
+      "auto_reject": true,
+      "reason": "Team is collaborative"
+    },
+    "cost_expectations_misaligned": {
+      "severity": "blocker",
+      "auto_reject": false,
+      "reason": "Can be negotiated, but significant concern"
+    },
+    "unrealistic_expectations": {
+      "severity": "warning",
+      "auto_reject": false,
+      "reason": "Might self-correct on job"
+    }
+  },
+  "multi_interview_logic": {
+    "across_interviews": {
+      "consistency_requirement": 0.7,
+      "logic": "Scores should be reasonably consistent across multiple interviewers",
+      "large_variance_action": "Schedule additional clarifying interview"
+    },
+    "different_interviewers": {
+      "disagreement_threshold": 0.25,
+      "logic": "If interviewers disagree by >25%, needs discussion",
+      "action": "Debrief session required"
+    },
+    "panel_decision": {
+      "consensus_strong_yes": "All or all-but-1 vote HIRE",
+      "consensus_yes": "Majority strong support",
+      "consensus_maybe": "Mixed signals, requires discussion",
+      "consensus_no": "Majority voting NO HIRE"
+    }
+  },
+  "stage_progression_logic": {
+    "by_stage": {
+      "introduction": {
+        "min_score_to_continue": 0.30,
+        "purpose": "Pass/fail gate, mostly about being a real person"
+      },
+      "warmup": {
+        "min_score_to_continue": 0.40,
+        "purpose": "Quick assessment of baseline competency"
+      },
+      "resume": {
+        "min_score_to_continue": 0.45,
+        "purpose": "Alignment with claimed background"
+      },
+      "resume_technical": {
+        "min_score_to_continue": 0.50,
+        "purpose": "Technical depth on claimed skills"
+      },
+      "real_life": {
+        "min_score_to_continue": 0.55,
+        "purpose": "Practical problem-solving ability"
+      },
+      "hr_closing": {
+        "min_score_to_continue": 0.50,
+        "purpose": "Culture fit and soft skills assessment"
+      }
+    }
+  },
+  "offer_letter_logic": {
+    "strong_yes_score_75_plus": {
+      "salary_flexibility": "high",
+      "benefits_flexibility": "high",
+      "signing_bonus": "yes",
+      "timeline": "immediate",
+      "message": "We want you on the team"
+    },
+    "yes_score_65_to_75": {
+      "salary_flexibility": "medium",
+      "benefits_flexibility": "medium",
+      "signing_bonus": "maybe",
+      "timeline": "standard",
+      "message": "Standard competitive offer"
+    },
+    "marginal_score_55_to_65": {
+      "salary_flexibility": "low",
+      "benefits_flexibility": "low",
+      "signing_bonus": "no",
+      "timeline": "extended",
+      "message": "Standard offer, contingent on references"
+    }
+  },
+  "rejection_messaging": {
+    "no_hire_score_45_to_55": {
+      "tone": "Professional and kind",
+      "message_template": "Thank you for your time. We had strong candidates this year. We'll keep your resume on file.",
+      "feedback": "Limited, only if requested"
+    },
+    "strong_no_score_below_45": {
+      "tone": "Brief and professional",
+      "message_template": "Thank you for your interest. We've decided to move forward with other candidates.",
+      "feedback": "None"
+    }
+  }
+}

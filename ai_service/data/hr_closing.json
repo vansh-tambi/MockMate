@@ -1,7 +1,7 @@
 [
   {
     "id": "close_001",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -13,11 +13,16 @@
       "Growth opportunities",
       "Current challenges the team faces",
       "Technology stack and practices"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "close_002",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -29,11 +34,16 @@
       "Leadership or IC track preference",
       "Alignment with company trajectory",
       "Realistic and thoughtful answer"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "close_003",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -45,11 +55,16 @@
       "Specific value you bring",
       "Passion for the role/company",
       "Confidence without arrogance"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "close_004",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -61,11 +76,16 @@
       "Company mission enthusiasm",
       "Learning opportunities",
       "Team collaboration aspects"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "close_005",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -77,11 +97,16 @@
       "Flexibility if needed",
       "Professional commitment to current role",
       "Realistic start date"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "close_006",
-    "phase": "closing",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -93,6 +118,68 @@
       "Open to negotiation",
       "Considers total compensation",
       "Professional and confident response"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "close_011",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 1,
+    "question": "What are your long-term career goals?",
+    "ideal_points": [
+      "Clear vision",
+      "Growth mindset",
+      "Alignment with role",
+      "Realistic plan",
+      "Ambition"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "close_012",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 1,
+    "question": "What would you do in your first 90 days here?",
+    "ideal_points": [
+      "Learning mindset",
+      "Understanding team",
+      "Building skills",
+      "Contributing gradually",
+      "Strategic thinking"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "close_013",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 1,
+    "question": "Is there anything you'd like to add?",
+    "ideal_points": [
+      "Confidence",
+      "Interest in role",
+      "Clarifies strengths",
+      "Professional closing",
+      "Positive attitude"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   }
 ]

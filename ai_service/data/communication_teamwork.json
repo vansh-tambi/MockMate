@@ -1,12 +1,620 @@
 [
-  {"id": "comm_team_001", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you communicate with team members?", "ideal_points": ["Clear and direct", "Active listening", "Adapts style to audience", "Regular updates", "Multiple channels used"], "evaluation_rubric": {"clarity": "Communicates clearly", "adaptability": "Adjusts to audience", "effectiveness": "Gets message across"}, "follow_ups": ["Give an example", "How do you handle miscommunication?", "Preferred communication style?"]},
-  {"id": "comm_team_002", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 3, "question": "Describe a time you disagreed with someone.", "ideal_points": ["Specific situation", "Respectful disagreement", "Listened to other view", "Found resolution", "Maintained relationship"], "evaluation_rubric": {"situation": "Clear STAR structure", "professionalism": "Handled respectfully", "resolution": "Found solution", "learning": "Gained insight"}, "follow_ups": ["How did it resolve?", "Would you do differently?", "What did you learn?"]},
-  {"id": "comm_team_003", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you handle conflict?", "ideal_points": ["Address directly", "Understand all perspectives", "Focus on issue not person", "Seek win-win solution", "Maintain professionalism"], "evaluation_rubric": {"approach": "Constructive conflict resolution", "maturity": "Handles professionally", "effectiveness": "Resolves issues"}, "follow_ups": ["Give an example", "What if no resolution?", "How do you prevent conflicts?"]},
-  {"id": "comm_team_004", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you give feedback?", "ideal_points": ["Timely and specific", "Constructive approach", "Private when appropriate", "Balanced (positive and developmental)", "Actionable suggestions"], "evaluation_rubric": {"constructiveness": "Focuses on improvement", "specificity": "Provides clear examples", "delivery": "Appropriate timing and setting"}, "follow_ups": ["Give an example", "How do you handle negative feedback?", "What if they react poorly?"]},
-  {"id": "comm_team_005", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you receive feedback?", "ideal_points": ["Open and receptive", "Listen without defensiveness", "Ask clarifying questions", "Thank the person", "Implement changes"], "evaluation_rubric": {"openness": "Welcomes feedback", "action": "Acts on feedback", "maturity": "Handles criticism well"}, "follow_ups": ["Tell me about difficult feedback", "How did you respond?", "What changed?"]},
-  {"id": "comm_team_006", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 3, "question": "Tell me about a time you had to explain something complex.", "ideal_points": ["Clear situation", "Simplified complex concept", "Used analogies or examples", "Checked understanding", "Successfully communicated"], "evaluation_rubric": {"situation": "STAR structure used", "simplification": "Made complex simple", "effectiveness": "Audience understood"}, "follow_ups": ["How did you know they understood?", "What techniques did you use?", "What would you do differently?"]},
-  {"id": "comm_team_007", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you handle misunderstandings?", "ideal_points": ["Address promptly", "Clarify intention", "Listen to other perspective", "Find common ground", "Prevent future issues"], "evaluation_rubric": {"proactivity": "Addresses quickly", "empathy": "Understands both sides", "resolution": "Clears up misunderstanding"}, "follow_ups": ["Give an example", "How do you prevent them?", "What if it escalates?"]},
-  {"id": "comm_team_008", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you collaborate with different personalities?", "ideal_points": ["Adapts approach", "Respects differences", "Finds common ground", "Leverages diverse strengths", "Maintains team harmony"], "evaluation_rubric": {"flexibility": "Adapts style", "respect": "Values diversity", "effectiveness": "Works well with all"}, "follow_ups": ["Give an example", "What's most challenging?", "How do you build rapport?"]},
-  {"id": "comm_team_009", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 3, "question": "Describe a time teamwork failed.", "ideal_points": ["Specific situation", "Honest about failure", "Analyzed what went wrong", "Personal role acknowledged", "Lessons learned"], "evaluation_rubric": {"situation": "STAR structure", "honesty": "Takes accountability", "learning": "Extracted lessons", "growth": "Applied lessons forward"}, "follow_ups": ["What was your role?", "What would you do differently?", "How did you recover?"]},
-  {"id": "comm_team_010", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you build trust?", "ideal_points": ["Consistency in actions", "Follow through on commitments", "Transparent communication", "Show competence", "Demonstrate integrity"], "evaluation_rubric": {"understanding": "Knows trust principles", "action": "Takes concrete steps", "authenticity": "Genuine approach"}, "follow_ups": ["Give an example", "How do you rebuild broken trust?", "What breaks trust for you?"]}
+  {
+    "id": "comm_team_001",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you communicate with team members?",
+    "ideal_points": [
+      "Clear and direct",
+      "Active listening",
+      "Adapts style to audience",
+      "Regular updates",
+      "Multiple channels used"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Communicates clearly",
+        "weight": 0.15
+      },
+      "adaptability": "Adjusts to audience",
+      "effectiveness": "Gets message across"
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you handle miscommunication?",
+      "Preferred communication style?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_002",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 3,
+    "question": "Describe a time you disagreed with someone.",
+    "ideal_points": [
+      "Specific situation",
+      "Respectful disagreement",
+      "Listened to other view",
+      "Found resolution",
+      "Maintained relationship"
+    ],
+    "evaluation_rubric": {
+      "situation": "Clear STAR structure",
+      "professionalism": "Handled respectfully",
+      "resolution": "Found solution",
+      "learning": "Gained insight"
+    },
+    "follow_ups": [
+      "How did it resolve?",
+      "Would you do differently?",
+      "What did you learn?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "comm_team_003",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you handle conflict?",
+    "ideal_points": [
+      "Address directly",
+      "Understand all perspectives",
+      "Focus on issue not person",
+      "Seek win-win solution",
+      "Maintain professionalism"
+    ],
+    "evaluation_rubric": {
+      "approach": "Constructive conflict resolution",
+      "maturity": "Handles professionally",
+      "effectiveness": "Resolves issues"
+    },
+    "follow_ups": [
+      "Give an example",
+      "What if no resolution?",
+      "How do you prevent conflicts?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_004",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you give feedback?",
+    "ideal_points": [
+      "Timely and specific",
+      "Constructive approach",
+      "Private when appropriate",
+      "Balanced (positive and developmental)",
+      "Actionable suggestions"
+    ],
+    "evaluation_rubric": {
+      "constructiveness": "Focuses on improvement",
+      "specificity": "Provides clear examples",
+      "delivery": "Appropriate timing and setting"
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you handle negative feedback?",
+      "What if they react poorly?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_005",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you receive feedback?",
+    "ideal_points": [
+      "Open and receptive",
+      "Listen without defensiveness",
+      "Ask clarifying questions",
+      "Thank the person",
+      "Implement changes"
+    ],
+    "evaluation_rubric": {
+      "openness": "Welcomes feedback",
+      "action": "Acts on feedback",
+      "maturity": "Handles criticism well"
+    },
+    "follow_ups": [
+      "Tell me about difficult feedback",
+      "How did you respond?",
+      "What changed?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_006",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 3,
+    "question": "Tell me about a time you had to explain something complex.",
+    "ideal_points": [
+      "Clear situation",
+      "Simplified complex concept",
+      "Used analogies or examples",
+      "Checked understanding",
+      "Successfully communicated"
+    ],
+    "evaluation_rubric": {
+      "situation": "STAR structure used",
+      "simplification": "Made complex simple",
+      "effectiveness": "Audience understood"
+    },
+    "follow_ups": [
+      "How did you know they understood?",
+      "What techniques did you use?",
+      "What would you do differently?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "comm_team_007",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you handle misunderstandings?",
+    "ideal_points": [
+      "Address promptly",
+      "Clarify intention",
+      "Listen to other perspective",
+      "Find common ground",
+      "Prevent future issues"
+    ],
+    "evaluation_rubric": {
+      "proactivity": "Addresses quickly",
+      "empathy": "Understands both sides",
+      "resolution": "Clears up misunderstanding"
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you prevent them?",
+      "What if it escalates?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_008",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you collaborate with different personalities?",
+    "ideal_points": [
+      "Adapts approach",
+      "Respects differences",
+      "Finds common ground",
+      "Leverages diverse strengths",
+      "Maintains team harmony"
+    ],
+    "evaluation_rubric": {
+      "flexibility": "Adapts style",
+      "respect": "Values diversity",
+      "effectiveness": "Works well with all"
+    },
+    "follow_ups": [
+      "Give an example",
+      "What's most challenging?",
+      "How do you build rapport?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_009",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 3,
+    "question": "Describe a time teamwork failed.",
+    "ideal_points": [
+      "Specific situation",
+      "Honest about failure",
+      "Analyzed what went wrong",
+      "Personal role acknowledged",
+      "Lessons learned"
+    ],
+    "evaluation_rubric": {
+      "situation": "STAR structure",
+      "honesty": "Takes accountability",
+      "learning": "Extracted lessons",
+      "growth": "Applied lessons forward"
+    },
+    "follow_ups": [
+      "What was your role?",
+      "What would you do differently?",
+      "How did you recover?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "comm_team_010",
+    "stage": "real_life",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How do you build trust?",
+    "ideal_points": [
+      "Consistency in actions",
+      "Follow through on commitments",
+      "Transparent communication",
+      "Show competence",
+      "Demonstrate integrity"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Knows trust principles",
+      "action": "Takes concrete steps",
+      "authenticity": "Genuine approach"
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you rebuild broken trust?",
+      "What breaks trust for you?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "comm_team_011",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "cross_team_communication",
+    "difficulty": 3,
+    "question": "Tell me about a time you had to communicate bad news to your team.",
+    "ideal_points": [
+      "Delivered message clearly",
+      "Maintained honesty",
+      "Handled emotional impact",
+      "Provided next steps",
+      "Maintained trust"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Message was clear",
+        "weight": 0.15
+      },
+      "empathy": "Handled emotional impact well",
+      "leadership": {
+        "description": "Provided direction",
+        "weight": 0.25
+      },
+      "trust": "Maintained credibility"
+    },
+    "interviewer_intent": "Tests communication maturity under difficult circumstances",
+    "failure_signals": [
+      "Avoided delivering news",
+      "Blamed others",
+      "No empathy shown",
+      "Provided no direction"
+    ],
+    "weight": 1.2,
+    "follow_ups": [
+      "How did your team react?",
+      "What would you do differently?",
+      "How did you maintain morale?",
+      "What if the team blamed you?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "comm_team_012",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "executive_communication",
+    "difficulty": 4,
+    "question": "Describe a time you had to communicate with senior leadership.",
+    "ideal_points": [
+      "Clear concise communication",
+      "Focused on impact",
+      "Prepared data",
+      "Anticipated questions",
+      "Maintained confidence"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Communicated concisely",
+        "weight": 0.15
+      },
+      "preparation": "Well prepared",
+      "confidence": "Maintained composure",
+      "impact": "Focused on business impact"
+    },
+    "interviewer_intent": "Tests ability to communicate at executive level",
+    "failure_signals": [
+      "Too much detail",
+      "Lost in weeds",
+      "Unprepared",
+      "Intimidated by hierarchy"
+    ],
+    "weight": 1.3,
+    "follow_ups": [
+      "What was the outcome?",
+      "How did you prepare?",
+      "What questions did they ask?",
+      "How do you tailor communication for executives?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "comm_team_013",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "persuasion",
+    "difficulty": 4,
+    "question": "Tell me about a time you convinced someone to change their mind.",
+    "ideal_points": [
+      "Understood other perspective",
+      "Used logical reasoning",
+      "Used evidence",
+      "Stayed respectful",
+      "Achieved outcome"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Understood other view",
+      "logic": "Used reasoning",
+      "evidence": "Backed with data",
+      "respect": "Maintained professionalism"
+    },
+    "interviewer_intent": "Tests persuasion and influence skills",
+    "failure_signals": [
+      "Used force or authority",
+      "Didn't understand other view",
+      "No evidence provided",
+      "Disrespectful approach"
+    ],
+    "weight": 1.2,
+    "follow_ups": [
+      "What was their initial position?",
+      "What evidence did you use?",
+      "How long did it take?",
+      "What if they hadn't changed their mind?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "comm_team_014",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "conflict_leadership",
+    "difficulty": 5,
+    "question": "Two team members are in serious conflict affecting performance. What do you do?",
+    "ideal_points": [
+      "Addresses conflict directly",
+      "Understands both sides",
+      "Facilitates resolution",
+      "Protects team productivity",
+      "Maintains fairness"
+    ],
+    "evaluation_rubric": {
+      "directness": "Addresses conflict head-on",
+      "fairness": "Hears both sides",
+      "facilitation": "Guides to resolution",
+      "impact": "Protects team performance"
+    },
+    "interviewer_intent": "Tests leadership under team conflict",
+    "failure_signals": [
+      "Avoids conflict",
+      "Takes sides unfairly",
+      "No resolution achieved",
+      "Team productivity suffers"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What if one person is clearly wrong?",
+      "What if conflict continues?",
+      "How do you prevent taking sides?",
+      "What if it affects other team members?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "comm_team_015",
+    "stage": "real_life",
+    "role": "any",
+    "level": "mid",
+    "skill": "remote_communication",
+    "difficulty": 3,
+    "question": "How do you ensure effective communication in remote teams?",
+    "ideal_points": [
+      "Uses structured updates",
+      "Uses async and sync tools",
+      "Ensures clarity",
+      "Maintains transparency",
+      "Prevents misunderstandings"
+    ],
+    "evaluation_rubric": {
+      "structure": "Has clear process",
+      "tools": "Uses appropriate tools",
+      "clarity": {
+        "description": "Ensures understanding",
+        "weight": 0.15
+      },
+      "proactivity": "Prevents issues"
+    },
+    "interviewer_intent": "Tests remote work communication skills",
+    "failure_signals": [
+      "No clear process",
+      "Over-relies on one channel",
+      "Assumes understanding",
+      "Poor documentation"
+    ],
+    "weight": 1.1,
+    "follow_ups": [
+      "What tools do you use?",
+      "How do you handle timezone differences?",
+      "How do you build rapport remotely?",
+      "What challenges have you faced?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "comm_team_016",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "crisis_communication",
+    "difficulty": 5,
+    "question": "Your system fails and customers are angry. How do you communicate?",
+    "ideal_points": [
+      "Communicates quickly",
+      "Maintains transparency",
+      "Takes responsibility",
+      "Provides updates",
+      "Restores trust"
+    ],
+    "evaluation_rubric": {
+      "speed": "Responds quickly",
+      "transparency": "Honest about situation",
+      "ownership": {
+        "description": "Takes responsibility",
+        "weight": 0.2
+      },
+      "updates": "Keeps stakeholders informed"
+    },
+    "interviewer_intent": "Tests crisis communication under extreme pressure",
+    "failure_signals": [
+      "Delays communication",
+      "Blames others",
+      "Hides information",
+      "No update cadence"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What do you say first?",
+      "How often do you update?",
+      "What if you don't have answers?",
+      "How do you rebuild trust after?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "comm_team_017",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "stakeholder_management",
+    "difficulty": 5,
+    "question": "Stakeholders demand unrealistic deadlines. How do you respond?",
+    "ideal_points": [
+      "Communicates constraints clearly",
+      "Negotiates realistically",
+      "Maintains professionalism",
+      "Protects team productivity",
+      "Finds compromise"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Explains constraints clearly",
+        "weight": 0.15
+      },
+      "negotiation": "Finds middle ground",
+      "professionalism": "Stays professional",
+      "protection": "Protects team"
+    },
+    "interviewer_intent": "Tests stakeholder management under pressure",
+    "failure_signals": [
+      "Immediately agrees",
+      "Gets defensive",
+      "Can't negotiate",
+      "Promises unrealistically"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "What if they insist?",
+      "How do you protect your team?",
+      "What trade-offs do you offer?",
+      "What if relationship is damaged?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
 ]

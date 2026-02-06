@@ -1,11 +1,14 @@
 [
   {
-    "id": "resume_001",
-    "phase": "resume",
+    "id": "resume_architecture_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "project-architecture",
     "difficulty": 2,
+    "weight": 1.3,
+    "expected_duration_sec": 120,
     "question": "Walk me through the architecture of your most complex project.",
     "ideal_points": [
       "Clear component breakdown",
@@ -13,15 +16,49 @@
       "Challenges faced",
       "How you solved problems",
       "Results/impact achieved"
-    ]
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Architecture explained clearly",
+        "weight": 0.15
+      },
+      "ownership": {
+        "description": "Shows real involvement",
+        "weight": 0.2
+      },
+      "completeness": {
+        "description": "Covers end-to-end flow",
+        "weight": 0.15
+      },
+      "authenticity": "Genuine understanding shown"
+    },
+    "strong_signals": [
+      "Mentions specific libraries/frameworks",
+      "Can explain why each choice was made",
+      "Mentions actual problems faced"
+    ],
+    "weak_signals": [
+      "High-level overview only",
+      "Cannot explain technical choices"
+    ],
+    "red_flags": [
+      "Vague descriptions",
+      "Cannot answer follow-up questions",
+      "Talking about others' work as own"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
   },
   {
-    "id": "resume_002",
-    "phase": "resume",
+    "id": "resume_challenge_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "problem-solving",
     "difficulty": 2,
+    "weight": 1.3,
+    "expected_duration_sec": 120,
     "question": "What was the biggest technical challenge you faced in your project? How did you overcome it?",
     "ideal_points": [
       "Specific technical problem described",
@@ -29,15 +66,41 @@
       "Solution implemented",
       "Learning from the experience",
       "Alternative approaches considered"
-    ]
+    ],
+    "evaluation_rubric": {
+      "specificity": "Problem clearly defined",
+      "approach": "Logical problem-solving",
+      "outcome": "Shows learning",
+      "authenticity": "Real experience evident"
+    },
+    "strong_signals": [
+      "Specific error messages mentioned",
+      "Debugging tools referenced",
+      "Shows systematic approach",
+      "Discusses tradeoffs"
+    ],
+    "weak_signals": [
+      "Generic challenge",
+      "Unclear solution"
+    ],
+    "red_flags": [
+      "Cannot explain the problem",
+      "Lucky guessing admitted",
+      "Outsourced to senior developer without learning"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
   },
   {
-    "id": "resume_003",
-    "phase": "resume",
+    "id": "resume_redesign_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "technical-judgment",
     "difficulty": 2,
+    "weight": 1.2,
+    "expected_duration_sec": 90,
     "question": "If you could rebuild your project from scratch, what would you do differently?",
     "ideal_points": [
       "Architectural improvements",
@@ -45,15 +108,44 @@
       "Code quality enhancements",
       "Testing strategy",
       "Performance optimizations"
-    ]
+    ],
+    "evaluation_rubric": {
+      "insight": "Shows growth and reflection",
+      "reasoning": "Clear rationale for changes",
+      "depth": {
+        "description": "Understands tradeoffs",
+        "weight": 0.2
+      },
+      "authenticity": "Real learning acknowledged"
+    },
+    "strong_signals": [
+      "Specific improvements identified",
+      "Acknowledges learning",
+      "Shows humility",
+      "Mentions testing/monitoring"
+    ],
+    "weak_signals": [
+      "Vague improvements",
+      "Cannot explain why"
+    ],
+    "red_flags": [
+      "Says nothing would change",
+      "No learning/growth shown",
+      "Blames choices on others"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
   },
   {
-    "id": "resume_004",
-    "phase": "resume",
+    "id": "resume_proud_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "project-ownership",
     "difficulty": 2,
+    "weight": 1.4,
+    "expected_duration_sec": 120,
     "question": "Tell me about a feature in your project that you're particularly proud of.",
     "ideal_points": [
       "Feature description",
@@ -61,15 +153,42 @@
       "User impact",
       "Implementation details",
       "Metrics/results"
-    ]
+    ],
+    "evaluation_rubric": {
+      "specificity": "Concrete feature described",
+      "impact": "Shows user or business value",
+      "technical_depth": "Implementation details clear",
+      "authenticity": "Real ownership evident",
+      "passion": "Genuine pride shown"
+    },
+    "strong_signals": [
+      "Describes specific implementation challenges",
+      "Shows user impact/metrics",
+      "Discusses optimization decisions",
+      "Mentions feedback integration"
+    ],
+    "weak_signals": [
+      "Generic feature",
+      "Only high-level description"
+    ],
+    "red_flags": [
+      "Cannot explain implementation",
+      "Features were trivial",
+      "Takes credit for team work"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
   },
   {
-    "id": "resume_005",
-    "phase": "resume",
+    "id": "resume_quality_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "code-quality",
     "difficulty": 2,
+    "weight": 1.3,
+    "expected_duration_sec": 100,
     "question": "How did you ensure code quality in your project?",
     "ideal_points": [
       "Testing strategy (unit, integration)",
@@ -77,15 +196,41 @@
       "Linting and formatting",
       "Documentation practices",
       "CI/CD pipeline"
-    ]
+    ],
+    "evaluation_rubric": {
+      "practices": "Quality practices discussed",
+      "implementation": "Actually implemented",
+      "discipline": "Consistent approach",
+      "authenticity": "Not just knowledge"
+    },
+    "strong_signals": [
+      "Unit tests written and discussed",
+      "Code review process explained",
+      "CI/CD pipeline implemented",
+      "Metrics collected (coverage %)"
+    ],
+    "weak_signals": [
+      "Knows best practices but didn't apply",
+      "Vague implementation"
+    ],
+    "red_flags": [
+      "No testing done",
+      "No code review mentioned",
+      "Quality was low in project"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
   },
   {
-    "id": "resume_006",
-    "phase": "resume",
+    "id": "resume_tech_stack_001",
+    "stage": "resume",
+    "category": "technical",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "technical-decisions",
     "difficulty": 2,
+    "weight": 1.2,
+    "expected_duration_sec": 100,
     "question": "What technologies did you use in your project and why did you choose them?",
     "ideal_points": [
       "Tech stack overview",
@@ -93,6 +238,769 @@
       "Alternative options considered",
       "Trade-offs acknowledged",
       "Learning curve experience"
-    ]
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Tech stack clearly described",
+        "weight": 0.15
+      },
+      "reasoning": "Thoughtful rationale provided",
+      "judgment": "Not just following trends",
+      "authenticity": "Real decision-making shown"
+    },
+    "strong_signals": [
+      "Compares multiple options",
+      "Discusses tradeoffs",
+      "Explains performance implications",
+      "Mentions team skills"
+    ],
+    "weak_signals": [
+      "Only listing technologies",
+      "Cannot explain choices"
+    ],
+    "red_flags": [
+      "Chosen for resume/hype only",
+      "Doesn't understand tech choices",
+      "Cannot discuss alternatives"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
+  },
+  {
+    "id": "resume_tech_011",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "software_engineer",
+    "level": "intern",
+    "skill": "project-explanation",
+    "difficulty": 2,
+    "weight": 1.2,
+    "expected_duration_sec": 120,
+    "question": "Explain one project from your resume in detail. Start from the beginning and explain what you built.",
+    "ideal_points": [
+      "Project overview with context",
+      "Problem it solved",
+      "Technologies used",
+      "Your role and contributions",
+      "Challenges faced",
+      "Results/metrics achieved"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Explained clearly",
+        "weight": 0.15
+      },
+      "completeness": {
+        "description": "Covers full scope",
+        "weight": 0.15
+      },
+      "specificity": "Concrete examples given",
+      "authenticity": "Real involvement evident"
+    },
+    "strong_signals": [
+      "Mentions specific problems solved",
+      "Explains why choices mattered",
+      "Shows depth of understanding"
+    ],
+    "weak_signals": [
+      "Surface-level explanation",
+      "Struggles with details"
+    ],
+    "red_flags": [
+      "Cannot explain basic aspects",
+      "Vague about own role",
+      "Memorized description sounds canned",
+      "Confuses facts about project"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
+  },
+  {
+    "id": "resume_tech_012",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "software_engineer",
+    "level": "intern",
+    "skill": "problem-solving",
+    "difficulty": 2,
+    "weight": 1.3,
+    "expected_duration_sec": 120,
+    "question": "What was the most difficult technical problem you've solved?",
+    "ideal_points": [
+      "Clear problem description",
+      "Technical depth",
+      "Solution explanation",
+      "Debugging process",
+      "Learning outcome"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Problem clearly defined",
+      "depth": {
+        "description": "Technical understanding",
+        "weight": 0.2
+      },
+      "approach": "Shows methodology",
+      "authenticity": "Real hands-on experience"
+    },
+    "strong_signals": [
+      "Specific error/stacktrace mentioned",
+      "Methodical debugging approach",
+      "Shows tools used",
+      "Explains root cause"
+    ],
+    "weak_signals": [
+      "Generic problem",
+      "Vague solution"
+    ],
+    "red_flags": [
+      "Cannot explain the problem clearly",
+      "Had to ask for help",
+      "Doesn't understand solution",
+      "Guessed and lucked into fix"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
+  },
+  {
+    "id": "resume_tech_013",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "software_engineer",
+    "level": "intern",
+    "skill": "debugging",
+    "difficulty": 2,
+    "weight": 1.2,
+    "expected_duration_sec": 90,
+    "question": "How do you debug a program when something goes wrong?",
+    "ideal_points": [
+      "Logical debugging approach",
+      "Use of debugging tools",
+      "Step-by-step reasoning",
+      "Hypothesis testing",
+      "Root cause analysis"
+    ],
+    "evaluation_rubric": {
+      "methodology": "Systematic approach",
+      "tools": "Knowledge of tools",
+      "reasoning": "Logical thinking",
+      "experience": "Real debugging done"
+    },
+    "strong_signals": [
+      "Uses debugger/console.log",
+      "Sets breakpoints",
+      "Traces execution flow",
+      "Isolates problem"
+    ],
+    "weak_signals": [
+      "Random trial-and-error",
+      "Vague about approach"
+    ],
+    "red_flags": [
+      "Only uses random fixes",
+      "Doesn't understand debugging",
+      "Never actually debugged code",
+      "Luck-based problem-solving"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
+  },
+  {
+    "id": "resume_tech_014",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "software_engineer",
+    "level": "intern",
+    "skill": "technical-comfort",
+    "difficulty": 2,
+    "weight": 1.1,
+    "expected_duration_sec": 90,
+    "question": "Which technologies are you most comfortable with and why?",
+    "ideal_points": [
+      "Specific technologies mentioned",
+      "Experience level explained",
+      "Examples provided",
+      "Depth of understanding shown",
+      "Confidence demonstrated"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Concrete tech mentioned",
+      "reasoning": "Clear rationale",
+      "depth": {
+        "description": "Shows real experience",
+        "weight": 0.2
+      },
+      "authenticity": "Genuine comfort shown"
+    },
+    "strong_signals": [
+      "Explains features and benefits",
+      "Mentions specific projects",
+      "Shows growing expertise",
+      "Acknowledges learning curve"
+    ],
+    "weak_signals": [
+      "List of buzzwords",
+      "Shallow knowledge"
+    ],
+    "red_flags": [
+      "Claims expertise in things just learned",
+      "Cannot answer follow-up questions",
+      "Exaggerating comfort level"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving"
+  },
+  {
+    "id": "resume_architecture_advanced_001",
+    "stage": "resume",
+    "category": "technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "architecture-ownership",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "question": "Explain your project architecture end-to-end. Start from user request to database response. What happens at each layer?",
+    "ideal_points": [
+      "Frontend request initiation",
+      "Backend request handling and routing",
+      "API endpoint processing",
+      "Business logic layer",
+      "Database interaction and queries",
+      "Response serialization",
+      "Error handling throughout",
+      "Performance considerations"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Complete flow explained clearly",
+        "weight": 0.15
+      },
+      "ownership": {
+        "description": "Shows deep involvement",
+        "weight": 0.2
+      },
+      "depth": {
+        "description": "Internal details explained",
+        "weight": 0.2
+      },
+      "technical_accuracy": "Correct technical understanding",
+      "authenticity": "Not generic textbook answer"
+    },
+    "strong_signals": [
+      "Mentions specific libraries/frameworks used",
+      "Discusses actual problems faced at each layer",
+      "Explains request lifecycle in detail",
+      "Mentions performance bottlenecks identified",
+      "Discusses error handling strategy"
+    ],
+    "weak_signals": [
+      "High-level overview only",
+      "Struggles with technical details",
+      "Cannot explain own code"
+    ],
+    "red_flags": [
+      "Vague architecture explanation",
+      "Only repeats high-level concepts",
+      "Cannot answer specific questions about code",
+      "Doesn't understand own system intimately",
+      "Sounds like copying documentation"
+    ],
+    "follow_ups": [
+      "What's the slowest part of your system?",
+      "How would you optimize the database layer?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "resume_authenticity_001",
+    "stage": "resume",
+    "category": "technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "failure-handling",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "question": "If your database crashes, how does your system behave? What happens to requests? How do users see errors?",
+    "ideal_points": [
+      "Connection pooling and retry logic explained",
+      "Error handling and user feedback",
+      "Fallback mechanisms (caching)",
+      "Circuit breaker pattern",
+      "Graceful degradation explained",
+      "Monitoring and alerting",
+      "Recovery process"
+    ],
+    "evaluation_rubric": {
+      "completeness": {
+        "description": "All failure modes addressed",
+        "weight": 0.15
+      },
+      "authenticity": "Real production thinking",
+      "depth": {
+        "description": "Not theoretical",
+        "weight": 0.2
+      },
+      "engineering_maturity": "Shows systems thinking"
+    },
+    "strong_signals": [
+      "Discusses try-catch blocks",
+      "Mentions timeout and retry strategies",
+      "Talks about circuit breaker",
+      "Explains user experience during outage",
+      "Mentions monitoring/alerts set up"
+    ],
+    "weak_signals": [
+      "Basic error handling only",
+      "No fallback strategy"
+    ],
+    "red_flags": [
+      "Never thought about failures",
+      "Cannot answer scenario at all",
+      "System crashes without recovery",
+      "Users get raw database errors",
+      "No logging or monitoring mentioned",
+      "FAKE PROJECT INDICATOR"
+    ],
+    "follow_ups": [
+      "How would you test this failure?",
+      "How long is downtime acceptable?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "resume_ownership_001",
+    "stage": "resume",
+    "category": "technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "scalability-thinking",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 150,
+    "question": "What part of your project would break first under 10,000 concurrent users? Be honest.",
+    "ideal_points": [
+      "Database bottleneck identified",
+      "Backend scaling limitations",
+      "Frontend performance issues",
+      "Network latency concerns",
+      "Specific metrics discussed (queries/sec, response time)"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Honest assessment given",
+      "awareness": "Understands scalability",
+      "specificity": "Concrete bottleneck identified",
+      "experience": "Real load testing experience"
+    },
+    "strong_signals": [
+      "Identifies specific database query as bottleneck",
+      "Discusses N+1 query problem",
+      "Mentions memory usage",
+      "Explains connection pool limits",
+      "References actual metrics/profiling"
+    ],
+    "weak_signals": [
+      "Only high-level scaling awareness",
+      "Cannot quantify bottleneck"
+    ],
+    "red_flags": [
+      "Says nothing would break",
+      "No scalability awareness at all",
+      "Cannot identify bottlenecks",
+      "Misleading about system capabilities",
+      "OVERCONFIDENCE SIGNAL"
+    ],
+    "follow_ups": [
+      "How would you fix that bottleneck?",
+      "Have you actually load tested?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "resume_debugging_advanced_001",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "debugging-maturity",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 200,
+    "question": "Tell me about a bug in your project that took the longest to fix. What was the debugging process?",
+    "ideal_points": [
+      "Detailed bug description",
+      "Reproducibility steps",
+      "Debugging methodology used",
+      "Tools employed (debugger, logs, etc)",
+      "Root cause discovery",
+      "Fix implementation",
+      "Testing the fix",
+      "Lessons learned",
+      "Prevention for future"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Concrete bug with details",
+      "methodology": "Systematic debugging shown",
+      "depth": {
+        "description": "Technical understanding evident",
+        "weight": 0.2
+      },
+      "authenticity": "Real hands-on experience",
+      "maturity": "Shows engineering growth"
+    },
+    "strong_signals": [
+      "Mentions specific error messages/stack traces",
+      "Explains debugging tools used (Chrome DevTools, server logs)",
+      "Shows structured hypothesis testing",
+      "Mentions distributed system debugging challenges",
+      "Discusses how to prevent similar bugs"
+    ],
+    "weak_signals": [
+      "Cannot recall bugs clearly",
+      "Only trivial bug examples",
+      "Vague about root cause"
+    ],
+    "red_flags": [
+      "Cannot recall any bugs",
+      "Only bugs someone else fixed",
+      "Lucky guess that fixed it",
+      "Never actually debugged",
+      "Blame on external library/framework",
+      "FAKE PROJECT INDICATOR"
+    ],
+    "follow_ups": [
+      "How would you test that fix?",
+      "Did the same bug happen again?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "resume_scaling_001",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "scalability",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 150,
+    "question": "How would you scale your project to 1 million users? What's your scaling strategy?",
+    "ideal_points": [
+      "Load balancer implementation",
+      "Database optimization (indexing, partitioning)",
+      "Caching strategy (Redis)",
+      "Horizontal scaling approach",
+      "CDN for static assets",
+      "Background job processing",
+      "Monitoring and metrics"
+    ],
+    "evaluation_rubric": {
+      "awareness": "Scalability understood",
+      "completeness": {
+        "description": "Multiple scaling dimensions",
+        "weight": 0.15
+      },
+      "practicality": "Real-world approach",
+      "depth": {
+        "description": "Not just theory",
+        "weight": 0.2
+      }
+    },
+    "strong_signals": [
+      "Discusses database replica/sharding",
+      "Mentions caching layer",
+      "Discusses load balancing",
+      "Mentions monitoring setup",
+      "References actual scaling done"
+    ],
+    "weak_signals": [
+      "Only vertical scaling (more powerful servers)",
+      "Vague about implementation"
+    ],
+    "red_flags": [
+      "No scaling awareness",
+      "Single server architecture only",
+      "Cannot identify scaling bottlenecks",
+      "Ignores database scaling"
+    ],
+    "follow_ups": [
+      "Which bottleneck is worst?",
+      "Have you actually scaled before?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "git_workflow_advanced_001",
+    "stage": "resume_technical",
+    "category": "engineering-process",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "git-workflow",
+    "difficulty": 3,
+    "weight": 1.5,
+    "expected_duration_sec": 120,
+    "question": "Explain your Git workflow for your projects. How do you structure branches, commits, and code reviews?",
+    "ideal_points": [
+      "Clear branching strategy (feature, develop, main branches)",
+      "Meaningful commit messages with context",
+      "Atomic commits (one feature per commit)",
+      "Code review process explanation",
+      "Rebase vs merge philosophy",
+      "Pull request workflow",
+      "Issue tracking integration",
+      "Release process"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Workflow explained clearly",
+        "weight": 0.15
+      },
+      "discipline": "Consistent practices shown",
+      "collaboration": {
+        "description": "Code review process included",
+        "weight": 0.15
+      },
+      "maturity": "Professional approach to version control"
+    },
+    "strong_signals": [
+      "Mentions specific branching model (Git Flow, trunk-based)",
+      "Discusses squashing commits",
+      "Explains rebase vs merge tradeoff",
+      "References code review requirements",
+      "Mentions PR checks (tests, linting)"
+    ],
+    "weak_signals": [
+      "Basic Git knowledge only",
+      "No clear strategy"
+    ],
+    "red_flags": [
+      "Commits everything to main branch",
+      "Meaningless commit messages",
+      "Force pushes frequently",
+      "No code review process",
+      "Cannot explain workflow",
+      "Large jumbled commits"
+    ],
+    "follow_ups": [
+      "How do you handle merge conflicts?",
+      "What about release branches?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
+  },
+  {
+    "id": "code_quality_advanced_001",
+    "stage": "resume_technical",
+    "category": "engineering-process",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "code-quality",
+    "difficulty": 3,
+    "weight": 1.6,
+    "expected_duration_sec": 150,
+    "question": "How do you ensure your code is maintainable? Walk me through your approach to code quality.",
+    "ideal_points": [
+      "SOLID principles application",
+      "DRY (Don't Repeat Yourself)",
+      "Clear naming conventions",
+      "Function length and responsibility (single responsibility)",
+      "Testing strategy (unit, integration tests)",
+      "Code documentation",
+      "Performance awareness",
+      "Code review practices",
+      "Refactoring discipline",
+      "Tools used (linters, formatters)"
+    ],
+    "evaluation_rubric": {
+      "practices": "Specific practices mentioned",
+      "implementation": "Actually implemented in code",
+      "discipline": "Consistent approach",
+      "maturity": "Shows engineering judgment"
+    },
+    "strong_signals": [
+      "References SOLID principles",
+      "Discusses testing (unit tests, coverage %)",
+      "Mentions linting/prettier setup",
+      "Explains trade-offs (over-engineering vs simplicity)",
+      "References actual code examples"
+    ],
+    "weak_signals": [
+      "Knows best practices but doesn't apply",
+      "Vague about implementation"
+    ],
+    "red_flags": [
+      "Cannot explain code quality",
+      "No testing in projects",
+      "Writes spaghetti code",
+      "No refactoring done",
+      "Ignores documentation",
+      "Code is hard to understand",
+      "No linting or formatting tools"
+    ],
+    "follow_ups": [
+      "Show me code you're proud of",
+      "What's the biggest quality improvement you made?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
+  },
+  {
+    "id": "thinking_depth_elite_001",
+    "stage": "resume",
+    "category": "behavioral",
+    "role": "any",
+    "level": "mid",
+    "skill": "communication-clarity",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 180,
+    "question": "Pick something complex you built and explain it as if I'm a beginner with no technical background.",
+    "ideal_points": [
+      "Simplifies without losing accuracy",
+      "Uses analogies effectively",
+      "Breaks complex idea into parts",
+      "Checks listener understanding",
+      "Genuine enthusiasm for topic",
+      "Shows depth underlying simplicity"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Explains clearly for beginner",
+        "weight": 0.15
+      },
+      "depth": {
+        "description": "Shows real understanding",
+        "weight": 0.2
+      },
+      "communication": {
+        "description": "Excellent explanation skills",
+        "weight": 0.2
+      },
+      "authenticity": "Not memorized, genuinely explaining"
+    },
+    "strong_signals": [
+      "Uses relatable analogies",
+      "Emphasizes why it matters",
+      "Checks if listener understands",
+      "Builds from simple to complex",
+      "Shows passion for topic"
+    ],
+    "weak_signals": [
+      "Still uses technical jargon",
+      "Explains only surface level",
+      "No passion shown"
+    ],
+    "red_flags": [
+      "Memorized textbook explanation",
+      "Cannot simplify for beginner",
+      "Heavy jargon, no translation",
+      "Cannot answer follow-up questions",
+      "Shallow understanding of own topic",
+      "Condescending tone",
+      "Cannot explain why it matters"
+    ],
+    "follow_ups": [
+      "Why is this important?",
+      "What would a beginner find hardest?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "authenticity_killer_001",
+    "stage": "resume_technical",
+    "category": "technical",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "project-authenticity",
+    "difficulty": 5,
+    "weight": 2.5,
+    "priority": "core",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3,
+    "interviewer_goal": "detect fake project ownership",
+    "question": "Open your project mentally. A user clicks the login button. Walk me through EXACTLY what happens - from database queries to API calls to backend logic. Don't skip steps.",
+    "ideal_points": [
+      "Detailed step-by-step flow from frontend to backend",
+      "Names actual database tables and queries",
+      "Explains API endpoints used and parameters",
+      "Discusses authentication mechanism specifics",
+      "Mentions error handling and edge cases",
+      "Explains actual middleware/service layer interaction",
+      "References specific libraries or frameworks",
+      "Discusses performance considerations",
+      "Explains security measures (hashing, tokens, etc.)",
+      "Names actual file paths or module structure"
+    ],
+    "evaluation_rubric": {
+      "technical_depth": {
+        "description": "Can explain technical flow in detail without hesitation",
+        "weight": 0.30
+      },
+      "specificity": {
+        "description": "Uses concrete names (actual table names, endpoints, etc.)",
+        "weight": 0.25
+      },
+      "ownership": {
+        "description": "Shows deep understanding of own implementation",
+        "weight": 0.25
+      },
+      "flow_understanding": {
+        "description": "Explains complete request-response cycle",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Immediately provides detailed technical flow",
+      "Names actual database schema and tables",
+      "Discusses specific API endpoints with parameters",
+      "Explains authentication token generation and validation",
+      "Mentions actual error handling code",
+      "References specific ORM queries or SQL",
+      "Discusses middleware participation in request",
+      "Explains async/await or promise chains if applicable",
+      "Names actual middleware (cors, auth, validation)",
+      "Discusses database indexes or query optimization"
+    ],
+    "weak_signals": [
+      "High-level explanation without technical details",
+      "Vague about database schema",
+      "Doesn't mention specific API endpoints",
+      "Cannot explain error scenarios",
+      "Missing middleware discussion"
+    ],
+    "red_flags": [
+      "CANNOT EXPLAIN BACKEND FLOW - massive red flag",
+      "Says 'it just works' without explanation - FAKE PROJECT",
+      "Doesn't know API endpoint names - NEVER BUILT IT",
+      "Cannot name database tables - COPY-PASTED CODE",
+      "Vague description like 'database handles it' - NOT OWNER",
+      "Says 'I'm not sure' about own code - RED FLAG",
+      "Discusses code they read but didn't write - ADMISSION OF FAKERY",
+      "Cannot explain validation or security - NEVER THOUGHT ABOUT IT",
+      "Skips steps or admits gaps - DIDN'T ACTUALLY BUILD",
+      "Response time >5 seconds before answering - FABRICATING"
+    ],
+    "follow_ups": [
+      "What happens if the database is offline?",
+      "How do you handle invalid credentials?",
+      "Walk me through a database query",
+      "Show me the actual table schema",
+      "How is the session token stored and validated?",
+      "What happens if the API call times out?",
+      "Explain your error handling for failed login"
+    ],
+    "prerequisite_difficulty": 2
   }
 ]

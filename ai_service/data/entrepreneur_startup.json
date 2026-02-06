@@ -1,7 +1,7 @@
 [
   {
     "id": "entrepreneur_startup_001",
-    "phase": "behavioral",
+    "stage": "warmup",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +19,27 @@
       "problem_focus": "Are they solving real problems?",
       "awareness": "Do they understand challenges?",
       "vision": "Do they have clear vision?",
-      "missed_opportunities": ["Only wants to avoid job", "No clear problem identified", "Unrealistic expectations", "Short-term thinking"]
+      "missed_opportunities": [
+        "Only wants to avoid job",
+        "No clear problem identified",
+        "Unrealistic expectations",
+        "Short-term thinking"
+      ]
     },
-    "follow_ups": ["What problem are you solving?", "Why is now the right time?", "What's your long-term vision?"]
+    "follow_ups": [
+      "What problem are you solving?",
+      "Why is now the right time?",
+      "What's your long-term vision?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "entrepreneur_startup_002",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "problem_solving",
@@ -43,13 +57,27 @@
       "approach": "Was approach systematic?",
       "resourcefulness": "Did they find creative solutions?",
       "learning": "Did they learn and adapt?",
-      "missed_opportunities": ["Trivial problem", "No systematic approach", "Blames others", "No learning"]
+      "missed_opportunities": [
+        "Trivial problem",
+        "No systematic approach",
+        "Blames others",
+        "No learning"
+      ]
     },
-    "follow_ups": ["What would you do differently?", "How has this shaped your approach?", "What did you learn?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "How has this shaped your approach?",
+      "What did you learn?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_003",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "resilience",
@@ -63,17 +91,34 @@
       "Shows resilience"
     ],
     "evaluation_rubric": {
-      "ownership": "Do they take responsibility?",
+      "ownership": {
+        "description": "Do they take responsibility?",
+        "weight": 0.2
+      },
       "learning": "Did they extract lessons?",
       "resilience": "Did they bounce back?",
       "growth": "Did they grow from it?",
-      "missed_opportunities": ["Blames others", "No real failure shared", "Defensive", "Didn't learn"]
+      "missed_opportunities": [
+        "Blames others",
+        "No real failure shared",
+        "Defensive",
+        "Didn't learn"
+      ]
     },
-    "follow_ups": ["What was your biggest lesson?", "How long did recovery take?", "Would you try again?"]
+    "follow_ups": [
+      "What was your biggest lesson?",
+      "How long did recovery take?",
+      "Would you try again?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_004",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "risk_management",
@@ -91,13 +136,27 @@
       "balance": "Do they balance risk/reward?",
       "preparation": "Do they plan for risks?",
       "learning": "Do they learn from outcomes?",
-      "missed_opportunities": ["Reckless", "Too risk-averse", "No methodology", "Doesn't learn"]
+      "missed_opportunities": [
+        "Reckless",
+        "Too risk-averse",
+        "No methodology",
+        "Doesn't learn"
+      ]
     },
-    "follow_ups": ["What's the biggest risk you've taken?", "How do you decide when to pivot?", "What risks worry you most?"]
+    "follow_ups": [
+      "What's the biggest risk you've taken?",
+      "How do you decide when to pivot?",
+      "What risks worry you most?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "entrepreneur_startup_005",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "team_building",
@@ -112,16 +171,33 @@
     ],
     "evaluation_rubric": {
       "hiring": "Do they hire strategically?",
-      "leadership": "Are they effective leaders?",
+      "leadership": {
+        "description": "Are they effective leaders?",
+        "weight": 0.25
+      },
       "culture": "Do they build positive culture?",
       "empowerment": "Do they empower team?",
-      "missed_opportunities": ["Micromanages", "Poor hiring criteria", "No vision sharing", "Doesn't develop people"]
+      "missed_opportunities": [
+        "Micromanages",
+        "Poor hiring criteria",
+        "No vision sharing",
+        "Doesn't develop people"
+      ]
     },
-    "follow_ups": ["What do you look for in team members?", "How do you handle underperformance?", "What's your leadership style?"]
+    "follow_ups": [
+      "What do you look for in team members?",
+      "How do you handle underperformance?",
+      "What's your leadership style?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_006",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "adaptability",
@@ -139,13 +215,27 @@
       "decisiveness": "Can they decide with incomplete data?",
       "adaptability": "Do they adapt quickly?",
       "focus": "Do they focus effectively?",
-      "missed_opportunities": ["Paralyzed by uncertainty", "Needs perfect information", "Inflexible", "Overly stressed"]
+      "missed_opportunities": [
+        "Paralyzed by uncertainty",
+        "Needs perfect information",
+        "Inflexible",
+        "Overly stressed"
+      ]
     },
-    "follow_ups": ["Give an example of navigating ambiguity.", "How do you stay focused?", "What helps you adapt?"]
+    "follow_ups": [
+      "Give an example of navigating ambiguity.",
+      "How do you stay focused?",
+      "What helps you adapt?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_007",
-    "phase": "behavioral",
+    "stage": "warmup",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "drive",
@@ -161,15 +251,32 @@
     "evaluation_rubric": {
       "authenticity": "Is motivation genuine?",
       "sustainability": "Is it sustainable long-term?",
-      "depth": "Is it deeply rooted?",
+      "depth": {
+        "description": "Is it deeply rooted?",
+        "weight": 0.2
+      },
       "balance": "Is there healthy balance?",
-      "missed_opportunities": ["Only money-driven", "Ego-based", "No real purpose", "Unrealistic"]
+      "missed_opportunities": [
+        "Only money-driven",
+        "Ego-based",
+        "No real purpose",
+        "Unrealistic"
+      ]
     },
-    "follow_ups": ["What's your toughest moment been?", "How do you maintain motivation?", "What would make you quit?"]
+    "follow_ups": [
+      "What's your toughest moment been?",
+      "How do you maintain motivation?",
+      "What would make you quit?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "entrepreneur_startup_008",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "market_fit",
@@ -183,17 +290,34 @@
       "Realistic but confident"
     ],
     "evaluation_rubric": {
-      "clarity": "Is value proposition clear?",
+      "clarity": {
+        "description": "Is value proposition clear?",
+        "weight": 0.15
+      },
       "evidence": "Do they have market validation?",
       "differentiation": "What makes them unique?",
       "realism": "Is it realistic?",
-      "missed_opportunities": ["No validation", "Unclear value prop", "No differentiation", "Overconfident/underconfident"]
+      "missed_opportunities": [
+        "No validation",
+        "Unclear value prop",
+        "No differentiation",
+        "Overconfident/underconfident"
+      ]
     },
-    "follow_ups": ["Who is your target customer?", "What's your competitive advantage?", "How have you validated demand?"]
+    "follow_ups": [
+      "Who is your target customer?",
+      "What's your competitive advantage?",
+      "How have you validated demand?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "entrepreneur_startup_009",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "metrics",
@@ -211,13 +335,27 @@
       "tracking": "Do they track systematically?",
       "data_driven": "Are decisions data-informed?",
       "balance": "Do they balance different metrics?",
-      "missed_opportunities": ["Vague metrics", "No tracking", "Wrong metrics", "Ignores data"]
+      "missed_opportunities": [
+        "Vague metrics",
+        "No tracking",
+        "Wrong metrics",
+        "Ignores data"
+      ]
     },
-    "follow_ups": ["What's your north star metric?", "How often do you review metrics?", "What metrics matter most now?"]
+    "follow_ups": [
+      "What's your north star metric?",
+      "How often do you review metrics?",
+      "What metrics matter most now?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_010",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "perseverance",
@@ -235,13 +373,27 @@
       "evidence": "Can they back it up?",
       "credibility": "Are they credible?",
       "vision": "Is vision compelling?",
-      "missed_opportunities": ["Arrogant", "No evidence", "Unclear vision", "Lacks credibility"]
+      "missed_opportunities": [
+        "Arrogant",
+        "No evidence",
+        "Unclear vision",
+        "Lacks credibility"
+      ]
     },
-    "follow_ups": ["What's your biggest achievement?", "What makes you different?", "What's your unfair advantage?"]
+    "follow_ups": [
+      "What's your biggest achievement?",
+      "What makes you different?",
+      "What's your unfair advantage?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "entrepreneur_startup_011",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "resilience",
@@ -259,13 +411,27 @@
       "learning": "Do they seek feedback?",
       "resourcefulness": "Do they find alternatives?",
       "persistence": "Do they keep going?",
-      "missed_opportunities": ["Gives up", "Blames investors", "No adaptation", "Takes no action"]
+      "missed_opportunities": [
+        "Gives up",
+        "Blames investors",
+        "No adaptation",
+        "Takes no action"
+      ]
     },
-    "follow_ups": ["How do you handle rejection?", "What alternative funding exists?", "When would you give up?"]
+    "follow_ups": [
+      "How do you handle rejection?",
+      "What alternative funding exists?",
+      "When would you give up?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_012",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "financial_management",
@@ -282,14 +448,31 @@
       "urgency": "Do they act quickly?",
       "priorities": "Do they prioritize correctly?",
       "creativity": "Are they resourceful?",
-      "communication": "Are they transparent?",
-      "missed_opportunities": ["Panics", "Hides from team", "No plan", "Unrealistic solutions"]
+      "communication": {
+        "description": "Are they transparent?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Panics",
+        "Hides from team",
+        "No plan",
+        "Unrealistic solutions"
+      ]
     },
-    "follow_ups": ["How do you prioritize expenses?", "What would you cut first?", "How do you communicate this to team?"]
+    "follow_ups": [
+      "How do you prioritize expenses?",
+      "What would you cut first?",
+      "How do you communicate this to team?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_013",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "conflict_resolution",
@@ -303,17 +486,34 @@
       "Make decision and align or part ways"
     ],
     "evaluation_rubric": {
-      "communication": "Do they communicate openly?",
+      "communication": {
+        "description": "Do they communicate openly?",
+        "weight": 0.2
+      },
       "respect": "Do they respect other views?",
       "decisiveness": "Can they make tough calls?",
       "maturity": "Do they handle it maturely?",
-      "missed_opportunities": ["Avoids conflict", "Dismissive", "Can't compromise", "No resolution"]
+      "missed_opportunities": [
+        "Avoids conflict",
+        "Dismissive",
+        "Can't compromise",
+        "No resolution"
+      ]
     },
-    "follow_ups": ["How do you make big decisions?", "What if you can't agree?", "How do you maintain relationship?"]
+    "follow_ups": [
+      "How do you make big decisions?",
+      "What if you can't agree?",
+      "How do you maintain relationship?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_014",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "adaptability",
@@ -330,14 +530,31 @@
       "analysis": "Do they analyze properly?",
       "customer_focus": "Do they listen to market?",
       "decisiveness": "Can they make the call?",
-      "communication": "Do they bring team along?",
-      "missed_opportunities": ["Ignores market", "Pivots too easily", "Analysis paralysis", "Doesn't consult team"]
+      "communication": {
+        "description": "Do they bring team along?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Ignores market",
+        "Pivots too easily",
+        "Analysis paralysis",
+        "Doesn't consult team"
+      ]
     },
-    "follow_ups": ["How do you know when to pivot?", "What factors do you consider?", "How do you maintain team morale?"]
+    "follow_ups": [
+      "How do you know when to pivot?",
+      "What factors do you consider?",
+      "How do you maintain team morale?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "entrepreneur_startup_015",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "Entrepreneur/Startup Founder",
     "level": "any",
     "skill": "difficult_decisions",
@@ -353,10 +570,30 @@
     "evaluation_rubric": {
       "decisiveness": "Can they make tough calls?",
       "compassion": "Do they show empathy?",
-      "communication": "Is communication clear?",
-      "leadership": "Do they lead through it?",
-      "missed_opportunities": ["Avoids decision", "Handles poorly", "Not transparent", "No compassion"]
+      "communication": {
+        "description": "Is communication clear?",
+        "weight": 0.2
+      },
+      "leadership": {
+        "description": "Do they lead through it?",
+        "weight": 0.25
+      },
+      "missed_opportunities": [
+        "Avoids decision",
+        "Handles poorly",
+        "Not transparent",
+        "No compassion"
+      ]
     },
-    "follow_ups": ["How do you decide who to let go?", "How do you communicate to team?", "How do you support the person?"]
+    "follow_ups": [
+      "How do you decide who to let go?",
+      "How do you communicate to team?",
+      "How do you support the person?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

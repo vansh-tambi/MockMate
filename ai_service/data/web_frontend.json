@@ -1,7 +1,7 @@
 [
   {
     "id": "web_front_001",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "intern",
     "skill": "web",
@@ -14,11 +14,20 @@
       "Server processes request and sends response",
       "Browser renders HTML, CSS, JS"
     ],
-    "follow_ups": ["What's DNS?", "Explain HTTP vs HTTPS", "What's the critical rendering path?"]
+    "follow_ups": [
+      "What's DNS?",
+      "Explain HTTP vs HTTPS",
+      "What's the critical rendering path?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_002",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "intern",
     "skill": "html",
@@ -31,11 +40,20 @@
       "Better SEO",
       "Makes code more readable"
     ],
-    "follow_ups": ["Why use semantic tags?", "div vs section?", "Accessibility benefits?"]
+    "follow_ups": [
+      "Why use semantic tags?",
+      "div vs section?",
+      "Accessibility benefits?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "web_front_003",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "intern",
     "skill": "css",
@@ -48,11 +66,20 @@
       "Class preferred for styling",
       "ID often used for JavaScript targeting"
     ],
-    "follow_ups": ["What's CSS specificity?", "When to use ID?", "Can element have multiple classes?"]
+    "follow_ups": [
+      "What's CSS specificity?",
+      "When to use ID?",
+      "Can element have multiple classes?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "web_front_004",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "fresher",
     "skill": "css",
@@ -65,11 +92,20 @@
       "Mobile-first approach common",
       "Essential for modern web development"
     ],
-    "follow_ups": ["What's mobile-first design?", "Flexbox vs Grid?", "Breakpoints you use?"]
+    "follow_ups": [
+      "What's mobile-first design?",
+      "Flexbox vs Grid?",
+      "Breakpoints you use?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_005",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "fullstack",
     "level": "fresher",
     "skill": "web",
@@ -82,11 +118,20 @@
       "Server must explicitly allow cross-origin access",
       "Common issue in API integration"
     ],
-    "follow_ups": ["How do you fix CORS errors?", "What's same-origin policy?", "Preflight requests?"]
+    "follow_ups": [
+      "How do you fix CORS errors?",
+      "What's same-origin policy?",
+      "Preflight requests?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_006",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "intern",
     "skill": "javascript",
@@ -99,11 +144,20 @@
       "Allows dynamic content changes",
       "Browser API for interacting with web pages"
     ],
-    "follow_ups": ["DOM manipulation methods?", "Virtual DOM?", "Performance implications?"]
+    "follow_ups": [
+      "DOM manipulation methods?",
+      "Virtual DOM?",
+      "Performance implications?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_007",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "junior",
     "skill": "react",
@@ -116,11 +170,20 @@
       "Patterns: local state, global state, server state",
       "Critical for complex applications"
     ],
-    "follow_ups": ["Redux vs Context API?", "When to use global state?", "Your experience with state management?"]
+    "follow_ups": [
+      "Redux vs Context API?",
+      "When to use global state?",
+      "Your experience with state management?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_008",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "junior",
     "skill": "web",
@@ -133,11 +196,20 @@
       "CSR better for interactivity after load",
       "Modern frameworks support both (Next.js, Nuxt)"
     ],
-    "follow_ups": ["What's SSG?", "When to use each?", "Performance trade-offs?"]
+    "follow_ups": [
+      "What's SSG?",
+      "When to use each?",
+      "Performance trade-offs?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "web_front_009",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "fullstack",
     "level": "fresher",
     "skill": "security",
@@ -150,11 +222,20 @@
       "Stateless authentication",
       "Used in modern web APIs"
     ],
-    "follow_ups": ["Where do you store JWT?", "JWT vs sessions?", "Security concerns?"]
+    "follow_ups": [
+      "Where do you store JWT?",
+      "JWT vs sessions?",
+      "Security concerns?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "web_front_010",
-    "phase": "technical",
+    "stage": "resume_technical",
     "role": "fullstack",
     "level": "fresher",
     "skill": "architecture",
@@ -167,6 +248,15 @@
       "Controller: Handles requests, updates model/view",
       "Separation of concerns"
     ],
-    "follow_ups": ["Benefits of MVC?", "Other architecture patterns?", "Have you used MVC frameworks?"]
+    "follow_ups": [
+      "Benefits of MVC?",
+      "Other architecture patterns?",
+      "Have you used MVC frameworks?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   }
 ]

@@ -1,7 +1,6 @@
 [
   {
     "id": "pilot_001",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -19,11 +18,20 @@
       "understanding": "Knows what the job entails",
       "commitment": "Ready for training and challenges"
     },
-    "follow_ups": ["When did you first want to fly?", "What type of aircraft interests you?", "How have you prepared for this career?"]
+    "follow_ups": [
+      "When did you first want to fly?",
+      "What type of aircraft interests you?",
+      "How have you prepared for this career?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_002",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -41,11 +49,20 @@
       "maturity": "Takes responsibility seriously",
       "safety_focus": "Prioritizes safety above all"
     },
-    "follow_ups": ["How do you handle this responsibility?", "What's the hardest part?", "When do you defer to others?"]
+    "follow_ups": [
+      "How do you handle this responsibility?",
+      "What's the hardest part?",
+      "When do you defer to others?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_003",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -63,11 +80,20 @@
       "methods": "Has concrete pressure management strategies",
       "experience": "Can provide examples"
     },
-    "follow_ups": ["Tell me about a high-pressure situation", "How do you stay focused?", "When do you ask for help?"]
+    "follow_ups": [
+      "Tell me about a high-pressure situation",
+      "How do you stay focused?",
+      "When do you ask for help?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_004",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -85,11 +111,20 @@
       "decision_making": "Made sound decisions under pressure",
       "reflection": "Shows learning from experience"
     },
-    "follow_ups": ["What would you do differently?", "How did this prepare you for flying?", "How do you prevent similar situations?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "How did this prepare you for flying?",
+      "How do you prevent similar situations?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "pilot_005",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -104,14 +139,29 @@
     ],
     "evaluation_rubric": {
       "crm_knowledge": "Understands crew coordination principles",
-      "collaboration": "Values team input",
-      "communication": "Emphasizes clear communication"
+      "collaboration": {
+        "description": "Values team input",
+        "weight": 0.15
+      },
+      "communication": {
+        "description": "Emphasizes clear communication",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["Give an example of good teamwork", "How do you handle disagreements?", "What's your role in the team?"]
+    "follow_ups": [
+      "Give an example of good teamwork",
+      "How do you handle disagreements?",
+      "What's your role in the team?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_006",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -129,11 +179,20 @@
       "procedural": "Follows established protocols",
       "vigilance": "Shows proactive safety mindset"
     },
-    "follow_ups": ["What's the most important safety check?", "How do you handle safety concerns?", "When do you abort a flight?"]
+    "follow_ups": [
+      "What's the most important safety check?",
+      "How do you handle safety concerns?",
+      "When do you abort a flight?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_007",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -151,11 +210,20 @@
       "relevance": "Mentions aviation-specific strengths",
       "confidence": "Articulates value without arrogance"
     },
-    "follow_ups": ["Can you give an example?", "What areas need improvement?", "How do you develop your skills?"]
+    "follow_ups": [
+      "Can you give an example?",
+      "What areas need improvement?",
+      "How do you develop your skills?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_008",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -173,11 +241,20 @@
       "responsibility": "Willing to report unfit status",
       "self_care": "Has fatigue management strategies"
     },
-    "follow_ups": ["What if you're scheduled but fatigued?", "How do you optimize sleep?", "What are fatigue signs?"]
+    "follow_ups": [
+      "What if you're scheduled but fatigued?",
+      "How do you optimize sleep?",
+      "What are fatigue signs?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_009",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -195,11 +272,20 @@
       "evidence": "Provides concrete reasons",
       "humility": "Acknowledges responsibility seriously"
     },
-    "follow_ups": ["What's your safety record?", "How do you build trust?", "What if you make a mistake?"]
+    "follow_ups": [
+      "What's your safety record?",
+      "How do you build trust?",
+      "What if you make a mistake?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_010",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -217,11 +303,20 @@
       "realism": "Goals are achievable",
       "commitment": "Shows long-term dedication"
     },
-    "follow_ups": ["What's your next step?", "Which airline interests you?", "How will you achieve this?"]
+    "follow_ups": [
+      "What's your next step?",
+      "Which airline interests you?",
+      "How will you achieve this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "pilot_sit_001",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -237,13 +332,25 @@
     "evaluation_rubric": {
       "procedural": "Follows established protocols",
       "composure": "Remains calm and focused",
-      "communication": "Coordinates effectively"
+      "communication": {
+        "description": "Coordinates effectively",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["What if communication fails?", "How do you prioritize actions?", "When do you declare emergency?"]
+    "follow_ups": [
+      "What if communication fails?",
+      "How do you prioritize actions?",
+      "When do you declare emergency?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "pilot_sit_002",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -259,13 +366,25 @@
     "evaluation_rubric": {
       "professionalism": "Handles conflict maturely",
       "safety_focus": "Keeps safety paramount",
-      "communication": "Uses effective conflict resolution"
+      "communication": {
+        "description": "Uses effective conflict resolution",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["What if they're still disagreeing?", "When do you involve management?", "How do you prevent conflicts?"]
+    "follow_ups": [
+      "What if they're still disagreeing?",
+      "When do you involve management?",
+      "How do you prevent conflicts?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "pilot_sit_003",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -283,11 +402,20 @@
       "safety_first": "Willing to divert or delay",
       "preparedness": "Has contingency planning"
     },
-    "follow_ups": ["What if passengers complain?", "How do you assess weather risks?", "When do you divert?"]
+    "follow_ups": [
+      "What if passengers complain?",
+      "How do you assess weather risks?",
+      "When do you divert?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "pilot_sit_004",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -305,11 +433,20 @@
       "methodology": "Has decision-making framework",
       "confidence": "Can make timely decisions"
     },
-    "follow_ups": ["Give an example", "What if you're uncertain?", "How do you avoid hasty decisions?"]
+    "follow_ups": [
+      "Give an example",
+      "What if you're uncertain?",
+      "How do you avoid hasty decisions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "pilot_sit_005",
-    "phase": "behavioral",
     "role": "aviation",
     "level": "any",
     "skill": "aviation",
@@ -327,6 +464,16 @@
       "transparency": "Reports errors honestly",
       "learning": "Uses errors as learning opportunities"
     },
-    "follow_ups": ["How do you prevent errors?", "What if error causes incident?", "How do you handle guilt?"]
+    "follow_ups": [
+      "How do you prevent errors?",
+      "What if error causes incident?",
+      "How do you handle guilt?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

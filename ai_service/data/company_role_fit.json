@@ -1,12 +1,533 @@
 [
-  {"id": "fit_001", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "Why this company?", "ideal_points": ["Company mission alignment", "Culture fit", "Industry leadership", "Growth opportunities", "Specific attributes"], "evaluation_rubric": {"research": "Knows company well", "authenticity": "Genuine interest", "fit": "Clear alignment"}, "follow_ups": ["What concerns you?", "What else are you considering?", "What would make you decline?"]},
-  {"id": "fit_002", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "Why this role?", "ideal_points": ["Skills match", "Career progression", "Challenge level", "Learning opportunities", "Passion for work"], "evaluation_rubric": {"understanding": "Knows role well", "fit": "Logical choice", "enthusiasm": "Genuinely excited"}, "follow_ups": ["What aspects concern you?", "What would success look like?", "What's your biggest challenge?"]},
-  {"id": "fit_003", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What do you know about our work?", "ideal_points": ["Products/services", "Target market", "Competitors", "Recent achievements", "Industry challenges"], "evaluation_rubric": {"research": "Did homework", "depth": "Beyond surface level", "relevance": "Understands context"}, "follow_ups": ["What impresses you?", "What would you change?", "How do you fit?"]},
-  {"id": "fit_004", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How can you add value here?", "ideal_points": ["Specific skills applicable", "Unique experiences", "Problem-solving ability", "Fresh perspective", "Proven track record"], "evaluation_rubric": {"specificity": "Concrete value proposition", "confidence": "Believes in fit", "evidence": "Backed by examples"}, "follow_ups": ["Give specific examples", "What makes you different?", "How will you measure success?"]},
-  {"id": "fit_005", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What makes you a good fit?", "ideal_points": ["Skills alignment", "Values alignment", "Cultural fit", "Experience relevance", "Enthusiasm and motivation"], "evaluation_rubric": {"self_awareness": "Knows own strengths", "research": "Knows company needs", "match": "Clear fit"}, "follow_ups": ["What might not be a fit?", "How will you adapt?", "What will you bring?"]},
-  {"id": "fit_006", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What do you expect from your manager?", "ideal_points": ["Clear direction", "Regular feedback", "Support for growth", "Trust and autonomy", "Open communication"], "evaluation_rubric": {"balance": "Reasonable expectations", "self_awareness": "Knows work style", "maturity": "Understands manager role"}, "follow_ups": ["What management style works best?", "How do you handle micromanagement?", "What if expectations aren't met?"]},
-  {"id": "fit_007", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What kind of work environment do you prefer?", "ideal_points": ["Collaborative vs independent", "Fast-paced vs structured", "Flexible vs routine", "Innovation encouraged", "Learning culture"], "evaluation_rubric": {"self_awareness": "Knows preferences", "flexibility": "Can adapt", "fit": "Matches company culture"}, "follow_ups": ["Describe ideal environment", "What environments don't work?", "How do you adapt?"]},
-  {"id": "fit_008", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What kind of team do you work best with?", "ideal_points": ["Diverse perspectives", "Collaborative", "Supportive", "High-performing", "Clear communication"], "evaluation_rubric": {"teamwork": "Values collaboration", "flexibility": "Works with various types", "contribution": "Adds to team"}, "follow_ups": ["What team challenges you?", "Give an example", "How do you build team?"]},
-  {"id": "fit_009", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What challenges do you expect in this role?", "ideal_points": ["Realistic understanding", "Specific challenges identified", "Confidence to handle", "Learning mindset", "Support needs identified"], "evaluation_rubric": {"realism": "Understands role challenges", "preparation": "Ready to tackle", "honesty": "Acknowledges concerns"}, "follow_ups": ["How will you handle these?", "What concerns you most?", "What support do you need?"]},
-  {"id": "fit_010", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 1, "question": "How soon can you join?", "ideal_points": ["Clear timeline", "Notice period mentioned", "Willingness to start soon", "Any constraints explained", "Flexible if possible"], "evaluation_rubric": {"clarity": "Clear availability", "professionalism": "Honors commitments", "eagerness": "Wants to start"}, "follow_ups": ["Can you start earlier?", "What if we need you sooner?", "Any obligations?"]}
+  {
+    "id": "fit_001",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "Why this company?",
+    "ideal_points": [
+      "Company mission alignment",
+      "Culture fit",
+      "Industry leadership",
+      "Growth opportunities",
+      "Specific attributes"
+    ],
+    "evaluation_rubric": {
+      "research": "Knows company well",
+      "authenticity": "Genuine interest",
+      "fit": "Clear alignment"
+    },
+    "follow_ups": [
+      "What concerns you?",
+      "What else are you considering?",
+      "What would make you decline?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_002",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "Why this role?",
+    "ideal_points": [
+      "Skills match",
+      "Career progression",
+      "Challenge level",
+      "Learning opportunities",
+      "Passion for work"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Knows role well",
+      "fit": "Logical choice",
+      "enthusiasm": "Genuinely excited"
+    },
+    "follow_ups": [
+      "What aspects concern you?",
+      "What would success look like?",
+      "What's your biggest challenge?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_003",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What do you know about our work?",
+    "ideal_points": [
+      "Products/services",
+      "Target market",
+      "Competitors",
+      "Recent achievements",
+      "Industry challenges"
+    ],
+    "evaluation_rubric": {
+      "research": "Did homework",
+      "depth": {
+        "description": "Beyond surface level",
+        "weight": 0.2
+      },
+      "relevance": "Understands context"
+    },
+    "follow_ups": [
+      "What impresses you?",
+      "What would you change?",
+      "How do you fit?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_004",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "How can you add value here?",
+    "ideal_points": [
+      "Specific skills applicable",
+      "Unique experiences",
+      "Problem-solving ability",
+      "Fresh perspective",
+      "Proven track record"
+    ],
+    "evaluation_rubric": {
+      "specificity": "Concrete value proposition",
+      "confidence": "Believes in fit",
+      "evidence": "Backed by examples"
+    },
+    "follow_ups": [
+      "Give specific examples",
+      "What makes you different?",
+      "How will you measure success?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_005",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What makes you a good fit?",
+    "ideal_points": [
+      "Skills alignment",
+      "Values alignment",
+      "Cultural fit",
+      "Experience relevance",
+      "Enthusiasm and motivation"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Knows own strengths",
+      "research": "Knows company needs",
+      "match": "Clear fit"
+    },
+    "follow_ups": [
+      "What might not be a fit?",
+      "How will you adapt?",
+      "What will you bring?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_006",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What do you expect from your manager?",
+    "ideal_points": [
+      "Clear direction",
+      "Regular feedback",
+      "Support for growth",
+      "Trust and autonomy",
+      "Open communication"
+    ],
+    "evaluation_rubric": {
+      "balance": "Reasonable expectations",
+      "self_awareness": "Knows work style",
+      "maturity": "Understands manager role"
+    },
+    "follow_ups": [
+      "What management style works best?",
+      "How do you handle micromanagement?",
+      "What if expectations aren't met?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_007",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What kind of work environment do you prefer?",
+    "ideal_points": [
+      "Collaborative vs independent",
+      "Fast-paced vs structured",
+      "Flexible vs routine",
+      "Innovation encouraged",
+      "Learning culture"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": "Knows preferences",
+      "flexibility": "Can adapt",
+      "fit": "Matches company culture"
+    },
+    "follow_ups": [
+      "Describe ideal environment",
+      "What environments don't work?",
+      "How do you adapt?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_008",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What kind of team do you work best with?",
+    "ideal_points": [
+      "Diverse perspectives",
+      "Collaborative",
+      "Supportive",
+      "High-performing",
+      "Clear communication"
+    ],
+    "evaluation_rubric": {
+      "teamwork": "Values collaboration",
+      "flexibility": "Works with various types",
+      "contribution": "Adds to team"
+    },
+    "follow_ups": [
+      "What team challenges you?",
+      "Give an example",
+      "How do you build team?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_009",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 2,
+    "question": "What challenges do you expect in this role?",
+    "ideal_points": [
+      "Realistic understanding",
+      "Specific challenges identified",
+      "Confidence to handle",
+      "Learning mindset",
+      "Support needs identified"
+    ],
+    "evaluation_rubric": {
+      "realism": "Understands role challenges",
+      "preparation": "Ready to tackle",
+      "honesty": "Acknowledges concerns"
+    },
+    "follow_ups": [
+      "How will you handle these?",
+      "What concerns you most?",
+      "What support do you need?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "fit_010",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "general",
+    "difficulty": 1,
+    "question": "How soon can you join?",
+    "ideal_points": [
+      "Clear timeline",
+      "Notice period mentioned",
+      "Willingness to start soon",
+      "Any constraints explained",
+      "Flexible if possible"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Clear availability",
+        "weight": 0.15
+      },
+      "professionalism": "Honors commitments",
+      "eagerness": "Wants to start"
+    },
+    "follow_ups": [
+      "Can you start earlier?",
+      "What if we need you sooner?",
+      "Any obligations?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "fit_011",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "mid",
+    "skill": "values_alignment",
+    "difficulty": 3,
+    "question": "Tell me about a company culture where you performed best.",
+    "ideal_points": [
+      "Clear culture description",
+      "Self-awareness",
+      "Alignment with company",
+      "Performance connection",
+      "Professional insight"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Describes culture clearly",
+        "weight": 0.15
+      },
+      "awareness": "Knows what works for them",
+      "alignment": "Fits company culture",
+      "performance": {
+        "description": "Links to results",
+        "weight": 0.15
+      }
+    },
+    "interviewer_intent": "Tests self-awareness and culture fit",
+    "failure_signals": [
+      "Can't describe culture",
+      "No self-awareness",
+      "Poor fit with company",
+      "No performance connection"
+    ],
+    "weight": 1.2,
+    "follow_ups": [
+      "What didn't work in other cultures?",
+      "How does our culture compare?",
+      "What makes you thrive?",
+      "What culture challenges you?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "fit_012",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "organizational_judgment",
+    "difficulty": 4,
+    "question": "How do you evaluate whether a company is right for you?",
+    "ideal_points": [
+      "Clear evaluation framework",
+      "Considers culture",
+      "Considers growth",
+      "Considers leadership",
+      "Strategic thinking"
+    ],
+    "evaluation_rubric": {
+      "framework": "Has evaluation criteria",
+      "depth": {
+        "description": "Considers multiple factors",
+        "weight": 0.2
+      },
+      "maturity": "Strategic thinking",
+      "alignment": "Clear priorities"
+    },
+    "interviewer_intent": "Tests career maturity and decision-making",
+    "failure_signals": [
+      "No clear framework",
+      "Only money-focused",
+      "Doesn't research",
+      "No strategic thinking"
+    ],
+    "weight": 1.3,
+    "follow_ups": [
+      "What are your red flags?",
+      "How do you research companies?",
+      "What questions do you ask?",
+      "What would make you walk away?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "fit_013",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "adaptability",
+    "difficulty": 4,
+    "question": "Describe adapting to a new company culture.",
+    "ideal_points": [
+      "Shows adaptability",
+      "Respects culture",
+      "Learns quickly",
+      "Maintains performance",
+      "Integrates successfully"
+    ],
+    "evaluation_rubric": {
+      "adaptability": "Adapts quickly",
+      "respect": "Respects existing culture",
+      "learning": "Learns fast",
+      "performance": {
+        "description": "Maintains effectiveness",
+        "weight": 0.15
+      }
+    },
+    "interviewer_intent": "Tests adaptability and cultural intelligence",
+    "failure_signals": [
+      "Rigid mindset",
+      "Imposes old culture",
+      "Slow to adapt",
+      "Performance drops"
+    ],
+    "weight": 1.2,
+    "follow_ups": [
+      "What was hardest to adapt to?",
+      "How long did it take?",
+      "What helped you adapt?",
+      "What mistakes did you make?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "fit_014",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "closing",
+    "difficulty": 3,
+    "question": "Why should we NOT hire you?",
+    "ideal_points": [
+      "Shows honesty",
+      "Demonstrates self-awareness",
+      "Not fatal weakness",
+      "Shows improvement",
+      "Professional maturity"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Genuinely honest",
+      "awareness": "Self-aware",
+      "severity": "Not deal-breaker",
+      "growth": "Working on it"
+    },
+    "interviewer_intent": "Tests honesty and ability to handle difficult questions",
+    "failure_signals": [
+      "Can't answer",
+      "Names fatal flaw",
+      "Defensive",
+      "Turns to positive ('I work too hard')"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "How are you addressing this?",
+      "Has it affected your work?",
+      "What makes you different from others?",
+      "Why should we hire you despite this?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "fit_015",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "self_awareness",
+    "difficulty": 4,
+    "question": "What is your biggest professional weakness?",
+    "ideal_points": [
+      "Real weakness",
+      "Shows growth",
+      "Shows mitigation",
+      "Shows maturity",
+      "Not fatal flaw"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Real weakness shared",
+      "growth": "Working on improvement",
+      "mitigation": "Has strategies",
+      "awareness": "Truly understands self"
+    },
+    "interviewer_intent": "Tests self-awareness and growth mindset",
+    "failure_signals": [
+      "Fake weakness",
+      "Fatal flaw for role",
+      "No improvement effort",
+      "Defensive tone"
+    ],
+    "weight": 1.3,
+    "follow_ups": [
+      "Give a specific example",
+      "How are you improving?",
+      "How does it affect your team?",
+      "What systems have you built?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  }
 ]

@@ -1,7 +1,6 @@
 [
   {
     "id": "cabin_crew_001",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,27 @@
       "understanding": "Do they know what the job entails?",
       "passion": "Do they show enthusiasm for service?",
       "awareness": "Are they realistic about challenges?",
-      "missed_opportunities": ["Only wants free travel", "Glamour-focused", "No service mindset", "Unrealistic expectations"]
+      "missed_opportunities": [
+        "Only wants free travel",
+        "Glamour-focused",
+        "No service mindset",
+        "Unrealistic expectations"
+      ]
     },
-    "follow_ups": ["What aspects of the role excite you most?", "How have you prepared for this career?", "What do you know about our airline?"]
+    "follow_ups": [
+      "What aspects of the role excite you most?",
+      "How have you prepared for this career?",
+      "What do you know about our airline?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_002",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "customer_service",
@@ -39,17 +52,34 @@
       "Creates memorable experiences"
     ],
     "evaluation_rubric": {
-      "depth": "Is understanding deep and comprehensive?",
+      "depth": {
+        "description": "Is understanding deep and comprehensive?",
+        "weight": 0.2
+      },
       "proactivity": "Do they anticipate vs just react?",
       "empathy": "Do they show genuine care?",
       "standards": "Are their standards high?",
-      "missed_opportunities": ["Too basic", "Transactional view", "No empathy", "Can't give examples"]
+      "missed_opportunities": [
+        "Too basic",
+        "Transactional view",
+        "No empathy",
+        "Can't give examples"
+      ]
     },
-    "follow_ups": ["Describe exceptional service you provided.", "How do you handle rude customers?", "What's the difference between good and great service?"]
+    "follow_ups": [
+      "Describe exceptional service you provided.",
+      "How do you handle rude customers?",
+      "What's the difference between good and great service?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_003",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "conflict_resolution",
@@ -67,13 +97,27 @@
       "approach": "Was approach effective?",
       "resolution": "Was customer satisfied?",
       "professionalism": "Did they maintain standards?",
-      "missed_opportunities": ["Lost temper", "Too passive", "No resolution", "Vague details"]
+      "missed_opportunities": [
+        "Lost temper",
+        "Too passive",
+        "No resolution",
+        "Vague details"
+      ]
     },
-    "follow_ups": ["What would you do differently?", "How do you stay calm under pressure?", "What if the customer was abusive?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "How do you stay calm under pressure?",
+      "What if the customer was abusive?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_004",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "resilience",
@@ -91,13 +135,27 @@
       "realism": "Are they realistic about demands?",
       "self_care": "Do they prioritize health?",
       "adaptability": "Can they adjust to irregular schedule?",
-      "missed_opportunities": ["No strategies", "Underestimates challenge", "Ignores health needs", "Too idealistic"]
+      "missed_opportunities": [
+        "No strategies",
+        "Underestimates challenge",
+        "Ignores health needs",
+        "Too idealistic"
+      ]
     },
-    "follow_ups": ["How do you maintain energy during long flights?", "Describe your self-care routine.", "How do you balance personal life?"]
+    "follow_ups": [
+      "How do you maintain energy during long flights?",
+      "Describe your self-care routine.",
+      "How do you balance personal life?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_005",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "knowledge",
@@ -112,16 +170,33 @@
     ],
     "evaluation_rubric": {
       "research": "Did they do homework?",
-      "depth": "How deep is their knowledge?",
+      "depth": {
+        "description": "How deep is their knowledge?",
+        "weight": 0.2
+      },
       "relevance": "Did they research relevant aspects?",
       "interest": "Do they show genuine enthusiasm?",
-      "missed_opportunities": ["No research", "Wrong information", "Only basics", "Confuses with other airlines"]
+      "missed_opportunities": [
+        "No research",
+        "Wrong information",
+        "Only basics",
+        "Confuses with other airlines"
+      ]
     },
-    "follow_ups": ["Why this airline specifically?", "What differentiates us from competitors?", "What concerns do you have about us?"]
+    "follow_ups": [
+      "Why this airline specifically?",
+      "What differentiates us from competitors?",
+      "What concerns do you have about us?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_006",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "cultural_awareness",
@@ -139,13 +214,27 @@
       "respect": "Do they show genuine respect?",
       "adaptability": "Can they adjust approach?",
       "learning": "Do they actively learn?",
-      "missed_opportunities": ["No awareness", "Stereotypes", "One-size-fits-all", "No examples"]
+      "missed_opportunities": [
+        "No awareness",
+        "Stereotypes",
+        "One-size-fits-all",
+        "No examples"
+      ]
     },
-    "follow_ups": ["Describe adapting to a cultural preference.", "How do you learn about cultures?", "What if cultural norms conflict with safety?"]
+    "follow_ups": [
+      "Describe adapting to a cultural preference.",
+      "How do you learn about cultures?",
+      "What if cultural norms conflict with safety?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_007",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "strengths",
@@ -163,13 +252,27 @@
       "evidence": "Are they backed by examples?",
       "authenticity": "Are they genuinely their strengths?",
       "fit": "Do they match role requirements?",
-      "missed_opportunities": ["Generic strengths", "No examples", "Irrelevant skills", "No self-awareness"]
+      "missed_opportunities": [
+        "Generic strengths",
+        "No examples",
+        "Irrelevant skills",
+        "No self-awareness"
+      ]
     },
-    "follow_ups": ["Give an example of using this strength.", "What's your biggest weakness?", "How do you leverage your strengths?"]
+    "follow_ups": [
+      "Give an example of using this strength.",
+      "What's your biggest weakness?",
+      "How do you leverage your strengths?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_008",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "emergency_handling",
@@ -187,13 +290,27 @@
       "composure": "Can they stay calm?",
       "priorities": "Are priorities correct?",
       "teamwork": "Can they work with crew?",
-      "missed_opportunities": ["Panics", "Wrong priorities", "No protocol awareness", "Forgets communication"]
+      "missed_opportunities": [
+        "Panics",
+        "Wrong priorities",
+        "No protocol awareness",
+        "Forgets communication"
+      ]
     },
-    "follow_ups": ["What safety training have you done?", "How do you prepare mentally for emergencies?", "Describe staying calm in crisis."]
+    "follow_ups": [
+      "What safety training have you done?",
+      "How do you prepare mentally for emergencies?",
+      "Describe staying calm in crisis."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_009",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "motivation",
@@ -211,13 +328,27 @@
       "differentiation": "What makes them unique?",
       "confidence": "Are they appropriately confident?",
       "specificity": "Are claims specific?",
-      "missed_opportunities": ["Generic answer", "Can't differentiate self", "Arrogant", "No clear value"]
+      "missed_opportunities": [
+        "Generic answer",
+        "Can't differentiate self",
+        "Arrogant",
+        "No clear value"
+      ]
     },
-    "follow_ups": ["What makes you different from others?", "What concerns should we have?", "Where do you see yourself in 5 years?"]
+    "follow_ups": [
+      "What makes you different from others?",
+      "What concerns should we have?",
+      "Where do you see yourself in 5 years?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_010",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "professionalism",
@@ -235,13 +366,27 @@
       "techniques": "Do they have coping strategies?",
       "awareness": "Do they recognize stress?",
       "consistency": "Can they deliver consistently?",
-      "missed_opportunities": ["No strategies", "Lets stress show", "Passengers second", "No self-awareness"]
+      "missed_opportunities": [
+        "No strategies",
+        "Lets stress show",
+        "Passengers second",
+        "No self-awareness"
+      ]
     },
-    "follow_ups": ["Describe maintaining composure when exhausted.", "How do you recharge?", "What helps you stay professional?"]
+    "follow_ups": [
+      "Describe maintaining composure when exhausted.",
+      "How do you recharge?",
+      "What helps you stay professional?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_011",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "situational_judgment",
@@ -259,13 +404,27 @@
       "politeness": "Do they maintain respect?",
       "protocol": "Do they follow procedures?",
       "escalation": "Do they know when to escalate?",
-      "missed_opportunities": ["Too passive", "Aggressive", "Gives up", "Ignores protocol"]
+      "missed_opportunities": [
+        "Too passive",
+        "Aggressive",
+        "Gives up",
+        "Ignores protocol"
+      ]
     },
-    "follow_ups": ["What if they still refuse?", "How do you balance firmness and courtesy?", "When do you involve senior crew?"]
+    "follow_ups": [
+      "What if they still refuse?",
+      "How do you balance firmness and courtesy?",
+      "When do you involve senior crew?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_012",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "situational_judgment",
@@ -283,13 +442,27 @@
       "approach": "Is approach effective?",
       "de_escalation": "Can they calm the passenger?",
       "safety": "Do they consider safety of all?",
-      "missed_opportunities": ["Gets defensive", "Ignores other passengers", "No de-escalation skills", "Panics"]
+      "missed_opportunities": [
+        "Gets defensive",
+        "Ignores other passengers",
+        "No de-escalation skills",
+        "Panics"
+      ]
     },
-    "follow_ups": ["What if they become physically aggressive?", "How do you protect other passengers?", "How do you recover after such incidents?"]
+    "follow_ups": [
+      "What if they become physically aggressive?",
+      "How do you protect other passengers?",
+      "How do you recover after such incidents?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_013",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "situational_judgment",
@@ -307,13 +480,27 @@
       "proactivity": "Do they offer help?",
       "balance": "Can they balance all passengers?",
       "creativity": "Can they find solutions?",
-      "missed_opportunities": ["Blames parents", "Ignores situation", "Only focuses on complaints", "No empathy"]
+      "missed_opportunities": [
+        "Blames parents",
+        "Ignores situation",
+        "Only focuses on complaints",
+        "No empathy"
+      ]
     },
-    "follow_ups": ["What specific techniques work with children?", "How do you handle complaining passengers?", "What if parents are unresponsive?"]
+    "follow_ups": [
+      "What specific techniques work with children?",
+      "How do you handle complaining passengers?",
+      "What if parents are unresponsive?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "cabin_crew_014",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "situational_judgment",
@@ -331,13 +518,27 @@
       "priorities": "Do passengers come first?",
       "support": "Do they support colleagues?",
       "judgment": "Do they know when to escalate?",
-      "missed_opportunities": ["Takes sides", "Ignores it", "Makes it public", "Lets it affect service"]
+      "missed_opportunities": [
+        "Takes sides",
+        "Ignores it",
+        "Makes it public",
+        "Lets it affect service"
+      ]
     },
-    "follow_ups": ["How do you maintain teamwork under pressure?", "What if the conflict involves you?", "How do you build crew cohesion?"]
+    "follow_ups": [
+      "How do you maintain teamwork under pressure?",
+      "What if the conflict involves you?",
+      "How do you build crew cohesion?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "cabin_crew_015",
-    "phase": "behavioral",
     "role": "Cabin Crew/Air Hostess",
     "level": "any",
     "skill": "situational_judgment",
@@ -355,8 +556,149 @@
       "coordination": "Do they coordinate with crew?",
       "composure": "Do they stay calm?",
       "passenger_care": "Do they care for the passenger?",
-      "missed_opportunities": ["No protocol knowledge", "Panics", "Doesn't inform captain", "Poor coordination"]
+      "missed_opportunities": [
+        "No protocol knowledge",
+        "Panics",
+        "Doesn't inform captain",
+        "Poor coordination"
+      ]
     },
-    "follow_ups": ["What training have you had for medical emergencies?", "How do you stay calm?", "What if there's no doctor onboard?"]
+    "follow_ups": [
+      "What training have you had for medical emergencies?",
+      "How do you stay calm?",
+      "What if there's no doctor onboard?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "cabin_crew_016",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "advanced",
+    "skill": "crisis_management",
+    "difficulty": 4,
+    "question": "The aircraft encounters severe turbulence and passengers panic. What do you do?",
+    "ideal_points": [
+      "Remains calm",
+      "Provides clear instructions",
+      "Reassures passengers",
+      "Follows safety protocols",
+      "Maintains authority and composure"
+    ],
+    "evaluation_rubric": {
+      "composure": "Do they stay calm?",
+      "leadership": {
+        "description": "Do they take charge?",
+        "weight": 0.25
+      },
+      "communication": {
+        "description": "Are instructions clear?",
+        "weight": 0.2
+      },
+      "safety": "Do they follow protocols?",
+      "missed_opportunities": [
+        "Shows panic",
+        "No clear instructions",
+        "Ignores protocols",
+        "Loses authority"
+      ]
+    },
+    "follow_ups": [
+      "How do you manage your own fear?",
+      "What if passengers don't follow instructions?",
+      "How do you coordinate with other crew members?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "cabin_crew_017",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "advanced",
+    "skill": "leadership",
+    "difficulty": 4,
+    "question": "Your senior crew member makes a mistake affecting passenger safety. How do you respond?",
+    "ideal_points": [
+      "Prioritizes passenger safety",
+      "Acts professionally",
+      "Communicates respectfully",
+      "Reports appropriately",
+      "Maintains professionalism"
+    ],
+    "evaluation_rubric": {
+      "safety_first": "Do they prioritize safety?",
+      "professionalism": "Do they act professionally?",
+      "communication": {
+        "description": "Do they communicate respectfully?",
+        "weight": 0.2
+      },
+      "courage": "Do they speak up despite hierarchy?",
+      "missed_opportunities": [
+        "Ignores safety issue",
+        "Confronts publicly",
+        "Doesn't report",
+        "Acts disrespectfully"
+      ]
+    },
+    "follow_ups": [
+      "How do you balance respect and safety?",
+      "What if they dismiss your concern?",
+      "How do you report without creating conflict?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "cabin_crew_018",
+    "role": "Cabin Crew/Air Hostess",
+    "level": "advanced",
+    "skill": "decision_making",
+    "difficulty": 4,
+    "question": "You suspect a passenger is hiding a medical condition. What do you do?",
+    "ideal_points": [
+      "Observes carefully",
+      "Approaches professionally",
+      "Follows protocol",
+      "Ensures safety",
+      "Escalates if necessary"
+    ],
+    "evaluation_rubric": {
+      "observation": "Do they observe carefully?",
+      "professionalism": "Do they approach tactfully?",
+      "protocol": "Do they follow procedures?",
+      "escalation": "Do they escalate appropriately?",
+      "missed_opportunities": [
+        "Ignores signs",
+        "Confronts aggressively",
+        "No protocol",
+        "Doesn't escalate"
+      ]
+    },
+    "follow_ups": [
+      "How do you approach without offending?",
+      "What if they deny it?",
+      "When would you inform the captain?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

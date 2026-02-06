@@ -1,7 +1,6 @@
 [
   {
     "id": "police_defense_001",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,27 @@
       "understanding": "Do they understand what service means?",
       "values": "Are their values aligned with the role?",
       "awareness": "Do they know the challenges?",
-      "missed_opportunities": ["Generic answers", "Only mentions salary", "No personal connection", "Unrealistic expectations"]
+      "missed_opportunities": [
+        "Generic answers",
+        "Only mentions salary",
+        "No personal connection",
+        "Unrealistic expectations"
+      ]
     },
-    "follow_ups": ["What does service mean to you personally?", "Are you prepared for the sacrifices?", "How will you handle being away from family?"]
+    "follow_ups": [
+      "What does service mean to you personally?",
+      "Are you prepared for the sacrifices?",
+      "How will you handle being away from family?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_002",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "discipline",
@@ -43,13 +56,27 @@
       "consistency": "Do they show sustained discipline?",
       "self_awareness": "Do they recognize their strengths/weaknesses?",
       "application": "Can they apply discipline to this role?",
-      "missed_opportunities": ["Vague claims", "No examples", "Only talks about gym", "Can't explain process"]
+      "missed_opportunities": [
+        "Vague claims",
+        "No examples",
+        "Only talks about gym",
+        "Can't explain process"
+      ]
     },
-    "follow_ups": ["What happens when you break your routine?", "How do you maintain discipline during stress?", "Give an example of overcoming temptation."]
+    "follow_ups": [
+      "What happens when you break your routine?",
+      "How do you maintain discipline during stress?",
+      "Give an example of overcoming temptation."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_003",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "authority",
@@ -67,13 +94,27 @@
       "understanding": "Do they grasp why hierarchy matters?",
       "balance": "Can they think while following orders?",
       "maturity": "Is their view nuanced and mature?",
-      "missed_opportunities": ["Blind obedience", "Rebellious attitude", "No understanding of hierarchy", "Can't explain limits"]
+      "missed_opportunities": [
+        "Blind obedience",
+        "Rebellious attitude",
+        "No understanding of hierarchy",
+        "Can't explain limits"
+      ]
     },
-    "follow_ups": ["What if you disagree with a superior?", "How do you handle unjust orders?", "Describe respecting someone you dislike."]
+    "follow_ups": [
+      "What if you disagree with a superior?",
+      "How do you handle unjust orders?",
+      "Describe respecting someone you dislike."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_004",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "values",
@@ -87,17 +128,34 @@
       "Links values to service profession"
     ],
     "evaluation_rubric": {
-      "clarity": "Are values clearly defined?",
+      "clarity": {
+        "description": "Are values clearly defined?",
+        "weight": 0.15
+      },
       "alignment": "Do values match the profession?",
       "authenticity": "Are these truly their values?",
       "application": "Can they apply values to scenarios?",
-      "missed_opportunities": ["Generic values", "No personal examples", "Values conflict with role", "Can't explain why"]
+      "missed_opportunities": [
+        "Generic values",
+        "No personal examples",
+        "Values conflict with role",
+        "Can't explain why"
+      ]
     },
-    "follow_ups": ["Describe a time you stood by your values.", "What if values conflict with orders?", "How do values help in tough situations?"]
+    "follow_ups": [
+      "Describe a time you stood by your values.",
+      "What if values conflict with orders?",
+      "How do values help in tough situations?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_005",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "stress_management",
@@ -114,14 +172,31 @@
       "techniques": "Do they have actual coping mechanisms?",
       "effectiveness": "Do their methods work?",
       "self_awareness": "Can they recognize their stress?",
-      "performance": "Can they still function under pressure?",
-      "missed_opportunities": ["No real techniques", "Denies stress exists", "Unhealthy coping", "Never faced pressure"]
+      "performance": {
+        "description": "Can they still function under pressure?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "No real techniques",
+        "Denies stress exists",
+        "Unhealthy coping",
+        "Never faced pressure"
+      ]
     },
-    "follow_ups": ["Describe your most stressful experience.", "How do you prepare for stressful situations?", "What helps you stay calm?"]
+    "follow_ups": [
+      "Describe your most stressful experience.",
+      "How do you prepare for stressful situations?",
+      "What helps you stay calm?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_006",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "integrity",
@@ -139,13 +214,27 @@
       "cost": "Was there a personal sacrifice?",
       "conviction": "Did they stand firm?",
       "reflection": "Do they understand why integrity matters?",
-      "missed_opportunities": ["Easy situation", "No real conflict", "Vague story", "Compromised values"]
+      "missed_opportunities": [
+        "Easy situation",
+        "No real conflict",
+        "Vague story",
+        "Compromised values"
+      ]
     },
-    "follow_ups": ["What made that decision difficult?", "Would you do it again?", "How do you define integrity?"]
+    "follow_ups": [
+      "What made that decision difficult?",
+      "Would you do it again?",
+      "How do you define integrity?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_007",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "motivation",
@@ -163,13 +252,27 @@
       "fit": "Is there genuine alignment?",
       "specificity": "Can they explain what makes it unique?",
       "commitment": "Are they serious about this choice?",
-      "missed_opportunities": ["Generic answer", "Applies to any branch", "No research done", "Wrong information"]
+      "missed_opportunities": [
+        "Generic answer",
+        "Applies to any branch",
+        "No research done",
+        "Wrong information"
+      ]
     },
-    "follow_ups": ["What specific roles interest you?", "How did you prepare for this?", "What's unique about this force?"]
+    "follow_ups": [
+      "What specific roles interest you?",
+      "How did you prepare for this?",
+      "What's unique about this force?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_008",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "resilience",
@@ -183,17 +286,34 @@
       "Growth mindset evident"
     ],
     "evaluation_rubric": {
-      "ownership": "Do they take responsibility?",
+      "ownership": {
+        "description": "Do they take responsibility?",
+        "weight": 0.2
+      },
       "learning": "Did they learn from failure?",
       "resilience": "Did they bounce back?",
       "growth": "Are they better for it?",
-      "missed_opportunities": ["Blames others", "No real failure", "Gave up", "No learning"]
+      "missed_opportunities": [
+        "Blames others",
+        "No real failure",
+        "Gave up",
+        "No learning"
+      ]
     },
-    "follow_ups": ["What did you learn?", "How did you recover?", "How has this prepared you for service?"]
+    "follow_ups": [
+      "What did you learn?",
+      "How did you recover?",
+      "How has this prepared you for service?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_009",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "teamwork",
@@ -207,17 +327,34 @@
       "Puts team before self"
     ],
     "evaluation_rubric": {
-      "collaboration": "Can they work effectively with others?",
+      "collaboration": {
+        "description": "Can they work effectively with others?",
+        "weight": 0.15
+      },
       "flexibility": "Can they adapt to different team members?",
       "selflessness": "Do they prioritize team over self?",
       "contribution": "What value do they add to teams?",
-      "missed_opportunities": ["Always a lone wolf", "Takes all credit", "Can't work with others", "No examples"]
+      "missed_opportunities": [
+        "Always a lone wolf",
+        "Takes all credit",
+        "Can't work with others",
+        "No examples"
+      ]
     },
-    "follow_ups": ["How do you handle difficult team members?", "Describe a time you sacrificed for the team.", "What makes a good team player?"]
+    "follow_ups": [
+      "How do you handle difficult team members?",
+      "Describe a time you sacrificed for the team.",
+      "What makes a good team player?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_010",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "mental_resilience",
@@ -235,13 +372,27 @@
       "preparation": "Are they mentally prepared?",
       "mechanisms": "Do they have healthy coping strategies?",
       "balance": "Can they process emotions appropriately?",
-      "missed_opportunities": ["Denies emotions", "No coping strategies", "Unhealthy approach", "Naive about challenges"]
+      "missed_opportunities": [
+        "Denies emotions",
+        "No coping strategies",
+        "Unhealthy approach",
+        "Naive about challenges"
+      ]
     },
-    "follow_ups": ["How do you process traumatic events?", "What support systems do you have?", "How do you maintain work-life balance?"]
+    "follow_ups": [
+      "How do you process traumatic events?",
+      "What support systems do you have?",
+      "How do you maintain work-life balance?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_011",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "situational_judgment",
@@ -259,13 +410,27 @@
       "process": "Do they follow proper procedures?",
       "courage": "Will they stand up if needed?",
       "understanding": "Do they know their rights/duties?",
-      "missed_opportunities": ["Blind obedience", "Immediate rebellion", "No understanding of process", "Can't identify unethical"]
+      "missed_opportunities": [
+        "Blind obedience",
+        "Immediate rebellion",
+        "No understanding of process",
+        "Can't identify unethical"
+      ]
     },
-    "follow_ups": ["What makes an order unlawful?", "How do you report concerns?", "What if your career is at risk?"]
+    "follow_ups": [
+      "What makes an order unlawful?",
+      "How do you report concerns?",
+      "What if your career is at risk?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_012",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "situational_judgment",
@@ -280,16 +445,33 @@
     ],
     "evaluation_rubric": {
       "composure": "Can they stay calm?",
-      "communication": "Can they de-escalate?",
+      "communication": {
+        "description": "Can they de-escalate?",
+        "weight": 0.2
+      },
       "balance": "Can they be firm yet respectful?",
       "judgment": "Do they prioritize correctly?",
-      "missed_opportunities": ["Gets aggressive", "Too passive", "Ignores protocol", "No empathy"]
+      "missed_opportunities": [
+        "Gets aggressive",
+        "Too passive",
+        "Ignores protocol",
+        "No empathy"
+      ]
     },
-    "follow_ups": ["How do you de-escalate tensions?", "What if they physically resist?", "How do you protect your team?"]
+    "follow_ups": [
+      "How do you de-escalate tensions?",
+      "What if they physically resist?",
+      "How do you protect your team?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_013",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "situational_judgment",
@@ -307,13 +489,27 @@
       "priorities": "Are priorities correct?",
       "speed": "Can they decide quickly?",
       "accountability": "Will they own the decision?",
-      "missed_opportunities": ["Freezes up", "Ignores training", "No clear priorities", "Avoids responsibility"]
+      "missed_opportunities": [
+        "Freezes up",
+        "Ignores training",
+        "No clear priorities",
+        "Avoids responsibility"
+      ]
     },
-    "follow_ups": ["How do you handle decision regret?", "What if you make the wrong call?", "How do you train for this?"]
+    "follow_ups": [
+      "How do you handle decision regret?",
+      "What if you make the wrong call?",
+      "How do you train for this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "police_defense_014",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "situational_judgment",
@@ -331,13 +527,27 @@
       "support": "Do they support without covering up?",
       "accountability": "Is there appropriate accountability?",
       "learning": "Is it treated as learning opportunity?",
-      "missed_opportunities": ["Covers up mistake", "Throws teammate under bus", "Ignores procedures", "No empathy"]
+      "missed_opportunities": [
+        "Covers up mistake",
+        "Throws teammate under bus",
+        "Ignores procedures",
+        "No empathy"
+      ]
     },
-    "follow_ups": ["What if the mistake cost lives?", "How do you rebuild trust?", "What's your responsibility as team member?"]
+    "follow_ups": [
+      "What if the mistake cost lives?",
+      "How do you rebuild trust?",
+      "What's your responsibility as team member?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "police_defense_015",
-    "phase": "behavioral",
     "role": "Police/Defense/Armed Forces",
     "level": "any",
     "skill": "situational_judgment",
@@ -355,8 +565,23 @@
       "control": "Can they maintain composure on duty?",
       "health": "Do they have healthy processing methods?",
       "effectiveness": "Can they still perform?",
-      "missed_opportunities": ["Denies emotions", "Can't separate duty from feelings", "No support system", "Unhealthy coping"]
+      "missed_opportunities": [
+        "Denies emotions",
+        "Can't separate duty from feelings",
+        "No support system",
+        "Unhealthy coping"
+      ]
     },
-    "follow_ups": ["How do you process trauma?", "When do you ask for help?", "How do you stay mission-ready?"]
+    "follow_ups": [
+      "How do you process trauma?",
+      "When do you ask for help?",
+      "How do you stay mission-ready?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

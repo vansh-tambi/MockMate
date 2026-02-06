@@ -1,7 +1,7 @@
 [
   {
     "id": "be_adv_001",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "database",
@@ -13,11 +13,17 @@
       "Composite index ordering",
       "Index overhead on writes",
       "When to avoid indexes"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "be_adv_002",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "scaling",
@@ -29,11 +35,17 @@
       "Caching layers (Redis)",
       "Load balancing strategies",
       "Microservices architecture"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "be_adv_003",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "caching",
@@ -45,11 +57,17 @@
       "Cache invalidation strategies",
       "TTL and eviction policies",
       "Distributed caching challenges"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "be_adv_004",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "api",
@@ -61,11 +79,17 @@
       "Maintaining multiple versions",
       "Breaking vs non-breaking changes",
       "Documentation and communication"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "be_adv_005",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "database",
@@ -77,11 +101,17 @@
       "Eventual consistency",
       "Distributed transactions (2PC)",
       "BASE vs ACID"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "be_adv_006",
-    "phase": "technical_backend",
+    "stage": "resume_technical",
     "role": "backend",
     "level": "senior",
     "skill": "performance",
@@ -93,6 +123,164 @@
       "Query rewriting techniques",
       "N+1 query problem",
       "Connection pooling"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "be_adv_007",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "distributed_systems",
+    "difficulty": 5,
+    "question": "Explain CAP theorem with real-world examples.",
+    "ideal_points": [
+      "Consistency, Availability, Partition tolerance",
+      "Trade-offs explained clearly",
+      "Example: Cassandra, MongoDB",
+      "Partition tolerance unavoidable",
+      "Real-world applications"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Grasps fundamental trade-offs",
+      "examples": "Provides concrete real-world examples",
+      "depth": {
+        "description": "Explains why partition tolerance is unavoidable",
+        "weight": 0.2
+      },
+      "application": "Can identify which systems prioritize what"
+    },
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "be_adv_008",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "system_design",
+    "difficulty": 5,
+    "question": "Design a URL shortener like bit.ly.",
+    "ideal_points": [
+      "Unique ID generation",
+      "Database schema design",
+      "Caching layer",
+      "Load balancing",
+      "Scalability considerations"
+    ],
+    "evaluation_rubric": {
+      "completeness": {
+        "description": "Covers all major components",
+        "weight": 0.15
+      },
+      "scalability": {
+        "description": "Addresses scaling concerns",
+        "weight": 0.15
+      },
+      "trade_offs": "Discusses design trade-offs",
+      "details": "Provides implementation details"
+    },
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "be_adv_009",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "question": "Explain race conditions and how to prevent them.",
+    "ideal_points": [
+      "Definition of race condition",
+      "Examples in multi-threaded systems",
+      "Locks and mutex",
+      "Atomic operations",
+      "Thread safety"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Explains concept clearly",
+        "weight": 0.15
+      },
+      "examples": "Provides practical examples",
+      "solutions": "Knows multiple prevention techniques",
+      "trade_offs": "Understands performance implications"
+    },
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "be_adv_010",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "debugging",
+    "difficulty": 5,
+    "question": "Your API suddenly becomes slow in production. How do you debug it?",
+    "ideal_points": [
+      "Check logs",
+      "Check database queries",
+      "Check CPU and memory",
+      "Check network latency",
+      "Identify bottleneck systematically"
+    ],
+    "evaluation_rubric": {
+      "methodology": "Has systematic debugging approach",
+      "tools": "Knows appropriate debugging tools",
+      "prioritization": "Checks most likely issues first",
+      "experience": "Shows production debugging experience"
+    },
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "be_adv_011",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "microservices",
+    "difficulty": 5,
+    "question": "Explain microservices architecture. When should you NOT use it?",
+    "ideal_points": [
+      "Service separation",
+      "Independent deployment",
+      "Communication overhead",
+      "Complexity trade-offs",
+      "When monolith is better"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Understands microservices fundamentals",
+      "trade_offs": "Recognizes when NOT to use microservices",
+      "maturity": "Shows architectural maturity",
+      "pragmatism": "Balances theory with practical considerations"
+    },
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
   }
 ]

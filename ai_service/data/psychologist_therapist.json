@@ -1,7 +1,6 @@
 [
   {
     "id": "psychologist_therapist_001",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,27 @@
       "understanding": "Do they grasp the profession's nature?",
       "empathy": "Do they show compassion?",
       "self_awareness": "Are they aware of emotional demands?",
-      "missed_opportunities": ["Savior complex", "Too clinical/detached", "No empathy shown", "Unrealistic expectations"]
+      "missed_opportunities": [
+        "Savior complex",
+        "Too clinical/detached",
+        "No empathy shown",
+        "Unrealistic expectations"
+      ]
     },
-    "follow_ups": ["What personal qualities make you suited for this?", "How do you plan to maintain boundaries?", "What area of psychology interests you most?"]
+    "follow_ups": [
+      "What personal qualities make you suited for this?",
+      "How do you plan to maintain boundaries?",
+      "What area of psychology interests you most?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "psychologist_therapist_002",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "professional_qualities",
@@ -39,17 +52,34 @@
       "Continuous learning mindset"
     ],
     "evaluation_rubric": {
-      "depth": "Is understanding comprehensive?",
+      "depth": {
+        "description": "Is understanding comprehensive?",
+        "weight": 0.2
+      },
       "balance": "Do they balance empathy with boundaries?",
       "self_awareness": "Are they aware of their own biases?",
       "professionalism": "Do they understand ethical standards?",
-      "missed_opportunities": ["Only lists generic traits", "No mention of boundaries", "Lacks self-awareness", "Too detached"]
+      "missed_opportunities": [
+        "Only lists generic traits",
+        "No mention of boundaries",
+        "Lacks self-awareness",
+        "Too detached"
+      ]
     },
-    "follow_ups": ["How do you develop these qualities?", "Which quality do you need to improve?", "How do you maintain objectivity?"]
+    "follow_ups": [
+      "How do you develop these qualities?",
+      "Which quality do you need to improve?",
+      "How do you maintain objectivity?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "psychologist_therapist_003",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "client_relationship",
@@ -67,13 +97,27 @@
       "empathy": "Do they prioritize client comfort?",
       "boundaries": "Do they maintain professionalism?",
       "patience": "Do they understand trust takes time?",
-      "missed_opportunities": ["Rushing the process", "No mention of confidentiality", "Lacks empathy", "Too clinical"]
+      "missed_opportunities": [
+        "Rushing the process",
+        "No mention of confidentiality",
+        "Lacks empathy",
+        "Too clinical"
+      ]
     },
-    "follow_ups": ["What if a client is resistant?", "How long does trust-building take?", "How do you handle trust violations?"]
+    "follow_ups": [
+      "What if a client is resistant?",
+      "How long does trust-building take?",
+      "How do you handle trust violations?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_004",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "professional_boundaries",
@@ -87,17 +131,34 @@
       "Self-awareness about countertransference"
     ],
     "evaluation_rubric": {
-      "clarity": "Are boundaries clearly defined?",
+      "clarity": {
+        "description": "Are boundaries clearly defined?",
+        "weight": 0.15
+      },
       "firmness": "Can they maintain boundaries?",
       "ethics": "Do they understand ethical implications?",
       "self_awareness": "Are they aware of emotional entanglement risks?",
-      "missed_opportunities": ["Vague boundaries", "No mention of ethics", "Too rigid or too loose", "Lacks self-awareness"]
+      "missed_opportunities": [
+        "Vague boundaries",
+        "No mention of ethics",
+        "Too rigid or too loose",
+        "Lacks self-awareness"
+      ]
     },
-    "follow_ups": ["What if a client crosses boundaries?", "How do you handle attachment?", "Have you ever struggled with this?"]
+    "follow_ups": [
+      "What if a client crosses boundaries?",
+      "How do you handle attachment?",
+      "Have you ever struggled with this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_005",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "emotional_management",
@@ -115,13 +176,27 @@
       "strategies": "Do they have concrete coping mechanisms?",
       "awareness": "Are they aware of burnout risks?",
       "support": "Do they seek professional support?",
-      "missed_opportunities": ["No self-care plan", "Ignores emotional impact", "No support system", "Martyrdom mentality"]
+      "missed_opportunities": [
+        "No self-care plan",
+        "Ignores emotional impact",
+        "No support system",
+        "Martyrdom mentality"
+      ]
     },
-    "follow_ups": ["What specific self-care practices do you use?", "How do you prevent burnout?", "When do you seek supervision?"]
+    "follow_ups": [
+      "What specific self-care practices do you use?",
+      "How do you prevent burnout?",
+      "When do you seek supervision?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_006",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "ethics",
@@ -139,13 +214,27 @@
       "limits": "Are they aware of legal exceptions?",
       "importance": "Do they grasp its significance?",
       "practice": "Do they have practical safeguards?",
-      "missed_opportunities": ["Vague understanding", "Unaware of exceptions", "No mention of records", "Takes it lightly"]
+      "missed_opportunities": [
+        "Vague understanding",
+        "Unaware of exceptions",
+        "No mention of records",
+        "Takes it lightly"
+      ]
     },
-    "follow_ups": ["When would you break confidentiality?", "How do you secure records?", "What if family members ask about sessions?"]
+    "follow_ups": [
+      "When would you break confidentiality?",
+      "How do you secure records?",
+      "What if family members ask about sessions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "psychologist_therapist_007",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "ethical_reasoning",
@@ -163,13 +252,27 @@
       "process": "Did they follow proper procedures?",
       "judgment": "Was their decision sound?",
       "learning": "Did they reflect and grow?",
-      "missed_opportunities": ["No real dilemma given", "Acted alone", "Poor judgment", "No consultation sought"]
+      "missed_opportunities": [
+        "No real dilemma given",
+        "Acted alone",
+        "Poor judgment",
+        "No consultation sought"
+      ]
     },
-    "follow_ups": ["What would you do differently?", "Who did you consult?", "How did it change your practice?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "Who did you consult?",
+      "How did it change your practice?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_008",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "fit",
@@ -187,13 +290,27 @@
       "evidence": "Can they back up their claims?",
       "uniqueness": "What makes them stand out?",
       "alignment": "Do they fit the role?",
-      "missed_opportunities": ["Too generic", "Arrogant", "No evidence", "Doesn't understand role needs"]
+      "missed_opportunities": [
+        "Too generic",
+        "Arrogant",
+        "No evidence",
+        "Doesn't understand role needs"
+      ]
     },
-    "follow_ups": ["What's your therapeutic approach?", "What client populations have you worked with?", "What's your success rate?"]
+    "follow_ups": [
+      "What's your therapeutic approach?",
+      "What client populations have you worked with?",
+      "What's your success rate?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "psychologist_therapist_009",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "professional_development",
@@ -211,13 +328,27 @@
       "methods": "Do they have concrete strategies?",
       "currency": "Are they aware of recent developments?",
       "integration": "Do they apply new knowledge?",
-      "missed_opportunities": ["No learning plan", "Relies on outdated knowledge", "Not engaged professionally", "No examples"]
+      "missed_opportunities": [
+        "No learning plan",
+        "Relies on outdated knowledge",
+        "Not engaged professionally",
+        "No examples"
+      ]
     },
-    "follow_ups": ["What recent development interests you?", "How often do you attend training?", "What's your learning goal this year?"]
+    "follow_ups": [
+      "What recent development interests you?",
+      "How often do you attend training?",
+      "What's your learning goal this year?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "psychologist_therapist_010",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "outcome_measurement",
@@ -235,13 +366,27 @@
       "measurement": "Do they use objective measures?",
       "holistic": "Do they consider overall well-being?",
       "flexibility": "Do they adapt to different clients?",
-      "missed_opportunities": ["Vague criteria", "Only symptom-focused", "No client input", "No measurement tools"]
+      "missed_opportunities": [
+        "Vague criteria",
+        "Only symptom-focused",
+        "No client input",
+        "No measurement tools"
+      ]
     },
-    "follow_ups": ["What tools do you use to track progress?", "How do you handle plateaus?", "What if client and therapist disagree on progress?"]
+    "follow_ups": [
+      "What tools do you use to track progress?",
+      "How do you handle plateaus?",
+      "What if client and therapist disagree on progress?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_011",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "situational_judgment",
@@ -259,13 +404,27 @@
       "flexibility": "Are they willing to adapt?",
       "exploration": "Do they dig deeper into resistance?",
       "professionalism": "Do they handle it maturely?",
-      "missed_opportunities": ["Blames client", "Gives up quickly", "Forces interventions", "Takes it personally"]
+      "missed_opportunities": [
+        "Blames client",
+        "Gives up quickly",
+        "Forces interventions",
+        "Takes it personally"
+      ]
     },
-    "follow_ups": ["When would you consider a referral?", "How do you manage your frustration?", "What if resistance continues?"]
+    "follow_ups": [
+      "When would you consider a referral?",
+      "How do you manage your frustration?",
+      "What if resistance continues?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_012",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "crisis_management",
@@ -283,13 +442,27 @@
       "protocol": "Do they know proper procedures?",
       "balance": "Do they balance safety and empowerment?",
       "calmness": "Can they stay calm under pressure?",
-      "missed_opportunities": ["Panic or avoidance", "No risk assessment", "Breaks confidentiality unnecessarily", "Inadequate follow-up"]
+      "missed_opportunities": [
+        "Panic or avoidance",
+        "No risk assessment",
+        "Breaks confidentiality unnecessarily",
+        "Inadequate follow-up"
+      ]
     },
-    "follow_ups": ["How do you assess suicide risk?", "When do you break confidentiality?", "What follow-up do you provide?"]
+    "follow_ups": [
+      "How do you assess suicide risk?",
+      "When do you break confidentiality?",
+      "What follow-up do you provide?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_013",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "boundary_management",
@@ -307,13 +480,27 @@
       "approach": "Is their approach therapeutic?",
       "empowerment": "Do they foster independence?",
       "boundaries": "Do they maintain professional limits?",
-      "missed_opportunities": ["Enables dependency", "Too abrupt/harsh", "Ignores the issue", "Takes it personally"]
+      "missed_opportunities": [
+        "Enables dependency",
+        "Too abrupt/harsh",
+        "Ignores the issue",
+        "Takes it personally"
+      ]
     },
-    "follow_ups": ["How do you prevent this from developing?", "What role does transference play?", "When would you refer out?"]
+    "follow_ups": [
+      "How do you prevent this from developing?",
+      "What role does transference play?",
+      "When would you refer out?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_014",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "self_care",
@@ -331,13 +518,27 @@
       "action": "Do they take concrete steps?",
       "prevention": "Do they have prevention strategies?",
       "help_seeking": "Are they willing to get support?",
-      "missed_opportunities": ["Push through without help", "Ignores warning signs", "No self-care plan", "Martyrdom attitude"]
+      "missed_opportunities": [
+        "Push through without help",
+        "Ignores warning signs",
+        "No self-care plan",
+        "Martyrdom attitude"
+      ]
     },
-    "follow_ups": ["What are early signs of burnout for you?", "Who do you turn to for support?", "How do you prevent it?"]
+    "follow_ups": [
+      "What are early signs of burnout for you?",
+      "Who do you turn to for support?",
+      "How do you prevent it?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "psychologist_therapist_015",
-    "phase": "behavioral",
     "role": "Psychologist/Therapist",
     "level": "any",
     "skill": "values_conflict",
@@ -355,8 +556,23 @@
       "professionalism": "Can they separate personal values?",
       "ethics": "Do they prioritize client welfare?",
       "honesty": "Are they honest about limitations?",
-      "missed_opportunities": ["Judges client", "Imposes values", "Denies bias", "Continues when compromised"]
+      "missed_opportunities": [
+        "Judges client",
+        "Imposes values",
+        "Denies bias",
+        "Continues when compromised"
+      ]
     },
-    "follow_ups": ["How do you manage countertransference?", "When would you refer?", "How do you ensure objectivity?"]
+    "follow_ups": [
+      "How do you manage countertransference?",
+      "When would you refer?",
+      "How do you ensure objectivity?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// 🎯 STEP 2: Score band semantics (locked)
+// Score band semantics
 const getScoreBand = (score) => {
   if (score <= 30) return { 
     label: "❌ INCORRECT", 
@@ -41,9 +40,9 @@ const getScoreBand = (score) => {
   };
 };
 
-const TestMode = ({ userData, qaPairs, setQaPairs }) => {
+const TestMode = ({ userData, sessionState, setSessionState }) => {
   const API_BASE = import.meta.env.VITE_API_BASE || '';
-  const [currentQIndex, setCurrentQIndex] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
   const [transcript, setTranscript] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const [feedback, setFeedback] = useState(null);
@@ -57,118 +56,242 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
   const pendingSubmitRef = useRef(false);
   const currentQuestionRef = useRef('');
 
-  // Extract questions from qaPairs
-  const questions = useMemo(() => qaPairs?.map(q => q.question) || [], [qaPairs]);
+  const TOTAL_INTERVIEW_QUESTIONS = 22;
 
-  const fetchQuestions = useCallback(async () => {
+  // Fetch question from staged progression system (same as GuidedMode)
+  const fetchCurrentQuestion = useCallback(async () => {
     setLoading(true);
     setError(null);
-    setCurrentQIndex(0);
     setTranscript('');
     transcriptRef.current = '';
     setFeedback(null);
+    
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 45000);
+      
+      const askedQuestions = sessionState.askedQuestions || [];
+      
+      console.log('📤 Fetching question', sessionState.questionIndex, 'of', TOTAL_INTERVIEW_QUESTIONS);
+      
       const res = await fetch(`${API_BASE}/api/generate-qa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...userData, questionCount: qaPairs.length }),
+        body: JSON.stringify({
+          resumeText: userData?.resumeText?.slice(0, 3000) || '',
+          jobDescription: userData?.jobDescription || '',
+          questionIndex: sessionState.questionIndex,
+          askedQuestions: askedQuestions
+        }),
         signal: controller.signal
       });
+      
       clearTimeout(timer);
-      const data = await res.json();
-      if (data.qaPairs && data.qaPairs.length > 0) {
-        setQaPairs(data.qaPairs);
-        setError(null);
-      } else {
-        setError('Failed to generate questions');
+      
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+        throw new Error(`Server error: ${res.status} - ${errorData.error || 'Unknown error'}`);
       }
+      
+      const data = await res.json();
+      
+      if (!data.success || !data.question) {
+        throw new Error('Invalid response format from server');
+      }
+      
+      console.log('✅ Question received:', data.question.stage, '- Q' + (data.question.index + 1));
+      
+      setCurrentQuestion(data);
+      currentQuestionRef.current = data.question.text;
+      
+      setSessionState(prev => {
+        const prevSequence = prev.questionSequence || [];
+        const alreadyCached = prevSequence.find(q => q.index === data.question.index);
+        const nextSequence = alreadyCached
+          ? prevSequence
+          : [...prevSequence, {
+              index: data.question.index,
+              text: data.question.text,
+              stage: data.stage,
+              stageProgress: data.stageProgress
+            }];
+
+        const nextAsked = prev.askedQuestions || [];
+        const updatedAsked = nextAsked.includes(data.question.text)
+          ? nextAsked
+          : [...nextAsked, data.question.text];
+
+        return {
+          ...prev,
+          currentStage: data.stage,
+          stageProgress: data.stageProgress,
+          askedQuestions: updatedAsked,
+          questionSequence: nextSequence,
+          currentQuestionCache: data
+        };
+      });
+      setError(null);
+      
     } catch (err) {
-      console.error(err);
+      console.error('❌ Error fetching question:', err);
       const isAbort = err?.name === 'AbortError';
-      setError(isAbort ? 'Request timed out. Please try again.' : 'Network error. Please check your connection.');
+      setError(isAbort ? 'Request timed out. Please try again.' : err.message);
+      setCurrentQuestion(null);
     } finally {
       setLoading(false);
     }
-  }, [userData, setQaPairs, API_BASE]);
+  }, [API_BASE, userData, sessionState.questionIndex, sessionState.askedQuestions]);
 
+  // Fetch question when component mounts or when questionIndex changes
   useEffect(() => {
-    // Only fetch if questions are not already loaded
-    if (qaPairs.length === 0) {
-      fetchQuestions();
+    const cachedCurrent = sessionState.currentQuestionCache;
+    if (cachedCurrent && cachedCurrent.question && cachedCurrent.question.index === sessionState.questionIndex) {
+      setCurrentQuestion(cachedCurrent);
+      currentQuestionRef.current = cachedCurrent.question.text;
+      setLoading(false);
+      setError(null);
+      return;
     }
-  }, [qaPairs.length, fetchQuestions, API_BASE]);
 
-  // Keep a ref to the current question for evaluation callbacks
-  useEffect(() => {
-    currentQuestionRef.current = questions[currentQIndex] || '';
-  }, [questions, currentQIndex]);
+    const cached = (sessionState.questionSequence || []).find(
+      q => q.index === sessionState.questionIndex
+    );
 
+    if (cached) {
+      setCurrentQuestion({
+        success: true,
+        stage: cached.stage,
+        stageProgress: cached.stageProgress || sessionState.stageProgress,
+        question: {
+          text: cached.text,
+          index: cached.index,
+          stage: cached.stage
+        }
+      });
+      currentQuestionRef.current = cached.text;
+      setLoading(false);
+      setError(null);
+      return;
+    }
+
+    if (userData?.resumeText && sessionState.questionIndex < TOTAL_INTERVIEW_QUESTIONS) {
+      fetchCurrentQuestion();
+    }
+  }, [sessionState.questionIndex]);
+
+  // Initialize camera
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-      .then(s => { if (videoRef.current) videoRef.current.srcObject = s; })
-      .catch(err => console.error('Camera/mic error:', err));
-    
-    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-      const Speech = window.SpeechRecognition || window.webkitSpeechRecognition;
-      recognitionRef.current = new Speech();
-      recognitionRef.current.continuous = true;
-      recognitionRef.current.interimResults = true;
-      recognitionRef.current.onresult = (e) => {
-        let final = '';
-        for (let i = e.resultIndex; i < e.results.length; ++i) {
-          if (e.results[i].isFinal) final += e.results[i][0].transcript + ' ';
-        }
-        if (final) {
-          setTranscript(p => {
-            const next = p + final;
-            transcriptRef.current = next;
-            return next;
-          });
-        }
-      };
-      recognitionRef.current.onerror = (e) => {
-        console.warn('Speech recognition error:', e.error);
-        setIsRecording(false);
-        setError('Microphone permission or speech recognition failed. Please try again.');
-      };
-      recognitionRef.current.onend = async () => {
-        // Called when recognition stops (manually or due to silence)
-        setIsRecording(false);
-        if (!pendingSubmitRef.current) return;
-        pendingSubmitRef.current = false;
-        const captured = transcriptRef.current.trim();
-        if (!captured) {
-          setAnalyzing(false);
-          setError('No speech captured. Please try again.');
-          return;
-        }
-        try {
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 30000);
-            const res = await fetch(`${API_BASE}/api/evaluate-answer`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                question: currentQuestionRef.current,
-                userAnswer: captured
-              }),
-              signal: controller.signal
-            });
-            clearTimeout(timer);
-          const data = await res.json();
-          setFeedback(data);
-        } catch (err) {
-          console.error('Evaluation error:', err);
-            const isAbort = err?.name === 'AbortError';
-            setFeedback({ rating: 'Yellow', score: 50, justification: isAbort ? 'Request timed out.' : 'Error evaluating.', breakdown: { relevance: 10, clarity: 10, structure: 10, technical_depth: 10, impact: 10 }, improvement_tip: 'Try again' });
-        } finally {
-          setAnalyzing(false);
-        }
-      };
+      .then(stream => {
+        if (videoRef.current) videoRef.current.srcObject = stream;
+      })
+      .catch(err => {
+        console.error('Camera/mic error:', err);
+        setError('Unable to access camera/microphone. Please check permissions.');
+      });
+  }, []);
+
+  // Initialize speech recognition
+  useEffect(() => {
+    if (!recognitionRef.current) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        recognitionRef.current = new SpeechRecognition();
+        recognitionRef.current.continuous = true;
+        recognitionRef.current.interimResults = true;
+        
+        recognitionRef.current.onstart = () => {
+          console.log('✓ Speech recognition started');
+        };
+        
+        recognitionRef.current.onresult = (event) => {
+          let interimTranscript = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              transcriptRef.current += transcript + ' ';
+            } else {
+              interimTranscript += transcript;
+            }
+          }
+          setTranscript(transcriptRef.current + interimTranscript);
+        };
+        
+        recognitionRef.current.onerror = (event) => {
+          console.error('Speech recognition error:', event.error);
+          if (event.error !== 'no-speech') {
+            setError(`Microphone error: ${event.error}. Please allow mic access.`);
+          }
+        };
+        
+        recognitionRef.current.onend = () => {
+          console.log('✓ Speech recognition ended');
+          if (pendingSubmitRef.current) {
+            pendingSubmitRef.current = false;
+            submitAnswer();
+          }
+        };
+      }
     }
-  }, [API_BASE]);
+  }, []);
+
+  // Submit answer with evaluation
+  const submitAnswer = useCallback(async () => {
+    if (!currentQuestionRef.current || !transcriptRef.current.trim()) {
+      setError('Please provide an answer before submitting.');
+      return;
+    }
+
+    const captured = transcriptRef.current.trim();
+    setAnalyzing(true);
+    setError(null);
+
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 45000);
+
+      const res = await fetch(`${API_BASE}/api/evaluate-answer`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: currentQuestionRef.current,
+          userAnswer: captured
+        }),
+        signal: controller.signal
+      });
+      
+      clearTimeout(timer);
+      const data = await res.json();
+      setFeedback(data);
+      
+      // Save answer to sessionState
+      setSessionState(prev => ({
+        ...prev,
+        answers: [
+          ...(prev.answers || []),
+          {
+            questionIndex: sessionState.questionIndex,
+            question: currentQuestionRef.current,
+            answer: captured,
+            feedback: data
+          }
+        ]
+      }));
+      
+    } catch (err) {
+      console.error('Evaluation error:', err);
+      const isAbort = err?.name === 'AbortError';
+      setFeedback({
+        rating: 'Yellow',
+        score: 50,
+        justification: isAbort ? 'Request timed out.' : 'Error evaluating.',
+        breakdown: { relevance: 10, clarity: 10, structure: 10, technical_depth: 10, impact: 10 },
+        improvement_tip: 'Try again'
+      });
+    } finally {
+      setAnalyzing(false);
+    }
+  }, [API_BASE, sessionState.questionIndex, setSessionState]);
 
   const handleAction = async () => {
     if (isRecording) {
@@ -202,15 +325,24 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
   };
 
   const handleNextQuestion = () => {
-    setFeedback(null);
-    setTranscript('');
-    setError(null);
-    if (currentQIndex < questions.length - 1) {
-      setCurrentQIndex(i => i + 1);
+    // Move to next question
+    if (sessionState.questionIndex < TOTAL_INTERVIEW_QUESTIONS - 1) {
+      setSessionState(prev => ({
+        ...prev,
+        questionIndex: prev.questionIndex + 1
+      }));
+      setTranscript('');
+      transcriptRef.current = '';
+      setFeedback(null);
+      setError(null);
     } else {
-      // Ask if want to refresh for new batch
-      if (window.confirm('You\'ve answered all questions! Generate a new batch?')) {
-        fetchQuestions();
+      // Completed all questions
+      if (window.confirm('🎉 You\'ve completed all 22 questions! View your results?')) {
+        // Could show results screen here
+        setSessionState(prev => ({
+          ...prev,
+          interviewComplete: true
+        }));
       }
     }
   };
@@ -246,7 +378,7 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
             animate={{ opacity: 1 }}
             className="p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-xl text-cyan-400 text-center"
           >
-            Generating questions...
+            Loading question {sessionState.questionIndex + 1} of {TOTAL_INTERVIEW_QUESTIONS}...
           </motion.div>
         )}
 
@@ -269,11 +401,25 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
               animate={{ opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Question {currentQIndex + 1} / {questions.length}
+              Question {sessionState.questionIndex + 1} / {TOTAL_INTERVIEW_QUESTIONS}
             </motion.span>
-            <h2 className="text-xl text-white font-medium mt-2 shadow-black drop-shadow-md line-clamp-3">
-              {loading ? 'Loading questions...' : questions[currentQIndex] || 'Initializing AI...'}
-            </h2>
+            
+            {currentQuestion && (
+              <>
+                <h2 className="text-xl text-white font-medium mt-2 shadow-black drop-shadow-md line-clamp-3">
+                  {currentQuestion.question.text}
+                </h2>
+                <div className="text-xs text-gray-400 mt-2">
+                  Stage: {currentQuestion.stage.replace(/_/g, ' ').toUpperCase()}
+                </div>
+              </>
+            )}
+            
+            {loading && (
+              <h2 className="text-xl text-cyan-400 font-medium mt-2 shadow-black drop-shadow-md">
+                Loading question...
+              </h2>
+            )}
           </motion.div>
 
           {/* Feedback Modal (Transcript + Evaluation side-by-side) */}
@@ -299,23 +445,34 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                       onClick={handleNextQuestion}
                       className="py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors w-full"
                     >
-                      {currentQIndex >= questions.length - 1 ? 'New Batch ↻' : 'Next Question →'}
+                      {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'View Results 📊' : 'Next Question →'}
                     </motion.button>
                   </div>
                   
                   {/* Breakdown Bars - Legacy format */}
                   {feedback.breakdown && (
                     <div className="grid grid-cols-1 gap-2 w-full mt-6">
-                      {Object.entries(feedback.breakdown).map(([k,v]) => (
-                        <div key={k} className="text-left">
+                      {Object.entries(feedback.breakdown).map(([k,v], idx) => (
+                        <motion.div 
+                          key={k}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 + idx * 0.05 }}
+                          className="text-left"
+                        >
                           <div className="flex justify-between text-xs text-gray-400 mb-1">
                             <span className="capitalize">{k.replace('_',' ')}</span>
                             <span>{v}/20</span>
                           </div>
                           <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                            <div className={`h-full ${feedback.rating==='Green' ? 'bg-green-500' : feedback.rating==='Yellow' ? 'bg-yellow-500' : 'bg-red-500'}`} style={{ width: `${(v/20)*100}%` }} />
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: `${(v/20)*100}%` }}
+                              transition={{ delay: 0.15 + idx * 0.05, duration: 0.6 }}
+                              className={`h-full ${feedback.rating==='Green' ? 'bg-green-500' : feedback.rating==='Yellow' ? 'bg-yellow-500' : 'bg-red-500'}`}
+                            />
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   )}
@@ -358,18 +515,25 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
                   {/* AI Service Structured Feedback (if available) */}
                   {feedback.aiData?.strengths?.length > 0 && (
                     <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                      className="bg-green-500/10 p-4 rounded-xl text-left border-l-4 border-green-500 mb-4 w-full"
+                      transition={{ delay: 0.25 }}
+                      whileHover={{ x: 4, backgroundColor: 'rgba(34, 197, 94, 0.15)' }}
+                      className="bg-green-500/10 p-4 rounded-xl text-left border-l-4 border-green-500 mb-4 w-full cursor-pointer transition-colors"
                     >
                       <p className="text-xs text-green-400 font-bold uppercase mb-2">💪 Strengths</p>
                       <ul className="text-sm text-gray-300 space-y-1">
                         {feedback.aiData.strengths.map((strength, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <motion.li 
+                            key={idx}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + idx * 0.05 }}
+                            className="flex items-start"
+                          >
                             <span className="text-green-400 mr-2">✓</span>
                             <span>{strength}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </motion.div>
@@ -377,18 +541,25 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
 
                   {feedback.aiData?.improvements?.length > 0 && (
                     <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
-                      className="bg-yellow-500/10 p-4 rounded-xl text-left border-l-4 border-yellow-500 mb-4 w-full"
+                      transition={{ delay: 0.35 }}
+                      whileHover={{ x: 4, backgroundColor: 'rgba(234, 179, 8, 0.15)' }}
+                      className="bg-yellow-500/10 p-4 rounded-xl text-left border-l-4 border-yellow-500 mb-4 w-full cursor-pointer transition-colors"
                     >
                       <p className="text-xs text-yellow-400 font-bold uppercase mb-2">📈 Areas to Improve</p>
                       <ul className="text-sm text-gray-300 space-y-1">
                         {feedback.aiData.improvements.map((improvement, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <motion.li 
+                            key={idx}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.4 + idx * 0.05 }}
+                            className="flex items-start"
+                          >
                             <span className="text-yellow-400 mr-2">→</span>
                             <span>{improvement}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </motion.div>
@@ -429,7 +600,7 @@ const TestMode = ({ userData, qaPairs, setQaPairs }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
           onClick={handleAction} 
-          disabled={analyzing || loading || !questions.length}
+          disabled={analyzing || loading || !currentQuestion}
           className={`w-full py-5 rounded-2xl font-bold text-xl transition-all shadow-lg
             ${isRecording ? 'bg-red-500/10 text-red-500 border border-red-500/50' : 'bg-linear-to-r from-blue-600 to-cyan-600 text-white hover:shadow-cyan-500/40 disabled:opacity-50'}`}
         >

@@ -1,10 +1,10 @@
 [
   {
     "id": "warmup_001",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "communication",
     "difficulty": 1,
     "question": "Please introduce yourself.",
     "ideal_points": [
@@ -15,20 +15,61 @@
       "Mentions target role or field"
     ],
     "evaluation_rubric": {
-      "resume_mention": "Did they mention key items from their resume?",
-      "role_relevance": "Did they frame intro towards the target role?",
-      "confidence": "Was delivery clear and confident?",
-      "structure": "Was the intro organized (not rambling)?",
-      "missed_opportunities": ["Projects not mentioned", "Skills not highlighted", "Education details skipped"]
+      "resume_mention": {
+        "description": "Did they mention key items from their resume?",
+        "weight": 0.25
+      },
+      "role_relevance": {
+        "description": "Did they frame intro towards the target role?",
+        "weight": 0.25
+      },
+      "confidence": {
+        "description": "Was delivery clear and confident?",
+        "weight": 0.25
+      },
+      "structure": {
+        "description": "Was the intro organized (not rambling)?",
+        "weight": 0.25
+      }
     },
-    "follow_ups": ["Tell me more about [mentioned project]", "What was your favorite course in [mentioned degree]?", "How did you get interested in [mentioned field]?"]
+    "strong_signals": [
+      "Mentions measurable achievements or concrete projects",
+      "Shows clear career trajectory and goal alignment",
+      "Confident tone without arrogance",
+      "Logical and well-structured response",
+      "Tailored to the role/company"
+    ],
+    "weak_signals": [
+      "Rambling or disorganized response",
+      "Generic intro not tailored to role",
+      "Stumbling or lack of confidence",
+      "Missing key resume items",
+      "No mention of projects or achievements"
+    ],
+    "red_flags": [
+      "Cannot explain own background coherently",
+      "Discrepancies between resume and introduction",
+      "Very low confidence or nervousness (unless first interview)",
+      "No career direction or sense of purpose",
+      "Generic 'studying hard' with no concrete examples"
+    ],
+    "follow_ups": [
+      "Tell me more about [mentioned project]",
+      "What was your favorite course in [mentioned degree]?",
+      "How did you get interested in [mentioned field]?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "build rapport and establish baseline communication",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_002",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "communication",
     "difficulty": 1,
     "question": "Tell me about your educational background.",
     "ideal_points": [
@@ -39,20 +80,61 @@
       "Any projects or research mentioned"
     ],
     "evaluation_rubric": {
-      "resume_alignment": "Did they mention education from their resume?",
-      "role_relevance": "Connected education to target role?",
-      "depth": "Went beyond just stating degree?",
-      "achievements": "Mentioned GPA, awards, or standout projects?",
-      "missed_opportunities": ["Relevant coursework not mentioned", "Projects not connected", "No achievements highlighted"]
+      "resume_alignment": {
+        "description": "Did they mention education from their resume?",
+        "weight": 0.25
+      },
+      "role_relevance": {
+        "description": "Connected education to target role?",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Went beyond just stating degree?",
+        "weight": 0.25
+      },
+      "achievements": {
+        "description": "Mentioned GPA, awards, or standout projects?",
+        "weight": 0.25
+      }
     },
-    "follow_ups": ["What was your favorite subject?", "Did you do any projects or research?", "How does your education prepare you for this role?"]
+    "strong_signals": [
+      "Connects coursework directly to role requirements",
+      "Mentions specific relevant projects or research",
+      "Shows enthusiasm for their field of study",
+      "Demonstrates depth of knowledge beyond degree",
+      "Mentions academic achievements or honors"
+    ],
+    "weak_signals": [
+      "Generic education description",
+      "Cannot explain relevance to role",
+      "Minimal enthusiasm or engagement",
+      "Unclear about coursework or major",
+      "No projects or research mentioned"
+    ],
+    "red_flags": [
+      "Lists degree but cannot explain what they learned",
+      "Discrepancies in education details",
+      "Cannot name a single course or project",
+      "Shows no passion for their field",
+      "Vague about graduation date or degree type"
+    ],
+    "follow_ups": [
+      "What was your favorite subject?",
+      "Did you do any projects or research?",
+      "How does your education prepare you for this role?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess knowledge depth and role alignment",
+    "weight": 1.7,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_003",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "self-awareness",
     "difficulty": 1,
     "question": "Where are you from, and how did that shape you?",
     "ideal_points": [
@@ -63,20 +145,61 @@
       "Connects to work ethic or values"
     ],
     "evaluation_rubric": {
-      "authenticity": "Did they share genuine personal context?",
-      "relevance": "Connected background to professional development?",
-      "depth": "Went beyond surface-level details?",
-      "values": "Communicated work values or ethics?",
-      "missed_opportunities": ["No connection to career", "Too brief or vague", "Missed chance to show personality"]
+      "authenticity": {
+        "description": "Did they share genuine personal context?",
+        "weight": 0.30
+      },
+      "relevance": {
+        "description": "Connected background to professional development?",
+        "weight": 0.30
+      },
+      "depth": {
+        "description": "Went beyond surface-level details?",
+        "weight": 0.20
+      },
+      "values": {
+        "description": "Communicated work values or ethics?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["How did that experience influence your career choice?", "What values from your background do you bring to work?"]
+    "strong_signals": [
+      "Shares specific, genuine personal story",
+      "Clear connection between background and career path",
+      "Shows self-awareness and reflection",
+      "Mentions values shaped by background",
+      "Authentic and emotionally intelligent response"
+    ],
+    "weak_signals": [
+      "Generic geography without personal context",
+      "No connection to career or personality",
+      "Superficial or clichéd response",
+      "Lacks self-awareness",
+      "Misses opportunity to show personality"
+    ],
+    "red_flags": [
+      "Cannot explain own background",
+      "Shows lack of self-awareness",
+      "Negative stereotyping of own background",
+      "Inauthentic or rehearsed story",
+      "Cannot articulate personal values"
+    ],
+    "follow_ups": [
+      "How did that experience influence your career choice?",
+      "What values from your background do you bring to work?",
+      "How would you describe your core principles?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess self-awareness and authenticity",
+    "weight": 1.5,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_004",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "motivation",
     "difficulty": 1,
     "question": "Why did you choose this field?",
     "ideal_points": [
@@ -87,20 +210,61 @@
       "Awareness of field challenges and opportunities"
     ],
     "evaluation_rubric": {
-      "authenticity": "Did it feel genuine or rehearsed?",
-      "specificity": "Specific story or moment shared?",
-      "passion": "Enthusiasm and interest evident?",
-      "awareness": "Understanding of the field shown?",
-      "missed_opportunities": ["Generic reasons", "No personal story", "Lack of passion", "No awareness of field"]
+      "authenticity": {
+        "description": "Did it feel genuine or rehearsed?",
+        "weight": 0.30
+      },
+      "specificity": {
+        "description": "Specific story or moment shared?",
+        "weight": 0.25
+      },
+      "passion": {
+        "description": "Enthusiasm and interest evident?",
+        "weight": 0.25
+      },
+      "awareness": {
+        "description": "Understanding of the field shown?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["What excites you most about this field?", "What challenges do you expect?", "Who or what inspired you?"]
+    "strong_signals": [
+      "Genuine passion and enthusiasm evident",
+      "Specific trigger event or person mentioned",
+      "Shows understanding of field complexity",
+      "Long-term vision and commitment shown",
+      "Authentic connection to field"
+    ],
+    "weak_signals": [
+      "Generic 'interested in tech' without story",
+      "No personal passion shown",
+      "Unclear why chosen this field specifically",
+      "No understanding of field realities",
+      "Sounds like someone else's choice"
+    ],
+    "red_flags": [
+      "Cannot articulate why chosen this field",
+      "Answers sound memorized or clichéd",
+      "Shows low passion or interest",
+      "No real understanding of field",
+      "Mentions only money or prestige as motivation"
+    ],
+    "follow_ups": [
+      "What excites you most about this field?",
+      "What challenges do you expect?",
+      "Who or what inspired you?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess genuine interest and motivation",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_005",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "research-preparation",
     "difficulty": 1,
     "question": "What do you know about our company?",
     "ideal_points": [
@@ -111,20 +275,61 @@
       "Why company appeals to them"
     ],
     "evaluation_rubric": {
-      "research": "Did they do homework on the company?",
-      "specificity": "Mentioned specific details, not generic facts?",
-      "alignment": "Connected company values to personal values?",
-      "enthusiasm": "Showed genuine interest?",
-      "missed_opportunities": ["Generic answers", "No recent company news mentioned", "Didn't connect to personal fit"]
+      "research": {
+        "description": "Did they do homework on the company?",
+        "weight": 0.30
+      },
+      "specificity": {
+        "description": "Mentioned specific details, not generic facts?",
+        "weight": 0.25
+      },
+      "alignment": {
+        "description": "Connected company values to personal values?",
+        "weight": 0.25
+      },
+      "enthusiasm": {
+        "description": "Showed genuine interest?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["What attracted you to our company specifically?", "Which of our products/services interests you most?", "How do you see yourself fitting into our culture?"]
+    "strong_signals": [
+      "Mentions specific recent news or achievements",
+      "References actual products/services knowledgeably",
+      "Shows genuine interest and enthusiasm",
+      "Connects company mission to personal values",
+      "Demonstrates research effort"
+    ],
+    "weak_signals": [
+      "Generic company description anyone could give",
+      "No specific products or services mentioned",
+      "Lack of enthusiasm or interest",
+      "No personal connection to company values",
+      "Minimal research evident"
+    ],
+    "red_flags": [
+      "Cannot name company products or services",
+      "Confuses company with competitors",
+      "No research done on company",
+      "Negative or dismissive comments about company",
+      "Only interested in salary/benefits"
+    ],
+    "follow_ups": [
+      "What attracted you to our company specifically?",
+      "Which of our products/services interests you most?",
+      "How do you see yourself fitting into our culture?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess preparation and alignment",
+    "weight": 1.9,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_006",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "role-fit",
     "difficulty": 1,
     "question": "Why are you interested in this role specifically?",
     "ideal_points": [
@@ -135,20 +340,61 @@
       "What they'll bring to the role"
     ],
     "evaluation_rubric": {
-      "role_understanding": "Do they understand what the role involves?",
-      "skills_alignment": "Connected their skills to role requirements?",
-      "growth_mindset": "Mentioned learning or growth opportunities?",
-      "value_proposition": "Explained what they'd bring?",
-      "missed_opportunities": ["Generic interest", "No skills connection", "Didn't mention JD requirements", "One-sided (what they get, not what they give)"]
+      "role_understanding": {
+        "description": "Do they understand what the role involves?",
+        "weight": 0.25
+      },
+      "skills_alignment": {
+        "description": "Connected their skills to role requirements?",
+        "weight": 0.30
+      },
+      "growth_mindset": {
+        "description": "Mentioned learning or growth opportunities?",
+        "weight": 0.20
+      },
+      "value_proposition": {
+        "description": "Explained what they'd bring?",
+        "weight": 0.25
+      }
     },
-    "follow_ups": ["What skills do you have that make you a good fit?", "What excites you most about this role?", "Where do you see this role taking you?"]
+    "strong_signals": [
+      "Specific role responsibilities mentioned",
+      "Clear skills-to-role matching",
+      "Shows growth mindset and learning goals",
+      "Balanced perspective (give and get)",
+      "Demonstrates role understanding"
+    ],
+    "weak_signals": [
+      "Generic reason for interest",
+      "No specific role responsibilities mentioned",
+      "No skills connection to role",
+      "Only focused on what they get",
+      "Unclear on role expectations"
+    ],
+    "red_flags": [
+      "Cannot explain role responsibilities",
+      "No relevant skills for position",
+      "Only interested in salary/title",
+      "Confuses this role with others",
+      "Says 'any job would be fine'"
+    ],
+    "follow_ups": [
+      "What skills do you have that make you a good fit?",
+      "What excites you most about this role?",
+      "Where do you see this role taking you?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess role fit and preparation",
+    "weight": 1.9,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_007",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "self-assessment",
     "difficulty": 1,
     "question": "What are your key strengths?",
     "ideal_points": [
@@ -159,20 +405,61 @@
       "Self-aware and honest"
     ],
     "evaluation_rubric": {
-      "relevance": "Are strengths relevant to target role?",
-      "evidence": "Are they backed by examples or proof?",
-      "specificity": "Specific strengths, not generic?",
-      "value_framing": "Framed as value to company?",
-      "missed_opportunities": ["Generic traits (hardworking, team player)", "No examples", "Not role-aligned", "No connection to JD"]
+      "relevance": {
+        "description": "Are strengths relevant to target role?",
+        "weight": 0.30
+      },
+      "evidence": {
+        "description": "Are they backed by examples or proof?",
+        "weight": 0.30
+      },
+      "specificity": {
+        "description": "Specific strengths, not generic?",
+        "weight": 0.20
+      },
+      "value_framing": {
+        "description": "Framed as value to company?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["Can you give an example of when you used that strength?", "How would that strength help in this role?"]
+    "strong_signals": [
+      "Mentions 2-3 specific strengths relevant to role",
+      "Backs each with concrete example",
+      "Frames strengths as company value",
+      "Shows self-awareness without arrogance",
+      "Strengths match job description"
+    ],
+    "weak_signals": [
+      "Generic traits (hardworking, team player)",
+      "No examples provided",
+      "Strengths not role-aligned",
+      "Over-confident or boastful tone",
+      "Cannot connect strengths to job"
+    ],
+    "red_flags": [
+      "Cannot name specific strengths",
+      "Strengths irrelevant to role",
+      "Cannot provide any evidence",
+      "Arrogant demeanor",
+      "Lists weaknesses when asked about strengths"
+    ],
+    "follow_ups": [
+      "Can you give me an example of when you demonstrated that strength?",
+      "How would that strength help in this specific role?",
+      "What feedback have you received about this strength?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess self-awareness and role fit",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_008",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "self-awareness",
     "difficulty": 1,
     "question": "What is one weakness you're working on?",
     "ideal_points": [
@@ -183,20 +470,61 @@
       "Growth and improvement shown"
     ],
     "evaluation_rubric": {
-      "honesty": "Genuine weakness, not disguised strength?",
-      "safety": "Not a deal-breaker for the role?",
-      "self_awareness": "Shows reflection and maturity?",
-      "improvement": "Are they actively working on it?",
-      "missed_opportunities": ["Perfectionist cliché", "No mitigation strategy", "Critical job skill as weakness", "No growth shown"]
+      "honesty": {
+        "description": "Genuine weakness, not disguised strength?",
+        "weight": 0.30
+      },
+      "safety": {
+        "description": "Not a deal-breakerfor the role?",
+        "weight": 0.25
+      },
+      "self_awareness": {
+        "description": "Shows reflection and maturity?",
+        "weight": 0.25
+      },
+      "improvement": {
+        "description": "Are they actively working on it?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["What steps are you taking to improve?", "How has this affected your work?", "What have you learned from addressing this?"]
+    "strong_signals": [
+      "Genuine weakness, not disguised strength",
+      "Weakness doesn't disqualify them",
+      "Concrete improvement strategy mentioned",
+      "Shows self-awareness and humility",
+      "Evidence of active work on weakness"
+    ],
+    "weak_signals": [
+      "Obvious fake weakness (perfectionist)",
+      "Weakness is critical job requirement",
+      "No improvement strategy mentioned",
+      "Seems defensive or dismissive",
+      "No evidence of working on it"
+    ],
+    "red_flags": [
+      "'Perfectionist' or other cliché",
+      "Weakness is core job requirement",
+      "Cannot identify real weakness",
+      "Shows no growth mindset",
+      "Blames others for weakness"
+    ],
+    "follow_ups": [
+      "What steps are you taking to improve?",
+      "How has this affected your work in the past?",
+      "What have you learned from addressing this?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess self-awareness and growth mindset",
+    "weight": 1.7,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_009",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "value-proposition",
     "difficulty": 1,
     "question": "Why should we hire you?",
     "ideal_points": [
@@ -207,20 +535,61 @@
       "Addresses how they solve company's needs"
     ],
     "evaluation_rubric": {
-      "company_mention": "Did they mention the company specifically?",
-      "role_mention": "Did they reference the specific role?",
-      "personal_fit": "Connected their skills/experience to needs?",
-      "value_framing": "Focused on what they give, not just what they get?",
-      "missed_opportunities": ["Generic answer", "No company mention", "No role connection", "One-sided (only what they gain)"]
+      "company_mention": {
+        "description": "Did they mention the company specifically?",
+        "weight": 0.25
+      },
+      "role_mention": {
+        "description": "Did they reference the specific role?",
+        "weight": 0.25
+      },
+      "personal_fit": {
+        "description": "Connected their skills/experience to needs?",
+        "weight": 0.30
+      },
+      "value_framing": {
+        "description": "Focused on what they give, not just what they get?",
+        "weight": 0.20
+      }
     },
-    "follow_ups": ["What makes you different from other candidates?", "How would you add value in the first 90 days?"]
+    "strong_signals": [
+      "Specific company and role mention",
+      "Clear value proposition articulated",
+      "Connects achievements to company needs",
+      "Confident and professional tone",
+      "Motivated by company mission"
+    ],
+    "weak_signals": [
+      "Generic answer works for any company",
+      "No company or role mention",
+      "Focused only on what they get",
+      "Weak connection to role",
+      "Lacks confidence or conviction"
+    ],
+    "red_flags": [
+      "Cannot articulate value proposition",
+      "Confuses company with competitors",
+      "Selfish focus (only salary/benefits)",
+      "Answers generic and forgettable",
+      "Shows no real interest in company"
+    ],
+    "follow_ups": [
+      "What makes you different from other candidates?",
+      "How would you add value in the first 90 days?",
+      "What's your competitive advantage?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess fit and motivation",
+    "weight": 2.0,
+    "expected_duration_sec": 120
   },
   {
     "id": "warmup_010",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
-    "skill": "behavioral",
+    "skill": "career-planning",
     "difficulty": 1,
     "question": "Where do you see yourself in 3-5 years?",
     "ideal_points": [
@@ -231,12 +600,268 @@
       "Shows they've thought about career path"
     ],
     "evaluation_rubric": {
-      "realism": "Are goals realistic and achievable?",
-      "alignment": "Do goals align with company growth?",
-      "ambition": "Shows drive and career planning?",
-      "loyalty_signal": "Indicates they plan to stay and grow?",
-      "missed_opportunities": ["Unrealistic goals", "No connection to this role", "Sounds like they'll leave quickly", "Too vague"]
+      "realism": {
+        "description": "Are goals realistic and achievable?",
+        "weight": 0.25
+      },
+      "alignment": {
+        "description": "Do goals align with company growth?",
+        "weight": 0.25
+      },
+      "ambition": {
+        "description": "Shows drive and career planning?",
+        "weight": 0.25
+      },
+      "loyalty_signal": {
+        "description": "Indicates they plan to stay and grow?",
+        "weight": 0.25
+      }
     },
-    "follow_ups": ["How does this role fit into that vision?", "What skills do you want to develop?", "What kind of impact do you want to make?"]
+    "strong_signals": [
+      "Realistic 3-5 year goals mentioned",
+      "Goals aligned with company values",
+      "Shows growth mindset and ambition",
+      "Plans to grow within organization",
+      "Skills to develop identified"
+    ],
+    "weak_signals": [
+      "Vague or unclear goals",
+      "Goals disconnected from this role",
+      "Sounds like they'll leave quickly",
+      "No vision or sense of career path",
+      "Goals seem unrealistic"
+    ],
+    "red_flags": [
+      "Plans to leave company immediately",
+      "Unrealistic expectations (CEO in 2 years)",
+      "No career vision or plans",
+      "Not interested in this company long-term",
+      "Vague and uncommitted response"
+    ],
+    "follow_ups": [
+      "How does this role fit into that vision?",
+      "What skills do you want to develop?",
+      "What kind of impact do you want to make?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess ambition and longevity",
+    "weight": 1.7,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "warmup_011",
+    "stage": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "work-environment",
+    "difficulty": 1,
+    "question": "What kind of work environment helps you perform best?",
+    "ideal_points": [
+      "Self-awareness about work style",
+      "Team collaboration preference",
+      "Adaptability to different environments",
+      "Professional mindset",
+      "Realistic expectations about work"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": {
+        "description": "Understands own work style?",
+        "weight": 0.30
+      },
+      "flexibility": {
+        "description": "Can adapt to different environments?",
+        "weight": 0.30
+      },
+      "realism": {
+        "description": "Expectations realistic for work?",
+        "weight": 0.20
+      },
+      "alignment": {
+        "description": "Matches company culture?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Self-aware about work style preferences",
+      "Shows flexibility and adaptability",
+      "Realistic expectations",
+      "Aligned with collaborative culture",
+      "Mentions concrete preferences"
+    ],
+    "weak_signals": [
+      "Generic or vague answer",
+      "Unrealistic expectations",
+      "Shows inflexibility",
+      "Cannot articulate preferences",
+      "Misaligned with company culture"
+    ],
+    "red_flags": [
+      "Demands isolated work (team company)",
+      "Unrealistic requirements",
+      "Cannot work in team settings",
+      "Shows low maturity about work",
+      "Contradicts company culture"
+    ],
+    "follow_ups": [
+      "How do you adapt to different environments?",
+      "Tell me about your ideal work day",
+      "How do you work in teams?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess flexibility and culture fit",
+    "weight": 1.5,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "warmup_012",
+    "stage": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "self-assessment",
+    "difficulty": 1,
+    "question": "What are your key strengths AND weaknesses?",
+    "ideal_points": [
+      "Honest strengths mentioned",
+      "Real weakness identified",
+      "Shows improvement effort",
+      "Self-awareness evident",
+      "Professional tone throughout"
+    ],
+    "evaluation_rubric": {
+      "strength_credibility": {
+        "description": "Strengths are credible and relevant?",
+        "weight": 0.30
+      },
+      "weakness_honesty": {
+        "description": "Weakness is real, not disguised strength?",
+        "weight": 0.30
+      },
+      "awareness": {
+        "description": "Shows self-awareness?",
+        "weight": 0.20
+      },
+      "growth": {
+        "description": "Shows commitment to improvement?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Specific strengths and real weakness",
+      "Honest and balanced assessment",
+      "Clear examples provided",
+      "Shows growth mindset",
+      "Professional maturity evident"
+    ],
+    "weak_signals": [
+      "Generic assessment",
+      "Weakness sounds fake",
+      "No examples given",
+      "Seems defensive",
+      "Lacks self-awareness"
+    ],
+    "red_flags": [
+      "Cannot identify any weaknesses",
+      "Weakness is critical job skill",
+      "Clichéd or rehearsed answers",
+      "Shows no growth mindset",
+      "Inauthentic responses"
+    ],
+    "follow_ups": [
+      "Can you give an example?",
+      "How are you working on your weakness?",
+      "What feedback have you received?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess balanced self-awareness",
+    "weight": 1.6,
+    "expected_duration_sec": 150
+  },
+  {
+    "id": "warmup_013",
+    "stage": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "learning-agility",
+    "difficulty": 1,
+    "question": "How do you usually approach learning a new skill?",
+    "ideal_points": [
+      "Structured learning approach described",
+      "Practice and consistency mentioned",
+      "Mentions helpful resources",
+      "Shows curiosity and growth",
+      "Growth mindset evident"
+    ],
+    "evaluation_rubric": {
+      "methodology": {
+        "description": "Has a clear learning process?",
+        "weight": 0.30
+      },
+      "resources": {
+        "description": "Knows how to find learning resources?",
+        "weight": 0.25
+      },
+      "growth_mindset": {
+        "description": "Shows eagerness to learn?",
+        "weight": 0.25
+      },
+      "execution": {
+        "description": "Actually follows through?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Specific learning methodology described",
+      "Mentions concrete resources used",
+      "Shows consistent learning practice",
+      "Growth mindset and curiosity evident",
+      "Examples of successfully learned skills"
+    ],
+    "weak_signals": [
+      "Vague learning approach",
+      "No resources mentioned",
+      "Seems resistant to learning",
+      "No examples given",
+      "Passive approach to learning"
+    ],
+    "red_flags": [
+      "Cannot describe any learning process",
+      "Resistant to new skills",
+      "Never actively learned anything",
+      "Expects others to teach them",
+      "Shows fixed mindset"
+    ],
+    "follow_ups": [
+      "Tell me about a recent skill you learned",
+      "How long does it typically take?",
+      "Who or what helps you learn best?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess learning ability and growth",
+    "weight": 1.7,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "warmup_014",
+    "stage": "warmup",
+    "role": "any",
+    "level": "any",
+    "skill": "project-interest",
+    "difficulty": 1,
+    "question": "What type of projects do you enjoy working on the most?",
+    "ideal_points": [
+      "Shows genuine passion for work",
+      "Relevant examples mentioned",
+      "Impact and outcomes emphasized",
+      "Engagement with work evident",
+      "Aligned with role type"
+    ],
+    "evaluation_rubric": {
+      "passion": {
+        "description": "Shows genuine interest and passion?",
+        "weight": 0.30\n      },\n      \"relevance\": {\n        \"description\": \"Projects aligned with role?\",\n        \"weight\": 0.30\n      },\n      \"specificity\": {\n        \"description\": \"Specific examples given?\",\n        \"weight\": 0.20\n      },\n      \"impact\": {\n        \"description\": \"Focused on impact and outcomes?\",\n        \"weight\": 0.20\n      }\n    },\n    \"strong_signals\": [\n      \"Genuine passion and enthusiasm\",\n      \"Relevant project types mentioned\",\n      \"Specific examples with details\",\n      \"Focused on impact and learning\",\n      \"Aligned with role expectations\"\n    ],\n    \"weak_signals\": [\n      \"Generic project interests\",\n      \"No specific examples\",\n      \"Lacks enthusiasm\",\n      \"Misaligned with role\",\n      \"Only interested in easy projects\"\n    ],\n    \"red_flags\": [\n      \"Cannot describe any project interests\",\n      \"Interests misaligned with role\",\n      \"Only motivated by money/prestige\",\n      \"Shows low engagement with work\",\n      \"Cannot name actual projects\"\n    ],\n    \"follow_ups\": [\n      \"Tell me about a favorite project\",\n      \"What made it interesting?\",\n      \"What was your role and contribution?\"\n    ],\n    \"category\": \"behavioral\",\n    \"priority\": \"core\",\n    \"interviewer_goal\": \"assess engagement and motivation\",\n    \"weight\": 1.6,\n    \"expected_duration_sec\": 120
   }
 ]

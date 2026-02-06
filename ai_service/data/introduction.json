@@ -1,0 +1,119 @@
+[
+  {
+    "id": "intro_001",
+    "stage": "introduction",
+    "role": "any",
+    "level": "any",
+    "skill": "communication",
+    "difficulty": 1,
+    "question": "Tell me about yourself.",
+    "ideal_points": [
+      "Professional background summary",
+      "Current situation and skills",
+      "Career aspirations",
+      "Relevant achievements",
+      "Why interested in this role"
+    ],
+    "evaluation_rubric": {
+      "structure": "Is answer well-structured?",
+      "relevance": "Is it relevant to the role?",
+      "clarity": {
+        "description": "Is communication clear?",
+        "weight": 0.15
+      },
+      "confidence": "Do they show confidence?",
+      "missed_opportunities": [
+        "Too personal/unfocused",
+        "No clear structure",
+        "Irrelevant details",
+        "Too long/short"
+      ]
+    },
+    "follow_ups": [
+      "What are you looking for in your next role?",
+      "What makes you a good fit?",
+      "Tell me more about [specific experience]."
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "intro_002",
+    "stage": "introduction",
+    "role": "any",
+    "level": "any",
+    "skill": "communication",
+    "difficulty": 1,
+    "question": "Walk me through your background.",
+    "ideal_points": [
+      "Chronological career journey",
+      "Key transitions explained",
+      "Skills developed over time",
+      "Achievements highlighted",
+      "Connection to current opportunity"
+    ],
+    "evaluation_rubric": {
+      "flow": "Is narrative flow smooth?",
+      "transitions": "Are transitions explained?",
+      "highlights": "Do they highlight achievements?",
+      "relevance": "Is it relevant?",
+      "missed_opportunities": [
+        "Jumps around",
+        "No explanation for gaps",
+        "Too detailed/brief",
+        "No connection to role"
+      ]
+    },
+    "follow_ups": [
+      "What motivated that transition?",
+      "What did you learn from that experience?",
+      "Where do you see yourself going?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "intro_003",
+    "stage": "introduction",
+    "role": "any",
+    "level": "any",
+    "skill": "self_awareness",
+    "difficulty": 1,
+    "question": "How would you describe yourself professionally?",
+    "ideal_points": [
+      "Key professional strengths",
+      "Work style and approach",
+      "Values and principles",
+      "Growth areas acknowledged",
+      "Backed by examples"
+    ],
+    "evaluation_rubric": {
+      "authenticity": "Is description genuine?",
+      "self_awareness": "Do they know themselves?",
+      "balance": "Do they balance positives/negatives?",
+      "examples": "Do they provide evidence?",
+      "missed_opportunities": [
+        "Generic/cliché",
+        "No self-awareness",
+        "All positive/negative",
+        "No examples"
+      ]
+    },
+    "follow_ups": [
+      "Can you give an example of that?",
+      "What would your colleagues say?",
+      "What are you working to improve?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  }
+]

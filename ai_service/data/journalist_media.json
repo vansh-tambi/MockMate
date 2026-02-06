@@ -1,7 +1,6 @@
 [
   {
     "id": "journalist_media_001",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,27 @@
       "understanding": "Do they understand journalism's role?",
       "values": "Are values aligned with journalism ethics?",
       "awareness": "Are they realistic about challenges?",
-      "missed_opportunities": ["Just wants fame", "Glamour-focused", "No understanding of responsibility", "Naive expectations"]
+      "missed_opportunities": [
+        "Just wants fame",
+        "Glamour-focused",
+        "No understanding of responsibility",
+        "Naive expectations"
+      ]
     },
-    "follow_ups": ["What kind of journalism interests you?", "How have you prepared for this?", "What does press freedom mean to you?"]
+    "follow_ups": [
+      "What kind of journalism interests you?",
+      "How have you prepared for this?",
+      "What does press freedom mean to you?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "journalist_media_002",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "values",
@@ -39,17 +52,34 @@
       "Balanced view of power and responsibility"
     ],
     "evaluation_rubric": {
-      "depth": "Is understanding comprehensive?",
+      "depth": {
+        "description": "Is understanding comprehensive?",
+        "weight": 0.2
+      },
       "balance": "Do they see both power and responsibility?",
       "commitment": "Are they committed to this role?",
       "awareness": "Do they understand current challenges?",
-      "missed_opportunities": ["Shallow understanding", "Only sees power", "Ignores responsibility", "Unrealistic idealism"]
+      "missed_opportunities": [
+        "Shallow understanding",
+        "Only sees power",
+        "Ignores responsibility",
+        "Unrealistic idealism"
+      ]
     },
-    "follow_ups": ["How has media failed its role?", "What does responsible journalism mean?", "How do you see media evolving?"]
+    "follow_ups": [
+      "How has media failed its role?",
+      "What does responsible journalism mean?",
+      "How do you see media evolving?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "journalist_media_003",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "ethics",
@@ -67,13 +97,27 @@
       "methods": "Do they have practical methods?",
       "commitment": "Are they committed to objectivity?",
       "honesty": "Do they acknowledge difficulty?",
-      "missed_opportunities": ["Claims perfect objectivity", "No awareness of bias", "No methods", "Confuses opinion with fact"]
+      "missed_opportunities": [
+        "Claims perfect objectivity",
+        "No awareness of bias",
+        "No methods",
+        "Confuses opinion with fact"
+      ]
     },
-    "follow_ups": ["Describe recognizing your own bias.", "What if all sources are biased?", "Can journalism ever be truly objective?"]
+    "follow_ups": [
+      "Describe recognizing your own bias.",
+      "What if all sources are biased?",
+      "Can journalism ever be truly objective?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_004",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "verification",
@@ -91,13 +135,27 @@
       "methods": "Do they know verification methods?",
       "tools": "Are they aware of tools available?",
       "commitment": "Are they committed to accuracy?",
-      "missed_opportunities": ["No clear process", "Single source reliance", "Ignores digital tools", "Speed over accuracy"]
+      "missed_opportunities": [
+        "No clear process",
+        "Single source reliance",
+        "Ignores digital tools",
+        "Speed over accuracy"
+      ]
     },
-    "follow_ups": ["What if you can't verify in time?", "How do you handle anonymous sources?", "Describe a verification failure."]
+    "follow_ups": [
+      "What if you can't verify in time?",
+      "How do you handle anonymous sources?",
+      "Describe a verification failure."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_005",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "ethics",
@@ -112,16 +170,33 @@
     ],
     "evaluation_rubric": {
       "awareness": "Are they aware of current challenges?",
-      "depth": "Do they understand complexity?",
+      "depth": {
+        "description": "Do they understand complexity?",
+        "weight": 0.2
+      },
       "thinking": "Have they thought about solutions?",
       "preparation": "Are they prepared to face these?",
-      "missed_opportunities": ["Not aware of challenges", "Oversimplifies", "No personal stance", "Naive view"]
+      "missed_opportunities": [
+        "Not aware of challenges",
+        "Oversimplifies",
+        "No personal stance",
+        "Naive view"
+      ]
     },
-    "follow_ups": ["How would you handle these challenges?", "What's your stance on paid news?", "How do you balance speed and accuracy?"]
+    "follow_ups": [
+      "How would you handle these challenges?",
+      "What's your stance on paid news?",
+      "How do you balance speed and accuracy?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_006",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "resilience",
@@ -139,13 +214,27 @@
       "discernment": "Can they evaluate criticism?",
       "learning": "Do they improve from feedback?",
       "conviction": "Will they stand by good reporting?",
-      "missed_opportunities": ["Too defensive", "Takes all criticism personally", "No resilience", "Caves under pressure"]
+      "missed_opportunities": [
+        "Too defensive",
+        "Takes all criticism personally",
+        "No resilience",
+        "Caves under pressure"
+      ]
     },
-    "follow_ups": ["Describe handling harsh criticism.", "What if criticism threatens your safety?", "How do you maintain mental health?"]
+    "follow_ups": [
+      "Describe handling harsh criticism.",
+      "What if criticism threatens your safety?",
+      "How do you maintain mental health?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "journalist_media_007",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "judgment",
@@ -163,13 +252,27 @@
       "methods": "Can they be fast AND accurate?",
       "judgment": "Do they know when to wait?",
       "responsibility": "Do they prioritize public interest?",
-      "missed_opportunities": ["Speed over accuracy", "No verification process", "Competitive pressure wins", "No ethical framework"]
+      "missed_opportunities": [
+        "Speed over accuracy",
+        "No verification process",
+        "Competitive pressure wins",
+        "No ethical framework"
+      ]
     },
-    "follow_ups": ["What if competitors publish first?", "Describe a time you held a story.", "How do you verify quickly?"]
+    "follow_ups": [
+      "What if competitors publish first?",
+      "Describe a time you held a story.",
+      "How do you verify quickly?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_008",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "sensitivity",
@@ -187,13 +290,27 @@
       "balance": "Can they balance interests?",
       "awareness": "Are they aware of impact?",
       "responsibility": "Do they report responsibly?",
-      "missed_opportunities": ["Exploitative approach", "No empathy", "Ignores trauma", "Sensationalizes"]
+      "missed_opportunities": [
+        "Exploitative approach",
+        "No empathy",
+        "Ignores trauma",
+        "Sensationalizes"
+      ]
     },
-    "follow_ups": ["How do you interview trauma victims?", "What if family doesn't want coverage?", "How do you protect yourself emotionally?"]
+    "follow_ups": [
+      "How do you interview trauma victims?",
+      "What if family doesn't want coverage?",
+      "How do you protect yourself emotionally?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_009",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "motivation",
@@ -211,13 +328,27 @@
       "differentiation": "What makes them unique?",
       "commitment": "Are they committed to ethics?",
       "fit": "Are they a good fit?",
-      "missed_opportunities": ["Generic answer", "No unique value", "Skills mismatch", "Wrong motivations"]
+      "missed_opportunities": [
+        "Generic answer",
+        "No unique value",
+        "Skills mismatch",
+        "Wrong motivations"
+      ]
     },
-    "follow_ups": ["What stories would you pursue?", "What's your reporting style?", "Where do you see journalism in 5 years?"]
+    "follow_ups": [
+      "What stories would you pursue?",
+      "What's your reporting style?",
+      "Where do you see journalism in 5 years?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "journalist_media_010",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "resilience",
@@ -235,13 +366,27 @@
       "awareness": "Do they understand risks?",
       "preparation": "Are they prepared for pressure?",
       "support": "Do they have support systems?",
-      "missed_opportunities": ["Naive about risks", "Will cave easily", "No support network", "Reckless approach"]
+      "missed_opportunities": [
+        "Naive about risks",
+        "Will cave easily",
+        "No support network",
+        "Reckless approach"
+      ]
     },
-    "follow_ups": ["What if your safety is threatened?", "How do you protect sources?", "Describe standing up to pressure."]
+    "follow_ups": [
+      "What if your safety is threatened?",
+      "How do you protect sources?",
+      "Describe standing up to pressure."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_011",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "situational_ethics",
@@ -259,13 +404,27 @@
       "courage": "Do they have moral courage?",
       "diplomacy": "Can they handle it diplomatically?",
       "preparation": "Are they ready for consequences?",
-      "missed_opportunities": ["Complies easily", "Aggressive confrontation", "Doesn't document", "No backbone"]
+      "missed_opportunities": [
+        "Complies easily",
+        "Aggressive confrontation",
+        "Doesn't document",
+        "No backbone"
+      ]
     },
-    "follow_ups": ["What if it's a small change?", "What if this happens repeatedly?", "How do you protect your career?"]
+    "follow_ups": [
+      "What if it's a small change?",
+      "What if this happens repeatedly?",
+      "How do you protect your career?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_012",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "situational_ethics",
@@ -280,16 +439,33 @@
     ],
     "evaluation_rubric": {
       "objectivity": "Can they assess themselves objectively?",
-      "communication": "Can they explain their process?",
+      "communication": {
+        "description": "Can they explain their process?",
+        "weight": 0.2
+      },
       "openness": "Are they open to feedback?",
       "conviction": "Will they stand by facts?",
-      "missed_opportunities": ["Defensive", "Ignores criticism", "Changes facts to please", "No self-reflection"]
+      "missed_opportunities": [
+        "Defensive",
+        "Ignores criticism",
+        "Changes facts to please",
+        "No self-reflection"
+      ]
     },
-    "follow_ups": ["How do you prove balance?", "What if pressure is intense?", "How do you handle social media backlash?"]
+    "follow_ups": [
+      "How do you prove balance?",
+      "What if pressure is intense?",
+      "How do you handle social media backlash?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_013",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "situational_ethics",
@@ -307,13 +483,27 @@
       "action": "Do they act quickly?",
       "transparency": "Are they transparent about errors?",
       "learning": "Do they learn from it?",
-      "missed_opportunities": ["Ignores retraction", "Blames source", "No correction", "Defensive stance"]
+      "missed_opportunities": [
+        "Ignores retraction",
+        "Blames source",
+        "No correction",
+        "Defensive stance"
+      ]
     },
-    "follow_ups": ["How do you issue corrections?", "What if damage is already done?", "How do you prevent this?"]
+    "follow_ups": [
+      "How do you issue corrections?",
+      "What if damage is already done?",
+      "How do you prevent this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_014",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "situational_ethics",
@@ -331,13 +521,27 @@
       "creativity": "Can they find alternatives?",
       "consultation": "Do they seek guidance?",
       "balance": "Can they balance interests?",
-      "missed_opportunities": ["Burns source easily", "Ignores public interest", "No consultation", "Poor judgment"]
+      "missed_opportunities": [
+        "Burns source easily",
+        "Ignores public interest",
+        "No consultation",
+        "Poor judgment"
+      ]
     },
-    "follow_ups": ["What if source is in danger?", "How do you maintain trust?", "What's more important: story or source?"]
+    "follow_ups": [
+      "What if source is in danger?",
+      "How do you maintain trust?",
+      "What's more important: story or source?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "journalist_media_015",
-    "phase": "behavioral",
     "role": "Journalist/Media",
     "level": "any",
     "skill": "situational_resilience",
@@ -355,8 +559,118 @@
       "discernment": "Can they separate trolls from critics?",
       "safety": "Do they take threats seriously?",
       "resilience": "Can they handle pressure?",
-      "missed_opportunities": ["Takes all personally", "Engages with trolls", "Ignores threats", "Mental health suffers"]
+      "missed_opportunities": [
+        "Takes all personally",
+        "Engages with trolls",
+        "Ignores threats",
+        "Mental health suffers"
+      ]
     },
-    "follow_ups": ["How do you protect yourself online?", "What support do you need?", "How do you maintain perspective?"]
+    "follow_ups": [
+      "How do you protect yourself online?",
+      "What support do you need?",
+      "How do you maintain perspective?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "journalist_media_016",
+    "stage": "resume_technical",
+    "role": "Journalist/Media",
+    "difficulty": 2,
+    "question": "Tell me about a story you worked on that you're most proud of.",
+    "ideal_points": [
+      "Story context clearly explained",
+      "Role in reporting process",
+      "Challenges faced",
+      "Impact of story",
+      "What was learned"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "journalist_media_017",
+    "stage": "resume_technical",
+    "role": "Journalist/Media",
+    "difficulty": 3,
+    "question": "How do you approach interviewing someone who is reluctant to speak?",
+    "ideal_points": [
+      "Build trust gradually",
+      "Research beforehand",
+      "Ask open-ended questions",
+      "Respect boundaries",
+      "Persistence without pressure"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "journalist_media_018",
+    "stage": "real_life",
+    "role": "Journalist/Media",
+    "difficulty": 3,
+    "question": "You discover your competitor published incorrect information. What do you do?",
+    "ideal_points": [
+      "Verify facts independently",
+      "Avoid rushing to publish",
+      "Focus on accuracy",
+      "Maintain professionalism",
+      "Publish correct verified information"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "journalist_media_019",
+    "stage": "real_life",
+    "role": "Journalist/Media",
+    "difficulty": 3,
+    "question": "How do you report on topics you personally disagree with?",
+    "ideal_points": [
+      "Maintain objectivity",
+      "Separate opinion from reporting",
+      "Focus on facts",
+      "Recognize personal bias",
+      "Follow journalistic ethics"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "journalist_media_020",
+    "stage": "hr_closing",
+    "role": "Journalist/Media",
+    "difficulty": 2,
+    "question": "What kind of stories do you want to be known for?",
+    "ideal_points": [
+      "Clear journalistic focus",
+      "Alignment with values",
+      "Public impact awareness",
+      "Professional ambition",
+      "Authenticity"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   }
 ]

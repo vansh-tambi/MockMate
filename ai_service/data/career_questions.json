@@ -1,7 +1,7 @@
 [
   {
     "id": "career_001",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -15,17 +15,34 @@
       "Demonstrates strategic thinking"
     ],
     "evaluation_rubric": {
-      "clarity": "Are goals clear?",
+      "clarity": {
+        "description": "Are goals clear?",
+        "weight": 0.15
+      },
       "realism": "Are they achievable?",
       "alignment": "Do they align with this role?",
       "ambition": "Shows drive without being unrealistic?",
-      "missed_opportunities": ["Too vague", "Unrealistic", "No alignment", "No clear direction"]
+      "missed_opportunities": [
+        "Too vague",
+        "Unrealistic",
+        "No alignment",
+        "No clear direction"
+      ]
     },
-    "follow_ups": ["How does this role fit into those goals?", "What steps are you taking?", "What might change your goals?"]
+    "follow_ups": [
+      "How does this role fit into those goals?",
+      "What steps are you taking?",
+      "What might change your goals?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_002",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "fresher",
     "skill": "behavioral",
@@ -43,13 +60,27 @@
       "honesty": "Was honest without burning bridges?",
       "growth_focus": "Focused on growth opportunities?",
       "red_flags": "Any concerning patterns (frequent changes)?",
-      "missed_opportunities": ["Badmouthed employer", "Red flag reasons", "Too many job changes", "Defensive"]
+      "missed_opportunities": [
+        "Badmouthed employer",
+        "Red flag reasons",
+        "Too many job changes",
+        "Defensive"
+      ]
     },
-    "follow_ups": ["What did you learn from that role?", "What would make you stay at a company?", "What are you looking for next?"]
+    "follow_ups": [
+      "What did you learn from that role?",
+      "What would make you stay at a company?",
+      "What are you looking for next?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_003",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -67,13 +98,27 @@
       "specificity": "Mentions specific details?",
       "alignment": "Shows values alignment?",
       "enthusiasm": "Shows genuine interest?",
-      "missed_opportunities": ["Generic reasons", "No research", "Only mentions perks", "Can't articulate"]
+      "missed_opportunities": [
+        "Generic reasons",
+        "No research",
+        "Only mentions perks",
+        "Can't articulate"
+      ]
     },
-    "follow_ups": ["What excites you most about us?", "What do you know about our products?", "What concerns do you have?"]
+    "follow_ups": [
+      "What excites you most about us?",
+      "What do you know about our products?",
+      "What concerns do you have?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_004",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -90,14 +135,31 @@
       "honesty": "Were they honest?",
       "discretion": "Maintained appropriate confidentiality?",
       "interest": "Showed interest in this company?",
-      "strategy": "Shows thoughtful job search?",
-      "missed_opportunities": ["Too secretive", "Listed competitors only", "No clear preference", "Desperate"]
+      "strategy": {
+        "description": "Shows thoughtful job search?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "Too secretive",
+        "Listed competitors only",
+        "No clear preference",
+        "Desperate"
+      ]
     },
-    "follow_ups": ["What factors will influence your decision?", "What's your timeline?", "Why is our company your top choice?"]
+    "follow_ups": [
+      "What factors will influence your decision?",
+      "What's your timeline?",
+      "Why is our company your top choice?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "career_005",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -115,13 +177,27 @@
       "consistency": "Regular learning habit?",
       "application": "Applies learning to work?",
       "curiosity": "Shows genuine interest?",
-      "missed_opportunities": ["Doesn't stay updated", "No specific methods", "Only formal training", "No application"]
+      "missed_opportunities": [
+        "Doesn't stay updated",
+        "No specific methods",
+        "Only formal training",
+        "No application"
+      ]
     },
-    "follow_ups": ["What have you learned recently?", "What's your favorite learning resource?", "How do you apply new knowledge?"]
+    "follow_ups": [
+      "What have you learned recently?",
+      "What's your favorite learning resource?",
+      "How do you apply new knowledge?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_006",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -139,13 +215,27 @@
       "relevance": "Skills relevant to role?",
       "proactivity": "Taking initiative to learn?",
       "growth": "Shows growth mindset?",
-      "missed_opportunities": ["No current learning", "Irrelevant skills", "Too vague", "Complacent"]
+      "missed_opportunities": [
+        "No current learning",
+        "Irrelevant skills",
+        "Too vague",
+        "Complacent"
+      ]
     },
-    "follow_ups": ["How are you learning those skills?", "Why those skills specifically?", "How will you apply them?"]
+    "follow_ups": [
+      "How are you learning those skills?",
+      "Why those skills specifically?",
+      "How will you apply them?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_007",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -163,13 +253,27 @@
       "alignment": "Does it match this role?",
       "priorities": "Right priorities (work over perks)?",
       "awareness": "Shows self-awareness?",
-      "missed_opportunities": ["Unrealistic", "No alignment", "Only mentions perks", "Too vague"]
+      "missed_opportunities": [
+        "Unrealistic",
+        "No alignment",
+        "Only mentions perks",
+        "Too vague"
+      ]
     },
-    "follow_ups": ["What aspects of this role match your ideal?", "What compromises are you willing to make?", "What's non-negotiable?"]
+    "follow_ups": [
+      "What aspects of this role match your ideal?",
+      "What compromises are you willing to make?",
+      "What's non-negotiable?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_008",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -187,13 +291,27 @@
       "professionalism": "Would maintain relationship?",
       "growth": "Would seek feedback?",
       "plan": "Has backup plan?",
-      "missed_opportunities": ["Desperate", "Negative reaction", "No backup plan", "Wouldn't seek feedback"]
+      "missed_opportunities": [
+        "Desperate",
+        "Negative reaction",
+        "No backup plan",
+        "Wouldn't seek feedback"
+      ]
     },
-    "follow_ups": ["How do you handle rejection?", "What's your backup plan?", "How do you maintain professional relationships?"]
+    "follow_ups": [
+      "How do you handle rejection?",
+      "What's your backup plan?",
+      "How do you maintain professional relationships?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "career_009",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -211,13 +329,27 @@
       "reflection": "Reflects on progress?",
       "holistic": "Considers multiple dimensions?",
       "awareness": "Shows self-awareness?",
-      "missed_opportunities": ["No measurement method", "Only external validation", "Too vague", "No reflection"]
+      "missed_opportunities": [
+        "No measurement method",
+        "Only external validation",
+        "Too vague",
+        "No reflection"
+      ]
     },
-    "follow_ups": ["What growth have you seen recently?", "How often do you reflect?", "What's your next growth goal?"]
+    "follow_ups": [
+      "What growth have you seen recently?",
+      "How often do you reflect?",
+      "What's your next growth goal?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "career_010",
-    "phase": "behavioral",
+    "stage": "hr_closing",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -235,8 +367,347 @@
       "priorities": "Shows right priorities?",
       "loyalty": "Shows commitment but not desperation?",
       "red_flags": "Any concerning patterns?",
-      "missed_opportunities": ["Unreasonable reasons", "Too many deal-breakers", "No boundaries", "Job hopper signals"]
+      "missed_opportunities": [
+        "Unreasonable reasons",
+        "Too many deal-breakers",
+        "No boundaries",
+        "Job hopper signals"
+      ]
     },
-    "follow_ups": ["What makes you stay?", "How do you define toxic culture?", "What would you try before leaving?"]
+    "follow_ups": [
+      "What makes you stay?",
+      "How do you define toxic culture?",
+      "What would you try before leaving?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
+  },
+  {
+    "id": "career_011",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "mid",
+    "skill": "career_strategy",
+    "difficulty": 3,
+    "question": "What is your career strategy for the next 3 years?",
+    "ideal_points": [
+      "Clear structured plan",
+      "Skill acquisition roadmap",
+      "Experience progression logic",
+      "Realistic milestones",
+      "Alignment with industry trends"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Is plan clearly structured?",
+        "weight": 0.15
+      },
+      "realism": "Are milestones achievable?",
+      "logic": "Does progression make sense?",
+      "ownership": {
+        "description": "Do they take responsibility?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "No clear plan",
+        "Too vague",
+        "Unrealistic expectations",
+        "Passive mindset"
+      ]
+    },
+    "interviewer_intent": "Tests strategic thinking and career ownership",
+    "red_flags": [
+      "No clear plan",
+      "Expects company to plan for them",
+      "Unrealistic timelines",
+      "No self-awareness"
+    ],
+    "follow_ups": [
+      "How does this role fit into your 3-year plan?",
+      "What if the plan doesn't work out?",
+      "What skills do you need to acquire?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "career_012",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "career_reflection",
+    "difficulty": 4,
+    "question": "What is the biggest career mistake you've made?",
+    "ideal_points": [
+      "Honest reflection",
+      "Ownership taken",
+      "Root cause analysis",
+      "Learning demonstrated",
+      "Behavioral improvement"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Are they genuinely reflective?",
+      "ownership": {
+        "description": "Do they take responsibility?",
+        "weight": 0.2
+      },
+      "learning": "Did they extract lessons?",
+      "growth": "Have they improved?",
+      "missed_opportunities": [
+        "Blames others",
+        "No real mistake shared",
+        "Defensive",
+        "No learning"
+      ]
+    },
+    "interviewer_intent": "Tests self-awareness and ability to learn from failures",
+    "red_flags": [
+      "Can't name a mistake",
+      "Blames external factors",
+      "No ownership",
+      "Repeated same mistake"
+    ],
+    "follow_ups": [
+      "How did you recover from that?",
+      "What would you do differently?",
+      "How has that shaped your decisions since?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "career_013",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "mid",
+    "skill": "decision_making",
+    "difficulty": 3,
+    "question": "How do you decide which opportunities to pursue?",
+    "ideal_points": [
+      "Clear decision framework",
+      "Long-term thinking",
+      "Risk analysis",
+      "Alignment with goals",
+      "Strategic thinking"
+    ],
+    "evaluation_rubric": {
+      "framework": "Do they have a decision process?",
+      "strategic": "Do they think long-term?",
+      "analysis": "Do they analyze properly?",
+      "values": "Are decisions value-driven?",
+      "missed_opportunities": [
+        "No framework",
+        "Purely opportunistic",
+        "Only money-driven",
+        "No strategic thinking"
+      ]
+    },
+    "interviewer_intent": "Tests decision-making maturity and strategic thinking",
+    "red_flags": [
+      "Chases every opportunity",
+      "No clear criteria",
+      "Only money-focused",
+      "Impulsive decisions"
+    ],
+    "follow_ups": [
+      "Give an example of turning down an opportunity",
+      "What factors matter most to you?",
+      "How do you evaluate risk?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "career_014",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "career_judgment",
+    "difficulty": 4,
+    "question": "Tell me about a time you rejected a good opportunity. Why?",
+    "ideal_points": [
+      "Strategic reasoning",
+      "Long-term thinking",
+      "Clear priorities",
+      "Self-awareness",
+      "Confidence in decisions"
+    ],
+    "evaluation_rubric": {
+      "reasoning": "Was reasoning sound?",
+      "conviction": "Were they confident?",
+      "priorities": "Are priorities clear?",
+      "maturity": "Shows career maturity?",
+      "missed_opportunities": [
+        "Regrets decision",
+        "Poor reasoning",
+        "Fear-based decision",
+        "No clear priorities"
+      ]
+    },
+    "interviewer_intent": "Tests ability to say no and prioritize strategically",
+    "red_flags": [
+      "Never rejected anything",
+      "Regrets all choices",
+      "Chases every opportunity",
+      "No strategic filter"
+    ],
+    "follow_ups": [
+      "Do you regret that decision?",
+      "What made it a 'good' opportunity?",
+      "How do you know when to say no?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "career_015",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "closing",
+    "difficulty": 2,
+    "question": "Do you have any questions for us?",
+    "ideal_points": [
+      "Asks thoughtful questions",
+      "Shows genuine interest",
+      "Demonstrates preparation",
+      "Asks about growth or impact",
+      "Shows long-term thinking"
+    ],
+    "evaluation_rubric": {
+      "preparation": "Did they prepare questions?",
+      "quality": "Are questions thoughtful?",
+      "interest": "Do they show genuine interest?",
+      "priorities": "What do they care about?",
+      "missed_opportunities": [
+        "No questions",
+        "Only asks about salary/benefits",
+        "Surface-level questions",
+        "Didn't research company"
+      ]
+    },
+    "interviewer_intent": "Tests genuine interest and preparation level",
+    "red_flags": [
+      "No questions at all",
+      "Only compensation-focused",
+      "Asks obvious/google-able questions",
+      "Shows lack of preparation"
+    ],
+    "follow_ups": [],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "career_016",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "self_awareness",
+    "difficulty": 2,
+    "question": "What is your biggest weakness?",
+    "ideal_points": [
+      "Honest weakness",
+      "Not fatal to role",
+      "Shows improvement effort",
+      "Demonstrates self-awareness",
+      "Growth mindset"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Are they genuinely honest?",
+      "relevance": "Is weakness non-fatal?",
+      "improvement": "Are they working on it?",
+      "awareness": "Do they know themselves?",
+      "missed_opportunities": [
+        "Fake weakness",
+        "No self-awareness",
+        "Fatal weakness for role",
+        "No improvement effort"
+      ]
+    },
+    "interviewer_intent": "Tests self-awareness and ability to handle vulnerability",
+    "red_flags": [
+      "Says 'I'm a perfectionist'",
+      "Can't name a weakness",
+      "Names fatal weakness for role",
+      "Shows no improvement action"
+    ],
+    "follow_ups": [
+      "How are you working on this?",
+      "Has it affected your work?",
+      "Give an example of this weakness in action"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "career_017",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "any",
+    "skill": "fit",
+    "difficulty": 3,
+    "question": "Why should we hire you over other candidates?",
+    "ideal_points": [
+      "Clear value proposition",
+      "Specific strengths",
+      "Role alignment",
+      "Confidence without arrogance",
+      "Evidence-based claims"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Is value prop clear?",
+        "weight": 0.15
+      },
+      "specificity": "Are strengths specific?",
+      "evidence": "Do they back claims?",
+      "confidence": "Confident but not arrogant?",
+      "missed_opportunities": [
+        "Too generic",
+        "Arrogant tone",
+        "No evidence",
+        "Puts others down"
+      ]
+    },
+    "interviewer_intent": "Tests confidence, self-awareness, and ability to articulate value",
+    "red_flags": [
+      "Arrogance",
+      "Generic claims",
+      "Puts down other candidates",
+      "Can't articulate unique value"
+    ],
+    "follow_ups": [
+      "What makes you uniquely qualified?",
+      "How do you differentiate yourself?",
+      "What's your strongest asset for this role?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

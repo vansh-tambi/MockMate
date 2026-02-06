@@ -1,7 +1,6 @@
 [
   {
     "id": "civil_services_001",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,35 @@
       "understanding": "Do they know what civil service means?",
       "values": "Are motivations value-driven?",
       "awareness": "Are they realistic about challenges?",
-      "missed_opportunities": ["Only wants power", "Prestige-focused", "Family pressure", "No public service mindset"]
+      "missed_opportunities": [
+        "Only wants power",
+        "Prestige-focused",
+        "Family pressure",
+        "No public service mindset"
+      ]
     },
-    "follow_ups": ["What does public service mean to you?", "How have you prepared for this?", "What sacrifices are you willing to make?"]
+    "interviewer_intent": "Tests genuine motivation beyond power and prestige",
+    "red_flags": [
+      "Only interested in power",
+      "Family pressure primary motivation",
+      "Naive about challenges",
+      "Glamorized view of service"
+    ],
+    "follow_ups": [
+      "What does public service mean to you?",
+      "How have you prepared for this?",
+      "What sacrifices are you willing to make?",
+      "What if you're posted in a difficult area?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_002",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "values",
@@ -39,17 +60,34 @@
       "Views it as contribution to nation"
     ],
     "evaluation_rubric": {
-      "depth": "Is understanding deep and philosophical?",
+      "depth": {
+        "description": "Is understanding deep and philosophical?",
+        "weight": 0.2
+      },
       "orientation": "Is focus on serving others?",
       "values": "Are core values aligned?",
       "commitment": "Is commitment genuine?",
-      "missed_opportunities": ["Shallow understanding", "Self-focused", "Power-oriented", "No philosophical depth"]
+      "missed_opportunities": [
+        "Shallow understanding",
+        "Self-focused",
+        "Power-oriented",
+        "No philosophical depth"
+      ]
     },
-    "follow_ups": ["How will you practice this daily?", "What if service demands personal sacrifice?", "Who is your role model in public service?"]
+    "follow_ups": [
+      "How will you practice this daily?",
+      "What if service demands personal sacrifice?",
+      "Who is your role model in public service?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_003",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "values",
@@ -63,17 +101,34 @@
       "Values align with civil service ethics"
     ],
     "evaluation_rubric": {
-      "clarity": "Are values clearly articulated?",
+      "clarity": {
+        "description": "Are values clearly articulated?",
+        "weight": 0.15
+      },
       "alignment": "Do they align with civil service?",
       "authenticity": "Are these truly their values?",
       "demonstration": "Have they lived these values?",
-      "missed_opportunities": ["Generic values", "No examples", "Values conflict with role", "Can't explain"]
+      "missed_opportunities": [
+        "Generic values",
+        "No examples",
+        "Values conflict with role",
+        "Can't explain"
+      ]
     },
-    "follow_ups": ["Give an example of living your values.", "What if values conflict with orders?", "How were these values formed?"]
+    "follow_ups": [
+      "Give an example of living your values.",
+      "What if values conflict with orders?",
+      "How were these values formed?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_004",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "ethics",
@@ -91,13 +146,27 @@
       "orientation": "Do they see power as service tool?",
       "awareness": "Are they aware of corruption risks?",
       "humility": "Do they show appropriate humility?",
-      "missed_opportunities": ["Power-hungry", "Naive about corruption", "No accountability sense", "Arrogant"]
+      "missed_opportunities": [
+        "Power-hungry",
+        "Naive about corruption",
+        "No accountability sense",
+        "Arrogant"
+      ]
     },
-    "follow_ups": ["How will you prevent misuse of power?", "What if subordinates misuse authority?", "How do you stay grounded?"]
+    "follow_ups": [
+      "How will you prevent misuse of power?",
+      "What if subordinates misuse authority?",
+      "How do you stay grounded?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_005",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "integrity",
@@ -111,17 +180,34 @@
       "Non-negotiable commitment"
     ],
     "evaluation_rubric": {
-      "depth": "Is definition deep and complete?",
+      "depth": {
+        "description": "Is definition deep and complete?",
+        "weight": 0.2
+      },
       "commitment": "Is it non-negotiable for them?",
       "examples": "Have they demonstrated integrity?",
       "courage": "Does it include moral courage?",
-      "missed_opportunities": ["Surface definition", "No examples", "Situational integrity", "No conviction"]
+      "missed_opportunities": [
+        "Surface definition",
+        "No examples",
+        "Situational integrity",
+        "No conviction"
+      ]
     },
-    "follow_ups": ["Describe upholding integrity at personal cost.", "How do you maintain integrity under pressure?", "What if integrity costs your career?"]
+    "follow_ups": [
+      "Describe upholding integrity at personal cost.",
+      "How do you maintain integrity under pressure?",
+      "What if integrity costs your career?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_006",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "resilience",
@@ -139,13 +225,27 @@
       "knowledge": "Do they know their rights/duties?",
       "diplomacy": "Can they handle pressure tactfully?",
       "ethics": "Will they maintain standards?",
-      "missed_opportunities": ["Naive about politics", "Too confrontational", "Will compromise easily", "Doesn't know system"]
+      "missed_opportunities": [
+        "Naive about politics",
+        "Too confrontational",
+        "Will compromise easily",
+        "Doesn't know system"
+      ]
     },
-    "follow_ups": ["What if pressure comes from very senior levels?", "How do you build political acumen?", "Describe handling conflicting demands."]
+    "follow_ups": [
+      "What if pressure comes from very senior levels?",
+      "How do you build political acumen?",
+      "Describe handling conflicting demands."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_007",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "resilience",
@@ -163,13 +263,27 @@
       "discernment": "Can they evaluate criticism fairly?",
       "learning": "Do they improve from feedback?",
       "resilience": "Can they handle public pressure?",
-      "missed_opportunities": ["Too defensive", "Ignores all criticism", "Takes everything personally", "Lacks resilience"]
+      "missed_opportunities": [
+        "Too defensive",
+        "Ignores all criticism",
+        "Takes everything personally",
+        "Lacks resilience"
+      ]
     },
-    "follow_ups": ["Describe handling unfair criticism.", "How do you separate personal from professional?", "What if criticism affects your family?"]
+    "follow_ups": [
+      "Describe handling unfair criticism.",
+      "How do you separate personal from professional?",
+      "What if criticism affects your family?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_008",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "leadership",
@@ -187,13 +301,27 @@
       "authenticity": "Is leadership style genuine?",
       "balance": "Can they balance competing needs?",
       "development": "Do they develop others?",
-      "missed_opportunities": ["Authoritarian", "Self-focused", "No clear philosophy", "All talk, no examples"]
+      "missed_opportunities": [
+        "Authoritarian",
+        "Self-focused",
+        "No clear philosophy",
+        "All talk, no examples"
+      ]
     },
-    "follow_ups": ["Describe your leadership in action.", "How do you develop subordinates?", "What if you must make unpopular decisions?"]
+    "follow_ups": [
+      "Describe your leadership in action.",
+      "How do you develop subordinates?",
+      "What if you must make unpopular decisions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_009",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "motivation",
@@ -207,17 +335,34 @@
       "Personal connection to service"
     ],
     "evaluation_rubric": {
-      "depth": "Is motivation deep and genuine?",
+      "depth": {
+        "description": "Is motivation deep and genuine?",
+        "weight": 0.2
+      },
       "connection": "Is there personal connection?",
       "understanding": "Do they understand nation's needs?",
       "commitment": "Is commitment long-term?",
-      "missed_opportunities": ["Superficial patriotism", "No specific motivation", "Only about personal goals", "Rhetoric without substance"]
+      "missed_opportunities": [
+        "Superficial patriotism",
+        "No specific motivation",
+        "Only about personal goals",
+        "Rhetoric without substance"
+      ]
     },
-    "follow_ups": ["What national issues concern you most?", "How will you contribute specifically?", "What if service is unrewarding?"]
+    "follow_ups": [
+      "What national issues concern you most?",
+      "How will you contribute specifically?",
+      "What if service is unrewarding?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_010",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "commitment",
@@ -235,13 +380,27 @@
       "commitment": "Are they committed long-term?",
       "value": "Will they provide value?",
       "responsibility": "Do they feel responsible?",
-      "missed_opportunities": ["Entitlement attitude", "No awareness of investment", "Vague plans", "Short-term thinking"]
+      "missed_opportunities": [
+        "Entitlement attitude",
+        "No awareness of investment",
+        "Vague plans",
+        "Short-term thinking"
+      ]
     },
-    "follow_ups": ["What will you accomplish in your career?", "How will you measure your impact?", "What if you don't get your preferred posting?"]
+    "follow_ups": [
+      "What will you accomplish in your career?",
+      "How will you measure your impact?",
+      "What if you don't get your preferred posting?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "civil_services_011",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "situational_ethics",
@@ -257,15 +416,40 @@
     "evaluation_rubric": {
       "courage": "Do they have moral courage?",
       "process": "Do they know proper procedure?",
-      "communication": "Can they refuse diplomatically?",
+      "communication": {
+        "description": "Can they refuse diplomatically?",
+        "weight": 0.2
+      },
       "conviction": "Will they stand firm?",
-      "missed_opportunities": ["Complies easily", "Aggressive refusal", "Doesn't document", "No courage"]
+      "missed_opportunities": [
+        "Complies easily",
+        "Aggressive refusal",
+        "Doesn't document",
+        "No courage"
+      ]
     },
-    "follow_ups": ["What if it impacts your career?", "How do you protect yourself?", "What if the request seems harmless?"]
+    "interviewer_intent": "Tests ethical integrity under direct authority pressure",
+    "red_flags": [
+      "Complies without thinking",
+      "Career more important than ethics",
+      "Doesn't understand protections",
+      "Shows no moral conflict"
+    ],
+    "follow_ups": [
+      "What if it impacts your career?",
+      "How do you protect yourself?",
+      "What if the request seems harmless?",
+      "What if your seniors tell you 'everyone does this'?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_012",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "situational_ethics",
@@ -283,13 +467,35 @@
       "process": "Do they follow proper procedure?",
       "courage": "Are they prepared for backlash?",
       "prudence": "Are they smart about approach?",
-      "missed_opportunities": ["Looks away", "Makes public spectacle", "No evidence", "Afraid of consequences"]
+      "missed_opportunities": [
+        "Looks away",
+        "Makes public spectacle",
+        "No evidence",
+        "Afraid of consequences"
+      ]
     },
-    "follow_ups": ["What if no action is taken?", "How do you protect yourself from retaliation?", "What if it involves senior officers?"]
+    "interviewer_intent": "Tests whistleblowing courage and ethical conviction",
+    "red_flags": [
+      "Wants to ignore corruption",
+      "Too afraid to act",
+      "Will go to media first",
+      "No understanding of proper channels"
+    ],
+    "follow_ups": [
+      "What if no action is taken?",
+      "How do you protect yourself from retaliation?",
+      "What if it involves senior officers?",
+      "What if your family is threatened?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_013",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "situational_ethics",
@@ -307,13 +513,27 @@
       "process": "Do they follow proper channels?",
       "balance": "Can they balance law and public interest?",
       "accountability": "Are they prepared to be accountable?",
-      "missed_opportunities": ["Ignores law easily", "Rigidly follows rules", "No consultation", "Poor documentation"]
+      "missed_opportunities": [
+        "Ignores law easily",
+        "Rigidly follows rules",
+        "No consultation",
+        "Poor documentation"
+      ]
     },
-    "follow_ups": ["What if superiors push you to violate law?", "How do you balance law and justice?", "What if public pressure is intense?"]
+    "follow_ups": [
+      "What if superiors push you to violate law?",
+      "How do you balance law and justice?",
+      "What if public pressure is intense?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_014",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "situational_judgment",
@@ -331,13 +551,27 @@
       "framework": "Do they have prioritization logic?",
       "participation": "Do they involve stakeholders?",
       "creativity": "Can they mobilize resources?",
-      "missed_opportunities": ["No clear framework", "Random priorities", "Top-down approach", "Gives up due to constraints"]
+      "missed_opportunities": [
+        "No clear framework",
+        "Random priorities",
+        "Top-down approach",
+        "Gives up due to constraints"
+      ]
     },
-    "follow_ups": ["How do you handle competing demands?", "What if powerful people want different priorities?", "How do you measure impact?"]
+    "follow_ups": [
+      "How do you handle competing demands?",
+      "What if powerful people want different priorities?",
+      "How do you measure impact?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "civil_services_015",
-    "phase": "behavioral",
     "role": "IAS/IPS/IFS/Civil Services",
     "level": "any",
     "skill": "situational_judgment",
@@ -355,8 +589,173 @@
       "balance": "Can they balance interests?",
       "creativity": "Do they seek win-win solutions?",
       "protection": "Do they protect vulnerable?",
-      "missed_opportunities": ["Ignores minority", "Paralyzed by dilemma", "No mitigation measures", "Pure utilitarian approach"]
+      "missed_opportunities": [
+        "Ignores minority",
+        "Paralyzed by dilemma",
+        "No mitigation measures",
+        "Pure utilitarian approach"
+      ]
     },
-    "follow_ups": ["How do you ensure fairness?", "What if there's no perfect solution?", "How do you communicate difficult decisions?"]
+    "follow_ups": [
+      "How do you ensure fairness?",
+      "What if there's no perfect solution?",
+      "How do you communicate difficult decisions?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "civil_services_016",
+    "role": "IAS/IPS/IFS/Civil Services",
+    "level": "advanced",
+    "skill": "crisis_management",
+    "difficulty": 5,
+    "question": "A riot breaks out in your district. What are your immediate actions?",
+    "ideal_points": [
+      "Ensure public safety",
+      "Deploy law enforcement",
+      "Prevent escalation",
+      "Communicate with leaders",
+      "Restore order systematically"
+    ],
+    "evaluation_rubric": {
+      "priorities": "Do they prioritize life and safety?",
+      "leadership": {
+        "description": "Do they take charge decisively?",
+        "weight": 0.25
+      },
+      "strategy": {
+        "description": "Is approach systematic?",
+        "weight": 0.15
+      },
+      "communication": {
+        "description": "Do they communicate effectively?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Panic or delay",
+        "Excessive force",
+        "No systematic approach",
+        "Poor stakeholder management"
+      ]
+    },
+    "interviewer_intent": "Tests crisis management under extreme pressure and public safety responsibility",
+    "red_flags": [
+      "Advocates violence",
+      "Shows panic",
+      "No systematic approach",
+      "Ignores constitutional duties"
+    ],
+    "follow_ups": [
+      "What if police force is insufficient?",
+      "What if political leaders interfere?",
+      "How do you prevent it from spreading to other areas?",
+      "What if media sensationalizes the situation?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "civil_services_017",
+    "role": "IAS/IPS/IFS/Civil Services",
+    "level": "advanced",
+    "skill": "ethical_conflict",
+    "difficulty": 5,
+    "question": "Your political superior orders illegal action. What do you do?",
+    "ideal_points": [
+      "Refuses respectfully",
+      "Protects legal integrity",
+      "Documents request",
+      "Follows constitutional duty",
+      "Maintains professionalism"
+    ],
+    "evaluation_rubric": {
+      "courage": "Do they have moral courage?",
+      "process": "Do they follow proper procedure?",
+      "professionalism": "Do they maintain respect?",
+      "conviction": "Will they stand firm?",
+      "missed_opportunities": [
+        "Complies without question",
+        "Confronts aggressively",
+        "Doesn't document",
+        "Lacks constitutional awareness"
+      ]
+    },
+    "interviewer_intent": "Tests ethical integrity under authority pressure and constitutional commitment",
+    "red_flags": [
+      "Immediately complies",
+      "Shows no conflict",
+      "Prioritizes career over law",
+      "Doesn't know constitutional protections"
+    ],
+    "follow_ups": [
+      "What if refusing destroys your career?",
+      "What if everyone else complies?",
+      "What if public doesn't support your decision?",
+      "How do you protect yourself legally?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "civil_services_018",
+    "role": "IAS/IPS/IFS/Civil Services",
+    "level": "advanced",
+    "skill": "resource_management",
+    "difficulty": 5,
+    "question": "Your district has limited funds but massive poverty. How do you allocate resources?",
+    "ideal_points": [
+      "Needs assessment",
+      "Prioritization logic",
+      "Maximize impact",
+      "Transparency",
+      "Long-term planning"
+    ],
+    "evaluation_rubric": {
+      "analysis": "Do they assess systematically?",
+      "logic": "Is prioritization logical?",
+      "impact": "Do they maximize impact?",
+      "governance": "Do they ensure transparency?",
+      "missed_opportunities": [
+        "Random allocation",
+        "Succumbs to political pressure",
+        "No impact measurement",
+        "Short-term thinking only"
+      ]
+    },
+    "interviewer_intent": "Tests resource management under scarcity and development economics understanding",
+    "red_flags": [
+      "No clear framework",
+      "Easily influenced by pressure",
+      "Ignores vulnerable sections",
+      "No accountability mechanism"
+    ],
+    "follow_ups": [
+      "What if powerful people want funds for their areas?",
+      "How do you handle competing demands?",
+      "What if your allocation is criticized?",
+      "How do you measure success with limited resources?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
   }
 ]

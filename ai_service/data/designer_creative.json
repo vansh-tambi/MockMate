@@ -1,7 +1,6 @@
 [
   {
     "id": "designer_creative_001",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "motivation",
@@ -18,14 +17,31 @@
       "genuineness": "Is motivation authentic?",
       "understanding": "Do they grasp design's purpose?",
       "passion": "Do they show enthusiasm?",
-      "depth": "Is understanding beyond aesthetics?",
-      "missed_opportunities": ["Only aesthetic focus", "No problem-solving", "Shallow reasoning", "Can't articulate purpose"]
+      "depth": {
+        "description": "Is understanding beyond aesthetics?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Only aesthetic focus",
+        "No problem-solving",
+        "Shallow reasoning",
+        "Can't articulate purpose"
+      ]
     },
-    "follow_ups": ["What aspect of design excites you most?", "What does good design mean to you?", "How did you develop your interest?"]
+    "follow_ups": [
+      "What aspect of design excites you most?",
+      "What does good design mean to you?",
+      "How did you develop your interest?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "designer_creative_002",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "creativity",
@@ -43,13 +59,27 @@
       "variety": "Do they use multiple approaches?",
       "effectiveness": "Are strategies proven?",
       "self_awareness": "Do they understand their process?",
-      "missed_opportunities": ["No strategies", "Waits for inspiration", "Forces creativity", "Works in isolation"]
+      "missed_opportunities": [
+        "No strategies",
+        "Waits for inspiration",
+        "Forces creativity",
+        "Works in isolation"
+      ]
     },
-    "follow_ups": ["What's your most effective technique?", "How long do blocks typically last?", "What inspires you most?"]
+    "follow_ups": [
+      "What's your most effective technique?",
+      "How long do blocks typically last?",
+      "What inspires you most?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "designer_creative_003",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "feedback_handling",
@@ -67,13 +97,27 @@
       "maturity": "Do they handle it professionally?",
       "discernment": "Can they filter useful feedback?",
       "growth": "Do they use it to improve?",
-      "missed_opportunities": ["Defensive", "Takes personally", "Accepts all feedback blindly", "Ignores feedback"]
+      "missed_opportunities": [
+        "Defensive",
+        "Takes personally",
+        "Accepts all feedback blindly",
+        "Ignores feedback"
+      ]
     },
-    "follow_ups": ["Describe harsh feedback you received.", "How do you decide which feedback to implement?", "How do you maintain confidence?"]
+    "follow_ups": [
+      "Describe harsh feedback you received.",
+      "How do you decide which feedback to implement?",
+      "How do you maintain confidence?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "designer_creative_004",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "design_philosophy",
@@ -87,17 +131,34 @@
       "Timeless yet relevant"
     ],
     "evaluation_rubric": {
-      "depth": "Is understanding comprehensive?",
+      "depth": {
+        "description": "Is understanding comprehensive?",
+        "weight": 0.2
+      },
       "user_focus": "Do they prioritize users?",
       "balance": "Do they balance aesthetics and function?",
       "principles": "Do they have clear principles?",
-      "missed_opportunities": ["Only aesthetic focus", "No user consideration", "Vague criteria", "Follows trends blindly"]
+      "missed_opportunities": [
+        "Only aesthetic focus",
+        "No user consideration",
+        "Vague criteria",
+        "Follows trends blindly"
+      ]
     },
-    "follow_ups": ["Give an example of great design.", "How do you measure design success?", "What design principles guide you?"]
+    "follow_ups": [
+      "Give an example of great design.",
+      "How do you measure design success?",
+      "What design principles guide you?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "designer_creative_005",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "constraints",
@@ -114,14 +175,31 @@
       "mindset": "Do they see constraints positively?",
       "creativity": "Are they creative within limits?",
       "prioritization": "Can they prioritize effectively?",
-      "communication": "Do they explain tradeoffs?",
-      "missed_opportunities": ["Frustrated by constraints", "Ignores requirements", "Can't adapt", "No prioritization"]
+      "communication": {
+        "description": "Do they explain tradeoffs?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Frustrated by constraints",
+        "Ignores requirements",
+        "Can't adapt",
+        "No prioritization"
+      ]
     },
-    "follow_ups": ["Describe a project with heavy constraints.", "How do you negotiate requirements?", "What if client rejects your creative ideas?"]
+    "follow_ups": [
+      "Describe a project with heavy constraints.",
+      "How do you negotiate requirements?",
+      "What if client rejects your creative ideas?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "designer_creative_006",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "time_management",
@@ -138,14 +216,31 @@
       "efficiency": "Can they work efficiently?",
       "prioritization": "Do they focus on what matters?",
       "quality": "Do they maintain standards?",
-      "communication": "Do they set expectations?",
-      "missed_opportunities": ["Sacrifices all quality", "Misses deadlines", "Poor planning", "No prioritization"]
+      "communication": {
+        "description": "Do they set expectations?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Sacrifices all quality",
+        "Misses deadlines",
+        "Poor planning",
+        "No prioritization"
+      ]
     },
-    "follow_ups": ["Describe a tight deadline project.", "How do you decide what to prioritize?", "What if timeline is impossible?"]
+    "follow_ups": [
+      "Describe a tight deadline project.",
+      "How do you decide what to prioritize?",
+      "What if timeline is impossible?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "designer_creative_007",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "fit",
@@ -163,13 +258,27 @@
       "evidence": "Can they demonstrate value?",
       "uniqueness": "What makes them stand out?",
       "research": "Do they understand the company?",
-      "missed_opportunities": ["Generic answer", "No portfolio examples", "Arrogant", "Hasn't researched company"]
+      "missed_opportunities": [
+        "Generic answer",
+        "No portfolio examples",
+        "Arrogant",
+        "Hasn't researched company"
+      ]
     },
-    "follow_ups": ["Show me your best work.", "What's your design process?", "How do you approach new projects?"]
+    "follow_ups": [
+      "Show me your best work.",
+      "What's your design process?",
+      "How do you approach new projects?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "designer_creative_008",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "inspiration",
@@ -187,13 +296,27 @@
       "active": "Do they actively seek inspiration?",
       "learning": "Do they continuously learn?",
       "application": "Do they apply new ideas?",
-      "missed_opportunities": ["Limited sources", "Passive approach", "No experimentation", "Stale work"]
+      "missed_opportunities": [
+        "Limited sources",
+        "Passive approach",
+        "No experimentation",
+        "Stale work"
+      ]
     },
-    "follow_ups": ["What designers inspire you?", "What's your latest learning?", "How do you experiment?"]
+    "follow_ups": [
+      "What designers inspire you?",
+      "What's your latest learning?",
+      "How do you experiment?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "designer_creative_009",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "metrics",
@@ -211,13 +334,27 @@
       "user_focus": "Do they prioritize user outcomes?",
       "business_awareness": "Do they understand business impact?",
       "comprehensiveness": "Do they use multiple measures?",
-      "missed_opportunities": ["Only aesthetic judgment", "No measurement", "Ignores users", "No business awareness"]
+      "missed_opportunities": [
+        "Only aesthetic judgment",
+        "No measurement",
+        "Ignores users",
+        "No business awareness"
+      ]
     },
-    "follow_ups": ["What metrics matter most?", "How do you conduct user testing?", "Give an example of measured success."]
+    "follow_ups": [
+      "What metrics matter most?",
+      "How do you conduct user testing?",
+      "Give an example of measured success."
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "designer_creative_010",
-    "phase": "behavioral",
     "role": "Designer/Creative Professional",
     "level": "any",
     "skill": "collaboration",
@@ -231,12 +368,33 @@
       "Shows empathy and patience"
     ],
     "evaluation_rubric": {
-      "communication": "Can they explain design effectively?",
+      "communication": {
+        "description": "Can they explain design effectively?",
+        "weight": 0.2
+      },
       "patience": "Are they patient and empathetic?",
-      "collaboration": "Do they value others' input?",
+      "collaboration": {
+        "description": "Do they value others' input?",
+        "weight": 0.15
+      },
       "translation": "Can they bridge design and business?",
-      "missed_opportunities": ["Condescending", "Can't explain rationale", "Dismissive", "Poor communication"]
+      "missed_opportunities": [
+        "Condescending",
+        "Can't explain rationale",
+        "Dismissive",
+        "Poor communication"
+      ]
     },
-    "follow_ups": ["Describe collaborating with difficult stakeholder.", "How do you justify design decisions?", "How do you handle design-by-committee?"]
+    "follow_ups": [
+      "Describe collaborating with difficult stakeholder.",
+      "How do you justify design decisions?",
+      "How do you handle design-by-committee?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   }
 ]

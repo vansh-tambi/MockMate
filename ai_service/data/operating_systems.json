@@ -1,0 +1,187 @@
+[
+  {
+    "id": "os_memory_elite_001",
+    "category": "operating_systems",
+    "role": "backend",
+    "level": "mid",
+    "skill": "memory-management",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "Explain memory management in operating systems. How do stack and heap differ, and what happens with memory leaks?",
+    "ideal_points": [
+      "Stack stores function calls and local variables",
+      "Heap stores dynamic allocations",
+      "Stack is automatically freed when function exits",
+      "Heap memory must be manually freed (or garbage collected)",
+      "Memory leak occurs when heap memory is not freed",
+      "Stack overflow from recursion",
+      "Fragmentation issues",
+      "Virtual memory and paging"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains stack/heap distinction",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses implications and problems",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Uses good mental models",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References debugging actual memory issues",
+        "weight": 0.2
+      },
+      "confidence": "Shows systems-level thinking"
+    },
+    "strong_signals": [
+      "Provides concrete examples",
+      "Explains garbage collection tradeoffs",
+      "Discusses memory debugging tools",
+      "Mentions virtual memory"
+    ],
+    "weak_signals": [
+      "Correct but basic understanding",
+      "Cannot explain memory leak implications"
+    ],
+    "red_flags": [
+      "Confuses stack and heap",
+      "Cannot explain memory leak",
+      "No understanding of garbage collection"
+    ],
+    "follow_ups": [
+      "How would you debug a memory leak?",
+      "What's virtual memory for?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "os_processes_elite_001",
+    "category": "operating_systems",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "processes",
+    "difficulty": 4,
+    "weight": 1.6,
+    "expected_duration_sec": 180,
+    "stage": "technical",
+    "question": "What's the difference between processes and threads? When would you choose one over the other?",
+    "ideal_points": [
+      "Process has separate address space",
+      "Thread shares memory within process",
+      "Process creation is expensive",
+      "Thread context switching is faster",
+      "Thread synchronization is complex",
+      "Processes are isolated (safer)",
+      "Threads for parallelism within same task",
+      "Processes for independent tasks"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately distinguishes processes/threads",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses creation/switching costs",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear trade-off analysis",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual use cases",
+        "weight": 0.2
+      },
+      "confidence": "Systems understanding evident"
+    },
+    "strong_signals": [
+      "Mentions IPC (Inter-Process Communication)",
+      "Discusses synchronization primitives",
+      "Explains when each is better"
+    ],
+    "weak_signals": [
+      "Correct but lacks nuance",
+      "Cannot explain context switching"
+    ],
+    "red_flags": [
+      "Confuses processes and threads",
+      "Cannot explain memory isolation",
+      "No consideration of tradeoffs"
+    ],
+    "follow_ups": [
+      "How do you communicate between processes?",
+      "What's a multiprocessing server?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "os_scheduling_elite_001",
+    "category": "operating_systems",
+    "role": "backend",
+    "level": "senior",
+    "skill": "scheduling",
+    "difficulty": 5,
+    "weight": 1.8,
+    "expected_duration_sec": 200,
+    "stage": "technical",
+    "question": "Explain CPU scheduling algorithms. How does the OS decide which process runs next?",
+    "ideal_points": [
+      "Round-robin (time slices)",
+      "First-come-first-served",
+      "Shortest job first",
+      "Priority scheduling",
+      "Preemption vs non-preemption",
+      "Context switching overhead",
+      "Starvation problems",
+      "Real-time vs batch systems"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Accurately explains scheduling algorithms",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Discusses trade-offs and problems",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear examples provided",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References real OS behaviors",
+        "weight": 0.2
+      },
+      "confidence": "Deep systems knowledge"
+    },
+    "strong_signals": [
+      "Compares algorithm tradeoffs",
+      "Mentions Gantt charts",
+      "Discusses fairness and responsiveness"
+    ],
+    "weak_signals": [
+      "Knows algorithms but no practical sense"
+    ],
+    "red_flags": [
+      "Cannot explain preemption",
+      "Unknown algorithm tradeoffs"
+    ],
+    "follow_ups": [
+      "How does priority affect scheduling?",
+      "What's starvation?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  }
+]

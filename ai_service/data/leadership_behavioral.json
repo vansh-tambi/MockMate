@@ -1,0 +1,634 @@
+[
+  {
+    "id": "leader_001",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "leadership",
+    "question": "Describe a time you led a team through uncertainty.",
+    "ideal_points": [
+      "Provided direction",
+      "Maintained morale",
+      "Made decisions confidently",
+      "Achieved success",
+      "Demonstrated leadership"
+    ],
+    "evaluation_rubric": {
+      "direction": "Did they provide clear direction?",
+      "confidence": "Did they lead confidently?",
+      "morale": "Did they maintain team morale?",
+      "outcome": "Was the team successful?",
+      "missed_opportunities": [
+        "No clear direction",
+        "Team morale suffered",
+        "Avoided decisions",
+        "Poor outcome"
+      ]
+    },
+    "follow_ups": [
+      "How did you communicate during uncertainty?",
+      "What was the biggest challenge?",
+      "How did your team respond to your leadership?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_002",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "strategic_thinking",
+    "question": "Tell me about a time you had to change strategy mid-execution.",
+    "ideal_points": [
+      "Recognized need for change",
+      "Made data-driven decision",
+      "Communicated change effectively",
+      "Brought team along",
+      "Achieved better outcome"
+    ],
+    "evaluation_rubric": {
+      "recognition": "Did they identify the need?",
+      "decision": "Was the pivot well-reasoned?",
+      "communication": {
+        "description": "Did they communicate effectively?",
+        "weight": 0.2
+      },
+      "execution": "Did they execute the change?",
+      "missed_opportunities": [
+        "Stuck to failing plan",
+        "Poor communication",
+        "Team confusion",
+        "No improvement"
+      ]
+    },
+    "follow_ups": [
+      "How did you know the strategy wasn't working?",
+      "How did the team react?",
+      "What was the risk of changing?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_003",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "mentoring",
+    "question": "Describe how you helped develop someone on your team who was struggling.",
+    "ideal_points": [
+      "Identified specific issues",
+      "Provided structured support",
+      "Gave actionable feedback",
+      "Tracked progress",
+      "Achieved improvement"
+    ],
+    "evaluation_rubric": {
+      "diagnosis": "Did they identify root cause?",
+      "support": "Did they provide effective support?",
+      "feedback": "Was feedback constructive?",
+      "outcome": "Did person improve?",
+      "missed_opportunities": [
+        "Gave up on person",
+        "Vague feedback",
+        "No follow-through",
+        "No improvement"
+      ]
+    },
+    "follow_ups": [
+      "What was the biggest challenge?",
+      "How did you balance support with accountability?",
+      "What did you learn from this?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_004",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "delegation",
+    "question": "Tell me about a time you had to delegate a critical task.",
+    "ideal_points": [
+      "Chose right person",
+      "Provided clear expectations",
+      "Gave appropriate autonomy",
+      "Supported without micromanaging",
+      "Task completed successfully"
+    ],
+    "evaluation_rubric": {
+      "selection": "Did they choose wisely?",
+      "clarity": {
+        "description": "Were expectations clear?",
+        "weight": 0.15
+      },
+      "trust": "Did they trust the person?",
+      "support": "Did they provide right support?",
+      "missed_opportunities": [
+        "Micromanaged",
+        "Unclear expectations",
+        "Wrong person chosen",
+        "Task failed"
+      ]
+    },
+    "follow_ups": [
+      "How did you decide who to delegate to?",
+      "How did you support them?",
+      "What if they had failed?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_005",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "difficult_decisions",
+    "question": "Describe a time you had to make an unpopular decision.",
+    "ideal_points": [
+      "Made decision based on data",
+      "Communicated rationale clearly",
+      "Listened to concerns",
+      "Stood by decision",
+      "Decision proved correct"
+    ],
+    "evaluation_rubric": {
+      "conviction": "Did they have conviction?",
+      "communication": {
+        "description": "Did they explain why?",
+        "weight": 0.2
+      },
+      "empathy": "Did they listen to concerns?",
+      "outcome": "Was decision right?",
+      "missed_opportunities": [
+        "Avoided decision",
+        "Poor communication",
+        "Ignored concerns",
+        "Wrong decision"
+      ]
+    },
+    "follow_ups": [
+      "How did you handle the pushback?",
+      "Would you make the same decision again?",
+      "How did people respond after?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_006",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "team_building",
+    "question": "How have you built trust within a team that had trust issues?",
+    "ideal_points": [
+      "Identified trust issues",
+      "Created psychological safety",
+      "Led by example",
+      "Facilitated team bonding",
+      "Improved team dynamics"
+    ],
+    "evaluation_rubric": {
+      "diagnosis": "Did they understand the issues?",
+      "approach": "Was approach effective?",
+      "leadership": {
+        "description": "Did they model trust?",
+        "weight": 0.25
+      },
+      "outcome": "Did trust improve?",
+      "missed_opportunities": [
+        "Ignored issues",
+        "Forced bonding",
+        "No real improvement",
+        "Made worse"
+      ]
+    },
+    "follow_ups": [
+      "What caused the trust issues?",
+      "What specific actions did you take?",
+      "How long did it take?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_007",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "performance_management",
+    "question": "Tell me about a time you had to let someone go.",
+    "ideal_points": [
+      "Tried to help first",
+      "Made fair decision",
+      "Handled with dignity",
+      "Communicated clearly",
+      "Learned from experience"
+    ],
+    "evaluation_rubric": {
+      "fairness": "Was decision fair?",
+      "dignity": "Did they treat person with respect?",
+      "clarity": {
+        "description": "Was communication clear?",
+        "weight": 0.15
+      },
+      "learning": "Did they learn?",
+      "missed_opportunities": [
+        "Acted prematurely",
+        "Handled poorly",
+        "No support given",
+        "Team impact ignored"
+      ]
+    },
+    "follow_ups": [
+      "What did you try before this decision?",
+      "How did you handle the conversation?",
+      "How did it affect the team?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_008",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "vision",
+    "question": "Describe a vision you created and how you made it reality.",
+    "ideal_points": [
+      "Articulated clear vision",
+      "Inspired others to follow",
+      "Created actionable plan",
+      "Overcame obstacles",
+      "Achieved vision"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Was vision clear and compelling?",
+        "weight": 0.15
+      },
+      "inspiration": "Did people buy in?",
+      "execution": "Did they execute well?",
+      "persistence": "Did they persist through challenges?",
+      "missed_opportunities": [
+        "Vague vision",
+        "No buy-in",
+        "Poor execution",
+        "Gave up early"
+      ]
+    },
+    "follow_ups": [
+      "How did you communicate the vision?",
+      "What obstacles did you face?",
+      "How did you maintain momentum?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_009",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "cultural_change",
+    "question": "Tell me about a time you changed team or organizational culture.",
+    "ideal_points": [
+      "Identified cultural issues",
+      "Created change plan",
+      "Led by example",
+      "Sustained change over time",
+      "Measured impact"
+    ],
+    "evaluation_rubric": {
+      "understanding": "Did they understand culture?",
+      "strategy": {
+        "description": "Did they have a plan?",
+        "weight": 0.15
+      },
+      "modeling": "Did they model new behaviors?",
+      "sustainability": "Did change last?",
+      "missed_opportunities": [
+        "Superficial change",
+        "No follow-through",
+        "Change didn't stick",
+        "No measurement"
+      ]
+    },
+    "follow_ups": [
+      "What was the biggest resistance?",
+      "How did you sustain the change?",
+      "What metrics did you use?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_010",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "stakeholder_management",
+    "question": "Describe how you managed competing priorities from multiple stakeholders.",
+    "ideal_points": [
+      "Understood all perspectives",
+      "Negotiated effectively",
+      "Found creative solutions",
+      "Managed expectations",
+      "Achieved win-win outcome"
+    ],
+    "evaluation_rubric": {
+      "empathy": "Did they understand each stakeholder?",
+      "negotiation": "Did they negotiate well?",
+      "creativity": "Did they find solutions?",
+      "outcome": "Were stakeholders satisfied?",
+      "missed_opportunities": [
+        "Ignored stakeholders",
+        "Winner-loser outcome",
+        "Poor communication",
+        "Damaged relationships"
+      ]
+    },
+    "follow_ups": [
+      "How did you prioritize?",
+      "What trade-offs did you make?",
+      "How did you maintain relationships?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_011",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 5,
+    "question": "Tell me about a time your team failed. What did you do?",
+    "ideal_points": [
+      "Takes responsibility",
+      "Analyzed failure",
+      "Learned from experience",
+      "Improved process",
+      "Demonstrated leadership"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_012",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 5,
+    "question": "How do you handle conflict between team members?",
+    "ideal_points": [
+      "Listen to both sides",
+      "Remain neutral",
+      "Encourage resolution",
+      "Maintain professionalism",
+      "Strengthen team cohesion"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_013",
+    "stage": "resume_technical",
+    "role": "any",
+    "difficulty": 4,
+    "question": "What leadership experience are you most proud of?",
+    "ideal_points": [
+      "Clear leadership role",
+      "Impact demonstrated",
+      "Challenges overcome",
+      "Team success",
+      "Personal growth"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "leader_014",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 5,
+    "question": "How do you motivate a team that is losing motivation?",
+    "ideal_points": [
+      "Identify root cause",
+      "Communicate clearly",
+      "Provide support",
+      "Rebuild morale",
+      "Restore productivity"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_015",
+    "stage": "hr_closing",
+    "role": "any",
+    "difficulty": 4,
+    "question": "What kind of leader do you aspire to be?",
+    "ideal_points": [
+      "Clear leadership philosophy",
+      "Self-awareness",
+      "Growth mindset",
+      "Focus on team success",
+      "Authenticity"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "leader_016",
+    "stage": "resume_deep_dive",
+    "role": "any",
+    "level": "senior",
+    "skill": "ownership",
+    "difficulty": 5,
+    "question": "Tell me about a decision you made that turned out to be wrong.",
+    "ideal_points": [
+      "Admits clear mistake",
+      "Takes full ownership",
+      "Explains decision reasoning",
+      "Describes corrective action",
+      "Shows learning and changed behavior"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Does not blame others",
+        "weight": 0.2
+      },
+      "honesty": "Admits real mistake",
+      "learning": "Shows growth",
+      "accountability": "Took corrective action"
+    },
+    "interviewer_intent": "Tests accountability and intellectual honesty",
+    "failure_signals": [
+      "Claims no mistakes",
+      "Blames team or circumstances",
+      "Minimizes impact",
+      "Shows no learning"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "Why did you make that decision?",
+      "What would you do differently now?",
+      "How did your team react?",
+      "How did this change your leadership?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_017",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "accountability",
+    "difficulty": 5,
+    "question": "Tell me about a time your team failed because of your leadership.",
+    "ideal_points": [
+      "Accepts responsibility fully",
+      "Identifies leadership gap",
+      "Explains root cause",
+      "Shows corrective leadership action",
+      "Demonstrates growth"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Accepts leadership responsibility",
+        "weight": 0.2
+      },
+      "analysis": "Understands leadership failure",
+      "growth": "Improved leadership afterward"
+    },
+    "interviewer_intent": "Tests leadership accountability",
+    "failure_signals": [
+      "Blames team",
+      "Avoids responsibility",
+      "Denies failure",
+      "No improvement afterward"
+    ],
+    "weight": 1.6,
+    "follow_ups": [
+      "What did you do wrong specifically?",
+      "How did your team respond?",
+      "What did you change afterward?",
+      "How do you prevent it now?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leader_018",
+    "stage": "execution",
+    "role": "any",
+    "level": "senior",
+    "skill": "execution",
+    "difficulty": 5,
+    "question": "Describe the most complex project you successfully delivered.",
+    "ideal_points": [
+      "Clear complexity explained",
+      "Shows structured execution",
+      "Handled challenges effectively",
+      "Delivered measurable results",
+      "Demonstrated leadership"
+    ],
+    "evaluation_rubric": {
+      "complexity": "Was truly complex",
+      "execution": "Structured execution",
+      "impact": "Delivered real results"
+    },
+    "interviewer_intent": "Tests execution capability at scale",
+    "failure_signals": [
+      "Describes simple project",
+      "No measurable results",
+      "Cannot explain execution",
+      "No leadership shown"
+    ],
+    "weight": 1.5,
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
+]

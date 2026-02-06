@@ -1,0 +1,218 @@
+[
+  {
+    "id": "db_back_011",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "database",
+    "difficulty": 3,
+    "question": "Why are indexes used and when should you avoid them?",
+    "ideal_points": [
+      "Speed up read queries",
+      "Improve SELECT performance",
+      "Cost extra storage",
+      "Slow down INSERT/UPDATE",
+      "Avoid on frequently updated columns"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "db_back_012",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "database",
+    "difficulty": 3,
+    "question": "What causes database deadlocks and how do you prevent them?",
+    "ideal_points": [
+      "Circular lock dependencies",
+      "Multiple transactions locking resources",
+      "Use consistent lock ordering",
+      "Keep transactions short",
+      "Use timeout and retry logic"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "db_back_013",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "database",
+    "difficulty": 3,
+    "question": "What is database connection pooling?",
+    "ideal_points": [
+      "Reuse database connections",
+      "Improve performance",
+      "Reduce connection overhead",
+      "Prevent connection exhaustion",
+      "Common in backend frameworks"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "db_back_014",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "api",
+    "difficulty": 3,
+    "question": "How do you design a scalable REST API?",
+    "ideal_points": [
+      "Stateless architecture",
+      "Proper HTTP methods",
+      "Pagination",
+      "Caching",
+      "Load balancing"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "db_back_015",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "mid",
+    "skill": "database",
+    "difficulty": 4,
+    "question": "Explain database sharding.",
+    "ideal_points": [
+      "Splitting database into smaller parts",
+      "Horizontal scaling",
+      "Improves performance",
+      "Reduces load per server",
+      "Challenges include consistency"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "db_back_016",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "system_design",
+    "difficulty": 5,
+    "question": "How would you design database for 10 million users?",
+    "ideal_points": [
+      "Sharding strategy",
+      "Replication",
+      "Indexing",
+      "Caching",
+      "Horizontal scaling"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "db_back_017",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "performance",
+    "difficulty": 5,
+    "question": "Your database suddenly becomes slow. How do you debug?",
+    "ideal_points": [
+      "Check slow queries",
+      "Analyze query plans",
+      "Check indexes",
+      "Monitor CPU/memory",
+      "Check locks"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "db_back_018",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "api_security",
+    "difficulty": 4,
+    "question": "How do you secure a REST API?",
+    "ideal_points": [
+      "Authentication",
+      "Authorization",
+      "JWT tokens",
+      "Rate limiting",
+      "Input validation"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "db_back_019",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "consistency",
+    "difficulty": 5,
+    "question": "Explain CAP theorem.",
+    "ideal_points": [
+      "Consistency",
+      "Availability",
+      "Partition tolerance",
+      "Tradeoffs",
+      "Distributed systems limitation"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "db_back_020",
+    "stage": "resume_technical",
+    "role": "backend",
+    "level": "senior",
+    "skill": "production",
+    "difficulty": 5,
+    "question": "Production database crashed. What do you do first?",
+    "ideal_points": [
+      "Identify root cause",
+      "Restore backup",
+      "Failover to replica",
+      "Minimize downtime",
+      "Investigate logs"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
+]

@@ -1,0 +1,254 @@
+{
+  "description": "Role-specific interview flow configurations",
+  "default_flow": "standard_engineering",
+  "flow_variants": {
+    "standard_engineering": {
+      "role_types": ["frontend", "backend", "fullstack", "devops"],
+      "total_duration_minutes": 60,
+      "stages_in_order": [
+        "introduction",
+        "warmup",
+        "resume",
+        "resume_technical",
+        "real_life",
+        "hr_closing"
+      ],
+      "questions_per_stage": {
+        "introduction": 2,
+        "warmup": 4,
+        "resume": 3,
+        "resume_technical": 5,
+        "real_life": 4,
+        "hr_closing": 3
+      },
+      "time_allocation_minutes": {
+        "introduction": 5,
+        "warmup": 8,
+        "resume": 7,
+        "resume_technical": 15,
+        "real_life": 15,
+        "hr_closing": 10
+      }
+    },
+    "data_engineer": {
+      "role_types": ["data_engineer"],
+      "total_duration_minutes": 75,
+      "stages_in_order": [
+        "introduction",
+        "warmup",
+        "resume",
+        "resume_technical",
+        "real_life",
+        "hr_closing"
+      ],
+      "questions_per_stage": {
+        "introduction": 2,
+        "warmup": 3,
+        "resume": 3,
+        "resume_technical": 6,
+        "real_life": 5,
+        "hr_closing": 3
+      },
+      "time_allocation_minutes": {
+        "introduction": 5,
+        "warmup": 6,
+        "resume": 7,
+        "resume_technical": 20,
+        "real_life": 20,
+        "hr_closing": 10
+      },
+      "additional_requirements": {
+        "sql_competency": "Must demonstrate SQL proficiency",
+        "statistics_understanding": "Should understand basic statistics",
+        "data_modeling": "Critical skill"
+      }
+    },
+    "devops_sre": {
+      "role_types": ["devops", "sre"],
+      "total_duration_minutes": 75,
+      "stages_in_order": [
+        "introduction",
+        "warmup",
+        "resume",
+        "resume_technical",
+        "real_life",
+        "hr_closing"
+      ],
+      "questions_per_stage": {
+        "introduction": 2,
+        "warmup": 3,
+        "resume": 3,
+        "resume_technical": 6,
+        "real_life": 5,
+        "hr_closing": 2
+      },
+      "time_allocation_minutes": {
+        "introduction": 5,
+        "warmup": 6,
+        "resume": 7,
+        "resume_technical": 20,
+        "real_life": 25,
+        "hr_closing": 8
+      },
+      "must_assess": [
+        "Container orchestration",
+        "Infrastructure as code",
+        "Observability and monitoring",
+        "Incident response ability"
+      ]
+    },
+    "product_manager": {
+      "role_types": ["pm", "product_manager"],
+      "total_duration_minutes": 50,
+      "stages_in_order": [
+        "introduction",
+        "warmup",
+        "resume",
+        "real_life",
+        "hr_closing"
+      ],
+      "questions_per_stage": {
+        "introduction": 2,
+        "warmup": 2,
+        "resume": 3,
+        "real_life": 5,
+        "hr_closing": 3
+      },
+      "time_allocation_minutes": {
+        "introduction": 5,
+        "warmup": 5,
+        "resume": 8,
+        "real_life": 20,
+        "hr_closing": 12
+      },
+      "assessment_areas": [
+        "Product thinking",
+        "Stakeholder management",
+        "Data-driven decisions",
+        "User empathy"
+      ]
+    }
+  },
+  "stage_adaptations_by_role": {
+    "frontend": {
+      "resume_technical": {
+        "focus_areas": ["React/Vue/etc expertise", "CSS skills", "performance", "accessibility"],
+        "min_difficulty": 2,
+        "max_difficulty": 4
+      },
+      "real_life": {
+        "focus_areas": ["Real UI problems", "browser compatibility", "performance optimization"],
+        "scenario_type": "frontend_specific"
+      }
+    },
+    "backend": {
+      "resume_technical": {
+        "focus_areas": ["API design", "database knowledge", "system design scaling"],
+        "min_difficulty": 3,
+        "max_difficulty": 5
+      },
+      "real_life": {
+        "focus_areas": ["Production debugging", "scaling decisions", "architecture"],
+        "scenario_type": "backend_specific"
+      }
+    },
+    "fullstack": {
+      "resume_technical": {
+        "focus_areas": ["Both frontend and backend", "system integration", "full-stack thinking"],
+        "min_difficulty": 3,
+        "max_difficulty": 5
+      },
+      "real_life": {
+        "focus_areas": ["End-to-end features", "integration problems", "full-stack debugging"],
+        "scenario_type": "fullstack_specific"
+      }
+    }
+  },
+  "level_based_adjustments": {
+    "entry": {
+      "total_questions": 15,
+      "difficulty_range": [1, 2],
+      "focus": "Fundamentals and learning ability",
+      "personality_preference": "friendly",
+      "time_per_question_minutes": 4
+    },
+    "mid": {
+      "total_questions": 16,
+      "difficulty_range": [2, 3],
+      "focus": "Solid skills and practical experience",
+      "personality_preference": "neutral",
+      "time_per_question_minutes": 4.5
+    },
+    "senior": {
+      "total_questions": 16,
+      "difficulty_range": [3, 4],
+      "focus": "Deep expertise and system thinking",
+      "personality_preference": "strict",
+      "time_per_question_minutes": 5
+    },
+    "principal": {
+      "total_questions": 15,
+      "difficulty_range": [4, 5],
+      "focus": "Architectural thinking and leadership",
+      "personality_preference": "faang",
+      "time_per_question_minutes": 6
+    }
+  },
+  "scheduling_rules": {
+    "standard_interview": {
+      "duration": "60 minutes",
+      "format": "Live with single interviewer",
+      "questions_asked_live": "Yes"
+    },
+    "technical_screen": {
+      "duration": "30-45 minutes",
+      "format": "Quick screening",
+      "typically_stages": ["introduction", "warmup", "resume_technical"],
+      "min_score_to_advance": 0.50
+    },
+    "panel_interview": {
+      "duration": "75-90 minutes",
+      "format": "Multiple interviewers",
+      "typically_stages": ["all"],
+      "each_interviewer_leads": ["One or two stages"]
+    },
+    "take_home": {
+      "duration": "2-4 hours",
+      "format": "Async coding challenge",
+      "typically_stages": ["real_life"],
+      "scope": "Small practical project"
+    }
+  },
+  "decision_weights_by_stage": {
+    "introduction": {
+      "weight": 0.05,
+      "purpose": "Quick cultural screening",
+      "is_knockout": false
+    },
+    "warmup": {
+      "weight": 0.10,
+      "purpose": "Establish baseline",
+      "is_knockout": false
+    },
+    "resume": {
+      "weight": 0.10,
+      "purpose": "Verify background",
+      "is_knockout": false
+    },
+    "resume_technical": {
+      "weight": 0.35,
+      "purpose": "Core technical skills",
+      "is_knockout": true
+    },
+    "real_life": {
+      "weight": 0.30,
+      "purpose": "Practical application",
+      "is_knockout": true
+    },
+    "hr_closing": {
+      "weight": 0.10,
+      "purpose": "Culture fit and motivation",
+      "is_knockout": false
+    }
+  }
+}

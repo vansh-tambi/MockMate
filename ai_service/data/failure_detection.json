@@ -1,0 +1,220 @@
+{
+  "description": "Patterns and indicators of weak candidates that should result in no-hire decisions",
+  "critical_failure_patterns": {
+    "no_system_thinking": {
+      "indicators": [
+        "Cannot think beyond immediate problem",
+        "No awareness of scale implications",
+        "Ignores edge cases and error handling",
+        "Cannot explain why a solution works"
+      ],
+      "score_multiplier": 0.5,
+      "auto_reject": false,
+      "category": "technical"
+    },
+    "no_testing_mindset": {
+      "indicators": [
+        "Has never written unit tests",
+        "Cannot describe testing strategy",
+        "Assumes code works without verification",
+        "No understanding of regression risk"
+      ],
+      "score_multiplier": 0.6,
+      "auto_reject": false,
+      "category": "technical"
+    },
+    "dishonesty_or_fabrication": {
+      "indicators": [
+        "Resume claims contradicted by interview",
+        "Fabricates experience they don't have",
+        "Lies about project involvement",
+        "Cannot explain own work/projects"
+      ],
+      "score_multiplier": 0.2,
+      "auto_reject": true,
+      "category": "integrity"
+    },
+    "cannot_collaborate": {
+      "indicators": [
+        "Has never worked in a team",
+        "Cannot describe peer feedback",
+        "Blames others for all problems",
+        "Shows contempt for teammates"
+      ],
+      "score_multiplier": 0.4,
+      "auto_reject": true,
+      "category": "soft_skills"
+    },
+    "no_learning_ability": {
+      "indicators": [
+        "Cannot learn new skills",
+        "Blames external factors for knowledge gaps",
+        "Refuses feedback",
+        "Stuck in old technology/patterns"
+      ],
+      "score_multiplier": 0.5,
+      "auto_reject": false,
+      "category": "growth_mindset"
+    },
+    "poor_communication": {
+      "indicators": [
+        "Cannot explain thinking clearly",
+        "Rambles without structure",
+        "Cannot answer direct questions",
+        "Defensive about clarifications"
+      ],
+      "score_multiplier": 0.6,
+      "auto_reject": false,
+      "category": "soft_skills"
+    },
+    "no_problem_solving": {
+      "indicators": [
+        "Stuck immediately on problems",
+        "Cannot think aloud",
+        "No debugging process",
+        "Cannot break down problems"
+      ],
+      "score_multiplier": 0.4,
+      "auto_reject": false,
+      "category": "technical"
+    },
+    "wrong_motivation": {
+      "indicators": [
+        "Only focused on salary and benefits",
+        "No genuine interest in technology",
+        "Cannot articulate career goals",
+        "Just wants a paycheck"
+      ],
+      "score_multiplier": 0.7,
+      "auto_reject": false,
+      "category": "culture_fit"
+    }
+  },
+  "behavioral_red_flags": {
+    "blames_everyone": {
+      "pattern": "Consistently blames others for all problems",
+      "severity": "high",
+      "warning_after_count": 2,
+      "rejection_after_count": 4,
+      "counter_example": "Takes ownership of failures"
+    },
+    "defensive": {
+      "pattern": "Gets defensive when asked follow-up questions",
+      "severity": "medium",
+      "warning_after_count": 3,
+      "rejection_after_count": 5,
+      "counter_example": "Welcomes clarifying questions"
+    },
+    "arrogant": {
+      "pattern": "Dismissive of others' code/ideas",
+      "severity": "high",
+      "warning_after_count": 1,
+      "rejection_after_count": 2,
+      "counter_example": "Respectful of different approaches"
+    },
+    "no_curiosity": {
+      "pattern": "No questions asked about technologies, culture, role",
+      "severity": "low",
+      "warning_after_count": 1,
+      "rejection_after_count": 5,
+      "counter_example": "Asks thoughtful follow-up questions"
+    },
+    "checked_out": {
+      "pattern": "Seems uninterested or disengaged",
+      "severity": "low",
+      "warning_after_count": 1,
+      "rejection_after_count": 3,
+      "counter_example": "Engaged and energetic throughout"
+    }
+  },
+  "technical_skill_gaps": {
+    "fundamentals_missing": {
+      "examples": [
+        "Cannot do basic algorithmic thinking",
+        "No understanding of Big O notation",
+        "Cannot trace code execution",
+        "Basic data structures unknown"
+      ],
+      "for_level": "mid+",
+      "disqualifying": true
+    },
+    "language_incompetence": {
+      "examples": [
+        "Interviewing for Java role, cannot write simple code",
+        "Claims Python expertise, syntax confused",
+        "Cannot use standard library"
+      ],
+      "for_level": "mid+",
+      "disqualifying": true
+    },
+    "framework_ignorance": {
+      "examples": [
+        "React expert who doesn't know hooks",
+        "Claims full-stack but cannot do basic database",
+        "Node.js role, cannot explain async/await"
+      ],
+      "for_level": "mid+",
+      "disqualifying": true
+    },
+    "production_inexperience": {
+      "examples": [
+        "Has never debugged real issues",
+        "No understanding of logging/monitoring",
+        "Cannot think about error cases",
+        "No deployment experience"
+      ],
+      "for_level": "senior+",
+      "disqualifying": true
+    }
+  },
+  "accumulation_rules": {
+    "weak_signal_accumulation": {
+      "at_3_weak_signals": "Start asking follow-ups to clarify",
+      "at_5_weak_signals": "Candidate likely not qualified",
+      "at_7_weak_signals": "Prepare to reject"
+    },
+    "red_flag_accumulation": {
+      "at_1_red_flag": "Note and monitor",
+      "at_2_red_flags": "Serious concern, investigate",
+      "at_3_red_flags": "Likely rejection",
+      "critical_red_flag": "Automatic rejection regardless of other scores"
+    },
+    "mixed_signals": {
+      "pattern": "Some strong signals + some red flags",
+      "question": "Are the strong signals in technical skills while red flags are behavioral, or vice versa?",
+      "decision_logic": "Technical skills more important than culture fit for junior, opposite for senior"
+    }
+  },
+  "recovery_options": {
+    "weak_but_coachable": {
+      "indicators": [
+        "Weak on some skills but high learning ability",
+        "Good fundamentals but needs domain knowledge",
+        "Communication could improve with experience"
+      ],
+      "action": "Consider for slightly junior level with mentoring"
+    },
+    "overqualified_concerns": {
+      "indicators": [
+        "Senior interviewing for mid-level role",
+        "Far exceeds requirements",
+        "Might get bored quickly"
+      ],
+      "action": "Offer at appropriate level or revisit expectations"
+    }
+  },
+  "veto_rules": {
+    "any_hiring_manager_veto": {
+      "description": "If hiring manager says NO, that's final",
+      "logic": "They manage the person day-to-day"
+    },
+    "multiple_interviewers_disagree": {
+      "description": "If 2+ interviewers say NO, that's likely final",
+      "logic": "Multiple perspectives suggest real issue"
+    },
+    "critical_red_flag": {
+      "description": "Certain red flags are automatic rejections",
+      "examples": ["Dishonesty", "Cannot work in team", "Cannot do core job"]
+    }
+  }
+}

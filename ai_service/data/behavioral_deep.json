@@ -1,0 +1,197 @@
+[
+  {
+    "id": "behav_deep_001",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "mid",
+    "skill": "decision-making",
+    "difficulty": 3,
+    "question": "Tell me about a difficult professional decision you had to make. How did you approach it?",
+    "ideal_points": [
+      "Structured decision-making process",
+      "Gathering relevant information",
+      "Considering multiple perspectives",
+      "Weighing tradeoffs",
+      "Clear reasoning shown"
+    ],
+    "evaluation_rubric": {
+      "complexity": {
+        "description": "Was the decision actually difficult?",
+        "weight": 0.30
+      },
+      "process": {
+        "description": "Had a structured approach?",
+        "weight": 0.30
+      },
+      "reasoning": {
+        "description": "Explained reasoning clearly?",
+        "weight": 0.20
+      },
+      "outcome": {
+        "description": "Good outcome and learning?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Genuine difficult situation described",
+      "Gathered data before deciding",
+      "Consulted relevant parties",
+      "Clear reasoning for choice",
+      "Learned from outcome"
+    ],
+    "weak_signals": [
+      "Easy decision presented as hard",
+      "No clear process",
+      "Decided impulsively",
+      "Cannot explain reasoning",
+      "Blamed others"
+    ],
+    "red_flags": [
+      "No real example given",
+      "Avoided difficult decision",
+      "Made decision without input",
+      "Bad outcome blamed on luck",
+      "No maturity demonstrated"
+    ],
+    "follow_ups": [
+      "What would you do differently?",
+      "Who influenced your decision?",
+      "What was the outcome?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess decision-making maturity",
+    "weight": 1.7,
+    "expected_duration_sec": 180
+  },
+  {
+    "id": "behav_deep_002",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "senior",
+    "skill": "leadership",
+    "difficulty": 4,
+    "question": "Describe a time when you had to give critical feedback to a peer or superior. How did that go?",
+    "ideal_points": [
+      "Courage to give feedback",
+      "Tactful communication",
+      "Focus on behavior, not person",
+      "Clear examples given",
+      "Relationship maintained"
+    ],
+    "evaluation_rubric": {
+      "courage": {
+        "description": "Willing to give difficult feedback?",
+        "weight": 0.30
+      },
+      "tact": {
+        "description": "Handled tactfully?",
+        "weight": 0.30
+      },
+      "clarity": {
+        "description": "Specific and clear feedback?",
+        "weight": 0.20
+      },
+      "relationship": {
+        "description": "Managed relationship well?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Gave feedback respectfully",
+      "Focused on impact, not judgment",
+      "Selected appropriate setting/time",
+      "Person received feedback well",
+      "Relationship strengthened"
+    ],
+    "weak_signals": [
+      "Vague feedback given",
+      "Feedback was unkindi emotional",
+      "Person got defensive",
+      "Relationship damaged",
+      "Avoids giving feedback"
+    ],
+    "red_flags": [
+      "Never gave critical feedback",
+      "Public humiliation story",
+      "Feedback was personal attack",
+      "Cannot handle others being wrong",
+      "No emotional intelligence"
+    ],
+    "follow_ups": [
+      "How would you handle it differently?",
+      "What made it difficult?",
+      "Would they agree with your assessment?"
+    ],
+    "category": "behavioral",
+    "priority": "strategic",
+    "interviewer_goal": "assess emotional intelligence and leadership",
+    "weight": 1.9,
+    "expected_duration_sec": 180
+  },
+  {
+    "id": "behav_deep_003",
+    "stage": "hr_closing",
+    "role": "any",
+    "level": "mid",
+    "skill": "conflict-resolution",
+    "difficulty": 3,
+    "question": "Tell me about a conflict with a teammate. How did you resolve it?",
+    "ideal_points": [
+      "Understanding both perspectives",
+      "Direct communication",
+      "Collaborative solution",
+      "Professional handling",
+      "Positive relationship outcome"
+    ],
+    "evaluation_rubric": {
+      "perspective": {
+        "description": "Understood other viewpoint?",
+        "weight": 0.30
+      },
+      "communication": {
+        "description": "Addressed directly and professionally?",
+        "weight": 0.30
+      },
+      "solution": {
+        "description": "Found win-win solution?",
+        "weight": 0.20
+      },
+      "maturity": {
+        "description": "Handled with professionalism?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Listened to other person",
+      "Found common ground",
+      "Collaborative solution",
+      "Preserved relationship",
+      "Learned something"
+    ],
+    "weak_signals": [
+      "Blamed the other person",
+      "Avoided the conflict",
+      "Solution was one-sided",
+      "Damage to relationship",
+      "Cannot describe perspective"
+    ],
+    "red_flags": [
+      "Created more conflict",
+      "Cannot control emotions",
+      "Holds grudges",
+      "Involves boss unnecessarily",
+      "Shows inability to work together"
+    ],
+    "follow_ups": [
+      "What did you learn?",
+      "How do you two work now?",
+      "What would you do differently?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess teamwork and maturity",
+    "weight": 1.7,
+    "expected_duration_sec": 150
+  }
+]

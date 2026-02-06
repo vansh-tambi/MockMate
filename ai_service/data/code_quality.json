@@ -1,0 +1,187 @@
+[
+  {
+    "id": "code_quality_principles_elite_001",
+    "category": "code_quality",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "code-quality",
+    "difficulty": 4,
+    "weight": 1.6,
+    "expected_duration_sec": 150,
+    "stage": "behavioral",
+    "question": "What makes code maintainable? Give specific examples from your projects.",
+    "ideal_points": [
+      "SOLID principles (SRP, OCP, LSP, ISP, DIP)",
+      "DRY (Don't Repeat Yourself)",
+      "KISS (Keep It Simple, Stupid)",
+      "Code naming clarity",
+      "Function length and responsibility",
+      "Comment quality and necessity",
+      "Avoiding premature optimization",
+      "Refactoring discipline"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands code quality principles",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Explains tradeoffs and context",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Concrete code examples",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Stories about refactoring/quality improvements",
+        "weight": 0.2
+      },
+      "confidence": "Demonstrates craftsmanship"
+    },
+    "strong_signals": [
+      "Mentions SOLID principles",
+      "Discusses testability",
+      "References refactoring patterns",
+      "Provides code examples"
+    ],
+    "weak_signals": [
+      "Generic principles without examples"
+    ],
+    "red_flags": [
+      "Cannot explain SRP or DRY",
+      "No code examples",
+      "Writes code without quality concern"
+    ],
+    "follow_ups": [
+      "What's the biggest refactoring you've done?",
+      "How do you balance YAGNI with extensibility?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "code_review_elite_001",
+    "category": "code_quality",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "code-review",
+    "difficulty": 3,
+    "weight": 1.5,
+    "expected_duration_sec": 120,
+    "stage": "behavioral",
+    "question": "How do you approach code reviews? What do you look for?",
+    "ideal_points": [
+      "Correctness over style",
+      "Performance implications",
+      "Security vulnerabilities",
+      "Maintainability concerns",
+      "Test coverage",
+      "Documentation adequacy",
+      "Constructive feedback tone"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Reviews for actual bugs",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers multiple dimensions",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Feedback is actionable",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "References actual review experience",
+        "weight": 0.2
+      },
+      "confidence": "Thoughtful reviewer"
+    },
+    "strong_signals": [
+      "Discusses tradeoffs",
+      "Balances criticism with praise",
+      "Learns from authors"
+    ],
+    "weak_signals": [
+      "Focuses only on style",
+      "Doesn't consider context"
+    ],
+    "red_flags": [
+      "Harsh or dismissive feedback",
+      "Misses obvious bugs",
+      "Only nitpicks formatting"
+    ],
+    "follow_ups": [
+      "Tell me about a difficult code review you handled",
+      "How do you handle disagreement?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills"
+  },
+  {
+    "id": "technical_debt_elite_001",
+    "category": "code_quality",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "engineering-judgment",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 180,
+    "stage": "behavioral",
+    "question": "How do you make decisions about technical debt? When is it okay to take shortcuts?",
+    "ideal_points": [
+      "Trade-off analysis: speed vs quality",
+      "Interest metaphor (debt compounds)",
+      "Documenting shortcuts taken",
+      "Planning refactoring from start",
+      "Measuring impact of debt",
+      "Communication with stakeholders",
+      "Risk assessment per shortcut"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Understands debt consequences",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Considers long-term impacts",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Explains reasoning",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Stories about debt decisions",
+        "weight": 0.2
+      },
+      "confidence": "Mature judgment displayed"
+    },
+    "strong_signals": [
+      "Discusses interest metaphor",
+      "Plans refactoring time",
+      "Communicates with team",
+      "Measures debt impact"
+    ],
+    "weak_signals": [
+      "Understands concept but vague",
+      "No metrics for decisions"
+    ],
+    "red_flags": [
+      "Takes debt without plan",
+      "Ignores long-term costs",
+      "No communication to team",
+      "Patterns of repeated shortcuts"
+    ],
+    "follow_ups": [
+      "Tell me about technical debt you regret",
+      "How do you convince senior management to allocate refactoring time?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  }
+]

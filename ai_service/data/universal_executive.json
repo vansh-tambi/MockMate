@@ -1,0 +1,53 @@
+[
+  {
+    "id": "universal_exec_001",
+    "stage": "self_awareness",
+    "role": "any",
+    "difficulty": 5,
+    "question": "What is your biggest professional weakness?",
+    "ideal_points": [
+      "Honest weakness",
+      "Self-awareness",
+      "Active improvement effort",
+      "Growth demonstrated"
+    ],
+    "evaluation_rubric": {
+      "honesty": "Admits real weakness",
+      "growth": "Shows improvement",
+      "self_awareness": "Understands themselves"
+    },
+    "weight": 1.4,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "universal_exec_002",
+    "stage": "ownership",
+    "role": "any",
+    "difficulty": 5,
+    "question": "Tell me about something you owned from start to finish.",
+    "ideal_points": [
+      "Full ownership",
+      "Clear leadership",
+      "Execution ability",
+      "Delivered results"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Owned fully",
+        "weight": 0.2
+      },
+      "execution": "Executed effectively",
+      "impact": "Delivered meaningful result"
+    },
+    "weight": 1.6,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
+]

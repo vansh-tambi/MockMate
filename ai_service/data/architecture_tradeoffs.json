@@ -1,0 +1,215 @@
+[
+  {
+    "id": "arch_001",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "mid",
+    "skill": "system-design",
+    "difficulty": 3,
+    "question": "When would you choose SQL over NoSQL and vice versa?",
+    "ideal_points": [
+      "Understands ACID vs BASE tradeoffs",
+      "Knows data structure implications",
+      "Considers scaling characteristics",
+      "Recognizes consistency requirements",
+      "Real-world examples given"
+    ],
+    "evaluation_rubric": {
+      "acid_base": {
+        "description": "Understands ACID vs BASE?",
+        "weight": 0.30
+      },
+      "tradeoffs": {
+        "description": "Articulates real tradeoffs?",
+        "weight": 0.30
+      },
+      "scaling": {
+        "description": "Knows scaling characteristics?",
+        "weight": 0.20
+      },
+      "examples": {
+        "description": "Gives concrete examples?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Explains ACID/BASE clearly",
+      "Discusses consistency requirements",
+      "Mentions query patterns matter",
+      "Real-world examples provided",
+      "Considers scaling implications"
+    ],
+    "weak_signals": [
+      "Vague about tradeoffs",
+      "No understanding of consistency",
+      "Cannot explain when to use each",
+      "Generic technical answer",
+      "No examples"
+    ],
+    "red_flags": [
+      "No knowledge of difference",
+      "Thinks NoSQL always better",
+      "Cannot explain consistency",
+      "Has never chosen database",
+      "Misunderstands ACID properties"
+    ],
+    "follow_ups": [
+      "Why is consistency important here?",
+      "What about scaling to millions of users?",
+      "How would your choice change?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess architectural decision-making",
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Doesn't understand tradeoffs",
+      "Picks wrong database for problem",
+      "Cannot justify choice",
+      "No consideration for consistency"
+    ]
+  },
+  {
+    "id": "arch_002",
+    "stage": "real_life",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "system-design",
+    "difficulty": 4,
+    "question": "Design a caching strategy for a high-traffic e-commerce site. What goes in cache vs database?",
+    "ideal_points": [
+      "Cache invalidation strategy",
+      "TTL and consistency tradeoffs",
+      "Cache-aside vs write-through pattern",
+      "Monitoring cache hit rate",
+      "Handling cache failures"
+    ],
+    "evaluation_rubric": {
+      "invalidation": {
+        "description": "Understands cache invalidation?",
+        "weight": 0.30
+      },
+      "patterns": {
+        "description": "Knows caching patterns?",
+        "weight": 0.25
+      },
+      "consistency": {
+        "description": "Ensures consistency?",
+        "weight": 0.25
+      },
+      "resilience": {
+        "description": "Plans for cache failures?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Discusses Phil Karlton's quote (cache invalidation is hard)",
+      "Explains multiple patterns (aside, write-through, write-behind)",
+      "Plans for stale data",
+      "Monitors cache metrics",
+      "Has fallback strategy"
+    ],
+    "weak_signals": [
+      "Vague cache strategy",
+      "No invalidation plan",
+      "Assumes cache always works",
+      "No monitoring",
+      "Simple TTL only"
+    ],
+    "red_flags": [
+      "No cache invalidation strategy",
+      "Doesn't understand stale data",
+      "Never worked with caching",
+      "Thinks cache is always hit",
+      "No fallback plan"
+    ],
+    "follow_ups": [
+      "What's your invalidation strategy?",
+      "What if cache goes down?",
+      "How do you monitor performance?"
+    ],
+    "category": "technical",
+    "priority": "strategic",
+    "interviewer_goal": "assess advanced system design thinking",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Serves stale data",
+      "Cache invalidation bugs",
+      "No consistency guarantee",
+      "System breaks without cache"
+    ]
+  },
+  {
+    "id": "arch_003",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "mid",
+    "skill": "system-design",
+    "difficulty": 3,
+    "question": "How do you decide between a monolith and microservices architecture?",
+    "ideal_points": [
+      "Team size considerations",
+      "Deployment frequency matters",
+      "Domain separation",
+      "Operational overhead",
+      "Scaling requirements"
+    ],
+    "evaluation_rubric": {
+      "tradeoffs": {
+        "description": "Understands key tradeoffs?",
+        "weight": 0.30
+      },
+      "organizational": {
+        "description": "Considers org structure?",
+        "weight": 0.25
+      },
+      "complexity": {
+        "description": "Knows distributed system costs?",
+        "weight": 0.25
+      },
+      "timing": {
+        "description": "Knows when to migrate?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Discusses Conway's Law",
+      "Mentions team communication overhead",
+      "Knows monolith is simpler first",
+      "Understands migration path",
+      "Real-world tradeoffs discussed"
+    ],
+    "weak_signals": [
+      "Advocates for microservices always",
+      "Doesn't understand complexity",
+      "No team size consideration",
+      "Vague reasoning",
+      "No operational knowledge"
+    ],
+    "red_flags": [
+      "Thinks microservices is always better",
+      "Cannot explain any tradeoff",
+      "Started with microservices",
+      "Has never managed operations",
+      "Ignores team size"
+    ],
+    "follow_ups": [
+      "When should you migrate to microservices?",
+      "What's the hardest part?",
+      "How many services is too many?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess architectural maturity",
+    "weight": 1.9,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Chooses wrong architecture",
+      "Cannot manage selected approach",
+      "Operational complexity not handled",
+      "Team cannot execute"
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
     "id": "hr_basic_001",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -19,13 +19,27 @@
       "relevance": "Did they focus on role-relevant experience?",
       "achievements": "Did they highlight accomplishments, not just duties?",
       "quantification": "Did they use numbers/metrics where applicable?",
-      "missed_opportunities": ["Didn't mention key projects on resume", "Skipped important skills", "Didn't quantify achievements", "No connection to target role"]
+      "missed_opportunities": [
+        "Didn't mention key projects on resume",
+        "Skipped important skills",
+        "Didn't quantify achievements",
+        "No connection to target role"
+      ]
     },
-    "follow_ups": ["Tell me more about [specific project]", "What was your biggest achievement at [company]?", "How did that experience prepare you for this role?"]
+    "follow_ups": [
+      "Tell me more about [specific project]",
+      "What was your biggest achievement at [company]?",
+      "How did that experience prepare you for this role?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "hr_basic_002",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -43,13 +57,27 @@
       "specificity": "Did they share a specific story or moment?",
       "passion": "Was enthusiasm evident?",
       "awareness": "Do they understand what the field requires?",
-      "missed_opportunities": ["Generic reasons", "No personal story", "No awareness of field challenges", "Didn't connect to strengths"]
+      "missed_opportunities": [
+        "Generic reasons",
+        "No personal story",
+        "No awareness of field challenges",
+        "Didn't connect to strengths"
+      ]
     },
-    "follow_ups": ["What excites you most about this field?", "What challenges do you expect?", "How have you prepared for this career?"]
+    "follow_ups": [
+      "What excites you most about this field?",
+      "What challenges do you expect?",
+      "How have you prepared for this career?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "hr_basic_003",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -67,13 +95,27 @@
       "personality": "Does it reveal genuine personality?",
       "connection": "Does it connect to professional value?",
       "appropriateness": "Is it professional and relevant?",
-      "missed_opportunities": ["Too generic", "No connection to work", "Oversharing personal info", "Missed chance to differentiate"]
+      "missed_opportunities": [
+        "Too generic",
+        "No connection to work",
+        "Oversharing personal info",
+        "Missed chance to differentiate"
+      ]
     },
-    "follow_ups": ["How does that influence your work?", "What did you learn from that experience?", "How does that make you unique?"]
+    "follow_ups": [
+      "How does that influence your work?",
+      "What did you learn from that experience?",
+      "How does that make you unique?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "hr_basic_004",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -91,13 +133,27 @@
       "role_alignment": "Do motivators align with role requirements?",
       "self_awareness": "Shows understanding of what drives them?",
       "authenticity": "Does it feel genuine?",
-      "missed_opportunities": ["Only mentioned money", "No specific examples", "Didn't align with role", "Too vague"]
+      "missed_opportunities": [
+        "Only mentioned money",
+        "No specific examples",
+        "Didn't align with role",
+        "Too vague"
+      ]
     },
-    "follow_ups": ["Can you give an example of when you felt most motivated?", "What demotivates you?", "How do you stay motivated during difficult times?"]
+    "follow_ups": [
+      "Can you give an example of when you felt most motivated?",
+      "What demotivates you?",
+      "How do you stay motivated during difficult times?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "hr_basic_005",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -115,13 +171,27 @@
       "balance": "Did they mention what they'll contribute, not just what they'll get?",
       "research": "Did they research the role?",
       "alignment": "Do expectations match JD?",
-      "missed_opportunities": ["One-sided (only what they want)", "Unrealistic expectations", "Didn't research role", "Too vague"]
+      "missed_opportunities": [
+        "One-sided (only what they want)",
+        "Unrealistic expectations",
+        "Didn't research role",
+        "Too vague"
+      ]
     },
-    "follow_ups": ["What skills do you hope to develop?", "What would success look like in this role?", "What concerns do you have?"]
+    "follow_ups": [
+      "What skills do you hope to develop?",
+      "What would success look like in this role?",
+      "What concerns do you have?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   },
   {
     "id": "hr_basic_006",
-    "phase": "warmup",
+    "stage": "warmup",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -137,10 +207,27 @@
     "evaluation_rubric": {
       "honesty": "Were they direct and honest?",
       "flexibility": "Did they show willingness to accommodate?",
-      "clarity": "Were constraints explained clearly?",
+      "clarity": {
+        "description": "Were constraints explained clearly?",
+        "weight": 0.15
+      },
       "professionalism": "Handled personal boundaries professionally?",
-      "missed_opportunities": ["Unclear answer", "Overpromised", "Didn't ask for details", "Too rigid or too accommodating"]
+      "missed_opportunities": [
+        "Unclear answer",
+        "Overpromised",
+        "Didn't ask for details",
+        "Too rigid or too accommodating"
+      ]
     },
-    "follow_ups": ["What would make relocation easier?", "How do you manage work-life balance?", "What's your ideal work arrangement?"]
+    "follow_ups": [
+      "What would make relocation easier?",
+      "How do you manage work-life balance?",
+      "What's your ideal work arrangement?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.2,
+    "expected_duration_sec": 60
   }
 ]

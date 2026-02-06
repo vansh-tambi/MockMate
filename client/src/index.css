@@ -1,0 +1,70 @@
+/* Custom Scrollbar Styling */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d9ff, #00b8cc);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 8px rgba(0, 217, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ffff, #00e6ff);
+  background-clip: padding-box;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), inset 0 0 8px rgba(0, 217, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #00ffff, #00d9ff);
+  background-clip: padding-box;
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.8);
+}
+
+/* Firefox */
+* {
+  scrollbar-color: #00d9ff rgba(0, 0, 0, 0.05);
+  scrollbar-width: thin;
+}
+
+*:hover {
+  scrollbar-color: #00ffff rgba(0, 0, 0, 0.05);
+}
+
+/* Selection styling */
+::selection {
+  background-color: #00d9ff;
+  color: #000;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+select,
+[role="button"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

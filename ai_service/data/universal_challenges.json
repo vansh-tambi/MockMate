@@ -1,0 +1,59 @@
+[
+  {
+    "id": "universal_001",
+    "stage": "resume_technical",
+    "role": "any",
+    "difficulty": 2,
+    "question": "What was the hardest problem you've ever solved?",
+    "ideal_points": [
+      "Clear explanation",
+      "Logical reasoning",
+      "Solution approach",
+      "Learning outcome",
+      "Demonstrates competence"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "universal_002",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 2,
+    "question": "Tell me about a time you made a mistake.",
+    "ideal_points": [
+      "Honest admission",
+      "Takes responsibility",
+      "Corrective action",
+      "Learning demonstrated",
+      "Growth mindset"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "universal_003",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 3,
+    "question": "How do you handle situations when you don't know the answer?",
+    "ideal_points": [
+      "Admits lack of knowledge",
+      "Shows willingness to learn",
+      "Problem-solving approach",
+      "Professional attitude",
+      "Growth mindset"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  }
+]

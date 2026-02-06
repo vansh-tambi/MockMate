@@ -1,0 +1,215 @@
+[
+  {
+    "id": "debug_001",
+    "stage": "real_life",
+    "role": "frontend",
+    "level": "mid",
+    "skill": "debugging",
+    "difficulty": 3,
+    "question": "Your colleague deployed a feature that works locally but breaks in production. What's your debugging approach?",
+    "ideal_points": [
+      "Systematic debugging methodology",
+      "Production debugging strategy",
+      "Reproduction and isolation",
+      "Root cause analysis",
+      "Preventive measures discussed"
+    ],
+    "evaluation_rubric": {
+      "methodology": {
+        "description": "Has systematic debugging process?",
+        "weight": 0.30
+      },
+      "production_aware": {
+        "description": "Understands production constraints?",
+        "weight": 0.25
+      },
+      "root_cause": {
+        "description": "Gets to actual root cause?",
+        "weight": 0.25
+      },
+      "prevention": {
+        "description": "Prevents future issues?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Uses monitoring/logging to identify issue",
+      "Reproduces issue methodically",
+      "Isolates problem through elimination",
+      "Identifies root cause (not just symptoms)",
+      "Proposes preventive measures"
+    ],
+    "weak_signals": [
+      "Vague debugging approach",
+      "Random guessing at solutions",
+      "Cannot explain reproduction steps",
+      "Focuses on symptoms only",
+      "No prevention strategy"
+    ],
+    "red_flags": [
+      "No systematic approach",
+      "Modifies production without safety net",
+      "Cannot reproduce issue",
+      "Blames external factors",
+      "Has never debugged production issue"
+    ],
+    "follow_ups": [
+      "What tools would you use?",
+      "How would you avoid breaking live traffic?",
+      "What monitoring would help?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess debugging and problem-solving skills",
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "No debugging process",
+      "Cannot handle production constraints",
+      "Poor root cause analysis",
+      "Breaks things during debugging"
+    ]
+  },
+  {
+    "id": "debug_002",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "mid",
+    "skill": "debugging",
+    "difficulty": 3,
+    "question": "A critical API endpoint is returning 500 errors intermittently. How do you debug this?",
+    "ideal_points": [
+      "Checks logs and metrics",
+      "Reproduces intermittent issues",
+      "Tests under load",
+      "Checks external dependencies",
+      "Implements monitoring"
+    ],
+    "evaluation_rubric": {
+      "log_analysis": {
+        "description": "Analyzes logs effectively?",
+        "weight": 0.30
+      },
+      "systematic": {
+        "description": "Systematic approach to intermittent issues?",
+        "weight": 0.30
+      },
+      "dependencies": {
+        "description": "Checks external service issues?",
+        "weight": 0.20
+      },
+      "prevention": {
+        "description": "Adds monitoring/alerts?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Immediately checks error logs",
+      "Tests under production load",
+      "Checks database and external services",
+      "Identifies intermittent pattern",
+      "Adds better monitoring"
+    ],
+    "weak_signals": [
+      "Unclear where to start",
+      "Cannot read error logs",
+      "Only tests happy path",
+      "Misses external service issues",
+      "No monitoring strategy"
+    ],
+    "red_flags": [
+      "Restarts service without investigation",
+      "Cannot interpret error messages",
+      "Ignores logs",
+      "Assumes user error",
+      "No database knowledge"
+    ],
+    "follow_ups": [
+      "What would you look for in logs?",
+      "How do you reproduce intermittent issues?",
+      "What metrics matter?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess backend debugging and troubleshooting",
+    "weight": 1.9,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Cannot read logs",
+      "Ignores external dependencies",
+      "Cannot reproduce issue",
+      "Poor monitoring strategy"
+    ]
+  },
+  {
+    "id": "debug_003",
+    "stage": "real_life",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "debugging",
+    "difficulty": 4,
+    "question": "You find that a critical user flow has been silently failing for the past week. How do you prevent this in the future?",
+    "ideal_points": [
+      "Comprehensive monitoring strategy",
+      "End-to-end testing approach",
+      "Alert mechanisms",
+      "Post-mortem process",
+      "Prevention framework"
+    ],
+    "evaluation_rubric": {
+      "monitoring": {
+        "description": "Comprehensive monitoring strategy?",
+        "weight": 0.30
+      },
+      "automation": {
+        "description": "Automates issue detection?",
+        "weight": 0.25
+      },
+      "postmortem": {
+        "description": "Structured incident response?",
+        "weight": 0.25
+      },
+      "systems_thinking": {
+        "description": "Prevents similar future issues?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Discusses comprehensive monitoring",
+      "Proposes synthetic monitoring",
+      "Implements proper alerting",
+      "Suggests postmortem process",
+      "Prevents entire class of issues"
+    ],
+    "weak_signals": [
+      "Vague monitoring approach",
+      "Only monitors some metrics",
+      "No alerting mechanism",
+      "Cannot prevent future issues",
+      "No incident process"
+    ],
+    "red_flags": [
+      "No monitoring strategy",
+      "Thinks monitoring is optional",
+      "Cannot explain root cause",
+      "No prevention philosophy",
+      "Blames operations team"
+    ],
+    "follow_ups": [
+      "What would you monitor?",
+      "How would alerts trigger?",
+      "What's your debugging process?"
+    ],
+    "category": "technical",
+    "priority": "strategic",
+    "interviewer_goal": "assess systems thinking and reliability mindset",
+    "weight": 2.1,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "No monitoring culture",
+      "Manual debugging mindset",
+      "No incident response",
+      "Single point of failure"
+    ]
+  }
+]

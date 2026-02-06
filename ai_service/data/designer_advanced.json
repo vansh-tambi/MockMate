@@ -1,0 +1,67 @@
+[
+  {
+    "id": "designer_011",
+    "role": "Designer",
+    "level": "mid",
+    "difficulty": 3,
+    "skill": "ux",
+    "question": "How do you approach user research?",
+    "ideal_points": [
+      "User interviews",
+      "User testing",
+      "Feedback collection",
+      "Data analysis",
+      "Iterative improvement"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "designer_012",
+    "role": "Designer",
+    "level": "mid",
+    "difficulty": 4,
+    "skill": "decision_making",
+    "question": "Stakeholder disagrees with your design. What do you do?",
+    "ideal_points": [
+      "Understand perspective",
+      "Explain design rationale",
+      "Use data to support",
+      "Find compromise",
+      "Focus on user needs"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "designer_013",
+    "role": "Designer",
+    "level": "senior",
+    "difficulty": 5,
+    "skill": "leadership",
+    "question": "How do you lead design for a large product?",
+    "ideal_points": [
+      "Design system",
+      "Consistency",
+      "Team coordination",
+      "User focus",
+      "Scalability"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.2,
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
+]

@@ -1,7 +1,6 @@
 [
   {
     "id": "actor_artist_001",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "motivation",
@@ -19,13 +18,27 @@
       "understanding": "Do they grasp the reality?",
       "passion": "Do they show deep commitment?",
       "awareness": "Are they realistic about challenges?",
-      "missed_opportunities": ["Only wants fame", "Glamour-focused", "No artistic depth", "Unrealistic expectations"]
+      "missed_opportunities": [
+        "Only wants fame",
+        "Glamour-focused",
+        "No artistic depth",
+        "Unrealistic expectations"
+      ]
     },
-    "follow_ups": ["What does acting mean to you?", "How do you handle rejection?", "What's your artistic philosophy?"]
+    "follow_ups": [
+      "What does acting mean to you?",
+      "How do you handle rejection?",
+      "What's your artistic philosophy?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "actor_artist_002",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "craft",
@@ -39,17 +52,37 @@
       "Collaboration with director"
     ],
     "evaluation_rubric": {
-      "depth": "Is preparation thorough?",
+      "depth": {
+        "description": "Is preparation thorough?",
+        "weight": 0.2
+      },
       "method": "Do they have a clear process?",
       "dedication": "Do they show commitment?",
-      "collaboration": "Do they work with team?",
-      "missed_opportunities": ["Superficial prep", "No method", "Works in isolation", "Doesn't research"]
+      "collaboration": {
+        "description": "Do they work with team?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "Superficial prep",
+        "No method",
+        "Works in isolation",
+        "Doesn't research"
+      ]
     },
-    "follow_ups": ["What's your most challenging role?", "How do you get into character?", "What techniques do you use?"]
+    "follow_ups": [
+      "What's your most challenging role?",
+      "How do you get into character?",
+      "What techniques do you use?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "actor_artist_003",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "resilience",
@@ -67,13 +100,27 @@
       "learning": "Do they grow from criticism?",
       "balance": "Do they protect mental health?",
       "perspective": "Do they have healthy mindset?",
-      "missed_opportunities": ["Takes rejection personally", "Defensive about criticism", "No resilience", "Gives up easily"]
+      "missed_opportunities": [
+        "Takes rejection personally",
+        "Defensive about criticism",
+        "No resilience",
+        "Gives up easily"
+      ]
     },
-    "follow_ups": ["Describe a major rejection you faced.", "How do you maintain confidence?", "What keeps you going?"]
+    "follow_ups": [
+      "Describe a major rejection you faced.",
+      "How do you maintain confidence?",
+      "What keeps you going?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "actor_artist_004",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "creativity",
@@ -88,16 +135,33 @@
     ],
     "evaluation_rubric": {
       "sources": "Are inspiration sources diverse?",
-      "depth": "Do they actively seek inspiration?",
+      "depth": {
+        "description": "Do they actively seek inspiration?",
+        "weight": 0.2
+      },
       "application": "Do they apply it to work?",
       "curiosity": "Are they curious about world?",
-      "missed_opportunities": ["Limited sources", "Passive approach", "No curiosity", "Surface-level"]
+      "missed_opportunities": [
+        "Limited sources",
+        "Passive approach",
+        "No curiosity",
+        "Surface-level"
+      ]
     },
-    "follow_ups": ["Who are your artistic influences?", "What inspires your recent work?", "How do you stay creatively fresh?"]
+    "follow_ups": [
+      "Who are your artistic influences?",
+      "What inspires your recent work?",
+      "How do you stay creatively fresh?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "actor_artist_005",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "professionalism",
@@ -115,13 +179,27 @@
       "learning": "Do they extract value?",
       "balance": "Do they balance input with intuition?",
       "composure": "Do they stay professional?",
-      "missed_opportunities": ["Too defensive", "Ignores all criticism", "Devastated by reviews", "No learning"]
+      "missed_opportunities": [
+        "Too defensive",
+        "Ignores all criticism",
+        "Devastated by reviews",
+        "No learning"
+      ]
     },
-    "follow_ups": ["What's the harshest criticism you received?", "How do you know which feedback to take?", "How do you stay confident?"]
+    "follow_ups": [
+      "What's the harshest criticism you received?",
+      "How do you know which feedback to take?",
+      "How do you stay confident?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "actor_artist_006",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "commitment",
@@ -139,13 +217,27 @@
       "acceptance": "Do they accept willingly?",
       "balance": "Do they maintain healthy perspective?",
       "purpose": "Is it purposeful, not martyrdom?",
-      "missed_opportunities": ["Bitter about sacrifices", "Unaware of costs", "No boundaries", "Martyrdom complex"]
+      "missed_opportunities": [
+        "Bitter about sacrifices",
+        "Unaware of costs",
+        "No boundaries",
+        "Martyrdom complex"
+      ]
     },
-    "follow_ups": ["Do you have any regrets?", "How do you balance career and personal life?", "What keeps you committed?"]
+    "follow_ups": [
+      "Do you have any regrets?",
+      "How do you balance career and personal life?",
+      "What keeps you committed?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "actor_artist_007",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "self_awareness",
@@ -163,13 +255,27 @@
       "perspective": "Do they have healthy perspective?",
       "focus": "Do they focus on craft?",
       "balance": "Do they maintain balance?",
-      "missed_opportunities": ["Ego-driven", "Devastated by failure", "No support system", "External validation dependent"]
+      "missed_opportunities": [
+        "Ego-driven",
+        "Devastated by failure",
+        "No support system",
+        "External validation dependent"
+      ]
     },
-    "follow_ups": ["How do you stay humble?", "What if success changes you?", "How do you define success?"]
+    "follow_ups": [
+      "How do you stay humble?",
+      "What if success changes you?",
+      "How do you define success?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "actor_artist_008",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "fit",
@@ -186,14 +292,31 @@
       "preparation": "Have they researched the role?",
       "uniqueness": "What makes them stand out?",
       "confidence": "Are they appropriately confident?",
-      "collaboration": "Are they team-oriented?",
-      "missed_opportunities": ["Generic answer", "No preparation", "Arrogant", "Doesn't understand role"]
+      "collaboration": {
+        "description": "Are they team-oriented?",
+        "weight": 0.15
+      },
+      "missed_opportunities": [
+        "Generic answer",
+        "No preparation",
+        "Arrogant",
+        "Doesn't understand role"
+      ]
     },
-    "follow_ups": ["What's your take on this character?", "What similar roles have you done?", "How do you work with directors?"]
+    "follow_ups": [
+      "What's your take on this character?",
+      "What similar roles have you done?",
+      "How do you work with directors?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "actor_artist_009",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "differentiation",
@@ -211,13 +334,27 @@
       "uniqueness": "Do they have distinct qualities?",
       "confidence": "Are they appropriately confident?",
       "specificity": "Are examples concrete?",
-      "missed_opportunities": ["Too generic", "False humility", "Arrogant", "Can't articulate uniqueness"]
+      "missed_opportunities": [
+        "Too generic",
+        "False humility",
+        "Arrogant",
+        "Can't articulate uniqueness"
+      ]
     },
-    "follow_ups": ["What's your acting style?", "What roles suit you best?", "What's your greatest strength as actor?"]
+    "follow_ups": [
+      "What's your acting style?",
+      "What roles suit you best?",
+      "What's your greatest strength as actor?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "actor_artist_010",
-    "phase": "behavioral",
     "role": "Actor/Performing Artist",
     "level": "any",
     "skill": "success_definition",
@@ -231,12 +368,168 @@
       "Personal fulfillment"
     ],
     "evaluation_rubric": {
-      "depth": "Is definition meaningful?",
+      "depth": {
+        "description": "Is definition meaningful?",
+        "weight": 0.2
+      },
       "balance": "Is it balanced and healthy?",
       "craft_focus": "Do they prioritize craft?",
       "sustainability": "Is it sustainable long-term?",
-      "missed_opportunities": ["Only fame/money", "No craft focus", "External validation only", "Unrealistic"]
+      "missed_opportunities": [
+        "Only fame/money",
+        "No craft focus",
+        "External validation only",
+        "Unrealistic"
+      ]
     },
-    "follow_ups": ["What's your career goal?", "What role would you love to play?", "How do you measure progress?"]
+    "follow_ups": [
+      "What's your career goal?",
+      "What role would you love to play?",
+      "How do you measure progress?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "actor_artist_011",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "adaptability",
+    "difficulty": 3,
+    "question": "Describe a time when you had to improvise during a performance.",
+    "ideal_points": [
+      "Quick thinking",
+      "Maintained character consistency",
+      "Handled unexpected situation professionally",
+      "Adaptability under pressure",
+      "Preserved audience experience"
+    ],
+    "evaluation_rubric": {
+      "adaptability": "Handled unexpected changes well",
+      "creativity": "Used creative solutions",
+      "composure": "Maintained professionalism",
+      "impact": "Ensured performance continuity"
+    },
+    "follow_ups": [
+      "How did the audience react?",
+      "What did you learn from that experience?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "actor_artist_012",
+    "role": "Actor/Performing Artist",
+    "level": "any",
+    "skill": "collaboration",
+    "difficulty": 3,
+    "question": "Tell me about a time you disagreed with a director. How did you handle it?",
+    "ideal_points": [
+      "Respectful communication",
+      "Professional collaboration",
+      "Open to feedback",
+      "Conflict resolution skills",
+      "Team-oriented mindset"
+    ],
+    "evaluation_rubric": {
+      "communication": {
+        "description": "Communicated respectfully",
+        "weight": 0.2
+      },
+      "professionalism": "Maintained professional boundaries",
+      "collaboration": {
+        "description": "Worked toward resolution",
+        "weight": 0.15
+      },
+      "flexibility": "Remained open-minded"
+    },
+    "follow_ups": [
+      "What was the outcome?",
+      "How did it affect your working relationship?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "actor_artist_013",
+    "role": "Actor/Performing Artist",
+    "level": "advanced",
+    "skill": "character_depth",
+    "difficulty": 4,
+    "question": "How do you portray complex emotional states authentically?",
+    "ideal_points": [
+      "Emotional recall techniques",
+      "Method acting or preparation techniques",
+      "Psychological understanding",
+      "Practice and rehearsal",
+      "Emotional intelligence"
+    ],
+    "evaluation_rubric": {
+      "technique": "Has developed methods",
+      "depth": {
+        "description": "Shows psychological understanding",
+        "weight": 0.2
+      },
+      "authenticity": "Focuses on genuine emotion",
+      "preparation": "Emphasizes practice and preparation"
+    },
+    "follow_ups": [
+      "Can you give an example from a specific role?",
+      "How do you protect your mental health while doing this?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "actor_artist_014",
+    "role": "Actor/Performing Artist",
+    "level": "advanced",
+    "skill": "career_strategy",
+    "difficulty": 4,
+    "question": "How do you strategically choose roles to build your career?",
+    "ideal_points": [
+      "Long-term career planning",
+      "Role diversity consideration",
+      "Skill growth alignment",
+      "Industry awareness",
+      "Professional growth mindset"
+    ],
+    "evaluation_rubric": {
+      "strategy": {
+        "description": "Has clear career strategy",
+        "weight": 0.15
+      },
+      "growth": "Focuses on skill development",
+      "awareness": "Understands industry landscape",
+      "balance": "Balances artistic and commercial considerations"
+    },
+    "follow_ups": [
+      "What's your dream role?",
+      "How do you balance artistic integrity with commercial success?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

@@ -17,21 +17,28 @@ function App() {
     return saved ? JSON.parse(saved) : { resumeText: null, jobDescription: '', isReady: false };
   });
 
-  // Session state with stage tracking and interview memory
+  // Session state with STAGED progression (5 stages, 22 total questions)
   const [sessionState, setSessionState] = useState(() => {
     const saved = localStorage.getItem('mockMateSession');
     return saved ? JSON.parse(saved) : {
       sessionId: null,
       role: null,
-      currentStage: 'warmup',
-      questionIndex: 0,
-      sequence: [],
+      currentStage: 'introduction', // Start with Introduction stage
+      questionIndex: 0, // 0 = first question
+      sequence: ['introduction', 'warmup', 'resume_technical', 'real_life', 'hr_closing'],
+      questionSequence: [],
+      currentQuestionCache: null,
       askedQuestions: [],
       weakTopics: [],
       strongTopics: [],
       answers: [],
       evaluation: [],
-      resumeAnalysis: null
+      resumeAnalysis: null,
+      stageProgress: {
+        current: 0,
+        total: 22,
+        stageQuestionsRemaining: 3
+      }
     };
   });
 
@@ -103,6 +110,8 @@ function App() {
       currentStage: 'warmup',
       questionIndex: 0,
       sequence: [],
+      questionSequence: [],
+      currentQuestionCache: null,
       askedQuestions: [],
       weakTopics: [],
       strongTopics: [],
@@ -124,6 +133,8 @@ function App() {
         currentStage: 'warmup',
         questionIndex: 0,
         sequence: [],
+        questionSequence: [],
+        currentQuestionCache: null,
         askedQuestions: [],
         weakTopics: [],
         strongTopics: [],

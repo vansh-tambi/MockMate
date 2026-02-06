@@ -1,12 +1,412 @@
 [
-  {"id": "work_ethic_001", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you handle pressure?", "ideal_points": ["Stay calm and focused", "Prioritize effectively", "Use stress management techniques", "Seek support when needed", "Maintain quality"], "evaluation_rubric": {"composure": "Stays calm", "strategies": "Has coping mechanisms", "effectiveness": "Performs under pressure"}, "follow_ups": ["Give an example", "What's your highest pressure situation?", "How do you prevent burnout?"]},
-  {"id": "work_ethic_002", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you manage deadlines?", "ideal_points": ["Plan ahead", "Break into milestones", "Track progress", "Communicate early if issues", "Buffer for unexpected"], "evaluation_rubric": {"planning": "Proactive planning", "execution": "Meets deadlines", "communication": "Updates stakeholders"}, "follow_ups": ["Tell me about a missed deadline", "How do you prioritize?", "What if deadline is unrealistic?"]},
-  {"id": "work_ethic_003", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "Are you comfortable working extra hours?", "ideal_points": ["Willing when necessary", "Understands business needs", "Balances with personal life", "Not sustainable long-term", "Prefers good planning"], "evaluation_rubric": {"flexibility": "Willing to go extra mile", "boundaries": "Has healthy limits", "understanding": "Gets business context"}, "follow_ups": ["How often would you expect this?", "How do you maintain work-life balance?", "When do you say no?"]},
-  {"id": "work_ethic_004", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you stay organized?", "ideal_points": ["Uses tools/systems", "Prioritization method", "Regular reviews", "Declutters regularly", "Adapts system as needed"], "evaluation_rubric": {"systems": "Has organization method", "consistency": "Follows system", "effectiveness": "Stays on top of tasks"}, "follow_ups": ["What tools do you use?", "What's your biggest challenge?", "How do you prioritize?"]},
-  {"id": "work_ethic_005", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you handle repetitive work?", "ideal_points": ["Maintain quality despite repetition", "Look for efficiency improvements", "Stay focused", "Find meaning in work", "Automate when possible"], "evaluation_rubric": {"attitude": "Positive about necessary tasks", "quality": "Maintains standards", "innovation": "Seeks improvements"}, "follow_ups": ["Give an example", "How do you stay motivated?", "What do you automate?"]},
-  {"id": "work_ethic_006", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you stay productive?", "ideal_points": ["Eliminate distractions", "Time management techniques", "Regular breaks", "Prioritize high-impact work", "Track progress"], "evaluation_rubric": {"self_management": "Manages own productivity", "techniques": "Has concrete strategies", "consistency": "Maintains productivity"}, "follow_ups": ["What kills your productivity?", "How do you get back on track?", "What's your routine?"]},
-  {"id": "work_ethic_007", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What does professionalism mean to you?", "ideal_points": ["Integrity and ethics", "Respectful communication", "Accountability", "Quality work", "Appropriate conduct"], "evaluation_rubric": {"depth": "Thoughtful definition", "examples": "Can illustrate", "values": "Shows strong principles"}, "follow_ups": ["Give an example", "How do you handle unprofessional behavior?", "What tests your professionalism?"]},
-  {"id": "work_ethic_008", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you manage stress?", "ideal_points": ["Recognize stress signs", "Healthy coping strategies", "Exercise/breaks", "Time management", "Seek support"], "evaluation_rubric": {"awareness": "Knows stress triggers", "strategies": "Has healthy coping", "balance": "Maintains wellbeing"}, "follow_ups": ["What stresses you most?", "How do you recharge?", "When do you ask for help?"]},
-  {"id": "work_ethic_009", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "What do you do when motivation is low?", "ideal_points": ["Identify root cause", "Break tasks into smaller pieces", "Seek inspiration", "Revisit goals", "Take strategic breaks"], "evaluation_rubric": {"self_awareness": "Recognizes low motivation", "action": "Takes steps to address", "resilience": "Pushes through"}, "follow_ups": ["Give an example", "How long does it last?", "What motivates you again?"]},
-  {"id": "work_ethic_010", "phase": "behavioral", "role": "any", "level": "any", "skill": "general", "difficulty": 2, "question": "How do you ensure quality in your work?", "ideal_points": ["Review and double-check", "Follow standards", "Seek feedback", "Continuous improvement", "Attention to detail"], "evaluation_rubric": {"standards": "Has quality standards", "processes": "Follows quality processes", "commitment": "Committed to excellence"}, "follow_ups": ["Give an example", "How do you catch mistakes?", "What if rushed?"]}
+  {
+    "id": "work_ethic_001",
+    "role": "any",
+    "level": "any",
+    "skill": "stress-management",
+    "difficulty": 2,
+    "question": "How do you handle pressure?",
+    "ideal_points": [
+      "Stay calm and focused",
+      "Prioritize effectively",
+      "Use stress management techniques",
+      "Seek support when needed",
+      "Maintain quality"
+    ],
+    "evaluation_rubric": {
+      "composure": {
+        "description": "Stays calm",
+        "weight": 0.25
+      },
+      "strategies": {
+        "description": "Has coping mechanisms",
+        "weight": 0.35
+      },
+      "effectiveness": {
+        "description": "Performs under pressure",
+        "weight": 0.40
+      }
+    },
+    "follow_ups": [
+      "Give an example",
+      "What's your highest pressure situation?",
+      "How do you prevent burnout?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_002",
+    "role": "any",
+    "level": "any",
+    "skill": "project-management",
+    "difficulty": 2,
+    "question": "How do you manage deadlines?",
+    "ideal_points": [
+      "Plan ahead",
+      "Break into milestones",
+      "Track progress",
+      "Communicate early if issues",
+      "Buffer for unexpected"
+    ],
+    "evaluation_rubric": {
+      "planning": {
+        "description": "Proactive planning",
+        "weight": 0.30
+      },
+      "execution": {
+        "description": "Meets deadlines",
+        "weight": 0.40
+      },
+      "communication": {
+        "description": "Updates stakeholders",
+        "weight": 0.30
+      }
+    },
+    "follow_ups": [
+      "Tell me about a missed deadline",
+      "How do you prioritize?",
+      "What if deadline is unrealistic?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_003",
+    "role": "any",
+    "level": "any",
+    "skill": "work-life-balance",
+    "difficulty": 2,
+    "question": "Are you comfortable working extra hours?",
+    "ideal_points": [
+      "Willing when necessary",
+      "Understands business needs",
+      "Balances with personal life",
+      "Not sustainable long-term",
+      "Prefers good planning"
+    ],
+    "evaluation_rubric": {
+      "flexibility": {
+        "description": "Willing to go extra mile",
+        "weight": 0.30
+      },
+      "boundaries": {
+        "description": "Has healthy limits",
+        "weight": 0.35
+      },
+      "understanding": {
+        "description": "Gets business context",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "How often would you expect this?",
+      "How do you maintain work-life balance?",
+      "When do you say no?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_004",
+    "role": "any",
+    "level": "any",
+    "skill": "organization",
+    "difficulty": 2,
+    "question": "How do you stay organized?",
+    "ideal_points": [
+      "Uses tools/systems",
+      "Prioritization method",
+      "Regular reviews",
+      "Declutters regularly",
+      "Adapts system as needed"
+    ],
+    "evaluation_rubric": {
+      "systems": {
+        "description": "Has organization method",
+        "weight": 0.30
+      },
+      "consistency": {
+        "description": "Follows system",
+        "weight": 0.35
+      },
+      "effectiveness": {
+        "description": "Stays on top of tasks",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "What tools do you use?",
+      "What's your biggest challenge?",
+      "How do you prioritize?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.2,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_005",
+    "role": "any",
+    "level": "any",
+    "skill": "problem-solving",
+    "difficulty": 2,
+    "question": "How do you handle repetitive work?",
+    "ideal_points": [
+      "Maintain quality despite repetition",
+      "Look for efficiency improvements",
+      "Stay focused",
+      "Find meaning in work",
+      "Automate when possible"
+    ],
+    "evaluation_rubric": {
+      "attitude": {
+        "description": "Positive about necessary tasks",
+        "weight": 0.30
+      },
+      "quality": {
+        "description": "Maintains standards",
+        "weight": 0.30
+      },
+      "innovation": {
+        "description": "Seeks improvements",
+        "weight": 0.40
+      }
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you stay motivated?",
+      "What do you automate?"
+    ],
+    "stage": "real_life",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "test maturity and handling ambiguity",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_006",
+    "role": "any",
+    "level": "any",
+    "skill": "self-management",
+    "difficulty": 2,
+    "question": "How do you stay productive?",
+    "ideal_points": [
+      "Eliminate distractions",
+      "Time management techniques",
+      "Regular breaks",
+      "Prioritize high-impact work",
+      "Track progress"
+    ],
+    "evaluation_rubric": {
+      "self_management": {
+        "description": "Manages own productivity",
+        "weight": 0.35
+      },
+      "techniques": {
+        "description": "Has concrete strategies",
+        "weight": 0.35
+      },
+      "consistency": {
+        "description": "Maintains productivity",
+        "weight": 0.30
+      }
+    },
+    "follow_ups": [
+      "What kills your productivity?",
+      "How do you get back on track?",
+      "What's your routine?"
+    ],
+    "stage": "real_life",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "test maturity and handling ambiguity",
+    "weight": 1.2,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_007",
+    "role": "any",
+    "level": "any",
+    "skill": "values-ethics",
+    "difficulty": 2,
+    "question": "What does professionalism mean to you?",
+    "ideal_points": [
+      "Integrity and ethics",
+      "Respectful communication",
+      "Accountability",
+      "Quality work",
+      "Appropriate conduct"
+    ],
+    "evaluation_rubric": {
+      "depth": {
+        "description": "Thoughtful definition",
+        "weight": 0.30
+      },
+      "examples": {
+        "description": "Can illustrate",
+        "weight": 0.35
+      },
+      "values": {
+        "description": "Shows strong principles",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you handle unprofessional behavior?",
+      "What tests your professionalism?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.4,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_008",
+    "role": "any",
+    "level": "any",
+    "skill": "stress-management",
+    "difficulty": 2,
+    "question": "How do you manage stress?",
+    "ideal_points": [
+      "Recognize stress signs",
+      "Healthy coping strategies",
+      "Exercise/breaks",
+      "Time management",
+      "Seek support"
+    ],
+    "evaluation_rubric": {
+      "awareness": {
+        "description": "Knows stress triggers",
+        "weight": 0.30
+      },
+      "strategies": {
+        "description": "Has healthy coping",
+        "weight": 0.35
+      },
+      "balance": {
+        "description": "Maintains wellbeing",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "What stresses you most?",
+      "How do you recharge?",
+      "When do you ask for help?"
+    ],
+    "stage": "hr_closing",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess culture fit and motivation",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_009",
+    "role": "any",
+    "level": "any",
+    "skill": "resilience",
+    "difficulty": 2,
+    "question": "What do you do when motivation is low?",
+    "ideal_points": [
+      "Identify root cause",
+      "Break tasks into smaller pieces",
+      "Seek inspiration",
+      "Revisit goals",
+      "Take strategic breaks"
+    ],
+    "evaluation_rubric": {
+      "self_awareness": {
+        "description": "Recognizes low motivation",
+        "weight": 0.30
+      },
+      "action": {
+        "description": "Takes steps to address",
+        "weight": 0.35
+      },
+      "resilience": {
+        "description": "Pushes through",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "Give an example",
+      "How long does it last?",
+      "What motivates you again?"
+    ],
+    "stage": "real_life",
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "test maturity and handling ambiguity",
+    "weight": 1.3,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  },
+  {
+    "id": "work_ethic_010",
+    "role": "any",
+    "level": "any",
+    "skill": "code-quality",
+    "difficulty": 2,
+    "question": "How do you ensure quality in your work?",
+    "ideal_points": [
+      "Review and double-check",
+      "Follow standards",
+      "Seek feedback",
+      "Continuous improvement",
+      "Attention to detail"
+    ],
+    "evaluation_rubric": {
+      "standards": {
+        "description": "Has quality standards",
+        "weight": 0.30
+      },
+      "processes": {
+        "description": "Follows quality processes",
+        "weight": 0.35
+      },
+      "commitment": {
+        "description": "Committed to excellence",
+        "weight": 0.35
+      }
+    },
+    "follow_ups": [
+      "Give an example",
+      "How do you catch mistakes?",
+      "What if rushed?"
+    ],
+    "stage": "resume_technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess technical depth and problem-solving",
+    "weight": 1.4,
+    "expected_duration_sec": 90,
+    "prerequisite_difficulty": 0
+  }
 ]

@@ -1,0 +1,524 @@
+[
+  {
+    "id": "leadership_001",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "leadership",
+    "difficulty": 5,
+    "question": "Describe leading a team through failure.",
+    "ideal_points": [
+      "Took responsibility",
+      "Maintained morale",
+      "Corrected course",
+      "Learned lessons",
+      "Delivered improvement"
+    ],
+    "evaluation_rubric": {
+      "ownership": {
+        "description": "Took full responsibility",
+        "weight": 0.2
+      },
+      "morale": "Kept team motivated",
+      "correction": "Fixed the course",
+      "learning": "Extracted lessons"
+    },
+    "interviewer_intent": "Tests leadership accountability and resilience",
+    "failure_signals": [
+      "Blamed team",
+      "Morale collapsed",
+      "No course correction",
+      "Repeated mistakes"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What did you say to your team?",
+      "How did you rebuild confidence?",
+      "What was the root cause?",
+      "How do you prevent similar failures?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_002",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "team_building",
+    "difficulty": 5,
+    "question": "How do you build a high-performing team from scratch?",
+    "ideal_points": [
+      "Clear hiring criteria",
+      "Complementary skills",
+      "Strong culture foundation",
+      "Clear goals and expectations",
+      "Continuous development"
+    ],
+    "evaluation_rubric": {
+      "strategy": {
+        "description": "Has clear approach",
+        "weight": 0.15
+      },
+      "execution": "Can execute well",
+      "culture": "Builds strong culture",
+      "results": "Delivers performance"
+    },
+    "interviewer_intent": "Tests team building and organizational skills",
+    "failure_signals": [
+      "No clear strategy",
+      "Hires randomly",
+      "Ignores culture",
+      "No development plan"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "What's your first hire?",
+      "How do you ensure culture fit?",
+      "What metrics do you track?",
+      "How long does it take?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_003",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "difficult_decisions",
+    "difficulty": 5,
+    "question": "Tell me about the hardest decision you've made as a leader.",
+    "ideal_points": [
+      "Clear context",
+      "Multiple stakeholders considered",
+      "Data-driven decision",
+      "Communicated effectively",
+      "Stood by decision"
+    ],
+    "evaluation_rubric": {
+      "complexity": "Truly difficult decision",
+      "process": "Systematic approach",
+      "communication": {
+        "description": "Communicated well",
+        "weight": 0.2
+      },
+      "conviction": "Stood firm"
+    },
+    "interviewer_intent": "Tests decision-making under pressure",
+    "failure_signals": [
+      "Easy decision presented",
+      "No systematic approach",
+      "Poor communication",
+      "Wavered under pressure"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What alternatives did you consider?",
+      "Who disagreed with you?",
+      "Would you make the same decision?",
+      "What was the impact?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_004",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "mentoring",
+    "difficulty": 4,
+    "question": "Describe developing a direct report who became a leader.",
+    "ideal_points": [
+      "Identified potential early",
+      "Created development plan",
+      "Provided stretch assignments",
+      "Gave feedback regularly",
+      "Measured progress"
+    ],
+    "evaluation_rubric": {
+      "identification": "Spotted potential",
+      "planning": "Structured development",
+      "execution": "Followed through",
+      "success": "Person grew significantly"
+    },
+    "interviewer_intent": "Tests mentoring and talent development",
+    "failure_signals": [
+      "No structured approach",
+      "Didn't track progress",
+      "Person didn't grow",
+      "Takes all credit"
+    ],
+    "weight": 1.3,
+    "follow_ups": [
+      "What was their biggest challenge?",
+      "How did you know they were ready?",
+      "What mistakes did you make?",
+      "Where are they now?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "leadership_005",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "vision",
+    "difficulty": 5,
+    "question": "How do you create and communicate a compelling vision?",
+    "ideal_points": [
+      "Clear vision articulation",
+      "Connects to purpose",
+      "Inspires action",
+      "Repeats consistently",
+      "Measures alignment"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Vision is clear",
+        "weight": 0.15
+      },
+      "inspiration": "Vision inspires",
+      "communication": {
+        "description": "Communicates effectively",
+        "weight": 0.2
+      },
+      "alignment": "Team aligned"
+    },
+    "interviewer_intent": "Tests visionary leadership",
+    "failure_signals": [
+      "Vague vision",
+      "Doesn't inspire",
+      "Inconsistent message",
+      "No team alignment"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "Give an example of your vision",
+      "How do you get buy-in?",
+      "How do you maintain focus?",
+      "What if vision changes?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_006",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "change_management",
+    "difficulty": 5,
+    "question": "Describe leading a major organizational change.",
+    "ideal_points": [
+      "Clear change strategy",
+      "Addressed resistance",
+      "Communicated transparently",
+      "Sustained momentum",
+      "Measured success"
+    ],
+    "evaluation_rubric": {
+      "strategy": {
+        "description": "Had clear plan",
+        "weight": 0.15
+      },
+      "execution": "Executed well",
+      "communication": {
+        "description": "Transparent communication",
+        "weight": 0.2
+      },
+      "results": "Change stuck"
+    },
+    "interviewer_intent": "Tests change leadership",
+    "failure_signals": [
+      "No change strategy",
+      "Ignored resistance",
+      "Poor communication",
+      "Change didn't stick"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What resistance did you face?",
+      "How did you overcome it?",
+      "What would you do differently?",
+      "How long did it take?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_007",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "performance_management",
+    "difficulty": 5,
+    "question": "How do you handle a high performer with toxic behavior?",
+    "ideal_points": [
+      "Addresses behavior directly",
+      "Clear expectations set",
+      "Documents issues",
+      "Protects team culture",
+      "Makes tough decision"
+    ],
+    "evaluation_rubric": {
+      "courage": "Addresses directly",
+      "clarity": {
+        "description": "Sets clear expectations",
+        "weight": 0.15
+      },
+      "protection": "Protects culture",
+      "decisiveness": "Makes tough calls"
+    },
+    "interviewer_intent": "Tests courage to protect culture over performance",
+    "failure_signals": [
+      "Ignores behavior",
+      "Lets it slide",
+      "Team suffers",
+      "Culture erodes"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What if they're your top performer?",
+      "How do you document behavior?",
+      "What's your timeline?",
+      "What if they don't change?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_008",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "strategic_thinking",
+    "difficulty": 5,
+    "question": "Describe a time you changed strategic direction.",
+    "ideal_points": [
+      "Recognized need for change",
+      "Analyzed options thoroughly",
+      "Made data-driven decision",
+      "Communicated rationale",
+      "Executed successfully"
+    ],
+    "evaluation_rubric": {
+      "recognition": "Spotted need",
+      "analysis": "Analyzed well",
+      "decision": "Decided wisely",
+      "execution": "Executed effectively"
+    },
+    "interviewer_intent": "Tests strategic thinking and adaptability",
+    "failure_signals": [
+      "Stuck to failing plan",
+      "Poor analysis",
+      "Team confused",
+      "Execution failed"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What signals told you to pivot?",
+      "Who resisted the change?",
+      "What was the outcome?",
+      "How do you know when to pivot?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_009",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "delegation",
+    "difficulty": 4,
+    "question": "How do you delegate critical work without micromanaging?",
+    "ideal_points": [
+      "Clear expectations",
+      "Right person chosen",
+      "Appropriate autonomy",
+      "Support provided",
+      "Results tracked"
+    ],
+    "evaluation_rubric": {
+      "selection": "Chooses right person",
+      "clarity": {
+        "description": "Clear expectations",
+        "weight": 0.15
+      },
+      "trust": "Gives autonomy",
+      "support": "Provides support"
+    },
+    "interviewer_intent": "Tests delegation and trust",
+    "failure_signals": [
+      "Micromanages",
+      "Wrong person chosen",
+      "Unclear expectations",
+      "No support"
+    ],
+    "weight": 1.3,
+    "follow_ups": [
+      "How do you decide who?",
+      "What if they struggle?",
+      "How often do you check in?",
+      "What if they fail?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "leadership_010",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "conflict_resolution",
+    "difficulty": 5,
+    "question": "Describe resolving a conflict between senior team members.",
+    "ideal_points": [
+      "Intervened appropriately",
+      "Understood both perspectives",
+      "Facilitated resolution",
+      "Maintained relationships",
+      "Prevented recurrence"
+    ],
+    "evaluation_rubric": {
+      "timing": "Intervened at right time",
+      "fairness": "Heard both sides",
+      "resolution": "Achieved resolution",
+      "prevention": "Prevented future conflicts"
+    },
+    "interviewer_intent": "Tests conflict mediation at senior levels",
+    "failure_signals": [
+      "Avoided conflict",
+      "Took sides",
+      "Relationships damaged",
+      "Conflict persists"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "What was the root cause?",
+      "How did you stay neutral?",
+      "What if one was right?",
+      "How did it affect the team?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_011",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "crisis_leadership",
+    "difficulty": 5,
+    "question": "Describe leading through a major crisis.",
+    "ideal_points": [
+      "Stayed calm",
+      "Took charge decisively",
+      "Communicated clearly",
+      "Protected team",
+      "Restored stability"
+    ],
+    "evaluation_rubric": {
+      "composure": "Stayed calm",
+      "decisiveness": "Took charge",
+      "communication": {
+        "description": "Kept everyone informed",
+        "weight": 0.2
+      },
+      "results": "Resolved crisis"
+    },
+    "interviewer_intent": "Tests crisis leadership under extreme pressure",
+    "failure_signals": [
+      "Panicked",
+      "Indecisive",
+      "Poor communication",
+      "Crisis worsened"
+    ],
+    "weight": 1.5,
+    "follow_ups": [
+      "What was your first action?",
+      "How did you communicate?",
+      "What mistakes did you make?",
+      "What did you learn?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "leadership_012",
+    "stage": "real_life",
+    "role": "any",
+    "level": "senior",
+    "skill": "culture_building",
+    "difficulty": 5,
+    "question": "How do you build and maintain team culture?",
+    "ideal_points": [
+      "Clear values defined",
+      "Models behavior",
+      "Recognizes culture fit",
+      "Addresses violations",
+      "Sustains over time"
+    ],
+    "evaluation_rubric": {
+      "definition": "Defines clear values",
+      "modeling": "Leads by example",
+      "enforcement": "Addresses violations",
+      "sustainability": "Culture persists"
+    },
+    "interviewer_intent": "Tests cultural leadership",
+    "failure_signals": [
+      "Vague values",
+      "Doesn't model",
+      "Tolerates violations",
+      "Culture erodes"
+    ],
+    "weight": 1.4,
+    "follow_ups": [
+      "What values are non-negotiable?",
+      "Give an example of enforcing culture",
+      "How do you hire for culture?",
+      "What if culture conflicts with performance?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "expected_duration_sec": 300,
+    "prerequisite_difficulty": 4
+  }
+]

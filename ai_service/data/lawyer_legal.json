@@ -1,7 +1,6 @@
 [
   {
     "id": "lawyer_001",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -19,11 +18,20 @@
       "understanding": "Knows what legal practice involves",
       "values": "Aligns with legal profession values"
     },
-    "follow_ups": ["What area of law interests you?", "When did you decide on law?", "What challenges do you expect?"]
+    "follow_ups": [
+      "What area of law interests you?",
+      "When did you decide on law?",
+      "What challenges do you expect?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_002",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -37,15 +45,27 @@
       "Understanding of practice area"
     ],
     "evaluation_rubric": {
-      "clarity": "Has clear area of interest",
+      "clarity": {
+        "description": "Has clear area of interest",
+        "weight": 0.15
+      },
       "knowledge": "Understands chosen area",
       "motivation": "Has genuine reasons for interest"
     },
-    "follow_ups": ["What cases inspire you?", "How have you prepared for this area?", "What's challenging about it?"]
+    "follow_ups": [
+      "What cases inspire you?",
+      "How have you prepared for this area?",
+      "What's challenging about it?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_003",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -63,11 +83,20 @@
       "practicality": "Can apply concept to legal practice",
       "values": "Shows strong ethical foundation"
     },
-    "follow_ups": ["Is law always just?", "How do you handle unjust laws?", "Give an example of justice"]
+    "follow_ups": [
+      "Is law always just?",
+      "How do you handle unjust laws?",
+      "Give an example of justice"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_004",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -85,11 +114,20 @@
       "judgment": "Can navigate complex situations",
       "integrity": "Willing to uphold principles"
     },
-    "follow_ups": ["Give an example of ethical dilemma", "What if client asks unethical action?", "When do you refuse a case?"]
+    "follow_ups": [
+      "Give an example of ethical dilemma",
+      "What if client asks unethical action?",
+      "When do you refuse a case?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "lawyer_005",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -104,14 +142,26 @@
     ],
     "evaluation_rubric": {
       "patience": "Can handle challenging personalities",
-      "communication": "Explains complex issues clearly",
+      "communication": {
+        "description": "Explains complex issues clearly",
+        "weight": 0.2
+      },
       "boundaries": "Maintains professional boundaries"
     },
-    "follow_ups": ["Tell me about a difficult client", "How do you manage expectations?", "When do you end representation?"]
+    "follow_ups": [
+      "Tell me about a difficult client",
+      "How do you manage expectations?",
+      "When do you end representation?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_006",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -129,11 +179,20 @@
       "relevance": "Mentions legal-specific strengths",
       "evidence": "Can provide examples"
     },
-    "follow_ups": ["Give an example of strong advocacy", "What weaknesses are you improving?", "How do you prepare cases?"]
+    "follow_ups": [
+      "Give an example of strong advocacy",
+      "What weaknesses are you improving?",
+      "How do you prepare cases?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_007",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -151,11 +210,20 @@
       "preparation": "Emphasizes thorough preparation",
       "methods": "Has concrete strategies"
     },
-    "follow_ups": ["Tell me about a high-stakes case", "How do you avoid burnout?", "When do you ask for help?"]
+    "follow_ups": [
+      "Tell me about a high-stakes case",
+      "How do you avoid burnout?",
+      "When do you ask for help?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_008",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -173,11 +241,20 @@
       "differentiation": "Shows what makes them unique",
       "fit": "Understands firm's needs"
     },
-    "follow_ups": ["What will you bring to our firm?", "How do you handle competition?", "What's your biggest achievement?"]
+    "follow_ups": [
+      "What will you bring to our firm?",
+      "How do you handle competition?",
+      "What's your biggest achievement?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_009",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -195,11 +272,20 @@
       "alignment": "Values align with legal profession",
       "commitment": "Shows commitment to upholding values"
     },
-    "follow_ups": ["How do you apply these values?", "What if values conflict?", "Give an example"]
+    "follow_ups": [
+      "How do you apply these values?",
+      "What if values conflict?",
+      "Give an example"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_010",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -215,13 +301,25 @@
     "evaluation_rubric": {
       "patience": "Can handle long timelines",
       "organization": "Stays organized over time",
-      "communication": "Keeps clients informed"
+      "communication": {
+        "description": "Keeps clients informed",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["How do you track progress?", "How do you manage client frustration?", "What's your longest case?"]
+    "follow_ups": [
+      "How do you track progress?",
+      "How do you manage client frustration?",
+      "What's your longest case?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "lawyer_sit_001",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -239,11 +337,20 @@
       "principles": "Can separate personal views from duty",
       "professionalism": "Maintains professional obligations"
     },
-    "follow_ups": ["How do you reconcile this?", "What if client admits guilt?", "Where do you draw the line?"]
+    "follow_ups": [
+      "How do you reconcile this?",
+      "What if client admits guilt?",
+      "Where do you draw the line?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "lawyer_sit_002",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -261,11 +368,20 @@
       "ethics": "Follows professional rules",
       "judgment": "Makes appropriate decisions"
     },
-    "follow_ups": ["Give an example", "What if client insists?", "How do you prevent conflicts?"]
+    "follow_ups": [
+      "Give an example",
+      "What if client insists?",
+      "How do you prevent conflicts?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "lawyer_sit_003",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -283,11 +399,20 @@
       "respect": "Maintains court decorum",
       "adaptability": "Can adjust strategy"
     },
-    "follow_ups": ["How do you handle unfavorable rulings?", "When do you concede?", "How do you maintain composure?"]
+    "follow_ups": [
+      "How do you handle unfavorable rulings?",
+      "When do you concede?",
+      "How do you maintain composure?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "lawyer_sit_004",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -305,11 +430,20 @@
       "reflection": "Learns from experience",
       "client_care": "Supports client through loss"
     },
-    "follow_ups": ["Tell me about a case you lost", "How do you avoid taking it personally?", "When do you advise appeal?"]
+    "follow_ups": [
+      "Tell me about a case you lost",
+      "How do you avoid taking it personally?",
+      "When do you advise appeal?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "lawyer_sit_005",
-    "phase": "behavioral",
     "role": "legal",
     "level": "any",
     "skill": "law",
@@ -327,6 +461,111 @@
       "practicality": "Can apply to practice",
       "integrity": "Shows strong moral compass"
     },
-    "follow_ups": ["Give an example of conflict", "What if law is unjust?", "How do you maintain integrity?"]
+    "follow_ups": [
+      "Give an example of conflict",
+      "What if law is unjust?",
+      "How do you maintain integrity?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "lawyer_011",
+    "stage": "resume_technical",
+    "role": "legal",
+    "difficulty": 2,
+    "question": "Tell me about a legal case or project you worked on.",
+    "ideal_points": [
+      "Case overview",
+      "Role explained clearly",
+      "Legal reasoning applied",
+      "Outcome",
+      "Lessons learned"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "lawyer_012",
+    "stage": "resume_technical",
+    "role": "legal",
+    "difficulty": 3,
+    "question": "How do you prepare for court or legal proceedings?",
+    "ideal_points": [
+      "Thorough research",
+      "Understand facts deeply",
+      "Prepare arguments",
+      "Anticipate counterarguments",
+      "Organized documentation"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "lawyer_013",
+    "stage": "real_life",
+    "role": "legal",
+    "difficulty": 3,
+    "question": "A client wants you to pursue a weak case. What do you do?",
+    "ideal_points": [
+      "Explain risks honestly",
+      "Provide professional advice",
+      "Maintain integrity",
+      "Respect client autonomy within ethics",
+      "Avoid misleading client"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "lawyer_014",
+    "stage": "real_life",
+    "role": "legal",
+    "difficulty": 3,
+    "question": "How do you stay updated with changing laws?",
+    "ideal_points": [
+      "Legal research",
+      "Follow legal publications",
+      "Continuous learning",
+      "Attend seminars or training",
+      "Professional discipline"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "lawyer_015",
+    "stage": "hr_closing",
+    "role": "legal",
+    "difficulty": 2,
+    "question": "What makes you a strong candidate for this legal role?",
+    "ideal_points": [
+      "Relevant skills",
+      "Legal expertise",
+      "Work ethic",
+      "Commitment to profession",
+      "Confidence"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   }
 ]

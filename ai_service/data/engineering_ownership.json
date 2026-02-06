@@ -1,0 +1,265 @@
+[
+  {
+    "id": "ownership_systems_elite_001",
+    "category": "engineering_ownership",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "ownership",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "stage": "behavioral",
+    "question": "Tell me about a system or feature you felt full ownership over. What made it yours?",
+    "ideal_points": [
+      "Took initiative beyond job description",
+      "Felt responsible for success/failure",
+      "Drove technical decisions",
+      "Communicated status proactively",
+      "Learned skills needed to succeed",
+      "Advocated for users/customers",
+      "Took accountability when things failed",
+      "Improved system after launch"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Story demonstrates true ownership",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Shows breadth of ownership",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear impact and decisions",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Genuine story with evidence",
+        "weight": 0.2
+      },
+      "confidence": "Pride and accountability evident"
+    },
+    "strong_signals": [
+      "Mentions architectural decisions made",
+      "Discusses user feedback integration",
+      "Took on work outside specialty",
+      "Proactive communication examples"
+    ],
+    "weak_signals": [
+      "Helped with feature but didn't own it",
+      "Limited scope of ownership"
+    ],
+    "red_flags": [
+      "Generic story lacking specifics",
+      "Cannot identify what made it theirs",
+      "Blamed others for problems",
+      "No accountability for failures",
+      "Handed off when problems emerged"
+    ],
+    "follow_ups": [
+      "How did you handle when something went wrong?",
+      "What would you do differently?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "ownership_quality_elite_001",
+    "category": "engineering_ownership",
+    "role": "software_engineer",
+    "level": "mid",
+    "skill": "ownership",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 150,
+    "stage": "behavioral",
+    "question": "How do you ensure the quality of code you ship? What happens if a bug you wrote reaches production?",
+    "ideal_points": [
+      "Personal code review before submission",
+      "Own the impact of your code",
+      "Fix bugs immediately",
+      "Learn from mistakes",
+      "Improve testing/processes",
+      "Communicate proactively about issues",
+      "Root cause analysis for failures",
+      "Prevent recurrence"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Takes responsibility for code quality",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Multiple quality measures discussed",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear ownership mindset",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Real examples of quality/failures",
+        "weight": 0.2
+      },
+      "confidence": "Mature professionalism evident"
+    },
+    "strong_signals": [
+      "Multiple quality checks mentioned",
+      "Discusses failure patterns",
+      "Owns bug fixes immediately",
+      "Improves systems based on failures"
+    ],
+    "weak_signals": [
+      "QA responsibility only",
+      "Vague about quality measures"
+    ],
+    "red_flags": [
+      "Blames QA for bugs",
+      "'It's not my bug' attitude",
+      "Slow to fix issues",
+      "Same bugs repeat",
+      "No interest in root causes"
+    ],
+    "follow_ups": [
+      "Tell me about a production bug you caused",
+      "How do you prevent regressions?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "ownership_growth_elite_001",
+    "category": "engineering_ownership",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "ownership",
+    "difficulty": 5,
+    "weight": 1.9,
+    "expected_duration_sec": 200,
+    "stage": "behavioral",
+    "question": "How do you grow from a task executor to a strategic owner? Describe your evolution.",
+    "ideal_points": [
+      "Started with assigned tasks",
+      "Asked 'why' about decisions",
+      "Expanded scope over time",
+      "Developed business understanding",
+      "Influenced product direction",
+      "Mentored others",
+      "Made architectural decisions",
+      "Owned outcomes, not just tasks"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Clear career progression shown",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Strategic thinking development evident",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Journey well-articulated",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Real examples of growth",
+        "weight": 0.2
+      },
+      "confidence": "Senior-level perspective"
+    },
+    "strong_signals": [
+      "Specific examples of expanded scope",
+      "Business impact understanding",
+      "Mentored others into ownership",
+      "Made company decisions"
+    ],
+    "weak_signals": [
+      "Growth was mostly about title",
+      "Still executor-minded"
+    ],
+    "red_flags": [
+      "No growth mindset",
+      "Same level as 5 years ago",
+      "Doesn't understand business metrics",
+      "Cannot articulate evolution",
+      "Blames limitations on others"
+    ],
+    "follow_ups": [
+      "What's the biggest lesson in your growth?",
+      "How do you help others grow similarly?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  },
+  {
+    "id": "ownership_failure_elite_001",
+    "category": "engineering_ownership",
+    "role": "software_engineer",
+    "level": "senior",
+    "skill": "ownership",
+    "difficulty": 5,
+    "weight": 2.0,
+    "expected_duration_sec": 220,
+    "stage": "behavioral",
+    "question": "Tell me about the biggest technical failure you owned. How did you handle it and what did you learn?",
+    "ideal_points": [
+      "Clear acknowledgment of responsibility",
+      "Did not blame others or circumstances",
+      "Immediate action to mitigate",
+      "Transparent communication with team",
+      "Deep root cause analysis",
+      "Systemic improvements made",
+      "Shared learnings with team",
+      "Restored confidence through excellence"
+    ],
+    "evaluation_rubric": {
+      "correctness": {
+        "description": "Takes full responsibility",
+        "weight": 0.25
+      },
+      "depth": {
+        "description": "Comprehensive problem handling",
+        "weight": 0.2
+      },
+      "clarity": {
+        "description": "Clear timeline and decisions",
+        "weight": 0.15
+      },
+      "real_experience": {
+        "description": "Genuine major failure story",
+        "weight": 0.2
+      },
+      "confidence": "Maturity and humility evident"
+    },
+    "strong_signals": [
+      "'I own this' mentality clear",
+      "Specific improvements made",
+      "Shared learnings widely",
+      "Returned to repair trust",
+      "Structural changes implemented"
+    ],
+    "weak_signals": [
+      "Deflects some blame",
+      "Minor failure only",
+      "No systemic improvement"
+    ],
+    "red_flags": [
+      "Blames team/circumstances",
+      "Downplays severity",
+      "No real accountability",
+      "Same mistake happened again",
+      "Avoids talking about failure",
+      "Defensive or angry tone"
+    ],
+    "follow_ups": [
+      "How did you earn back trust?",
+      "What system did you put in place to prevent it?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "evaluate candidate skills",
+    "prerequisite_difficulty": 4
+  }
+]

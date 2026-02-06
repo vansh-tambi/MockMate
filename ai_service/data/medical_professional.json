@@ -1,7 +1,6 @@
 [
   {
     "id": "medical_001",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -20,11 +19,20 @@
       "commitment": "Understands the challenges and still committed",
       "values": "Aligns with medical profession values"
     },
-    "follow_ups": ["What specialty interests you?", "How did you prepare for this career?", "What challenges do you anticipate?"]
+    "follow_ups": [
+      "What specialty interests you?",
+      "How did you prepare for this career?",
+      "What challenges do you anticipate?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_002",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -43,11 +51,20 @@
       "prioritization": "Understands what matters most",
       "self_awareness": "Can relate qualities to own strengths"
     },
-    "follow_ups": ["Which quality do you need to improve?", "How do you develop these qualities?", "Give an example of compassion in practice"]
+    "follow_ups": [
+      "Which quality do you need to improve?",
+      "How do you develop these qualities?",
+      "Give an example of compassion in practice"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_003",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -63,13 +80,25 @@
     "evaluation_rubric": {
       "emotional_intelligence": "Can balance empathy with professionalism",
       "self_care": "Recognizes importance of own mental health",
-      "communication": "Can handle difficult conversations"
+      "communication": {
+        "description": "Can handle difficult conversations",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["Tell me about a specific difficult case", "How do you prevent burnout?", "When do you seek help?"]
+    "follow_ups": [
+      "Tell me about a specific difficult case",
+      "How do you prevent burnout?",
+      "When do you seek help?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_004",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -88,11 +117,20 @@
       "learning": "Demonstrates growth from experience",
       "honesty": "Transparent about mistakes"
     },
-    "follow_ups": ["What would you do differently?", "How has this changed your practice?", "How do you prevent similar mistakes?"]
+    "follow_ups": [
+      "What would you do differently?",
+      "How has this changed your practice?",
+      "How do you prevent similar mistakes?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_005",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -110,11 +148,20 @@
       "sustainability": "Has strategies for long-term health",
       "adaptability": "Can adjust to varying schedules"
     },
-    "follow_ups": ["How do you stay energized?", "How do you handle night shifts?", "When do you say no?"]
+    "follow_ups": [
+      "How do you stay energized?",
+      "How do you handle night shifts?",
+      "When do you say no?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_006",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -128,15 +175,27 @@
       "Involve team when needed"
     ],
     "evaluation_rubric": {
-      "communication": "Can explain complex situations simply",
+      "communication": {
+        "description": "Can explain complex situations simply",
+        "weight": 0.2
+      },
       "empathy": "Understands emotional state of families",
       "professionalism": "Maintains composure under pressure"
     },
-    "follow_ups": ["How do you deliver bad news?", "What if they become aggressive?", "How do you build trust?"]
+    "follow_ups": [
+      "How do you deliver bad news?",
+      "What if they become aggressive?",
+      "How do you build trust?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_007",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -154,11 +213,20 @@
       "application": "Can relate to practical scenarios",
       "integrity": "Shows commitment to ethical practice"
     },
-    "follow_ups": ["Give an example of ethical dilemma", "What if patient refuses treatment?", "How do you handle conflicts of interest?"]
+    "follow_ups": [
+      "Give an example of ethical dilemma",
+      "What if patient refuses treatment?",
+      "How do you handle conflicts of interest?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_008",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -176,11 +244,20 @@
       "methods": "Has concrete strategies for staying updated",
       "application": "Can apply new knowledge to practice"
     },
-    "follow_ups": ["What was the last thing you learned?", "How do you verify new information?", "Which journals do you read?"]
+    "follow_ups": [
+      "What was the last thing you learned?",
+      "How do you verify new information?",
+      "Which journals do you read?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_009",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -198,11 +275,20 @@
       "resilience": "Bounces back while learning",
       "self_awareness": "Recognizes need for support"
     },
-    "follow_ups": ["How do you separate personal and professional?", "When do you seek counseling?", "How do you support colleagues?"]
+    "follow_ups": [
+      "How do you separate personal and professional?",
+      "When do you seek counseling?",
+      "How do you support colleagues?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_010",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -220,11 +306,20 @@
       "relevance": "Highlights applicable strengths",
       "differentiation": "Shows what makes them unique"
     },
-    "follow_ups": ["What's your biggest achievement?", "How do you handle competition?", "What will you bring to our team?"]
+    "follow_ups": [
+      "What's your biggest achievement?",
+      "How do you handle competition?",
+      "What will you bring to our team?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "medical_sit_001",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -239,14 +334,29 @@
     ],
     "evaluation_rubric": {
       "ethics": "Respects patient rights",
-      "communication": "Can handle difficult conversations",
-      "problem_solving": "Seeks alternatives"
+      "communication": {
+        "description": "Can handle difficult conversations",
+        "weight": 0.2
+      },
+      "problem_solving": {
+        "description": "Seeks alternatives",
+        "weight": 0.2
+      }
     },
-    "follow_ups": ["What if it's life-threatening?", "How do you handle family pressure?", "When do you involve ethics committee?"]
+    "follow_ups": [
+      "What if it's life-threatening?",
+      "How do you handle family pressure?",
+      "When do you involve ethics committee?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_sit_002",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -264,11 +374,20 @@
       "action": "Acts quickly to rectify",
       "transparency": "Honest with all stakeholders"
     },
-    "follow_ups": ["How do you prevent misdiagnosis?", "What if patient sues?", "How do you regain trust?"]
+    "follow_ups": [
+      "How do you prevent misdiagnosis?",
+      "What if patient sues?",
+      "How do you regain trust?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_sit_003",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -286,11 +405,20 @@
       "respect": "Maintains professional hierarchy",
       "patient_focus": "Keeps patient interests first"
     },
-    "follow_ups": ["What if they're still opposed?", "When do you escalate?", "How do you build trust with seniors?"]
+    "follow_ups": [
+      "What if they're still opposed?",
+      "When do you escalate?",
+      "How do you build trust with seniors?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_sit_004",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -308,11 +436,20 @@
       "composure": "Handles pressure well",
       "teamwork": "Coordinates with team"
     },
-    "follow_ups": ["What if resources are limited?", "How do you handle multiple critical cases?", "When do you call for help?"]
+    "follow_ups": [
+      "What if resources are limited?",
+      "How do you handle multiple critical cases?",
+      "When do you call for help?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "medical_sit_005",
-    "phase": "behavioral",
     "role": "medical",
     "level": "any",
     "skill": "medical",
@@ -330,6 +467,65 @@
       "judgment": "Knows when and how to escalate",
       "professionalism": "Handles sensitive situation appropriately"
     },
-    "follow_ups": ["What if it involves a senior?", "How do you protect yourself?", "When do you involve external authorities?"]
+    "follow_ups": [
+      "What if it involves a senior?",
+      "How do you protect yourself?",
+      "When do you involve external authorities?"
+    ],
+    "stage": "technical",
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
+  },
+  {
+    "id": "medical_011",
+    "stage": "clinical_judgment",
+    "role": "medical",
+    "difficulty": 4,
+    "question": "Describe a situation where you had incomplete information but had to act.",
+    "ideal_points": [
+      "Used clinical judgment",
+      "Managed uncertainty",
+      "Prioritized patient safety",
+      "Consulted appropriately",
+      "Made responsible decision"
+    ],
+    "evaluation_rubric": {
+      "judgment": "Sound decision making",
+      "safety": "Prioritized patient safety",
+      "professionalism": "Handled uncertainty responsibly"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "medical_012",
+    "stage": "ethics",
+    "role": "medical",
+    "difficulty": 4,
+    "question": "Describe a time you disagreed with a medical decision.",
+    "ideal_points": [
+      "Advocated professionally",
+      "Used evidence",
+      "Maintained professionalism",
+      "Prioritized patient safety"
+    ],
+    "evaluation_rubric": {
+      "courage": "Advocates for patient",
+      "respect": "Maintains professionalism",
+      "judgment": "Uses sound reasoning"
+    },
+    "weight": 1.5,
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

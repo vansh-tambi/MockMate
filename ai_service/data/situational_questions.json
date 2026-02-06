@@ -1,7 +1,7 @@
 [
   {
     "id": "situational_001",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -16,16 +16,33 @@
     ],
     "evaluation_rubric": {
       "empathy": "Did they consider reasons first?",
-      "communication": "Would they communicate directly?",
+      "communication": {
+        "description": "Would they communicate directly?",
+        "weight": 0.2
+      },
       "professionalism": "Handled diplomatically?",
       "escalation": "Knew when to involve manager?",
-      "missed_opportunities": ["Immediately escalated", "Avoided confrontation", "Blamed teammate", "No empathy"]
+      "missed_opportunities": [
+        "Immediately escalated",
+        "Avoided confrontation",
+        "Blamed teammate",
+        "No empathy"
+      ]
     },
-    "follow_ups": ["How would you approach that conversation?", "What if they become defensive?", "How do you maintain team morale?"]
+    "follow_ups": [
+      "How would you approach that conversation?",
+      "What if they become defensive?",
+      "How do you maintain team morale?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_002",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -43,13 +60,27 @@
       "listening": "Would they listen first?",
       "empathy": "Would they acknowledge feelings?",
       "solution_focus": "Would they focus on resolution?",
-      "missed_opportunities": ["Got defensive", "Didn't listen", "No solution offered", "Took it personally"]
+      "missed_opportunities": [
+        "Got defensive",
+        "Didn't listen",
+        "No solution offered",
+        "Took it personally"
+      ]
     },
-    "follow_ups": ["What if the client is unreasonable?", "How do you de-escalate situations?", "What if you can't solve the problem immediately?"]
+    "follow_ups": [
+      "What if the client is unreasonable?",
+      "How do you de-escalate situations?",
+      "What if you can't solve the problem immediately?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_003",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -67,13 +98,27 @@
       "preparation": "Would they prepare arguments?",
       "openness": "Would they listen to manager's view?",
       "professionalism": "Would they accept final decision?",
-      "missed_opportunities": ["Publicly disagree", "No preparation", "Stubborn", "Didn't respect authority"]
+      "missed_opportunities": [
+        "Publicly disagree",
+        "No preparation",
+        "Stubborn",
+        "Didn't respect authority"
+      ]
     },
-    "follow_ups": ["How do you choose your battles?", "What if the decision is clearly wrong?", "How do you maintain relationship after disagreement?"]
+    "follow_ups": [
+      "How do you choose your battles?",
+      "What if the decision is clearly wrong?",
+      "How do you maintain relationship after disagreement?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_004",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -90,14 +135,31 @@
       "proactivity": "Would they ask questions?",
       "documentation": "Would they document understanding?",
       "validation": "Would they seek confirmation?",
-      "communication": "Would they communicate frequently?",
-      "missed_opportunities": ["Made assumptions", "Didn't ask questions", "Proceeded without clarity", "Waited too long"]
+      "communication": {
+        "description": "Would they communicate frequently?",
+        "weight": 0.2
+      },
+      "missed_opportunities": [
+        "Made assumptions",
+        "Didn't ask questions",
+        "Proceeded without clarity",
+        "Waited too long"
+      ]
     },
-    "follow_ups": ["How do you know when you have enough information?", "What questions would you ask?", "How do you handle ambiguity?"]
+    "follow_ups": [
+      "How do you know when you have enough information?",
+      "What questions would you ask?",
+      "How do you handle ambiguity?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_005",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -112,16 +174,33 @@
     ],
     "evaluation_rubric": {
       "prioritization": "Do they know how to prioritize?",
-      "communication": "Would they communicate early?",
+      "communication": {
+        "description": "Would they communicate early?",
+        "weight": 0.2
+      },
       "realism": "Are they realistic about capacity?",
       "help_seeking": "Would they ask for help if needed?",
-      "missed_opportunities": ["Overpromised", "Didn't prioritize", "Poor communication", "Worked in isolation"]
+      "missed_opportunities": [
+        "Overpromised",
+        "Didn't prioritize",
+        "Poor communication",
+        "Worked in isolation"
+      ]
     },
-    "follow_ups": ["How do you decide what's most important?", "What tools do you use?", "How do you handle conflicting priorities?"]
+    "follow_ups": [
+      "How do you decide what's most important?",
+      "What tools do you use?",
+      "How do you handle conflicting priorities?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_006",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -136,16 +215,33 @@
     ],
     "evaluation_rubric": {
       "integrity": "Would they disclose it?",
-      "ownership": "Would they take responsibility?",
+      "ownership": {
+        "description": "Would they take responsibility?",
+        "weight": 0.2
+      },
       "solution": "Would they fix it?",
       "prevention": "Would they prevent recurrence?",
-      "missed_opportunities": ["Hide mistake", "Wait for discovery", "No preventive action", "Make excuses"]
+      "missed_opportunities": [
+        "Hide mistake",
+        "Wait for discovery",
+        "No preventive action",
+        "Make excuses"
+      ]
     },
-    "follow_ups": ["How do you balance transparency with not causing panic?", "What if it's a small mistake?", "How do you build a culture of accountability?"]
+    "follow_ups": [
+      "How do you balance transparency with not causing panic?",
+      "What if it's a small mistake?",
+      "How do you build a culture of accountability?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "situational_007",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -163,13 +259,27 @@
       "curiosity": "Would they seek to understand why?",
       "improvement": "Would they iterate?",
       "ego": "Can they separate idea from self-worth?",
-      "missed_opportunities": ["Took it personally", "Got defensive", "Disengaged", "Didn't seek feedback"]
+      "missed_opportunities": [
+        "Took it personally",
+        "Got defensive",
+        "Disengaged",
+        "Didn't seek feedback"
+      ]
     },
-    "follow_ups": ["How do you handle criticism of your work?", "What if you strongly believe in your idea?", "How do you stay motivated after rejection?"]
+    "follow_ups": [
+      "How do you handle criticism of your work?",
+      "What if you strongly believe in your idea?",
+      "How do you stay motivated after rejection?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_008",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -187,13 +297,27 @@
       "courage": "Would they speak up?",
       "professionalism": "Would they handle it professionally?",
       "escalation": "Would they escalate appropriately?",
-      "missed_opportunities": ["Would comply", "Avoided confrontation", "Didn't escalate", "Made excuses"]
+      "missed_opportunities": [
+        "Would comply",
+        "Avoided confrontation",
+        "Didn't escalate",
+        "Made excuses"
+      ]
     },
-    "follow_ups": ["How do you define unethical?", "What if it comes from senior leadership?", "How do you protect yourself?"]
+    "follow_ups": [
+      "How do you define unethical?",
+      "What if it comes from senior leadership?",
+      "How do you protect yourself?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.8,
+    "expected_duration_sec": 120
   },
   {
     "id": "situational_009",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -211,13 +335,27 @@
       "relationship_building": "Would they meet people?",
       "learning": "Would they learn systems?",
       "contribution": "Would they look for ways to add value?",
-      "missed_opportunities": ["Wait for instructions", "Didn't meet team", "No questions", "Too passive"]
+      "missed_opportunities": [
+        "Wait for instructions",
+        "Didn't meet team",
+        "No questions",
+        "Too passive"
+      ]
     },
-    "follow_ups": ["What would you learn first?", "Who would you talk to?", "How do you make a good first impression?"]
+    "follow_ups": [
+      "What would you learn first?",
+      "Who would you talk to?",
+      "How do you make a good first impression?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
   },
   {
     "id": "situational_010",
-    "phase": "behavioral",
+    "stage": "real_life",
     "role": "any",
     "level": "any",
     "skill": "behavioral",
@@ -232,11 +370,230 @@
     ],
     "evaluation_rubric": {
       "flexibility": "Can they adapt quickly?",
-      "communication": "Would they communicate impact?",
+      "communication": {
+        "description": "Would they communicate impact?",
+        "weight": 0.2
+      },
       "understanding": "Would they seek to understand why?",
       "attitude": "Would attitude be positive?",
-      "missed_opportunities": ["Resisted change", "Complained", "Didn't communicate", "Rigid thinking"]
+      "missed_opportunities": [
+        "Resisted change",
+        "Complained",
+        "Didn't communicate",
+        "Rigid thinking"
+      ]
     },
-    "follow_ups": ["How do you handle constant change?", "What if you disagree with the new priority?", "How do you help team adapt?"]
+    "follow_ups": [
+      "How do you handle constant change?",
+      "What if you disagree with the new priority?",
+      "How do you help team adapt?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "real_011",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 2,
+    "question": "Tell me about a time you worked under pressure.",
+    "ideal_points": [
+      "Situation explained",
+      "Actions taken",
+      "Result achieved",
+      "Learning outcome",
+      "Composure shown"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "real_012",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 2,
+    "question": "Describe a time when you had to learn something quickly.",
+    "ideal_points": [
+      "Situation described",
+      "Learning strategy",
+      "Execution",
+      "Outcome",
+      "Adaptability"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "real_013",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 2,
+    "question": "Tell me about a time you faced failure.",
+    "ideal_points": [
+      "Failure explained",
+      "Ownership taken",
+      "Lessons learned",
+      "Recovery steps",
+      "Growth mindset"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "real_014",
+    "stage": "real_life",
+    "role": "any",
+    "difficulty": 2,
+    "question": "How do you handle tight deadlines?",
+    "ideal_points": [
+      "Time management",
+      "Prioritization",
+      "Focus strategy",
+      "Execution discipline",
+      "Maintains quality"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 1.5,
+    "expected_duration_sec": 90
+  },
+  {
+    "id": "real_life_ownership_advanced_001",
+    "stage": "real_life",
+    "category": "behavioral",
+    "role": "any",
+    "level": "mid",
+    "skill": "accountability",
+    "difficulty": 4,
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "question": "Production is down due to your code and you're on-call. What do you do? Walk me through your exact steps.",
+    "ideal_points": [
+      "Immediate impact assessment (how many users affected?)",
+      "Quick communication (notify team, manager, customers)",
+      "Investigate and isolate the problem immediately",
+      "Deploy fix (rollback or hotfix)",
+      "Verify the fix works",
+      "Monitor to ensure stability",
+      "Schedule postmortem analysis",
+      "Document lessons learned",
+      "Implement prevention measures"
+    ],
+    "evaluation_rubric": {
+      "composure": "Stays calm under pressure",
+      "speed": "Takes quick action",
+      "communication": {
+        "description": "Communicates proactively",
+        "weight": 0.2
+      },
+      "accountability": "Takes full responsibility",
+      "learning": "Plans to prevent recurrence"
+    },
+    "strong_signals": [
+      "Immediate communication over blame",
+      "Clear incident management process",
+      "Mentions runbook/playbook",
+      "Discusses postmortem blameless approach",
+      "Shows experience from real incidents"
+    ],
+    "weak_signals": [
+      "Long deliberation before action",
+      "Only focuses on fix, not communication",
+      "No postmortem mention"
+    ],
+    "red_flags": [
+      "Blames others for the incident",
+      "Hides the problem initially",
+      "No communication plan",
+      "Defensive about code quality",
+      "Cannot recall actual incident (suggests never happened)",
+      "Panics or freezes up"
+    ],
+    "follow_ups": [
+      "How do you prevent the same bug?",
+      "What was your worst on-call incident?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "prerequisite_difficulty": 3
+  },
+  {
+    "id": "real_life_ambiguity_advanced_001",
+    "stage": "real_life",
+    "category": "behavioral",
+    "role": "any",
+    "level": "mid",
+    "skill": "problem-clarification",
+    "difficulty": 4,
+    "weight": 1.7,
+    "expected_duration_sec": 150,
+    "question": "Your manager gives you vague requirements: 'Build a user dashboard.' What do you do?",
+    "ideal_points": [
+      "Ask clarifying questions about goals",
+      "Understand the problem being solved",
+      "Identify metrics for success",
+      "Define scope boundaries",
+      "Discuss timeline and resources",
+      "Document assumptions",
+      "Propose approach and get feedback",
+      "Iterate on requirements",
+      "Confirm understanding before building"
+    ],
+    "evaluation_rubric": {
+      "clarity": {
+        "description": "Asks good clarifying questions",
+        "weight": 0.15
+      },
+      "ownership": {
+        "description": "Takes initiative to clarify",
+        "weight": 0.2
+      },
+      "communication": {
+        "description": "Doesn't just start coding",
+        "weight": 0.2
+      },
+      "judgment": "Priorities identified",
+      "pragmatism": "Balances perfect vs good"
+    },
+    "strong_signals": [
+      "Immediately asks clarifying questions",
+      "Discusses timeline/scope/resources",
+      "Creates mockups or specs before coding",
+      "Asks about success metrics",
+      "References specific questions asked"
+    ],
+    "weak_signals": [
+      "Assumes what manager meant",
+      "Starts coding immediately",
+      "Only asks 1-2 questions"
+    ],
+    "red_flags": [
+      "Just starts building without understanding",
+      "Delivers completely wrong thing",
+      "Blames manager for vague requirements",
+      "No confirmation of understanding",
+      "Doesn't think to ask questions",
+      "IMMATURITY SIGNAL"
+    ],
+    "follow_ups": [
+      "What questions would you ask?",
+      "How do you handle scope creep?"
+    ],
+    "priority": "core",
+    "interviewer_goal": "assess soft skills and maturity",
+    "prerequisite_difficulty": 3
   }
 ]

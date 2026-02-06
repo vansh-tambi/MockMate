@@ -1,7 +1,7 @@
 [
   {
     "id": "fe_adv_001",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "react",
@@ -13,11 +13,17 @@
       "How React batches updates",
       "Keys and their importance",
       "Reconciliation optimization strategies"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_adv_002",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "react",
@@ -29,11 +35,17 @@
       "Batch updates and scheduling",
       "Performance comparison with direct DOM manipulation",
       "When Virtual DOM overhead becomes a problem"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_adv_003",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "react",
@@ -45,11 +57,17 @@
       "How React attaches event listeners",
       "Performance implications",
       "Selective hydration strategies"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_adv_004",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "react",
@@ -61,11 +79,17 @@
       "Concurrent rendering",
       "setState callback timing",
       "Automatic batching in React 18"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_adv_005",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "performance",
@@ -77,11 +101,17 @@
       "Code splitting",
       "Lazy loading",
       "Profiling and identifying bottlenecks"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   },
   {
     "id": "fe_adv_006",
-    "phase": "technical_frontend",
+    "stage": "resume_technical",
     "role": "frontend",
     "level": "senior",
     "skill": "javascript",
@@ -93,6 +123,12 @@
       "Promise execution timing",
       "setTimeout vs queueMicrotask",
       "Browser rendering timing"
-    ]
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "test technical depth and problem-solving",
+    "weight": 2.0,
+    "expected_duration_sec": 180,
+    "prerequisite_difficulty": 3
   }
 ]

@@ -29,7 +29,7 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex bg-white/5 p-1 rounded-full border border-white/10">
+        <div className="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-sm">
           {tabs.map((tab) => (
             <motion.button
               key={tab.id}
@@ -45,13 +45,17 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
               {activeMode === tab.id && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full shadow-lg"
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full shadow-lg shadow-cyan-500/30"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className={`relative z-10 ${activeMode === tab.id ? 'text-white' : 'text-gray-400'}`}>
+              <motion.span 
+                className={`relative z-10 transition-colors`}
+                animate={{ color: activeMode === tab.id ? '#ffffff' : '#9ca3af' }}
+                whileHover={{ color: '#d1d5db' }}
+              >
                 {tab.label}
-              </span>
+              </motion.span>
             </motion.button>
           ))}
         </div>

@@ -1,0 +1,217 @@
+[
+  {
+    "id": "scale_001",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "senior",
+    "skill": "scalability",
+    "difficulty": 4,
+    "question": "Design a system that needs to scale from 1M to 100M daily active users. What are the critical bottlenecks?",
+    "ideal_points": [
+      "Database scaling strategy",
+      "Horizontal scalability",
+      "Caching layer design",
+      "Load balancing approach",
+      "Monitoring and debugging at scale"
+    ],
+    "evaluation_rubric": {
+      "database": {
+        "description": "Database scaling strategy?",
+        "weight": 0.25
+      },
+      "horizontal": {
+        "description": "Understands horizontal scaling?",
+        "weight": 0.25
+      },
+      "infrastructure": {
+        "description": "Infrastructure considerations?",
+        "weight": 0.25
+      },
+      "operational": {
+        "description": "Operational readiness?",
+        "weight": 0.25
+      }
+    },
+    "strong_signals": [
+      "Discusses sharding and partitioning",
+      "Mentions caching at multiple levels",
+      "Database read replicas strategy",
+      "Load balancing and DNS considerations",
+      "Monitoring distributed systems"
+    ],
+    "weak_signals": [
+      "Generic scaling ideas",
+      "Missing database strategy",
+      "No caching layer",
+      "Unclear load distribution",
+      "No operational plan"
+    ],
+    "red_flags": [
+      "No database scaling plan",
+      "Thinks vertical scaling only",
+      "Cannot handle distributed issues",
+      "No monitoring strategy",
+      "Has never scaled large system"
+    ],
+    "follow_ups": [
+      "What database splits would you use?",
+      "How do you handle eventual consistency?",
+      "What metrics matter most?"
+    ],
+    "category": "technical",
+    "priority": "strategic",
+    "interviewer_goal": "assess large-scale system design",
+    "weight": 2.2,
+    "expected_duration_sec": 240,
+    "failure_modes": [
+      "Database becomes bottleneck",
+      "Uneven load distribution",
+      "Consistency issues at scale",
+      "Cannot monitor system",
+      "Unexpected cascading failures"
+    ]
+  },
+  {
+    "id": "scale_002",
+    "stage": "real_life",
+    "role": "fullstack",
+    "level": "mid",
+    "skill": "scalability",
+    "difficulty": 3,
+    "question": "Your API response time degrades as data grows. How do you identify and fix the bottleneck?",
+    "ideal_points": [
+      "Profiling and benchmarking",
+      "Database query optimization",
+      "N+1 query identification",
+      "Indexing strategy",
+      "Caching considerations"
+    ],
+    "evaluation_rubric": {
+      "profiling": {
+        "description": "Can profile application?",
+        "weight": 0.30
+      },
+      "queries": {
+        "description": "Can optimize queries?",
+        "weight": 0.30
+      },
+      "analysis": {
+        "description": "Finds root cause?",
+        "weight": 0.20
+      },
+      "solution": {
+        "description": "Implements fix?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Mentions profiling tools",
+      "Checks database query plans",
+      "Identifies N+1 patterns",
+      "Suggests appropriate indexing",
+      "Tests fix thoroughly"
+    ],
+    "weak_signals": [
+      "Vague profiling approach",
+      "Guesses at problem",
+      "No query optimization",
+      "Random caching addition",
+      "No measurement"
+    ],
+    "red_flags": [
+      "Cannot describe profiling tool",
+      "Adds cache without profiling",
+      "Cannot read query plans",
+      "Blames infrastructure",
+      "No performance culture"
+    ],
+    "follow_ups": [
+      "What tools would you use?",
+      "How do you verify the fix?",
+      "What if it's not the database?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess performance debugging",
+    "weight": 1.8,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Cargo cult optimization",
+      "Misidentifies bottleneck",
+      "Adds complexity without gain",
+      "Performance gets worse"
+    ]
+  },
+  {
+    "id": "scale_003",
+    "stage": "real_life",
+    "role": "backend",
+    "level": "mid",
+    "skill": "scalability",
+    "difficulty": 3,
+    "question": "How would you design a job queue for handling 10,000 jobs per second?",
+    "ideal_points": [
+      "Queue technology choice",
+      "Deduplication strategy",
+      "Failure and retry handling",
+      "Ordering guarantees",
+      "Worker pool design"
+    ],
+    "evaluation_rubric": {
+      "technology": {
+        "description": "Appropriate queue technology?",
+        "weight": 0.30
+      },
+      "reliability": {
+        "description": "Handles failures properly?",
+        "weight": 0.30
+      },
+      "ordering": {
+        "description": "Considers ordering needs?",
+        "weight": 0.20
+      },
+      "operations": {
+        "description": "Operational monitoring?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Knows Kafka vs RabbitMQ vs SQS tradeoffs",
+      "Discusses exactly-once delivery",
+      "Plans for dead letter queues",
+      "Considers worker scaling",
+      "Monitoring strategy"
+    ],
+    "weak_signals": [
+      "No technology discussion",
+      "Assumes simple queue works",
+      "No failure handling",
+      "Generic worker design",
+      "No monitoring"
+    ],
+    "red_flags": [
+      "No queue technology knowledge",
+      "Cannot handle failures",
+      "Assumes exactly-once delivery easily",
+      "No ordering awareness",
+      "Single point of failure"
+    ],
+    "follow_ups": [
+      "What about exactly-once semantics?",
+      "How do you handle failed jobs?",
+      "What's your monitoring strategy?"
+    ],
+    "category": "technical",
+    "priority": "core",
+    "interviewer_goal": "assess distributed job processing design",
+    "weight": 1.9,
+    "expected_duration_sec": 180,
+    "failure_modes": [
+      "Jobs lost or duplicated",
+      "Ordering violated",
+      "Workers overwhelmed",
+      "No visibility into issues",
+      "Cannot recover from failures"
+    ]
+  }
+]
