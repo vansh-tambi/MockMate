@@ -341,7 +341,7 @@ Pull requests and suggestions are welcome! Please open an issue first to discuss
 
 **Vansh Tambi**
 - GitHub: [@vansh-tambi](https://github.com/vansh-tambi)
-- LinkedIn: [Profile Coming Soon]
+- LinkedIn: [Vansh Tambi](https://www.linkedin.com/in/vansh-tambi-16773227a)
 
 ---
 
