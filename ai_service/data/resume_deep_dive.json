@@ -1,0 +1,98 @@
+[
+  {
+    "id": "resume_001",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Walk me through the architecture of your most complex project.",
+    "ideal_points": [
+      "Clear component breakdown",
+      "Technology choices explained",
+      "Challenges faced",
+      "How you solved problems",
+      "Results/impact achieved"
+    ]
+  },
+  {
+    "id": "resume_002",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What was the biggest technical challenge you faced in your project? How did you overcome it?",
+    "ideal_points": [
+      "Specific technical problem described",
+      "Research/debugging approach",
+      "Solution implemented",
+      "Learning from the experience",
+      "Alternative approaches considered"
+    ]
+  },
+  {
+    "id": "resume_003",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "If you could rebuild your project from scratch, what would you do differently?",
+    "ideal_points": [
+      "Architectural improvements",
+      "Better technology choices",
+      "Code quality enhancements",
+      "Testing strategy",
+      "Performance optimizations"
+    ]
+  },
+  {
+    "id": "resume_004",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "Tell me about a feature in your project that you're particularly proud of.",
+    "ideal_points": [
+      "Feature description",
+      "Technical complexity involved",
+      "User impact",
+      "Implementation details",
+      "Metrics/results"
+    ]
+  },
+  {
+    "id": "resume_005",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "How did you ensure code quality in your project?",
+    "ideal_points": [
+      "Testing strategy (unit, integration)",
+      "Code review process",
+      "Linting and formatting",
+      "Documentation practices",
+      "CI/CD pipeline"
+    ]
+  },
+  {
+    "id": "resume_006",
+    "phase": "resume",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 2,
+    "question": "What technologies did you use in your project and why did you choose them?",
+    "ideal_points": [
+      "Tech stack overview",
+      "Reasoning for each choice",
+      "Alternative options considered",
+      "Trade-offs acknowledged",
+      "Learning curve experience"
+    ]
+  }
+]

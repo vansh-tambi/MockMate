@@ -1,0 +1,98 @@
+[
+  {
+    "id": "be_adv_001",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 4,
+    "question": "Explain database indexing. When would you use composite indexes?",
+    "ideal_points": [
+      "B-tree index structure",
+      "Index selectivity",
+      "Composite index ordering",
+      "Index overhead on writes",
+      "When to avoid indexes"
+    ]
+  },
+  {
+    "id": "be_adv_002",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "scaling",
+    "difficulty": 4,
+    "question": "How would you scale a backend system from 100 to 1 million users?",
+    "ideal_points": [
+      "Horizontal vs vertical scaling",
+      "Database replication and sharding",
+      "Caching layers (Redis)",
+      "Load balancing strategies",
+      "Microservices architecture"
+    ]
+  },
+  {
+    "id": "be_adv_003",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "caching",
+    "difficulty": 4,
+    "question": "Explain different caching strategies and when to use each.",
+    "ideal_points": [
+      "Cache-aside pattern",
+      "Write-through vs write-back",
+      "Cache invalidation strategies",
+      "TTL and eviction policies",
+      "Distributed caching challenges"
+    ]
+  },
+  {
+    "id": "be_adv_004",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "api",
+    "difficulty": 4,
+    "question": "How would you design a backward-compatible API versioning strategy?",
+    "ideal_points": [
+      "URL vs header versioning",
+      "Deprecation strategies",
+      "Maintaining multiple versions",
+      "Breaking vs non-breaking changes",
+      "Documentation and communication"
+    ]
+  },
+  {
+    "id": "be_adv_005",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 4,
+    "question": "Explain ACID properties. How do they apply to distributed systems?",
+    "ideal_points": [
+      "Atomicity, Consistency, Isolation, Durability",
+      "CAP theorem trade-offs",
+      "Eventual consistency",
+      "Distributed transactions (2PC)",
+      "BASE vs ACID"
+    ]
+  },
+  {
+    "id": "be_adv_006",
+    "phase": "technical_backend",
+    "role": "backend",
+    "level": "senior",
+    "skill": "performance",
+    "difficulty": 4,
+    "question": "How would you debug and optimize a slow database query?",
+    "ideal_points": [
+      "EXPLAIN/ANALYZE query plans",
+      "Index optimization",
+      "Query rewriting techniques",
+      "N+1 query problem",
+      "Connection pooling"
+    ]
+  }
+]

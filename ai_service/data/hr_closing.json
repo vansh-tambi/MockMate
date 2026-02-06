@@ -1,0 +1,98 @@
+[
+  {
+    "id": "close_001",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Do you have any questions for us?",
+    "ideal_points": [
+      "Ask about team structure",
+      "Engineering culture questions",
+      "Growth opportunities",
+      "Current challenges the team faces",
+      "Technology stack and practices"
+    ]
+  },
+  {
+    "id": "close_002",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Where do you see yourself in 5 years?",
+    "ideal_points": [
+      "Career growth aspirations",
+      "Technical skill development",
+      "Leadership or IC track preference",
+      "Alignment with company trajectory",
+      "Realistic and thoughtful answer"
+    ]
+  },
+  {
+    "id": "close_003",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "Why should we hire you over other candidates?",
+    "ideal_points": [
+      "Unique skills or experiences",
+      "Cultural fit emphasis",
+      "Specific value you bring",
+      "Passion for the role/company",
+      "Confidence without arrogance"
+    ]
+  },
+  {
+    "id": "close_004",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What excites you most about this role?",
+    "ideal_points": [
+      "Specific aspects of the job",
+      "Alignment with career goals",
+      "Company mission enthusiasm",
+      "Learning opportunities",
+      "Team collaboration aspects"
+    ]
+  },
+  {
+    "id": "close_005",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "When can you start if we extend an offer?",
+    "ideal_points": [
+      "Clear availability timeline",
+      "Notice period consideration",
+      "Flexibility if needed",
+      "Professional commitment to current role",
+      "Realistic start date"
+    ]
+  },
+  {
+    "id": "close_006",
+    "phase": "closing",
+    "role": "any",
+    "level": "any",
+    "skill": "behavioral",
+    "difficulty": 1,
+    "question": "What are your salary expectations?",
+    "ideal_points": [
+      "Market research done",
+      "Range rather than fixed number",
+      "Open to negotiation",
+      "Considers total compensation",
+      "Professional and confident response"
+    ]
+  }
+]

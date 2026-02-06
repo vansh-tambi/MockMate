@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fe_adv_001",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "react",
+    "difficulty": 4,
+    "question": "Explain React's reconciliation algorithm and how it optimizes rendering.",
+    "ideal_points": [
+      "Virtual DOM diffing process",
+      "Fiber architecture",
+      "How React batches updates",
+      "Keys and their importance",
+      "Reconciliation optimization strategies"
+    ]
+  },
+  {
+    "id": "fe_adv_002",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "react",
+    "difficulty": 4,
+    "question": "How does the Virtual DOM work internally? What are its performance benefits?",
+    "ideal_points": [
+      "Virtual DOM representation",
+      "Diffing algorithm explanation",
+      "Batch updates and scheduling",
+      "Performance comparison with direct DOM manipulation",
+      "When Virtual DOM overhead becomes a problem"
+    ]
+  },
+  {
+    "id": "fe_adv_003",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "react",
+    "difficulty": 4,
+    "question": "Explain React hydration. What problems can occur during hydration?",
+    "ideal_points": [
+      "SSR to CSR transition",
+      "Hydration mismatch errors",
+      "How React attaches event listeners",
+      "Performance implications",
+      "Selective hydration strategies"
+    ]
+  },
+  {
+    "id": "fe_adv_004",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "react",
+    "difficulty": 4,
+    "question": "How does React handle state updates? Explain the update queue mechanism.",
+    "ideal_points": [
+      "State update batching",
+      "Priority-based scheduling",
+      "Concurrent rendering",
+      "setState callback timing",
+      "Automatic batching in React 18"
+    ]
+  },
+  {
+    "id": "fe_adv_005",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "performance",
+    "difficulty": 4,
+    "question": "How would you optimize a slow React application with 10,000 list items?",
+    "ideal_points": [
+      "Virtualization (react-window)",
+      "Memoization strategies",
+      "Code splitting",
+      "Lazy loading",
+      "Profiling and identifying bottlenecks"
+    ]
+  },
+  {
+    "id": "fe_adv_006",
+    "phase": "technical_frontend",
+    "role": "frontend",
+    "level": "senior",
+    "skill": "javascript",
+    "difficulty": 4,
+    "question": "Explain JavaScript's event loop in detail. How do microtasks and macrotasks differ?",
+    "ideal_points": [
+      "Call stack execution",
+      "Task queue vs microtask queue",
+      "Promise execution timing",
+      "setTimeout vs queueMicrotask",
+      "Browser rendering timing"
+    ]
+  }
+]

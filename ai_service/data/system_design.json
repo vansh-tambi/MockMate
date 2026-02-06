@@ -1,0 +1,98 @@
+[
+  {
+    "id": "sys_001",
+    "phase": "system_design",
+    "role": "backend",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design a URL shortener like bit.ly. How would you handle high traffic?",
+    "ideal_points": [
+      "Hash generation for short URLs",
+      "Database schema for URL mapping",
+      "Caching layer (Redis) for frequently accessed URLs",
+      "Load balancing strategy",
+      "Analytics tracking"
+    ]
+  },
+  {
+    "id": "sys_002",
+    "phase": "system_design",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design Instagram's feed system. How would you scale it to millions of users?",
+    "ideal_points": [
+      "Database partitioning/sharding strategy",
+      "CDN for image delivery",
+      "Feed generation algorithm",
+      "Caching strategy for feeds",
+      "Real-time updates architecture"
+    ]
+  },
+  {
+    "id": "sys_003",
+    "phase": "system_design",
+    "role": "backend",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design a real-time chat system like WhatsApp. How would you ensure message delivery?",
+    "ideal_points": [
+      "WebSocket connection management",
+      "Message queue architecture",
+      "Database design for chat history",
+      "Offline message handling",
+      "End-to-end encryption approach"
+    ]
+  },
+  {
+    "id": "sys_004",
+    "phase": "system_design",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design a notification system that can handle millions of push notifications per day.",
+    "ideal_points": [
+      "Message broker (Kafka/RabbitMQ)",
+      "Worker pool architecture",
+      "Priority queue for urgent notifications",
+      "Rate limiting strategy",
+      "Failure handling and retries"
+    ]
+  },
+  {
+    "id": "sys_005",
+    "phase": "system_design",
+    "role": "fullstack",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design a scalable interview preparation platform like MockMate.",
+    "ideal_points": [
+      "Microservices architecture",
+      "Real-time speech processing",
+      "AI service integration",
+      "Session management",
+      "Scalable storage for recordings"
+    ]
+  },
+  {
+    "id": "sys_006",
+    "phase": "system_design",
+    "role": "backend",
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 4,
+    "question": "Design a rate limiting system for an API gateway.",
+    "ideal_points": [
+      "Token bucket algorithm",
+      "Distributed rate limiting (Redis)",
+      "Per-user vs per-IP tracking",
+      "Sliding window implementation",
+      "Response headers for rate limit info"
+    ]
+  }
+]
