@@ -14,18 +14,20 @@ class InterviewEngine {
     this.stageOrder = [
       'introduction',
       'warmup',
-      'resume',
-      'resume_technical',
-      'real_life',
+      'resume_based',
+      'technical',
+      'behavioral',
+      'real_world',
       'hr_closing'
     ];
     this.questionsPerStage = {
       introduction: 2,
-      warmup: 4,
-      resume: 3,
-      resume_technical: 5,
-      real_life: 4,
-      hr_closing: 3
+      warmup: 2,
+      resume_based: 3,
+      technical: 10,
+      behavioral: 5,
+      real_world: 2,
+      hr_closing: 1
     };
   }
 

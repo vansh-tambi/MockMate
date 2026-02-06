@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionState, setSessionState }) => {
@@ -8,6 +8,9 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [hoveredStage, setHoveredStage] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  
+  // Track which question index we've already fetched to prevent double-fetching in StrictMode
+  const fetchedQuestionIndex = useRef(null);
   
   // Total questions in the staged progression system
   const TOTAL_INTERVIEW_QUESTIONS = 22;
@@ -193,8 +196,9 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
       return;
     }
 
-    // Only fetch if we haven't fetched this question yet
-    if (!currentQuestion || currentQuestion.question.index !== sessionState.questionIndex) {
+    // Only fetch if we haven't already fetched this question index
+    if (fetchedQuestionIndex.current !== sessionState.questionIndex) {
+      fetchedQuestionIndex.current = sessionState.questionIndex;
       fetchNextQuestion();
     }
   }, [sessionState.questionIndex]);

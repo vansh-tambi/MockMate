@@ -3,7 +3,7 @@
  * Handles stage progression and question filtering
  */
 
-const allQuestions = require("./questionLoader");
+const { questions: allQuestions } = require("./questionLoader");
 const {
   STAGE_ORDER,
   QUESTIONS_PER_STAGE,
@@ -12,30 +12,36 @@ const {
 
 /**
  * Determine which stage based on question index
- * Uses clean, simple logic for 17-question interview
+ * Uses clean, simple logic for 25-question interview
  * @param {number} index - Current question index (0-based)
  * @returns {string} Current stage name
  */
 function getStageFromIndex(index) {
-  // Industry standard 17-question interview
+  // 7-stage progressive interview system
   if (index < 2)
-    return "introduction";      // Q0-1
+    return "introduction";      // Q0-1 (2 total)
   
-  if (index < 5)
-    return "warmup";            // Q2-4
+  if (index < 4)
+    return "warmup";            // Q2-3 (2 total)
   
-  if (index < 11)
-    return "resume_technical";  // Q5-10
+  if (index < 7)
+    return "resume_based";      // Q4-6 (3 total)
   
-  if (index < 15)
-    return "real_life";         // Q11-14
+  if (index < 17)
+    return "technical";         // Q7-16 (10 total)
   
-  return "hr_closing";          // Q15-16
+  if (index < 22)
+    return "behavioral";        // Q17-21 (5 total)
+  
+  if (index < 24)
+    return "real_world";        // Q22-23 (2 total)
+  
+  return "hr_closing";          // Q24 (1 total)
 }
 
 /**
  * Get all questions for a specific stage
- * @param {string} stage - Stage name (e.g., 'introduction', 'resume_technical')
+ * @param {string} stage - Stage name (e.g., 'introduction', 'warmup', 'resume_based', 'technical', 'behavioral', 'real_world', 'hr_closing')
  * @returns {Array} Array of questions for that stage
  */
 function getQuestionsForStage(stage) {
@@ -293,8 +299,8 @@ function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", a
   // Step 3: Filter by difficulty (based on experience level)
   questions = filterByDifficulty(questions, level);
 
-  // Step 4: Filter by resume (only for resume_technical stage)
-  if (stage === "resume_technical" && resumeText) {
+  // Step 4: Filter by resume (only for resume_based stage)
+  if (stage === "resume_based" && resumeText) {
     questions = filterByResume(questions, resumeText);
   }
 

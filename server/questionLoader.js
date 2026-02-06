@@ -79,11 +79,31 @@ function loadAllQuestions() {
         }
 
         if (questions.length > 0) {
+          // Map old stage names to new 7-stage system
+          const stageMapping = {
+            'introduction': 'introduction',
+            'warmup': 'warmup',
+            'resume': 'resume_based',
+            'resume_technical': 'resume_based',
+            'technical': 'technical',
+            'behavioral': 'behavioral',
+            'real_life': 'real_world',
+            'real_world': 'real_world',
+            'hr_closing': 'hr_closing',
+            'closing': 'hr_closing',
+            'pressure': 'behavioral'
+          };
+
           // Initialize or load usage count for each question
-          questions = questions.map(q => ({
-            ...q,
-            usageCount: usageStats[q.id] || 0  // Load from stats or default to 0
-          }));
+          questions = questions.map(q => {
+            const oldStage = q.stage || 'technical';
+            const newStage = stageMapping[oldStage] || 'technical';
+            return {
+              ...q,
+              stage: newStage,
+              usageCount: usageStats[q.id] || 0  // Load from stats or default to 0
+            };
+          });
 
           allQuestions.push(...questions);
           fileCount++;

@@ -37,8 +37,6 @@ const {
   getSmartQuestion
 } = require('./stageManager');
 
-const { STAGE_ORDER, QUESTIONS_PER_STAGE } = require('./stageConfig');
-
 /* ============= NEW INTERVIEW ENGINE MODULES ============= */
 const InterviewEngine = require('./InterviewEngine');
 const QuestionSelector = require('./QuestionSelector');
@@ -176,29 +174,6 @@ function loadStageQuestions(stage) {
 
   console.log(`📂 Stage "${stage}" loaded ${questions.length} questions from ${files.length} files`);
   return questions;
-}
-
-/**
- * Select a random unused question from the pool
- * Prevents duplicate questions in the interview
- */
-function getUnusedQuestion(questions, askedQuestions = []) {
-  if (!Array.isArray(questions) || questions.length === 0) {
-    return null;
-  }
-
-  // Filter to only questions not yet asked
-  const unused = questions.filter(q => {
-    const qText = typeof q === 'string' ? q : q.question || JSON.stringify(q);
-    return !askedQuestions.includes(qText);
-  });
-
-  if (unused.length === 0) {
-    console.warn('⚠️ All questions in stage have been asked, cycling back to full pool');
-    return questions[Math.floor(Math.random() * questions.length)];
-  }
-
-  return unused[Math.floor(Math.random() * unused.length)];
 }
 
 /* ============= LEGACY STAGES (kept for compatibility) ============= */

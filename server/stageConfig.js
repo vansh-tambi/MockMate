@@ -2,8 +2,8 @@
  * Stage Configuration for MockMate Interview System
  * Defines the strict progression order and question distribution
  * 
- * INDUSTRY STANDARD: 17 questions total
- * Matches real interview structure of top companies (Taj, Marriott, Oberoi, Google, Amazon, etc.)
+ * 7-STAGE SYSTEM: 25 questions total
+ * Progressive interviewer flow: introduction → warmup → resume_based → technical → behavioral → real_world → hr_closing
  */
 
 module.exports = {
@@ -11,19 +11,23 @@ module.exports = {
   STAGE_ORDER: [
     "introduction",
     "warmup",
-    "resume_technical",
-    "real_life",
+    "resume_based",
+    "technical",
+    "behavioral",
+    "real_world",
     "hr_closing"
   ],
 
-  // Industry-standard questions per stage
-  // Total: 2 + 3 + 6 + 4 + 2 = 17 questions
+  // Questions per stage - controls total interview length
+  // Total: 2 + 2 + 3 + 10 + 5 + 2 + 1 = 25 questions
   QUESTIONS_PER_STAGE: {
     introduction: 2,        // Opening: "Tell me about yourself", etc.
-    warmup: 3,              // Light motivation: "Why this role?", "What motivates you?"
-    resume_technical: 6,    // Deep dive: Skills, projects, technical depth (or service specifics)
-    real_life: 4,           // Situational/crisis: "Handle X scenario", "Solve Y problem"
-    hr_closing: 2           // Final: "Why hire you?", "Questions for us?"
+    warmup: 2,              // Easy warm-up questions
+    resume_based: 3,        // Resume deep-dive: Skills, projects
+    technical: 10,          // Technical questions: DSA, system design, coding
+    behavioral: 5,          // Behavioral: Teamwork, conflict, motivation
+    real_world: 2,          // Real-world scenarios, edge cases
+    hr_closing: 1           // Final: "Why hire you?", "Questions for us?"
   },
 
   // Total questions in interview
@@ -34,18 +38,11 @@ module.exports = {
   // Stage descriptions for logging
   STAGE_DESCRIPTIONS: {
     introduction: "Opening comfort (2 questions)",
-    warmup: "Motivation and goals (3 questions)",
-    resume_technical: "Resume deep-dive and skills (6 questions)",
-    real_life: "Crisis and situational scenarios (4 questions)",
-    hr_closing: "Final hiring decision (2 questions)"
-  },
-
-  // Stage boundaries (for clean logic)
-  STAGE_BOUNDARIES: {
-    introduction: { start: 0, end: 1 },
-    warmup: { start: 2, end: 4 },
-    resume_technical: { start: 5, end: 10 },
-    real_life: { start: 11, end: 14 },
-    hr_closing: { start: 15, end: 16 }
+    warmup: "Easy warm-up questions (2 questions)",
+    resume_based: "Resume deep-dive and skills (3 questions)",
+    technical: "Technical depth and problem-solving (10 questions)",
+    behavioral: "Teamwork and situational scenarios (5 questions)",
+    real_world: "Real-world edge cases (2 questions)",
+    hr_closing: "Final hiring decision (1 question)"
   }
 };
