@@ -24,7 +24,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 // Increase JSON payload limit to handle large resume text
 app.use(express.json({ limit: '5mb' }));
-app.use(express.urlencoded({ limit: '5mb', extended: true });
+app.use(express.urlencoded({ limit: '5mb', extended: true }));
 
 const PORT = process.env.PORT || 5000;
 const upload = multer({ storage: multer.memoryStorage() });
