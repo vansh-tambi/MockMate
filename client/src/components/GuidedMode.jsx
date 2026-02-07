@@ -289,7 +289,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                     }}
                   >
                     {/* Filled portion */}
-                    {isActive && (
+                    {(isActive || isPassed) && (
                       <motion.div
                         className={`h-full bg-gradient-to-r ${stage.color} rounded-full shadow-lg transition-shadow`}
                         initial={{ width: 0 }}
