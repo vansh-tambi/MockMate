@@ -993,7 +993,10 @@ app.post('/api/generate-qa', async (req, res) => {
 
     console.log('\n🚀 ===== GENERATE Q&A REQUEST (STAGED) =====');
     console.log('📊 Current question index:', questionIndex);
-    console.log('📝 Already asked question IDs:', askedQuestions.length);
+    console.log('📝 Already asked questions:', askedQuestions.length);
+    if (askedQuestions.length > 0) {
+      console.log('   Sample:', askedQuestions.slice(0, 2).map(q => (typeof q === 'string' && q.length > 50) ? q.substring(0, 50) + '...' : q));
+    }
     console.log('🎭 Role:', role);
     console.log('📊 Level:', level);
 

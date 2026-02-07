@@ -129,7 +129,18 @@ function getUnusedQuestion(questions, askedQuestionIds = []) {
   }
 
   // Filter to only unused questions
-  const unused = questions.filter(q => !askedQuestionIds.includes(q.id));
+  // Support both ID matching and text matching (for backward compatibility)
+  const unused = questions.filter(q => {
+    const questionId = q.id || q.question;
+    const questionText = q.question || q.text;
+    
+    // Check if this question has been asked by ID or by text
+    const byId = !askedQuestionIds.includes(questionId);
+    const byText = !askedQuestionIds.includes(questionText);
+    
+    // Only consider it unused if both ID and text haven't been asked
+    return byId && byText;
+  });
 
   if (unused.length === 0) {
     console.warn("   ⚠️  All questions in pool have been asked, recycling pool");
@@ -279,9 +290,11 @@ function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", a
   console.log(`   Stage: ${stage}`);
   console.log(`   Role: ${role}`);
   console.log(`   Level: ${level}`);
+  console.log(`   Already Asked: ${askedQuestionIds.length} questions`);
   
   // Step 1: Get all questions for this stage
   let questions = getQuestionsForStage(stage);
+  console.log(`   Available: ${questions.length} questions for stage`);
   
   if (questions.length === 0) {
     console.error(`   ❌ No questions available for stage: ${stage}`);
@@ -289,7 +302,9 @@ function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", a
   }
 
   // Step 2: Filter by role (CRITICAL for system adaptation)
+  const beforeRole = questions.length;
   questions = filterByRole(questions, role);
+  console.log(`   After role filter: ${questions.length}/${beforeRole}`);
 
   if (questions.length === 0) {
     console.warn(`   ⚠️  No questions match role, fetching all questions for stage`);
@@ -297,15 +312,21 @@ function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", a
   }
 
   // Step 3: Filter by difficulty (based on experience level)
+  const beforeDiff = questions.length;
   questions = filterByDifficulty(questions, level);
+  console.log(`   After difficulty filter: ${questions.length}/${beforeDiff}`);
 
   // Step 4: Filter by resume (only for resume_based stage)
   if (stage === "resume_based" && resumeText) {
+    const beforeResume = questions.length;
     questions = filterByResume(questions, resumeText);
+    console.log(`   After resume filter: ${questions.length}/${beforeResume}`);
   }
 
   // Step 5: Select unused question
+  const beforeUnused = questions.length;
   const selectedQuestion = getUnusedQuestion(questions, askedQuestionIds);
+  console.log(`   After dedup filter: Found unused from ${beforeUnused} candidates`);
   
   if (selectedQuestion) {
     console.log(`   ✅ Selected: "${selectedQuestion.question.slice(0, 60)}..."`);

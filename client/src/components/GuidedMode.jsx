@@ -115,9 +115,10 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
             }];
 
         const nextAsked = prev.askedQuestions || [];
-        const updatedAsked = nextAsked.includes(data.question.text)
+        const questionId = data.question.id || data.question.text;
+        const updatedAsked = nextAsked.includes(questionId)
           ? nextAsked
-          : [...nextAsked, data.question.text];
+          : [...nextAsked, questionId];
 
         return {
           ...prev,
