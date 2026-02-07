@@ -44,14 +44,15 @@ const SetupScreen = ({ onComplete }) => {
     });
 
     setLoading(true);
-    const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+    const API_BASE = import.meta.env.VITE_API_BASE || '';
     const formData = new FormData();
     formData.append('resume', resume);
 
     try {
-      console.log('📤 Sending request to:', `${API_BASE}/api/parse-resume`);
+      const apiUrl = `${API_BASE}/api/parse-resume`;
+      console.log('📤 Sending request to:', apiUrl);
       
-      const res = await fetch(`${API_BASE}/api/parse-resume`, {
+      const res = await fetch(apiUrl, {
         method: 'POST',
         body: formData
       });
