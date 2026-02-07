@@ -862,6 +862,41 @@
     "evaluation_rubric": {
       "passion": {
         "description": "Shows genuine interest and passion?",
-        "weight": 0.30\n      },\n      \"relevance\": {\n        \"description\": \"Projects aligned with role?\",\n        \"weight\": 0.30\n      },\n      \"specificity\": {\n        \"description\": \"Specific examples given?\",\n        \"weight\": 0.20\n      },\n      \"impact\": {\n        \"description\": \"Focused on impact and outcomes?\",\n        \"weight\": 0.20\n      }\n    },\n    \"strong_signals\": [\n      \"Genuine passion and enthusiasm\",\n      \"Relevant project types mentioned\",\n      \"Specific examples with details\",\n      \"Focused on impact and learning\",\n      \"Aligned with role expectations\"\n    ],\n    \"weak_signals\": [\n      \"Generic project interests\",\n      \"No specific examples\",\n      \"Lacks enthusiasm\",\n      \"Misaligned with role\",\n      \"Only interested in easy projects\"\n    ],\n    \"red_flags\": [\n      \"Cannot describe any project interests\",\n      \"Interests misaligned with role\",\n      \"Only motivated by money/prestige\",\n      \"Shows low engagement with work\",\n      \"Cannot name actual projects\"\n    ],\n    \"follow_ups\": [\n      \"Tell me about a favorite project\",\n      \"What made it interesting?\",\n      \"What was your role and contribution?\"\n    ],\n    \"category\": \"behavioral\",\n    \"priority\": \"core\",\n    \"interviewer_goal\": \"assess engagement and motivation\",\n    \"weight\": 1.6,\n    \"expected_duration_sec\": 120
+        "weight": 0.30
+      },
+      "relevance": {
+        "description": "Projects aligned with role?",
+        "weight": 0.30
+      },
+      "specificity": {
+        "description": "Specific examples given?",
+        "weight": 0.20
+      },
+      "impact": {
+        "description": "Focused on impact and outcomes?",
+        "weight": 0.20
+      }
+    },
+    "strong_signals": [
+      "Genuine passion and enthusiasm",
+      "Relevant project types mentioned",
+      "Specific examples with details",
+      "Focused on impact and learning",
+      "Aligned with role expectations"
+    ],
+    "weak_signals": [
+      "Generic project interests",
+      "No specific examples",
+      "Lacks enthusiasm",
+      "Misaligned with role",
+      "Only interested in easy projects"
+    ],
+    "red_flags": [
+      "Cannot describe any project interests",
+      "Interests misaligned with role",
+      "Only motivated by money/prestige",
+      "Shows low engagement with work",
+      "Cannot name actual projects"
+    ],\n    \"follow_ups\": [\n      \"Tell me about a favorite project\",\n      \"What made it interesting?\",\n      \"What was your role and contribution?\"\n    ],\n    \"category\": \"behavioral\",\n    \"priority\": \"core\",\n    \"interviewer_goal\": \"assess engagement and motivation\",\n    \"weight\": 1.6,\n    \"expected_duration_sec\": 120
   }
 ]

@@ -10,7 +10,7 @@
 const express = require('express');
 const router = express.Router();
 const InterviewEngine = require('./InterviewEngine');
-const questionLoaderModule = require('./QuestionLoader');
+const questionLoaderModule = require('./questionLoader');
 
 // Store active interviews in memory (consider using Redis for production)
 const activeInterviews = new Map();
