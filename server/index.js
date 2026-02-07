@@ -650,6 +650,32 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Platform metrics endpoint - returns comprehensive dataset statistics
+app.get('/api/platform-metrics', async (req, res) => {
+  try {
+    const { getPlatformMetrics, printMetricsDashboard } = require('./services/PlatformMetrics');
+    const metrics = await getPlatformMetrics();
+    
+    // Print dashboard if verbose flag is set
+    if (req.query.verbose === 'true') {
+      printMetricsDashboard(metrics);
+    }
+    
+    res.json({
+      success: true,
+      data: metrics,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('❌ Error fetching platform metrics:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to calculate platform metrics',
+      message: error.message
+    });
+  }
+});
+
 // Parse resume endpoint
 app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
   try {
@@ -1404,4 +1430,14 @@ app.use('/api/interview', interviewRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ MockMate running on http://localhost:${PORT}`);
+  
+  // Print platform metrics dashboard on startup (non-blocking)
+  const { getPlatformMetrics, printMetricsDashboard } = require('./services/PlatformMetrics');
+  getPlatformMetrics()
+    .then(metrics => {
+      printMetricsDashboard(metrics);
+    })
+    .catch(error => {
+      console.warn('⚠️  Could not load platform metrics:', error.message);
+    });
 });
