@@ -207,7 +207,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const isInterviewComplete = sessionState.questionIndex >= TOTAL_INTERVIEW_QUESTIONS;
   const displayIndex = Math.min(sessionState.questionIndex + 1, TOTAL_INTERVIEW_QUESTIONS);
   const completionPercent = Math.min(
-    Math.round((displayIndex / TOTAL_INTERVIEW_QUESTIONS) * 100),
+    Math.round((sessionState.questionIndex / TOTAL_INTERVIEW_QUESTIONS) * 100),
     100
   );
 
@@ -297,7 +297,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                           width: isPassed
                             ? '100%'
                             : isCurrentStage
-                            ? `${((sessionState.questionIndex - stage.start + 1) / stage.questions) * 100}%`
+                            ? `${((sessionState.questionIndex - stage.start) / stage.questions) * 100}%`
                             : '0%',
                           boxShadow: hoveredStage === stage.name
                             ? `0 0 16px rgba(6, 182, 212, 0.8), 0 0 8px rgba(6, 182, 212, 0.4)`
