@@ -3,12 +3,32 @@
  * Handles stage progression and question filtering
  */
 
+const fs = require('fs');
+const path = require('path');
 const { questions: allQuestions } = require("./questionLoader");
 const {
   STAGE_ORDER,
   QUESTIONS_PER_STAGE,
   STAGE_DESCRIPTIONS
 } = require("./stageConfig");
+
+// Load role domain mappings
+let roleDomains = {};
+let roleMapping = {};
+
+try {
+  const roleDomainsPath = path.join(__dirname, 'config', 'roleDomains.json');
+  const roleMappingPath = path.join(__dirname, 'config', 'roleMapping.json');
+  
+  if (fs.existsSync(roleDomainsPath)) {
+    roleDomains = JSON.parse(fs.readFileSync(roleDomainsPath, 'utf8'));
+  }
+  if (fs.existsSync(roleMappingPath)) {
+    roleMapping = JSON.parse(fs.readFileSync(roleMappingPath, 'utf8'));
+  }
+} catch (err) {
+  console.warn('⚠️  Could not load role configuration:', err.message);
+}
 
 /**
  * Determine which stage based on question index
@@ -153,13 +173,131 @@ function getUnusedQuestion(questions, askedQuestionIds = []) {
 }
 
 /**
+ * Determine user's domain from their role
+ * Maps specific roles to broader domains
+ * @param {string} userRole - User's role (SDE, frontend, teacher, etc.)
+ * @returns {string} Domain (software, education, law, etc.)
+ */
+function getUserDomain(userRole) {
+  if (!userRole) return 'general';
+  
+  const roleLower = userRole.toLowerCase().trim();
+  
+  // Direct lookup in role mapping
+  if (roleMapping[roleLower]) {
+    return roleMapping[roleLower];
+  }
+  
+  // Fuzzy matching for common keywords
+  if (roleLower.includes('sde') || roleLower.includes('software') || roleLower.includes('engineer') ||
+      roleLower.includes('frontend') || roleLower.includes('backend') || roleLower.includes('fullstack') ||
+      roleLower.includes('devops') || roleLower.includes('mobile') || roleLower.includes('data') ||
+      roleLower.includes('ml') || roleLower.includes('web') || roleLower.includes('developer')) {
+    return 'software';
+  }
+  
+  if (roleLower.includes('teacher') || roleLower.includes('education') || roleLower.includes('professor')) {
+    return 'education';
+  }
+  
+  if (roleLower.includes('lawyer') || roleLower.includes('legal') || roleLower.includes('law')) {
+    return 'law';
+  }
+  
+  if (roleLower.includes('doctor') || roleLower.includes('medical') || roleLower.includes('nurse') ||
+      roleLower.includes('healthcare') || roleLower.includes('therapist') || roleLower.includes('psychologist')) {
+    return 'medical';
+  }
+  
+  if (roleLower.includes('product') || roleLower.includes('business') || roleLower.includes('management') ||
+      roleLower.includes('executive') || roleLower.includes('mba') || roleLower.includes('ceo')) {
+    return 'business';
+  }
+  
+  if (roleLower.includes('hotel') || roleLower.includes('hospitality') || roleLower.includes('cabin') ||
+      roleLower.includes('aviation') || roleLower.includes('pilot')) {
+    return 'service';
+  }
+  
+  if (roleLower.includes('design') || roleLower.includes('artist') || roleLower.includes('actor') ||
+      roleLower.includes('journalist') || roleLower.includes('media')) {
+    return 'creative';
+  }
+  
+  // Default to general if no match
+  return 'general';
+}
+
+/**
+ * Filter questions by role domain
+ * Ensures questions stay within the user's professional domain
+ * @param {Array} questions - Question pool
+ * @param {string} userRole - User's role
+ * @returns {Array} Filtered questions matching domain
+ */
+function filterByRoleDomain(questions, userRole = "any") {
+  if (!Array.isArray(questions) || questions.length === 0) {
+    return questions;
+  }
+
+  const userDomain = getUserDomain(userRole);
+  const allowedRoles = roleDomains[userDomain] || [];
+  
+  console.log(`   🎯 Domain filtering: "${userRole}" → domain "${userDomain}"`);
+  console.log(`   ✓ Allowed roles in domain: ${allowedRoles.join(', ')}`);
+
+  // Filter questions where role is in the user's domain OR is "any"
+  const filtered = questions.filter(q => {
+    // No role field means it applies to everyone
+    if (!q.role) return true;
+    
+    const questionRole = q.role.toLowerCase();
+    
+    // Include if role matches domain's allowed roles OR if question role is "any"
+    const isAllowed = allowedRoles.includes(questionRole) || questionRole === 'any';
+    
+    if (!isAllowed) {
+      console.log(`   ⛔ Excluding: "${q.question?.substring(0, 40)}..." (role: ${q.role})`);
+    }
+    
+    return isAllowed;
+  });
+  
+  console.log(`   📊 After domain filter: ${filtered.length}/${questions.length} questions`);
+  return filtered;
+}
+
+/**
  * Filter questions by role (critical for system adaptation)
  * Ensures questions match the role (frontend, backend, hospitality, etc.)
+ * NOW USES DOMAIN FILTERING
  * @param {Array} questions - Question pool
  * @param {string} role - Role name (frontend, backend, any, etc.)
  * @returns {Array} Filtered questions matching the role
  */
 function filterByRole(questions, role = "any") {
+  if (!Array.isArray(questions) || questions.length === 0) {
+    return questions;
+  }
+
+  // If role is "any", use domain filtering to stay in general
+  if (!role || role === "any") {
+    console.log(`   👤 Role: "any" (using domain filtering for general)`);
+    return filterByRoleDomain(questions, "any");
+  }
+
+  // Use domain-aware filtering
+  return filterByRoleDomain(questions, role);
+}
+
+/**
+ * DEPRECATED - kept for compatibility, but now redirects to domain filtering
+ * Filter questions by role (old implementation - do not use)
+ * @param {Array} questions - Question pool
+ * @param {string} role - Role name (frontend, backend, any, etc.)
+ * @returns {Array} Filtered questions matching the role
+ */
+function filterByRoleOld(questions, role = "any") {
   if (!Array.isArray(questions) || questions.length === 0) {
     return questions;
   }
@@ -342,9 +480,11 @@ module.exports = {
   getQuestionsForStage,
   filterByResume,
   filterByRole,
+  filterByRoleDomain,
   filterByDifficulty,
   getAllowedDifficulty,
   getUnusedQuestion,
   getStageProgress,
-  getSmartQuestion
+  getSmartQuestion,
+  getUserDomain
 };

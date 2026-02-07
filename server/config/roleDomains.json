@@ -1,0 +1,60 @@
+{
+  "software": [
+    "software_engineer",
+    "sde",
+    "frontend",
+    "backend",
+    "fullstack",
+    "devops",
+    "mobile",
+    "data_engineer",
+    "ml_engineer",
+    "any"
+  ],
+  
+  "education": [
+    "teacher",
+    "education",
+    "professor",
+    "educator"
+  ],
+  
+  "law": [
+    "lawyer",
+    "legal",
+    "law"
+  ],
+  
+  "medical": [
+    "doctor",
+    "medical",
+    "healthcare",
+    "nurse"
+  ],
+  
+  "business": [
+    "product_manager",
+    "business_analyst",
+    "management",
+    "executive",
+    "mba",
+    "ceo"
+  ],
+  
+  "service": [
+    "hospitality",
+    "hotel",
+    "cabin_crew",
+    "aviation"
+  ],
+  
+  "creative": [
+    "designer",
+    "artist",
+    "actor"
+  ],
+  
+  "general": [
+    "any"
+  ]
+}
