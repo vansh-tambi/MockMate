@@ -12,8 +12,8 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   // Track which question index we've already fetched to prevent double-fetching in StrictMode
   const fetchedQuestionIndex = useRef(null);
   
-  // Total questions in the staged progression system
-  const TOTAL_INTERVIEW_QUESTIONS = 22;
+  // Total questions in the staged progression system (expanded from 22 to 35)
+  const TOTAL_INTERVIEW_QUESTIONS = 35;
 
   // Stage emoji mapping
   const stageEmoji = {
@@ -227,13 +227,15 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     hr_closing: 'from-red-500 to-red-700'
   };
 
-  // Stage definitions for progress bar segments (22 total questions)
+  // Stage definitions for progress bar segments (35 total questions - expanded)
   const stageSegments = [
     { name: 'introduction', start: 0, questions: 2, color: stageColors.introduction },
-    { name: 'warmup', start: 2, questions: 2, color: stageColors.warmup },
-    { name: 'resume_based', start: 4, questions: 3, color: stageColors.resume_based },
-    { name: 'technical', start: 7, questions: 10, color: stageColors.technical },
-    { name: 'behavioral', start: 17, questions: 5, color: stageColors.behavioral }
+    { name: 'warmup', start: 2, questions: 3, color: stageColors.warmup },
+    { name: 'resume_based', start: 5, questions: 4, color: stageColors.resume_based },
+    { name: 'technical', start: 9, questions: 12, color: stageColors.technical },
+    { name: 'behavioral', start: 21, questions: 6, color: stageColors.behavioral },
+    { name: 'real_world', start: 27, questions: 3, color: stageColors.real_world },
+    { name: 'hr_closing', start: 30, questions: 5, color: stageColors.hr_closing }
   ];
 
   return (

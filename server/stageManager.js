@@ -32,31 +32,31 @@ try {
 
 /**
  * Determine which stage based on question index
- * Uses clean, simple logic for 25-question interview
+ * Uses clean, simple logic for 35-question interview (expanded from 22)
  * @param {number} index - Current question index (0-based)
  * @returns {string} Current stage name
  */
 function getStageFromIndex(index) {
-  // 7-stage progressive interview system
+  // 7-stage progressive interview system with 35 total questions
   if (index < 2)
     return "introduction";      // Q0-1 (2 total)
   
-  if (index < 4)
-    return "warmup";            // Q2-3 (2 total)
+  if (index < 5)
+    return "warmup";            // Q2-4 (3 total)
   
-  if (index < 7)
-    return "resume_based";      // Q4-6 (3 total)
+  if (index < 9)
+    return "resume_based";      // Q5-8 (4 total)
   
-  if (index < 17)
-    return "technical";         // Q7-16 (10 total)
+  if (index < 21)
+    return "technical";         // Q9-20 (12 total)
   
-  if (index < 22)
-    return "behavioral";        // Q17-21 (5 total)
+  if (index < 27)
+    return "behavioral";        // Q21-26 (6 total)
   
-  if (index < 24)
-    return "real_world";        // Q22-23 (2 total)
+  if (index < 30)
+    return "real_world";        // Q27-29 (3 total)
   
-  return "hr_closing";          // Q24 (1 total)
+  return "hr_closing";          // Q30-34 (5 total)
 }
 
 /**

@@ -56,7 +56,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
   const pendingSubmitRef = useRef(false);
   const currentQuestionRef = useRef('');
 
-  const TOTAL_INTERVIEW_QUESTIONS = 22;
+  const TOTAL_INTERVIEW_QUESTIONS = 35;
 
   // Fetch question from staged progression system (same as GuidedMode)
   const fetchCurrentQuestion = useCallback(async () => {

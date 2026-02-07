@@ -2,7 +2,7 @@
  * Stage Configuration for MockMate Interview System
  * Defines the strict progression order and question distribution
  * 
- * 7-STAGE SYSTEM: 25 questions total
+ * 7-STAGE SYSTEM: 35 questions total (expanded for comprehensive coverage)
  * Progressive interviewer flow: introduction → warmup → resume_based → technical → behavioral → real_world → hr_closing
  */
 
@@ -19,15 +19,15 @@ module.exports = {
   ],
 
   // Questions per stage - controls total interview length
-  // Total: 2 + 2 + 3 + 10 + 5 + 2 + 1 = 25 questions
+  // Total: 2 + 3 + 4 + 12 + 6 + 3 + 5 = 35 questions (expanded from 22)
   QUESTIONS_PER_STAGE: {
     introduction: 2,        // Opening: "Tell me about yourself", etc.
-    warmup: 2,              // Easy warm-up questions
-    resume_based: 3,        // Resume deep-dive: Skills, projects
-    technical: 10,          // Technical questions: DSA, system design, coding
-    behavioral: 5,          // Behavioral: Teamwork, conflict, motivation
-    real_world: 2,          // Real-world scenarios, edge cases
-    hr_closing: 1           // Final: "Why hire you?", "Questions for us?"
+    warmup: 3,              // Easy warm-up questions (increased from 2)
+    resume_based: 4,        // Resume deep-dive: Skills, projects (increased from 3)
+    technical: 12,          // Technical questions: DSA, system design, coding (increased from 10)
+    behavioral: 6,          // Behavioral: Teamwork, conflict, motivation (increased from 5)
+    real_world: 3,          // Real-world scenarios, edge cases (increased from 2)
+    hr_closing: 5           // HR & Closing: Compensation, culture fit, expectations (increased from 1)
   },
 
   // Total questions in interview
@@ -38,11 +38,11 @@ module.exports = {
   // Stage descriptions for logging
   STAGE_DESCRIPTIONS: {
     introduction: "Opening comfort (2 questions)",
-    warmup: "Easy warm-up questions (2 questions)",
-    resume_based: "Resume deep-dive and skills (3 questions)",
-    technical: "Technical depth and problem-solving (10 questions)",
-    behavioral: "Teamwork and situational scenarios (5 questions)",
-    real_world: "Real-world edge cases (2 questions)",
-    hr_closing: "Final hiring decision (1 question)"
+    warmup: "Easy warm-up questions (3 questions)",
+    resume_based: "Resume deep-dive and skills (4 questions)",
+    technical: "Technical depth and problem-solving (12 questions)",
+    behavioral: "Teamwork and situational scenarios (6 questions)",
+    real_world: "Real-world edge cases and challenges (3 questions)",
+    hr_closing: "HR, culture fit, and closing (5 questions)"
   }
 };
