@@ -9,6 +9,8 @@
     "mobile",
     "data_engineer",
     "ml_engineer",
+    "hr",
+    "hr_closing",
     "any"
   ],
   
@@ -16,20 +18,29 @@
     "teacher",
     "education",
     "professor",
-    "educator"
+    "educator",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "law": [
     "lawyer",
     "legal",
-    "law"
+    "law",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "medical": [
     "doctor",
     "medical",
     "healthcare",
-    "nurse"
+    "nurse",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "business": [
@@ -38,23 +49,34 @@
     "management",
     "executive",
     "mba",
-    "ceo"
+    "ceo",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "service": [
     "hospitality",
     "hotel",
     "cabin_crew",
-    "aviation"
+    "aviation",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "creative": [
     "designer",
     "artist",
-    "actor"
+    "actor",
+    "hr",
+    "hr_closing",
+    "any"
   ],
   
   "general": [
-    "any"
+    "any",
+    "hr",
+    "hr_closing"
   ]
 }
