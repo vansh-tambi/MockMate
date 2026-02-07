@@ -257,7 +257,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
           </div>
 
           {/* Segmented Progress Bar */}
-          <div className="w-full bg-gray-800 rounded-full overflow-visible h-3 flex gap-1 p-1 backdrop-blur-sm shadow-lg">
+          <div className="w-full bg-gray-800/60 border border-gray-700 rounded-xl overflow-visible h-6 flex gap-2 p-1.5 backdrop-blur-xl shadow-lg">
             {stageSegments.map((stage, idx) => {
               const stagePercent = (stage.questions / TOTAL_INTERVIEW_QUESTIONS) * 100;
               const isCurrentStage = currentQuestion.stage === stage.name;
