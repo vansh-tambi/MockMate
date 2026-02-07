@@ -897,6 +897,16 @@
       "Only motivated by money/prestige",
       "Shows low engagement with work",
       "Cannot name actual projects"
-    ],\n    \"follow_ups\": [\n      \"Tell me about a favorite project\",\n      \"What made it interesting?\",\n      \"What was your role and contribution?\"\n    ],\n    \"category\": \"behavioral\",\n    \"priority\": \"core\",\n    \"interviewer_goal\": \"assess engagement and motivation\",\n    \"weight\": 1.6,\n    \"expected_duration_sec\": 120
+    ],
+    "follow_ups": [
+      "Tell me about a favorite project",
+      "What made it interesting?",
+      "What was your role and contribution?"
+    ],
+    "category": "behavioral",
+    "priority": "core",
+    "interviewer_goal": "assess engagement and motivation",
+    "weight": 1.6,
+    "expected_duration_sec": 120
   }
 ]
