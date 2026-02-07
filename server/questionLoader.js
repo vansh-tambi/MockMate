@@ -91,13 +91,43 @@ function loadAllQuestions() {
             'real_world': 'real_world',
             'hr_closing': 'hr_closing',
             'closing': 'hr_closing',
-            'pressure': 'behavioral'
+            'pressure': 'behavioral',
+            'communication': 'behavioral',
+            'teamwork': 'behavioral',
+            'leadership': 'behavioral',
+            'personality': 'behavioral',
+            'hr': 'hr_closing',
+            'interview': 'technical'
+          };
+
+          // Filename-based stage detection (fallback if no stage property)
+          const getStageFromFilename = (filename) => {
+            const lower = filename.toLowerCase();
+            if (lower.includes('intro')) return 'introduction';
+            if (lower.includes('warmup')) return 'warmup';
+            if (lower.includes('resume')) return 'resume_based';
+            if (lower.includes('behavioral') || lower.includes('communication') || lower.includes('teamwork') || 
+                lower.includes('personality') || lower.includes('leadership')) return 'behavioral';
+            if (lower.includes('hr') || lower.includes('closing')) return 'hr_closing';
+            if (lower.includes('real') || lower.includes('scenario')) return 'real_world';
+            return 'technical'; // Default to technical for other files
           };
 
           // Initialize or load usage count for each question
           questions = questions.map(q => {
-            const oldStage = q.stage || 'technical';
-            const newStage = stageMapping[oldStage] || 'technical';
+            let newStage = 'technical'; // Default
+            
+            // First try the question's stage property
+            if (q.stage) {
+              const mapped = stageMapping[q.stage.toLowerCase()];
+              if (mapped) newStage = mapped;
+            }
+            
+            // If still default, try filename-based detection
+            if (newStage === 'technical' && !q.stage) {
+              newStage = getStageFromFilename(file);
+            }
+            
             return {
               ...q,
               stage: newStage,
