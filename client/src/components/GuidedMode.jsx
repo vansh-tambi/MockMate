@@ -19,17 +19,21 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const stageEmoji = {
     introduction: '👋',
     warmup: '🤝',
-    resume_technical: '💻',
-    real_life: '💬',
-    hr_closing: '🎯'
+    resume_based: '📄',
+    technical: '💻',
+    behavioral: '🎯',
+    real_world: '💬',
+    hr_closing: '🏁'
   };
 
   // Stage display names
   const stageNames = {
     introduction: 'Introduction',
     warmup: 'Warm-up',
-    resume_technical: 'Technical Deep Dive',
-    real_life: 'Real-Life Scenarios',
+    resume_based: 'Resume & Skills',
+    technical: 'Technical Skills',
+    behavioral: 'Behavioral Questions',
+    real_world: 'Real-World Scenarios',
     hr_closing: 'HR & Closing'
   };
 
@@ -216,18 +220,20 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const stageColors = {
     introduction: 'from-yellow-500 to-yellow-600',
     warmup: 'from-orange-500 to-red-500',
-    resume_technical: 'from-purple-500 to-violet-600',
-    real_life: 'from-pink-500 to-rose-600',
+    resume_based: 'from-blue-500 to-cyan-600',
+    technical: 'from-purple-500 to-violet-600',
+    behavioral: 'from-pink-500 to-rose-600',
+    real_world: 'from-green-500 to-emerald-600',
     hr_closing: 'from-red-500 to-red-700'
   };
 
-  // Stage definitions for progress bar segments
+  // Stage definitions for progress bar segments (22 total questions)
   const stageSegments = [
-    { name: 'introduction', start: 0, questions: 3, color: stageColors.introduction },
-    { name: 'warmup', start: 3, questions: 3, color: stageColors.warmup },
-    { name: 'resume_technical', start: 6, questions: 8, color: stageColors.resume_technical },
-    { name: 'real_life', start: 14, questions: 5, color: stageColors.real_life },
-    { name: 'hr_closing', start: 19, questions: 3, color: stageColors.hr_closing }
+    { name: 'introduction', start: 0, questions: 2, color: stageColors.introduction },
+    { name: 'warmup', start: 2, questions: 2, color: stageColors.warmup },
+    { name: 'resume_based', start: 4, questions: 3, color: stageColors.resume_based },
+    { name: 'technical', start: 7, questions: 10, color: stageColors.technical },
+    { name: 'behavioral', start: 17, questions: 5, color: stageColors.behavioral }
   ];
 
   return (
