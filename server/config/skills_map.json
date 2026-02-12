@@ -1,0 +1,267 @@
+{
+  "frontend": {
+    "keywords": ["react", "vue", "angular", "html", "css", "javascript", "jsx", "tsx", "web", "ui", "ux"],
+    "question_categories": ["react", "frontend", "web_frontend", "javascript"],
+    "weight": 1.0,
+    "related_skills": ["javascript", "css", "web_fundamentals"]
+  },
+  "react": {
+    "keywords": ["react", "reactjs", "react.js", "jsx", "tsx", "hooks", "usestate", "useeffect", "redux", "context", "component"],
+    "question_categories": ["react", "frontend", "web_frontend", "programming_fundamentals"],
+    "weight": 1.5,
+    "related_skills": ["javascript", "frontend", "state_management"],
+    "skill_patterns": ["lifecycle", "hooks", "state", "component", "virtual dom"]
+  },
+  "vue": {
+    "keywords": ["vue", "vuejs", "vue.js", "nuxt", "vuestore", "vue-router"],
+    "question_categories": ["frontend", "web_frontend", "programming_fundamentals"],
+    "weight": 1.2,
+    "related_skills": ["javascript", "frontend"]
+  },
+  "angular": {
+    "keywords": ["angular", "angularjs", "typescript", "decorators", "injectable", "component", "service", "rxjs", "observable"],
+    "question_categories": ["frontend", "web_frontend", "programming_fundamentals"],
+    "weight": 1.2,
+    "related_skills": ["typescript", "frontend", "rxjs"]
+  },
+  "backend": {
+    "keywords": ["backend", "back-end", "server", "api", "rest", "graphql", "database", "sql", "mongodb"],
+    "question_categories": ["backend_advanced", "backend_intermediate_advanced", "dsa_questions", "system_design"],
+    "weight": 1.0,
+    "related_skills": ["nodejs", "python", "database", "api_design"]
+  },
+  "nodejs": {
+    "keywords": ["node", "nodejs", "node.js", "express", "npm", "npm packages", "async", "callbacks", "promises", "event loop"],
+    "question_categories": ["backend_advanced", "backend_intermediate_advanced", "programming_fundamentals"],
+    "weight": 1.5,
+    "related_skills": ["javascript", "backend", "api_design"],
+    "skill_patterns": ["event loop", "async", "callbacks", "middleware"]
+  },
+  "python": {
+    "keywords": ["python", "django", "flask", "fastapi", "asyncio", "pandas", "numpy", "machine learning"],
+    "question_categories": ["backend_advanced", "backend_intermediate_advanced", "programming_fundamentals"],
+    "weight": 1.5,
+    "related_skills": ["backend", "data_structures", "algorithms"]
+  },
+  "javascript": {
+    "keywords": ["javascript", "js", "ecmascript", "es6", "async/await", "promise", "callback", "closure", "hoisting"],
+    "question_categories": ["programming_fundamentals", "web_frontend", "backend_advanced"],
+    "weight": 1.3,
+    "related_skills": ["frontend", "nodejs"]
+  },
+  "typescript": {
+    "keywords": ["typescript", "ts", "generics", "interfaces", "types", "decorators"],
+    "question_categories": ["programming_fundamentals", "web_frontend", "backend_advanced"],
+    "weight": 1.2,
+    "related_skills": ["javascript", "angular"]
+  },
+  "database": {
+    "keywords": ["database", "sql", "mongodb", "postgresql", "mysql", "redis", "cassandra", "elasticsearch", "normalization", "indexing"],
+    "question_categories": ["database_backend", "system_design", "dsa_questions"],
+    "weight": 1.4,
+    "related_skills": ["backend", "system_design", "sql"],
+    "skill_patterns": ["schema design", "normalization", "indexing", "query optimization"]
+  },
+  "sql": {
+    "keywords": ["sql", "mysql", "postgresql", "database", "query", "join", "index", "normalization", "acid"],
+    "question_categories": ["database_backend", "programming_fundamentals"],
+    "weight": 1.3,
+    "related_skills": ["database", "backend"]
+  },
+  "mongodb": {
+    "keywords": ["mongodb", "nosql", "document", "collection", "mongoose", "bson", "aggregation"],
+    "question_categories": ["database_backend", "backend_advanced"],
+    "weight": 1.2,
+    "related_skills": ["database", "backend", "nodejs"]
+  },
+  "system_design": {
+    "keywords": ["system design", "scalability", "load balancing", "microservices", "caching", "message queue", "distributed"],
+    "question_categories": ["system_design", "scalability_questions", "distributed_systems"],
+    "weight": 1.5,
+    "related_skills": ["backend", "database", "architecture"],
+    "skill_patterns": ["scalability", "load balancing", "caching", "failover"]
+  },
+  "api_design": {
+    "keywords": ["api", "rest", "graphql", "endpoint", "http", "methods", "status codes", "oauth", "jwt"],
+    "question_categories": ["backend_advanced", "system_design", "networking"],
+    "weight": 1.3,
+    "related_skills": ["backend", "nodejs", "python"]
+  },
+  "aws": {
+    "keywords": ["aws", "amazon web services", "ec2", "s3", "lambda", "rds", "dynamodb", "cloudfront", "iam"],
+    "question_categories": ["system_design", "scalability_questions"],
+    "weight": 1.2,
+    "related_skills": ["cloud", "infrastructure", "devops"]
+  },
+  "cloud": {
+    "keywords": ["cloud", "aws", "azure", "gcp", "google cloud", "docker", "kubernetes"],
+    "question_categories": ["system_design", "scalability_questions"],
+    "weight": 1.2,
+    "related_skills": ["devops", "infrastructure"]
+  },
+  "docker": {
+    "keywords": ["docker", "container", "containerization", "dockerfile", "image", "registry"],
+    "question_categories": ["system_design", "scalability_questions"],
+    "weight": 1.1,
+    "related_skills": ["devops", "cloud", "kubernetes"]
+  },
+  "kubernetes": {
+    "keywords": ["kubernetes", "k8s", "pod", "service", "deployment", "orchestration"],
+    "question_categories": ["system_design", "scalability_questions"],
+    "weight": 1.1,
+    "related_skills": ["devops", "docker", "cloud"]
+  },
+  "dsa": {
+    "keywords": ["data structure", "algorithm", "array", "linked list", "tree", "graph", "sorting", "searching", "dynamic programming", "hash table"],
+    "question_categories": ["dsa_questions", "programming_fundamentals"],
+    "weight": 1.5,
+    "related_skills": ["data_structures", "algorithms"]
+  },
+  "data_structures": {
+    "keywords": ["data structure", "array", "linked list", "tree", "graph", "hash", "queue", "stack"],
+    "question_categories": ["dsa_questions", "programming_fundamentals"],
+    "weight": 1.4,
+    "related_skills": ["algorithms", "dsa"]
+  },
+  "algorithms": {
+    "keywords": ["algorithm", "sorting", "searching", "dynamic programming", "recursion", "greedy", "divide and conquer"],
+    "question_categories": ["dsa_questions", "programming_fundamentals"],
+    "weight": 1.4,
+    "related_skills": ["data_structures", "dsa"]
+  },
+  "testing": {
+    "keywords": ["test", "junit", "pytest", "mocha", "jest", "unit test", "integration test", "mock", "assertion"],
+    "question_categories": ["testing"],
+    "weight": 1.1,
+    "related_skills": ["quality_assurance", "debugging"]
+  },
+  "debugging": {
+    "keywords": ["debug", "debugger", "breakpoint", "logging", "error", "exception", "stack trace"],
+    "question_categories": ["debugging_questions"],
+    "weight": 1.1,
+    "related_skills": ["testing", "code_quality"]
+  },
+  "code_quality": {
+    "keywords": ["clean code", "refactor", "maintainability", "design pattern", "solid", "dry", "kiss"],
+    "question_categories": ["code_quality"],
+    "weight": 1.1,
+    "related_skills": ["debugging", "architecture"]
+  },
+  "design_patterns": {
+    "keywords": ["design pattern", "factory", "singleton", "observer", "proxy", "decorator", "builder"],
+    "question_categories": ["programming_fundamentals", "code_quality"],
+    "weight": 1.2,
+    "related_skills": ["code_quality", "architecture"]
+  },
+  "oop": {
+    "keywords": ["oop", "object-oriented", "class", "inheritance", "polymorphism", "encapsulation", "abstraction"],
+    "question_categories": ["programming_fundamentals"],
+    "weight": 1.3,
+    "related_skills": ["design_patterns", "code_quality"]
+  },
+  "functional_programming": {
+    "keywords": ["functional", "pure function", "immutable", "higher-order", "lambda", "map", "filter", "reduce"],
+    "question_categories": ["programming_fundamentals"],
+    "weight": 1.1,
+    "related_skills": ["algorithms", "languages"]
+  },
+  "communication": {
+    "keywords": ["communication", "explain", "presentation", "discussion", "articulate", "clarity"],
+    "question_categories": ["communication_teamwork", "introduction"],
+    "weight": 1.0,
+    "related_skills": ["presentation", "leadership"],
+    "stage_priority": ["introduction", "warmup", "resume_based"]
+  },
+  "leadership": {
+    "keywords": ["lead", "leadership", "team lead", "mentor", "manage", "delegate", "influence"],
+    "question_categories": ["leadership_questions", "leadership_behavioral"],
+    "weight": 1.2,
+    "related_skills": ["communication", "management"],
+    "stage_priority": ["behavioral", "real_world"]
+  },
+  "teamwork": {
+    "keywords": ["team", "collaborate", "cooperation", "conflict", "communication", "feedback"],
+    "question_categories": ["communication_teamwork"],
+    "weight": 1.1,
+    "related_skills": ["leadership", "communication"]
+  },
+  "problem_solving": {
+    "keywords": ["problem solving", "approach", "solution", "analyze", "strategy", "edge case"],
+    "question_categories": ["problem_solving", "dsa_questions"],
+    "weight": 1.3,
+    "related_skills": ["algorithms", "dsa"]
+  },
+  "failure_recovery": {
+    "keywords": ["failure", "mistake", "learn", "improve", "resilience", "recovery"],
+    "question_categories": ["failure_questions"],
+    "weight": 1.1,
+    "related_skills": ["problem_solving", "growth_mindset"]
+  },
+  "growth_mindset": {
+    "keywords": ["growth", "learn", "development", "improvement", "challenge", "feedback"],
+    "question_categories": ["self_awareness", "leadership_behavioral"],
+    "weight": 1.0,
+    "related_skills": ["learning", "resilience"]
+  },
+  "version_control": {
+    "keywords": ["git", "github", "gitlab", "version control", "commit", "merge", "branch", "pull request"],
+    "question_categories": ["version_control"],
+    "weight": 1.0,
+    "related_skills": ["collaboration", "tools"]
+  },
+  "agile": {
+    "keywords": ["agile", "scrum", "sprint", "kanban", "standUp", "retrospective", "user story"],
+    "question_categories": ["problem_solving", "leadership_behavioral"],
+    "weight": 1.0,
+    "related_skills": ["teamwork", "communication"]
+  },
+  "security": {
+    "keywords": ["security", "encryption", "authentication", "authorization", "sql injection", "xss", "csrf"],
+    "question_categories": ["system_design", "backend_advanced"],
+    "weight": 1.2,
+    "related_skills": ["backend", "api_design"]
+  },
+  "performance": {
+    "keywords": ["performance", "optimization", "cache", "lazy load", "compression", "profiling"],
+    "question_categories": ["scalability_questions", "system_design"],
+    "weight": 1.2,
+    "related_skills": ["backend", "frontend"]
+  },
+  "devops": {
+    "keywords": ["devops", "ci/cd", "jenkins", "docker", "kubernetes", "deployment", "monitoring"],
+    "question_categories": ["system_design", "scalability_questions"],
+    "weight": 1.1,
+    "related_skills": ["cloud", "infrastructure"]
+  },
+  "mobile": {
+    "keywords": ["mobile", "react native", "flutter", "ios", "android", "swift", "kotlin"],
+    "question_categories": ["frontend"],
+    "weight": 1.1,
+    "related_skills": ["frontend", "javascript"]
+  },
+  "machine_learning": {
+    "keywords": ["machine learning", "ml", "tensorflow", "pytorch", "sklearn", "neural network", "model"],
+    "question_categories": ["backend_advanced"],
+    "weight": 1.0,
+    "related_skills": ["python", "algorithms"]
+  },
+  "concurrency": {
+    "keywords": ["concurrency", "thread", "async", "await", "promise", "callback", "event loop", "parallel"],
+    "question_categories": ["concurrency", "programming_fundamentals"],
+    "weight": 1.3,
+    "related_skills": ["nodejs", "backend"],
+    "skill_patterns": ["threading", "mutex", "race condition"]
+  },
+  "networking": {
+    "keywords": ["network", "http", "tcp/ip", "dns", "ssl/tls", "socket", "websocket"],
+    "question_categories": ["networking"],
+    "weight": 1.1,
+    "related_skills": ["backend", "system_design"]
+  },
+  "operating_systems": {
+    "keywords": ["operating system", "process", "thread", "memory", "virtual memory", "cache", "interrupt"],
+    "question_categories": ["operating_systems"],
+    "weight": 1.1,
+    "related_skills": ["system_design", "concurrency"]
+  }
+}
