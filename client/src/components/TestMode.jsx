@@ -312,10 +312,10 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="pt-20 max-w-5xl mx-auto min-h-[calc(100vh-4rem)] pb-8 px-4"
+      className="pt-24 max-w-5xl mx-auto min-h-[calc(100vh-4rem)] pb-12 px-6"
     >
       {/* Header: Stage + Progress */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           {currentStageConf && (
             <span
@@ -358,25 +358,25 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* LEFT: Question + Transcript + Controls (2/3 width) */}
-        <div className="lg:col-span-2 flex flex-col gap-5">
+        <div className="lg:col-span-2 flex flex-col gap-6">
 
           {/* Question Card */}
           {currentQuestion && (
-            <div className="mm-card p-6">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--text-muted)' }}>
+            <div className="mm-card p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
                 Question {sessionState.questionIndex + 1}
               </p>
-              <h2 className="text-lg font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-xl font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                 {currentQuestion.question.text}
               </h2>
             </div>
           )}
 
           {/* Transcript Area */}
-          <div className="mm-card p-6 min-h-[180px] flex flex-col">
-            <div className="flex items-center justify-between mb-4">
+          <div className="mm-card p-8 min-h-[200px] flex flex-col">
+            <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                   Your Response
@@ -408,7 +408,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
             whileTap={{ scale: 0.99 }}
             onClick={handleAction}
             disabled={analyzing || loading || !currentQuestion}
-            className={`w-full py-4 rounded-xl font-semibold text-base transition-all ${
+            className={`w-full py-5 rounded-xl font-semibold text-base transition-all ${
               isRecording ? 'mm-recording-pulse' : ''
             }`}
             style={{
@@ -444,7 +444,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
         </div>
 
         {/* RIGHT: Camera + Feedback Panel (1/3 width) */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-6">
 
           {/* Camera PIP */}
           <div
@@ -478,11 +478,11 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="mm-card p-6 custom-scrollbar overflow-y-auto"
+                className="mm-card p-8 custom-scrollbar overflow-y-auto"
                 style={{ maxHeight: 'calc(100vh - 420px)' }}
               >
                 {/* Score */}
-                <div className="flex flex-col items-center mb-5">
+                <div className="flex flex-col items-center mb-6">
                   <ScoreRing score={feedback.score} size={90} />
                   <p
                     className="text-xs font-semibold mt-2"
@@ -494,7 +494,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
                 {/* Breakdown Bars */}
                 {feedback.breakdown && (
-                  <div className="space-y-2.5 mb-5">
+                  <div className="space-y-3 mb-6">
                     {Object.entries(feedback.breakdown).map(([k, v]) => (
                       <div key={k}>
                         <div className="flex justify-between text-[11px] mb-1">
@@ -517,8 +517,8 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
                 {/* Strengths */}
                 {feedback.aiData?.strengths?.length > 0 && (
-                  <div className="mb-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--success)' }}>
+                  <div className="mb-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--success)' }}>
                       Strengths
                     </p>
                     <ul className="space-y-1">
@@ -533,8 +533,8 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
                 {/* Improvements */}
                 {feedback.aiData?.improvements?.length > 0 && (
-                  <div className="mb-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--warning)' }}>
+                  <div className="mb-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--warning)' }}>
                       Improve
                     </p>
                     <ul className="space-y-1">
@@ -557,7 +557,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
                 {/* Improvement tip */}
                 {feedback.improvement_tip && (
                   <div
-                    className="p-3 rounded-lg mb-5"
+                    className="p-4 rounded-lg mb-6"
                     style={{ background: 'var(--info-bg)', borderLeft: '2px solid var(--info)' }}
                   >
                     <p className="text-[11px] font-semibold mb-1" style={{ color: 'var(--info)' }}>Next Step</p>

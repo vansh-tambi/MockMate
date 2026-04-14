@@ -36,9 +36,10 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   color: var(--text-primary);
-  padding: 12px 16px;
+  padding: 14px 18px;
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.6;
   width: 100%;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -58,16 +59,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
+  gap: 10px;
+  padding: 14px 28px;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
 .mm-btn:disabled {
@@ -97,7 +99,7 @@
 .mm-btn-ghost {
   background: transparent;
   color: var(--text-secondary);
-  padding: 8px 16px;
+  padding: 12px 20px;
 }
 
 .mm-btn-ghost:hover:not(:disabled) {
@@ -106,8 +108,8 @@
 }
 
 .mm-btn-lg {
-  padding: 16px 32px;
-  font-size: 1.0625rem;
+  padding: 18px 40px;
+  font-size: 1.125rem;
   border-radius: var(--radius-lg);
 }
 
@@ -116,10 +118,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
-  font-size: 0.75rem;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   border-radius: var(--radius-full);
   text-transform: uppercase;
 }
@@ -172,13 +174,13 @@
 .mm-reveal-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 10px;
+  padding: 10px 20px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -301,7 +303,7 @@
 .mm-dropzone {
   border: 2px dashed var(--border);
   border-radius: var(--radius-lg);
-  padding: 40px;
+  padding: 48px 40px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;

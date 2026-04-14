@@ -178,7 +178,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const currentStageConfig = currentQuestion ? stageConfig[currentQuestion.stage] : null;
 
   return (
-    <div className="max-w-3xl mx-auto pt-24 pb-12 px-4">
+    <div className="max-w-3xl mx-auto pt-28 pb-16 px-6">
 
       {/* Stage Transition Interstitial */}
       <AnimatePresence>
@@ -209,9 +209,9 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-10"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <span
                 className="mm-badge"
@@ -240,7 +240,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
           </div>
 
           {/* Stage labels below progress bar */}
-          <div className="flex mt-2">
+          <div className="flex mt-3">
             {stageSegments.map((seg) => {
               const widthPercent = (seg.questions / TOTAL_INTERVIEW_QUESTIONS) * 100;
               const isActive = currentQuestion.stage === seg.name;
@@ -292,11 +292,11 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
             key="error"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mm-card p-6"
+            className="mm-card p-8"
             style={{ borderColor: 'var(--error)', borderLeftWidth: '3px' }}
           >
-            <p className="font-semibold mb-2" style={{ color: 'var(--error)' }}>Failed to load question</p>
-            <p className="text-sm mb-4" style={{ color: 'var(--text-secondary)' }}>{error}</p>
+            <p className="font-semibold mb-3" style={{ color: 'var(--error)' }}>Failed to load question</p>
+            <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>{error}</p>
             <button onClick={fetchNextQuestion} className="mm-btn mm-btn-secondary text-sm">
               Retry
             </button>
@@ -307,9 +307,9 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
             key="empty"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mm-card p-8 text-center"
+            className="mm-card p-10 text-center"
           >
-            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>Ready to begin your practice session.</p>
+            <p className="mb-6 text-base" style={{ color: 'var(--text-secondary)' }}>Ready to begin your practice session.</p>
             <button onClick={fetchNextQuestion} className="mm-btn mm-btn-primary">
               Load First Question
             </button>
@@ -324,18 +324,18 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
             transition={{ duration: 0.35 }}
           >
             {/* Question Card */}
-            <div className="mm-card p-8 mb-6">
-              <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="mm-card p-10 mb-8">
+              <div className="flex items-start justify-between gap-6 mb-8">
                 <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--text-muted)' }}>
+                  <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
                     Interview Question
                   </p>
-                  <h2 className="text-xl font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
+                  <h2 className="text-2xl font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
                     {currentQuestion.question.text}
                   </h2>
                 </div>
                 <div
-                  className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold"
+                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-base font-bold"
                   style={{
                     background: 'var(--accent-muted)',
                     color: 'var(--accent)',
@@ -346,7 +346,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
               </div>
 
               {/* Reveal Buttons */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 <button
                   onClick={() => setShowHint(!showHint)}
                   className="mm-reveal-btn"
@@ -386,13 +386,13 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-4"
+                  className="overflow-hidden mb-5"
                 >
                   <div
-                    className="mm-card p-6"
+                    className="mm-card p-7"
                     style={{ borderLeft: '3px solid var(--info)' }}
                   >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--info)' }}>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--info)' }}>
                       Coaching Direction
                     </p>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -407,13 +407,13 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-4"
+                  className="overflow-hidden mb-5"
                 >
                   <div
-                    className="mm-card p-6"
+                    className="mm-card p-7"
                     style={{ borderLeft: '3px solid var(--success)' }}
                   >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--success)' }}>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--success)' }}>
                       Sample Answer
                     </p>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -428,16 +428,16 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-4"
+                  className="overflow-hidden mb-5"
                 >
                   <div
-                    className="mm-card p-6"
+                    className="mm-card p-7"
                     style={{ borderLeft: '3px solid var(--secondary)' }}
                   >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--secondary)' }}>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--secondary)' }}>
                       Key Points to Cover
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {currentQuestion.guidance.tips.map((tip, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                           <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: 'var(--secondary)' }} />
@@ -451,8 +451,8 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
             </AnimatePresence>
 
             {/* Next button */}
-            <div className="flex items-center justify-between mt-6">
-              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+            <div className="flex items-center justify-between mt-10">
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                 Ctrl+Enter for next
               </p>
               <motion.button

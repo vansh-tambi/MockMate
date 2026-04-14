@@ -146,17 +146,17 @@ const SetupScreen = ({ onComplete }) => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="mb-8"
+                className="mb-12"
               >
                 <img
                   src="/Logo.png"
                   alt="MockMate"
-                  className="h-16 w-auto mx-auto mb-6 object-contain"
+                  className="h-20 w-auto mx-auto object-contain"
                 />
               </motion.div>
 
               <h1
-                className="text-4xl font-bold mb-3 tracking-tight"
+                className="text-4xl font-bold mb-5 tracking-tight"
                 style={{ color: 'var(--text-primary)' }}
               >
                 Your personal{' '}
@@ -164,7 +164,7 @@ const SetupScreen = ({ onComplete }) => {
               </h1>
 
               <p
-                className="text-lg mb-10 max-w-md mx-auto"
+                className="text-lg mb-14 max-w-md mx-auto leading-relaxed"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 Practice with realistic interview questions, get instant feedback, and build confidence for the real thing.
@@ -182,7 +182,7 @@ const SetupScreen = ({ onComplete }) => {
                 </svg>
               </motion.button>
 
-              <div className="mt-12 flex items-center justify-center gap-8">
+              <div className="mt-16 flex items-center justify-center gap-12">
                 {[
                   { num: '700+', label: 'Questions' },
                   { num: '7', label: 'Stages' },
@@ -205,22 +205,22 @@ const SetupScreen = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="mm-glass p-8"
+              className="mm-glass p-10"
             >
               <StepIndicator />
 
-              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-2xl font-bold mb-3 text-center" style={{ color: 'var(--text-primary)' }}>
                 Upload your resume
               </h2>
-              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+              <p className="text-base mb-8 text-center" style={{ color: 'var(--text-secondary)' }}>
                 We'll tailor questions to your experience and skills.
               </p>
 
               {/* Input mode toggle */}
-              <div className="flex gap-2 mb-5">
+              <div className="flex gap-3 mb-6 justify-center">
                 <button
                   onClick={() => setManualMode(false)}
-                  className="mm-btn text-xs py-1.5 px-4"
+                  className="mm-btn text-sm py-2 px-5"
                   style={{
                     background: !manualMode ? 'var(--accent-muted)' : 'transparent',
                     color: !manualMode ? 'var(--accent-hover)' : 'var(--text-muted)',
@@ -231,7 +231,7 @@ const SetupScreen = ({ onComplete }) => {
                 </button>
                 <button
                   onClick={() => setManualMode(true)}
-                  className="mm-btn text-xs py-1.5 px-4"
+                  className="mm-btn text-sm py-2 px-5"
                   style={{
                     background: manualMode ? 'var(--accent-muted)' : 'transparent',
                     color: manualMode ? 'var(--accent-hover)' : 'var(--text-muted)',
@@ -244,7 +244,7 @@ const SetupScreen = ({ onComplete }) => {
 
               {!manualMode ? (
                 <div
-                  className={`mm-dropzone mb-6 ${dragOver ? 'drag-over' : ''}`}
+                  className={`mm-dropzone mb-8 ${dragOver ? 'drag-over' : ''}`}
                   onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
                   onDragLeave={() => setDragOver(false)}
                   onDrop={handleDrop}
@@ -290,7 +290,7 @@ const SetupScreen = ({ onComplete }) => {
                 />
               )}
 
-              <div className="flex gap-3">
+              <div className="flex gap-4 mt-2">
                 <button
                   onClick={() => setStep('welcome')}
                   className="mm-btn mm-btn-ghost"
@@ -316,14 +316,14 @@ const SetupScreen = ({ onComplete }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="mm-glass p-8"
+              className="mm-glass p-10"
             >
               <StepIndicator />
 
-              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-2xl font-bold mb-3 text-center" style={{ color: 'var(--text-primary)' }}>
                 What role are you targeting?
               </h2>
-              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+              <p className="text-base mb-8 text-center" style={{ color: 'var(--text-secondary)' }}>
                 We'll focus questions on what matters for your target position.
               </p>
 
@@ -332,16 +332,16 @@ const SetupScreen = ({ onComplete }) => {
                 value={jobDescription}
                 onChange={(e) => setJobDescription(e.target.value)}
                 placeholder="e.g. Senior React Developer"
-                className="mm-input mb-4"
+                className="mm-input mb-5"
               />
 
               {/* Role suggestions */}
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="flex flex-wrap gap-2.5 mb-10 justify-center">
                 {ROLE_SUGGESTIONS.map((role) => (
                   <button
                     key={role}
                     onClick={() => setJobDescription(role)}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
+                    className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                     style={{
                       background: jobDescription === role ? 'var(--accent-muted)' : 'var(--bg-elevated)',
                       color: jobDescription === role ? 'var(--accent-hover)' : 'var(--text-muted)',
@@ -353,7 +353,7 @@ const SetupScreen = ({ onComplete }) => {
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-4 mt-2">
                 <button
                   onClick={() => setStep('resume')}
                   className="mm-btn mm-btn-ghost"
