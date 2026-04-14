@@ -17,7 +17,7 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
         borderBottom: '1px solid var(--border)',
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+      <div className="max-w-6xl mx-auto px-6 h-18 flex justify-between items-center" style={{ height: '72px' }}>
         
         {/* Logo */}
         <motion.div
@@ -29,13 +29,13 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
           <img
             src="/Logo.png"
             alt="MockMate"
-            className="h-9 w-auto object-contain"
+            className="h-10 w-auto object-contain"
           />
         </motion.div>
 
         {/* Tab Switcher */}
         <div
-          className="flex p-1 rounded-xl gap-1"
+          className="flex p-1.5 rounded-xl gap-1.5"
           style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)' }}
         >
           {tabs.map((tab) => (
@@ -46,7 +46,7 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
                 setActiveMode(tab.id);
               }}
               disabled={isGenerating}
-              className="relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              className="relative px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
               style={{
                 color: activeMode === tab.id ? 'white' : 'var(--text-muted)',
                 background: activeMode === tab.id ? 'var(--accent)' : 'transparent',
@@ -55,8 +55,8 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
                 opacity: isGenerating ? 0.5 : 1,
               }}
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <span className="text-xs">{tab.icon}</span>
+              <span className="relative z-10 flex items-center gap-2.5">
+                <span className="text-sm">{tab.icon}</span>
                 {tab.label}
               </span>
             </button>
