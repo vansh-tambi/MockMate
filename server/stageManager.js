@@ -1,6 +1,6 @@
 /**
  * Stage Manager for MockMate Interview System
- * Handles stage progression and question filtering
+ * Handles stage progression, question filtering, and Fisher-Yates shuffle
  */
 
 const fs = require('fs');
@@ -11,6 +11,27 @@ const {
   QUESTIONS_PER_STAGE,
   STAGE_DESCRIPTIONS
 } = require("./stageConfig");
+
+/**
+ * Fisher-Yates (Knuth) shuffle — O(n) in-place shuffle
+ * Guarantees uniform random permutation
+ * @param {Array} array - Array to shuffle (mutates in place)
+ * @returns {Array} The shuffled array
+ */
+function fisherYatesShuffle(array) {
+  const arr = [...array]; // don't mutate original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Per-session shuffled queues — keyed by stage name
+// This ensures each stage's questions are shuffled once per server restart
+// and consumed in order (no repeats until pool exhausted)
+const shuffledQueues = {};
+const queuePositions = {};
 
 // Load role domain mappings
 let roleDomains = {};
@@ -149,27 +170,24 @@ function getUnusedQuestion(questions, askedQuestionIds = []) {
   }
 
   // Filter to only unused questions
-  // Support both ID matching and text matching (for backward compatibility)
   const unused = questions.filter(q => {
     const questionId = q.id || q.question;
     const questionText = q.question || q.text;
-    
-    // Check if this question has been asked by ID or by text
     const byId = !askedQuestionIds.includes(questionId);
     const byText = !askedQuestionIds.includes(questionText);
-    
-    // Only consider it unused if both ID and text haven't been asked
     return byId && byText;
   });
 
   if (unused.length === 0) {
-    console.warn("   ⚠️  All questions in pool have been asked, recycling pool");
-    // Fallback: return random from full pool
-    return questions[Math.floor(Math.random() * questions.length)];
+    console.warn("   ⚠️  All questions in pool have been asked, reshuffling pool");
+    // Reshuffle the full pool and pick from it
+    const reshuffled = fisherYatesShuffle(questions);
+    return reshuffled[0];
   }
 
-  // Select random from unused pool
-  return unused[Math.floor(Math.random() * unused.length)];
+  // Use Fisher-Yates shuffle for uniform random selection
+  const shuffled = fisherYatesShuffle(unused);
+  return shuffled[0];
 }
 
 /**
@@ -387,19 +405,32 @@ function getAllowedDifficulty(level = "mid") {
  * @param {string} level - Experience level (intern, fresher, junior, mid, senior)
  * @returns {Array} Filtered questions within allowed difficulty range
  */
-function filterByDifficulty(questions, level = "mid") {
+function filterByDifficulty(questions, level = "mid", questionIndex = 0) {
   if (!Array.isArray(questions) || questions.length === 0) {
     return questions;
   }
 
-  const { min, max } = getAllowedDifficulty(level);
-  console.log(`   📊 Difficulty filter: Level "${level}" → Difficulty ${min}-${max}`);
+  let { min, max } = getAllowedDifficulty(level);
+  
+  // Difficulty ramping within technical stage (12 questions: Q9-Q20)
+  // First 4 tech questions: easier, middle 4: medium, last 4: harder
+  const techStart = 9;
+  const techEnd = 20;
+  if (questionIndex >= techStart && questionIndex <= techEnd) {
+    const techProgress = (questionIndex - techStart) / (techEnd - techStart);
+    if (techProgress < 0.33) {
+      // First third: skew easier
+      max = Math.min(max, 3);
+    } else if (techProgress > 0.66) {
+      // Last third: skew harder
+      min = Math.max(min, 3);
+    }
+  }
+  
+  console.log(`   📊 Difficulty filter: Level "${level}" Q${questionIndex} → Difficulty ${min}-${max}`);
 
   const filtered = questions.filter(q => {
-    // If no difficulty field, include the question
     if (!q.difficulty) return true;
-    
-    // Check if difficulty is within allowed range
     return q.difficulty >= min && q.difficulty <= max;
   });
 
@@ -408,7 +439,6 @@ function filterByDifficulty(questions, level = "mid") {
     return filtered;
   }
 
-  // Fallback: if no questions match, return all (prevents empty pool)
   console.warn(`   ⚠️  No questions match difficulty ${min}-${max}, using all questions`);
   return questions;
 }
@@ -423,12 +453,9 @@ function filterByDifficulty(questions, level = "mid") {
  * @param {Array} askedQuestionIds - Already asked question IDs
  * @returns {Object|null} Selected question or null
  */
-function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", askedQuestionIds = []) {
+function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", askedQuestionIds = [], questionIndex = 0) {
   console.log(`\n🎯 Smart Question Selection:`);
-  console.log(`   Stage: ${stage}`);
-  console.log(`   Role: ${role}`);
-  console.log(`   Level: ${level}`);
-  console.log(`   Already Asked: ${askedQuestionIds.length} questions`);
+  console.log(`   Stage: ${stage} | Role: ${role} | Level: ${level} | Asked: ${askedQuestionIds.length}`);
   
   // Step 1: Get all questions for this stage
   let questions = getQuestionsForStage(stage);
@@ -439,37 +466,32 @@ function getSmartQuestion(stage, role = "any", level = "mid", resumeText = "", a
     return null;
   }
 
-  // Step 2: Filter by role (CRITICAL for system adaptation)
+  // Step 2: Filter by role
   const beforeRole = questions.length;
   questions = filterByRole(questions, role);
-  console.log(`   After role filter: ${questions.length}/${beforeRole}`);
-
   if (questions.length === 0) {
-    console.warn(`   ⚠️  No questions match role, fetching all questions for stage`);
+    console.warn(`   ⚠️  No questions match role, using all stage questions`);
     questions = getQuestionsForStage(stage);
   }
+  console.log(`   After role filter: ${questions.length}/${beforeRole}`);
 
-  // Step 3: Filter by difficulty (based on experience level)
+  // Step 3: Filter by difficulty with ramping
   const beforeDiff = questions.length;
-  questions = filterByDifficulty(questions, level);
+  questions = filterByDifficulty(questions, level, questionIndex);
   console.log(`   After difficulty filter: ${questions.length}/${beforeDiff}`);
 
-  // Step 4: Filter by resume (only for resume_based stage)
+  // Step 4: Filter by resume (for resume_based stage)
   if (stage === "resume_based" && resumeText) {
     const beforeResume = questions.length;
     questions = filterByResume(questions, resumeText);
     console.log(`   After resume filter: ${questions.length}/${beforeResume}`);
   }
 
-  // Step 5: Select unused question
-  const beforeUnused = questions.length;
+  // Step 5: Select unused question using Fisher-Yates shuffle
   const selectedQuestion = getUnusedQuestion(questions, askedQuestionIds);
-  console.log(`   After dedup filter: Found unused from ${beforeUnused} candidates`);
   
   if (selectedQuestion) {
-    console.log(`   ✅ Selected: "${selectedQuestion.question.slice(0, 60)}..."`);
-    console.log(`   📌 Difficulty: ${selectedQuestion.difficulty || "N/A"}`);
-    console.log(`   🎭 Role: ${selectedQuestion.role || "any"}`);
+    console.log(`   ✅ Selected: "${(selectedQuestion.question || '').slice(0, 60)}..."`);
   }
 
   return selectedQuestion;
@@ -486,5 +508,6 @@ module.exports = {
   getUnusedQuestion,
   getStageProgress,
   getSmartQuestion,
-  getUserDomain
+  getUserDomain,
+  fisherYatesShuffle
 };

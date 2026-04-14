@@ -1,32 +1,37 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const STEPS = [
+  { id: 'welcome', label: 'Welcome' },
+  { id: 'resume', label: 'Resume' },
+  { id: 'role', label: 'Target Role' },
+];
+
+const ROLE_SUGGESTIONS = [
+  'Frontend Developer', 'Backend Developer', 'Full Stack Developer',
+  'React Developer', 'Node.js Developer', 'Python Developer',
+  'DevOps Engineer', 'Data Scientist', 'Product Manager',
+  'Software Engineer', 'Mobile Developer', 'ML Engineer',
+];
+
 const SetupScreen = ({ onComplete }) => {
+  const [step, setStep] = useState('welcome');
   const [resume, setResume] = useState(null);
   const [manualResume, setManualResume] = useState('');
   const [manualMode, setManualMode] = useState(false);
   const [jobDescription, setJobDescription] = useState('');
   const [loading, setLoading] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
   const manualTextareaRef = useRef(null);
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.96 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.08 } }
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 18 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } }
-  };
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
-    if (manualMode && manualTextareaRef.current) {
+    if (step === 'resume' && manualMode && manualTextareaRef.current) {
       manualTextareaRef.current.focus();
     }
-  }, [manualMode]);
+  }, [step, manualMode]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     if (manualMode) {
       if (!manualResume.trim() || !jobDescription.trim()) {
         return alert("Please add your resume summary and job role.");
@@ -37,226 +42,349 @@ const SetupScreen = ({ onComplete }) => {
 
     if (!resume || !jobDescription) return alert("Required fields missing");
 
-    console.log('🚀 Starting resume upload...', {
-      fileName: resume.name,
-      fileSize: resume.size,
-      fileType: resume.type
-    });
-
     setLoading(true);
     const API_BASE = import.meta.env.VITE_API_BASE || '';
     const formData = new FormData();
     formData.append('resume', resume);
 
     try {
-      const apiUrl = `${API_BASE}/api/parse-resume`;
-      console.log('📤 Sending request to:', apiUrl);
-      
-      const res = await fetch(apiUrl, {
+      const res = await fetch(`${API_BASE}/api/parse-resume`, {
         method: 'POST',
         body: formData
       });
-      
-      console.log('📥 Response status:', res.status, res.statusText);
-      
+
       const responseData = await res.json();
-      console.log('📝 Response data:', responseData);
-      
+
       if (!res.ok) {
         throw new Error(responseData.error || 'Failed to parse resume');
       }
-      
-      console.log('✅ Resume parsed successfully:', responseData.data);
-      
-      // Pass the parsed data along with resume text
-      onComplete({ 
+
+      onComplete({
         resumeText: responseData.text || responseData.data?.summary || '',
         jobDescription,
-        parsedResume: responseData.data // Include all parsed resume data
+        parsedResume: responseData.data
       });
     } catch (error) {
-      console.error('❌ Resume parsing error:', error);
-      const errorMessage = error.message || 'Failed to parse resume';
-      const suggestion = errorMessage.includes('PDF') 
-        ? '\n\n💡 Tip: Try using the "Manual" mode to paste your resume text instead.'
-        : '';
-      alert(`Setup failed: ${errorMessage}${suggestion}`);
+      console.error('Resume parsing error:', error);
+      alert(`Setup failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file && file.type === 'application/pdf') {
+      setResume(file);
+    }
+  };
+
+  const canProceedToRole = manualMode ? manualResume.trim().length > 20 : resume !== null;
+
+  // --- Step Indicator ---
+  const StepIndicator = () => (
+    <div className="flex items-center justify-center gap-0 mb-10">
+      {STEPS.map((s, i) => (
+        <React.Fragment key={s.id}>
+          <div
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              s.id === step
+                ? 'scale-125'
+                : STEPS.indexOf(STEPS.find(st => st.id === step)) > i
+                ? ''
+                : ''
+            }`}
+            style={{
+              background: s.id === step ? 'var(--accent)' : STEPS.indexOf(STEPS.find(st => st.id === step)) > i ? 'var(--success)' : 'var(--bg-elevated)',
+              border: s.id === step ? '2px solid var(--accent)' : STEPS.indexOf(STEPS.find(st => st.id === step)) > i ? '2px solid var(--success)' : '2px solid var(--border)',
+              boxShadow: s.id === step ? '0 0 8px var(--accent-glow)' : 'none',
+            }}
+          />
+          {i < STEPS.length - 1 && (
+            <div
+              className="w-12 h-0.5 transition-all duration-300"
+              style={{
+                background: STEPS.indexOf(STEPS.find(st => st.id === step)) > i ? 'var(--success)' : 'var(--border)',
+              }}
+            />
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
-      {/* Background Blobs */}
-      <motion.div 
-        animate={{ 
-          y: [0, 30, 0],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-        style={{ backgroundColor: 'rgba(37, 99, 235, 0.2)' }}
-        className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-[100px]" 
+    <div
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      style={{ background: 'var(--bg-base)' }}
+    >
+      {/* Subtle background gradients */}
+      <div
+        className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: 'rgba(99, 102, 241, 0.08)' }}
       />
-      <motion.div 
-        animate={{ 
-          y: [0, -30, 0],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{ duration: 10, repeat: Infinity }}
-        style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}
-        className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-[100px]" 
+      <div
+        className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: 'rgba(139, 92, 246, 0.06)' }}
       />
 
-      <motion.div 
-        variants={cardVariants}
-        initial="hidden"
-        animate="visible"
-        style={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }}
-        className="relative z-10 backdrop-blur-2xl p-10 rounded-3xl border border-white/10 shadow-2xl max-w-lg w-full mx-4"
-      >
-        <motion.div
-          variants={fadeUp}
-          className="text-center mb-10"
-        >
-          <motion.h1 
-            className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-3"
-            animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Initialize
-          </motion.h1>
-          <motion.p 
-            className="text-gray-400"
-            variants={fadeUp}
-          >
-            Upload context for your AI session
-          </motion.p>
-        </motion.div>
+      <div className="relative z-10 w-full max-w-lg mx-4">
+        <AnimatePresence mode="wait">
+          {/* ===== STEP 1: WELCOME ===== */}
+          {step === 'welcome' && (
+            <motion.div
+              key="welcome"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="text-center"
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="mb-8"
+              >
+                <img
+                  src="/Logo.png"
+                  alt="MockMate"
+                  className="h-16 w-auto mx-auto mb-6 object-contain"
+                />
+              </motion.div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <motion.div
-            variants={fadeUp}
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <label className="text-sm font-bold text-gray-300 uppercase tracking-wider">Resume Input</label>
-              <div className="flex gap-2 text-xs">
-                <motion.button
-                  type="button"
-                  whileHover={{ scale: 1.03, backgroundColor: 'rgba(6, 182, 212, 0.12)' }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => setManualMode(false)}
-                  className={`px-3 py-1 rounded-full border ${manualMode ? 'border-white/10 text-gray-400' : 'border-cyan-500/50 text-cyan-300 bg-cyan-500/10'}`}
-                >PDF</motion.button>
-                <motion.button
-                  type="button"
-                  whileHover={{ scale: 1.03, backgroundColor: 'rgba(6, 182, 212, 0.12)' }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => setManualMode(true)}
-                  className={`px-3 py-1 rounded-full border ${manualMode ? 'border-cyan-500/50 text-cyan-300 bg-cyan-500/10' : 'border-white/10 text-gray-400'}`}
-                >Manual</motion.button>
+              <h1
+                className="text-4xl font-bold mb-3 tracking-tight"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                Your personal{' '}
+                <span className="mm-gradient-text">interview coach</span>
+              </h1>
+
+              <p
+                className="text-lg mb-10 max-w-md mx-auto"
+                style={{ color: 'var(--text-secondary)' }}
+              >
+                Practice with realistic interview questions, get instant feedback, and build confidence for the real thing.
+              </p>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setStep('resume')}
+                className="mm-btn mm-btn-primary mm-btn-lg"
+              >
+                Get Started
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </motion.button>
+
+              <div className="mt-12 flex items-center justify-center gap-8">
+                {[
+                  { num: '700+', label: 'Questions' },
+                  { num: '7', label: 'Stages' },
+                  { num: '35', label: 'Per Session' },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-xl font-bold mm-gradient-text">{stat.num}</div>
+                    <div className="text-xs" style={{ color: 'var(--text-muted)' }}>{stat.label}</div>
+                  </div>
+                ))}
               </div>
-            </div>
+            </motion.div>
+          )}
 
-            <AnimatePresence mode="wait">
-              {!manualMode && (
-                <motion.div
-                  key="pdf-input"
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.18, ease: 'easeOut' }}
-                  whileHover={{ borderColor: 'rgba(6, 182, 212, 0.5)', y: -1 }}
-                  className="mt-2 relative"
+          {/* ===== STEP 2: RESUME ===== */}
+          {step === 'resume' && (
+            <motion.div
+              key="resume"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="mm-glass p-8"
+            >
+              <StepIndicator />
+
+              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                Upload your resume
+              </h2>
+              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+                We'll tailor questions to your experience and skills.
+              </p>
+
+              {/* Input mode toggle */}
+              <div className="flex gap-2 mb-5">
+                <button
+                  onClick={() => setManualMode(false)}
+                  className="mm-btn text-xs py-1.5 px-4"
+                  style={{
+                    background: !manualMode ? 'var(--accent-muted)' : 'transparent',
+                    color: !manualMode ? 'var(--accent-hover)' : 'var(--text-muted)',
+                    border: !manualMode ? '1px solid var(--border-accent)' : '1px solid var(--border)',
+                  }}
                 >
-                  <input 
-                    type="file" accept=".pdf"
-                    onChange={(e) => setResume(e.target.files[0])}
-                    className="w-full bg-black/40 border border-white/10 rounded-xl p-3 text-gray-300 file:bg-cyan-500/10 file:text-cyan-400 file:border-0 file:rounded-lg file:px-4 file:py-2 cursor-pointer hover:border-cyan-500/50 transition-all"
-                  />
-                  {resume && (
-                    <motion.span 
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="absolute right-3 top-3 text-green-400 text-sm font-semibold"
-                    >
-                      ✓ {resume.name}
-                    </motion.span>
-                  )}
-                </motion.div>
-              )}
+                  PDF Upload
+                </button>
+                <button
+                  onClick={() => setManualMode(true)}
+                  className="mm-btn text-xs py-1.5 px-4"
+                  style={{
+                    background: manualMode ? 'var(--accent-muted)' : 'transparent',
+                    color: manualMode ? 'var(--accent-hover)' : 'var(--text-muted)',
+                    border: manualMode ? '1px solid var(--border-accent)' : '1px solid var(--border)',
+                  }}
+                >
+                  Paste Text
+                </button>
+              </div>
 
-              {manualMode && (
-                <motion.textarea
-                  key="manual-input"
-                  rows="5"
+              {!manualMode ? (
+                <div
+                  className={`mm-dropzone mb-6 ${dragOver ? 'drag-over' : ''}`}
+                  onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+                  onDragLeave={() => setDragOver(false)}
+                  onDrop={handleDrop}
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".pdf"
+                    onChange={(e) => setResume(e.target.files[0])}
+                    className="hidden"
+                  />
+                  {resume ? (
+                    <div>
+                      <div className="text-2xl mb-2">✓</div>
+                      <p className="font-medium" style={{ color: 'var(--success)' }}>{resume.name}</p>
+                      <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Click to change</p>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="text-3xl mb-3" style={{ color: 'var(--text-muted)' }}>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
+                          <path d="M12 16V8M12 8L9 11M12 8L15 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M20 16.7428C21.2215 15.734 22 14.2195 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <p className="font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>
+                        Drop your PDF here or click to browse
+                      </p>
+                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>PDF format, max 5MB</p>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <textarea
                   ref={manualTextareaRef}
+                  rows="6"
                   value={manualResume}
                   onChange={(e) => setManualResume(e.target.value)}
-                  placeholder="Paste or type your resume summary, key projects, and skills."
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.18, ease: 'easeOut' }}
-                  whileFocus={{ borderColor: 'rgba(6, 182, 212, 0.5)', y: -1 }}
-                  className="w-full mt-2 bg-black/40 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-colors placeholder:text-gray-600 resize-none"
+                  placeholder="Paste your resume text, key projects, skills, and experience here..."
+                  className="mm-input mb-6 resize-none"
+                  style={{ minHeight: '160px' }}
                 />
               )}
-            </AnimatePresence>
-          </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-          >
-            <label className="text-sm font-bold text-gray-300 uppercase tracking-wider">🎯 Target Role</label>
-            <motion.textarea 
-              rows="3"
-              value={jobDescription}
-              onChange={(e) => setJobDescription(e.target.value)}
-              placeholder="e.g. Senior React Developer at Tech Company"
-              whileFocus={{ borderColor: 'rgba(6, 182, 212, 0.5)' }}
-              transition={{ duration: 0.3 }}
-              className="w-full mt-2 bg-black/40 border border-white/10 rounded-xl p-3 text-white focus:border-cyan-500 outline-none transition-colors placeholder:text-gray-600 resize-none"
-            />
-          </motion.div>
-
-          <motion.button 
-            disabled={loading}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            variants={fadeUp}
-            type="submit"
-            className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-cyan-500/20 transition-all disabled:opacity-50 text-white"
-          >
-            {loading ? (
-              <motion.span
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="flex items-center justify-center gap-2"
-              >
-                <motion.span
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity }}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setStep('welcome')}
+                  className="mm-btn mm-btn-ghost"
                 >
-                  ⚙️
-                </motion.span>
-                Processing...
-              </motion.span>
-            ) : (
-              'Launch Session'
-            )}
-          </motion.button>
-        </form>
+                  Back
+                </button>
+                <button
+                  onClick={() => setStep('role')}
+                  disabled={!canProceedToRole}
+                  className="mm-btn mm-btn-primary flex-1"
+                >
+                  Continue
+                </button>
+              </div>
+            </motion.div>
+          )}
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-8 pt-8 border-t border-white/10"
-        >
-          <p className="text-xs text-gray-500 text-center">
-            💡 Tip: Use the MockMate logo to start a new session anytime
-          </p>
-        </motion.div>
-      </motion.div>
+          {/* ===== STEP 3: TARGET ROLE ===== */}
+          {step === 'role' && (
+            <motion.div
+              key="role"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="mm-glass p-8"
+            >
+              <StepIndicator />
+
+              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                What role are you targeting?
+              </h2>
+              <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+                We'll focus questions on what matters for your target position.
+              </p>
+
+              <input
+                type="text"
+                value={jobDescription}
+                onChange={(e) => setJobDescription(e.target.value)}
+                placeholder="e.g. Senior React Developer"
+                className="mm-input mb-4"
+              />
+
+              {/* Role suggestions */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {ROLE_SUGGESTIONS.map((role) => (
+                  <button
+                    key={role}
+                    onClick={() => setJobDescription(role)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
+                    style={{
+                      background: jobDescription === role ? 'var(--accent-muted)' : 'var(--bg-elevated)',
+                      color: jobDescription === role ? 'var(--accent-hover)' : 'var(--text-muted)',
+                      border: jobDescription === role ? '1px solid var(--border-accent)' : '1px solid var(--border)',
+                    }}
+                  >
+                    {role}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setStep('resume')}
+                  className="mm-btn mm-btn-ghost"
+                >
+                  Back
+                </button>
+                <motion.button
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  onClick={handleSubmit}
+                  disabled={loading || !jobDescription.trim()}
+                  className="mm-btn mm-btn-primary mm-btn-lg flex-1"
+                >
+                  {loading ? (
+                    <span className="flex items-center gap-2">
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                      />
+                      Processing...
+                    </span>
+                  ) : (
+                    'Start Interview Session'
+                  )}
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

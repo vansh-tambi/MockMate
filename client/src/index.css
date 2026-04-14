@@ -1,68 +1,128 @@
-/* Custom Scrollbar Styling */
+/* ========== MockMate Design System ========== */
 
-/* Chrome, Edge, Safari */
+/* --- CSS Custom Properties --- */
+:root {
+  /* Backgrounds */
+  --bg-base: #0a0a0f;
+  --bg-card: #111118;
+  --bg-elevated: #1a1a24;
+  --bg-hover: #22222e;
+  --bg-input: #0d0d14;
+
+  /* Accent palette */
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-muted: rgba(99, 102, 241, 0.15);
+  --accent-glow: rgba(99, 102, 241, 0.25);
+  --secondary: #8b5cf6;
+  --secondary-muted: rgba(139, 92, 246, 0.12);
+
+  /* Text */
+  --text-primary: #f1f1f4;
+  --text-secondary: #a1a1aa;
+  --text-muted: #63637a;
+  --text-inverse: #0a0a0f;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(99, 102, 241, 0.3);
+
+  /* Status colors */
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --error: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --info: #3b82f6;
+  --info-bg: rgba(59, 130, 246, 0.1);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-accent: 0 4px 24px rgba(99, 102, 241, 0.15);
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* --- Base Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* --- Scrollbar (Subtle) --- */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d9ff, #00b8cc);
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  box-shadow: inset 0 0 8px rgba(0, 217, 255, 0.3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--text-muted);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00ffff, #00e6ff);
-  background-clip: padding-box;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), inset 0 0 8px rgba(0, 217, 255, 0.5);
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, #00ffff, #00d9ff);
-  background-clip: padding-box;
-  box-shadow: 0 0 16px rgba(0, 255, 255, 0.8);
+  background: var(--text-secondary);
 }
 
 /* Firefox */
 * {
-  scrollbar-color: #00d9ff rgba(0, 0, 0, 0.05);
   scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
 }
 
-*:hover {
-  scrollbar-color: #00ffff rgba(0, 0, 0, 0.05);
+/* --- Smooth transitions for interactive elements --- */
+button, a, input, textarea, select, [role="button"] {
+  transition: all 0.2s ease;
 }
 
-/* Selection styling */
-::selection {
-  background-color: #00d9ff;
-  color: #000;
+/* --- Focus visible --- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
-/* Smooth transitions for all interactive elements */
-button,
-a,
-input,
-textarea,
-select,
-[role="button"] {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Reduce motion for accessibility */
+/* --- Accessibility: Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import GuidedMode from './components/GuidedMode';
 import TestMode from './components/TestMode';
@@ -10,21 +9,19 @@ function App() {
   const [activeMode, setActiveMode] = useState('guided');
   const [isGenerating, setIsGenerating] = useState(false);
   const hasShownAlertRef = useRef(false);
-  
-  // Initialize from LocalStorage if available, otherwise default
+
   const [userData, setUserData] = useState(() => {
     const saved = localStorage.getItem('mockMateUser');
     return saved ? JSON.parse(saved) : { resumeText: null, jobDescription: '', isReady: false };
   });
 
-  // Session state with STAGED progression (5 stages, 22 total questions)
   const [sessionState, setSessionState] = useState(() => {
     const saved = localStorage.getItem('mockMateSession');
     return saved ? JSON.parse(saved) : {
       sessionId: null,
       role: null,
-      currentStage: 'introduction', // Start with Introduction stage
-      questionIndex: 0, // 0 = first question
+      currentStage: 'introduction',
+      questionIndex: 0,
       sequence: ['introduction', 'warmup', 'resume_technical', 'real_life', 'hr_closing'],
       questionSequence: [],
       currentQuestionCache: null,
@@ -36,25 +33,22 @@ function App() {
       resumeAnalysis: null,
       stageProgress: {
         current: 0,
-        total: 22,
-        stageQuestionsRemaining: 3
+        total: 35,
+        stageQuestionsRemaining: 2
       }
     };
   });
 
-  // Lift questions state to persist across tab switches
   const [qaPairs, setQaPairs] = useState([]);
 
-  // Show alert on page load if session exists
   useEffect(() => {
     if (hasShownAlertRef.current) return;
-    
     const saved = localStorage.getItem('mockMateUser');
     if (saved) {
       const data = JSON.parse(saved);
       if (data.isReady) {
         hasShownAlertRef.current = true;
-        const continueSession = window.confirm('🔄 Start a new session? Your current data will be cleared.');
+        const continueSession = window.confirm('Start a new session? Your current data will be cleared.');
         if (continueSession) {
           setUserData({ resumeText: null, jobDescription: '', isReady: false });
           setQaPairs([]);
@@ -64,7 +58,6 @@ function App() {
     }
   }, []);
 
-  // Save to LocalStorage whenever userData or sessionState changes
   useEffect(() => {
     localStorage.setItem('mockMateUser', JSON.stringify(userData));
   }, [userData]);
@@ -74,18 +67,14 @@ function App() {
   }, [sessionState]);
 
   const handleSetupComplete = (data) => {
-    console.log('Setup complete with data:', data);
-    
     setUserData({
       resumeText: data.resumeText,
       jobDescription: data.jobDescription,
       isReady: true
     });
-    
-    // Reset questions and session when starting new session
+
     setQaPairs([]);
-    
-    // Initialize session state with parsed resume data
+
     const resumeAnalysis = data.parsedResume ? {
       skills: data.parsedResume.skills || [],
       totalSkills: data.parsedResume.totalSkills || 0,
@@ -95,15 +84,10 @@ function App() {
       experience: data.parsedResume.experience || [],
       education: data.parsedResume.education || []
     } : {
-      skills: [],
-      totalSkills: 0,
-      experienceLevel: 'mid-level',
-      skillsByCategory: {},
-      projects: [],
-      experience: [],
-      education: []
+      skills: [], totalSkills: 0, experienceLevel: 'mid-level',
+      skillsByCategory: {}, projects: [], experience: [], education: []
     };
-    
+
     setSessionState({
       sessionId: null,
       role: null,
@@ -122,25 +106,15 @@ function App() {
   };
 
   const handleNewSession = () => {
-    // Always show confirmation dialog when clicking logo
-    const confirmed = window.confirm('🔄 Start a new session? Your current data will be cleared.');
+    const confirmed = window.confirm('Start a new session? Your current progress will be cleared.');
     if (confirmed) {
       setUserData({ resumeText: null, jobDescription: '', isReady: false });
       setQaPairs([]);
       setSessionState({
-        sessionId: null,
-        role: null,
-        currentStage: 'warmup',
-        questionIndex: 0,
-        sequence: [],
-        questionSequence: [],
-        currentQuestionCache: null,
-        askedQuestions: [],
-        weakTopics: [],
-        strongTopics: [],
-        answers: [],
-        evaluation: [],
-        resumeAnalysis: null
+        sessionId: null, role: null, currentStage: 'warmup', questionIndex: 0,
+        sequence: [], questionSequence: [], currentQuestionCache: null,
+        askedQuestions: [], weakTopics: [], strongTopics: [], answers: [],
+        evaluation: [], resumeAnalysis: null
       });
       localStorage.removeItem('mockMateUser');
       localStorage.removeItem('mockMateSession');
@@ -148,28 +122,33 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-black">
-      
+    <div style={{ minHeight: '100vh', background: 'var(--bg-base)', color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>
+
       {!userData.isReady ? (
         <SetupScreen onComplete={handleSetupComplete} />
       ) : (
         <>
-          <Navbar activeMode={activeMode} setActiveMode={setActiveMode} onNewSession={handleNewSession} isGenerating={isGenerating} />
-          
-          <main className="max-w-7xl mx-auto p-6 md:p-8">
+          <Navbar
+            activeMode={activeMode}
+            setActiveMode={setActiveMode}
+            onNewSession={handleNewSession}
+            isGenerating={isGenerating}
+          />
+
+          <main className="max-w-6xl mx-auto px-4 md:px-6">
             {activeMode === 'guided' ? (
-              <GuidedMode 
-                userData={userData} 
-                qaPairs={qaPairs} 
-                setQaPairs={setQaPairs} 
+              <GuidedMode
+                userData={userData}
+                qaPairs={qaPairs}
+                setQaPairs={setQaPairs}
                 setIsGenerating={setIsGenerating}
                 sessionState={sessionState}
                 setSessionState={setSessionState}
               />
             ) : (
-              <TestMode 
-                userData={userData} 
-                qaPairs={qaPairs} 
+              <TestMode
+                userData={userData}
+                qaPairs={qaPairs}
                 setQaPairs={setQaPairs}
                 sessionState={sessionState}
                 setSessionState={setSessionState}
@@ -178,7 +157,6 @@ function App() {
           </main>
         </>
       )}
-
     </div>
   );
 }

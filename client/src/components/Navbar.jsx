@@ -3,60 +3,63 @@ import { motion } from 'framer-motion';
 
 const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
   const tabs = [
-    { id: 'guided', label: 'Guided Study' },
-    { id: 'test', label: 'Mock Interview' },
+    { id: 'guided', label: 'Practice Mode', icon: '📖' },
+    { id: 'test', label: 'Interview Mode', icon: '🎤' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: 'rgba(10, 10, 15, 0.85)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: '1px solid var(--border)',
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
         
         {/* Logo */}
-        <motion.div 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-3 cursor-pointer"
+        <motion.div
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-3 cursor-pointer select-none"
           onClick={onNewSession}
+          title="Start new session"
         >
-<motion.img
-  src="/Logo.png" // Ensure Logo.png is in your 'public' folder
-  alt="MockMate Logo"
-  // Adjust 'h-12' to make it bigger or smaller to fit your navbar height
-  className="h-12 w-auto object-contain"
-  whileHover={{ scale: 1.05 }}
-  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-/>
+          <img
+            src="/Logo.png"
+            alt="MockMate"
+            className="h-9 w-auto object-contain"
+          />
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-sm">
+        {/* Tab Switcher */}
+        <div
+          className="flex p-1 rounded-xl gap-1"
+          style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)' }}
+        >
           {tabs.map((tab) => (
-            <motion.button
+            <button
               key={tab.id}
               onClick={() => {
-                if (isGenerating) return; // block tab switch during generation
+                if (isGenerating) return;
                 setActiveMode(tab.id);
               }}
               disabled={isGenerating}
-              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors z-10 ${isGenerating ? 'pointer-events-none cursor-not-allowed opacity-60' : ''}`}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              style={{
+                color: activeMode === tab.id ? 'white' : 'var(--text-muted)',
+                background: activeMode === tab.id ? 'var(--accent)' : 'transparent',
+                boxShadow: activeMode === tab.id ? 'var(--shadow-accent)' : 'none',
+                cursor: isGenerating ? 'not-allowed' : 'pointer',
+                opacity: isGenerating ? 0.5 : 1,
+              }}
             >
-              {activeMode === tab.id && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full shadow-lg shadow-cyan-500/30"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              <motion.span 
-                className={`relative z-10 transition-colors`}
-                animate={{ color: activeMode === tab.id ? '#ffffff' : '#9ca3af' }}
-                whileHover={{ color: '#d1d5db' }}
-              >
+              <span className="relative z-10 flex items-center gap-2">
+                <span className="text-xs">{tab.icon}</span>
                 {tab.label}
-              </motion.span>
-            </motion.button>
+              </span>
+            </button>
           ))}
         </div>
       </div>
