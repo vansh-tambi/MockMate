@@ -88,10 +88,24 @@ class SessionResponse(BaseModel):
     statistics: dict
     current_phase: str
 
+class GuidanceRequest(BaseModel):
+    question: str
+    stage: Optional[str] = "technical"
+    resume_summary: Optional[str] = ""
+    job_description: Optional[str] = ""
+    skills: Optional[List[str]] = None
+    experience_level: Optional[str] = "mid-level"
+
+class GuidanceResponse(BaseModel):
+    direction: str
+    answer: str
+    tips: List[str]
+    source: str
+
 # Ollama config
 OLLAMA_BASE_URL = "http://localhost:11434"
 MODEL_NAME = "phi3"
-TIMEOUT = 60.0
+TIMEOUT = 120.0
 
 # Session storage (in-memory for now, can move to Redis/DB later)
 active_sessions = {}
@@ -229,6 +243,116 @@ async def get_interview_modes():
     return {
         "modes": INTERVIEW_MODE_CONFIG
     }
+
+@app.post("/api/guidance", response_model=GuidanceResponse)
+async def generate_guidance(req: GuidanceRequest):
+    """Generate guidance using local LLM first, Gemini as backup"""
+
+    default_direction = "Answer clearly and concisely, relating to your experience."
+    default_answer = "Provide a brief, structured response with specific examples when relevant."
+    default_tips = ["Be specific with examples", "Keep it concise"]
+
+    skills_text = ", ".join(req.skills[:8]) if req.skills else "Not specified"
+    prompt = f"""You are an interview coach preparing a candidate.
+
+Stage: {req.stage.replace('_', ' ').upper() if req.stage else 'TECHNICAL'}
+
+Candidate Profile:
+- Skills: {skills_text}
+- Experience Level: {req.experience_level or 'mid-level'}
+- Target Role: {req.job_description[:200] if req.job_description else 'Not specified'}
+
+Resume Summary:
+{(req.resume_summary or '')[:500]}
+
+Interview Question:
+\"{req.question}\"
+
+Return ONLY valid JSON with this exact structure:
+{{
+  "direction": "One-line coaching direction",
+  "answer": "Sample professional answer in 3-4 sentences",
+  "tips": ["tip 1", "tip 2", "tip 3"]
+}}"""
+
+    raw_output = None
+    source = "default"
+
+    try:
+        async with httpx.AsyncClient(timeout=TIMEOUT) as client:
+            response = await client.post(
+                f"{OLLAMA_BASE_URL}/api/generate",
+                json={
+                    "model": MODEL_NAME,
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {
+                        "temperature": 0.4,
+                        "top_p": 0.9,
+                    }
+                }
+            )
+
+            if response.status_code != 200:
+                raise Exception(f"Ollama returned status {response.status_code}")
+
+            result = response.json()
+            raw_output = result.get("response", "").strip()
+            source = "ollama"
+    except Exception as ollama_error:
+        print(f"❌ Ollama guidance failed: {ollama_error}")
+
+        if GEMINI_AVAILABLE:
+            try:
+                model = genai.GenerativeModel('gemini-pro')
+                response = model.generate_content(prompt)
+                raw_output = response.text.strip()
+                source = "gemini"
+            except Exception as gemini_error:
+                print(f"❌ Gemini guidance failed: {gemini_error}")
+
+    if not raw_output:
+        return GuidanceResponse(
+            direction=default_direction,
+            answer=default_answer,
+            tips=default_tips,
+            source=source
+        )
+
+    cleaned = raw_output.replace("```json", "").replace("```", "").strip()
+    parsed = None
+
+    try:
+        parsed = json.loads(cleaned)
+    except Exception:
+        match = re.search(r"\{[\s\S]*\}", cleaned)
+        if match:
+            try:
+                parsed = json.loads(match.group(0))
+            except Exception:
+                parsed = None
+
+    if not isinstance(parsed, dict):
+        return GuidanceResponse(
+            direction=default_direction,
+            answer=default_answer,
+            tips=default_tips,
+            source=source
+        )
+
+    direction = str(parsed.get("direction", default_direction))
+    answer = str(parsed.get("answer", default_answer))
+    tips = parsed.get("tips", default_tips)
+    if not isinstance(tips, list) or not tips:
+        tips = default_tips
+    tips = [str(t) for t in tips[:3]]
+
+    return GuidanceResponse(
+        direction=direction,
+        answer=answer,
+        tips=tips,
+        source=source
+    )
 
 @app.post("/evaluate", response_model=EvaluateResponse)
 async def evaluate(req: EvaluateRequest):

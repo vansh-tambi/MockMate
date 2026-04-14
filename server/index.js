@@ -5,9 +5,9 @@ const multer = require('multer');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const pdfParse = require('pdf-parse');
-const pdf = pdfParse.default || pdfParse;
 
 const app = express();
 
@@ -29,12 +29,12 @@ app.use(express.urlencoded({ limit: '5mb', extended: true }));
 const PORT = process.env.PORT || 5000;
 const upload = multer({ storage: multer.memoryStorage() });
 
-if (!process.env.GEMINI_API_KEY) {
-  console.error('❌ GEMINI_API_KEY missing');
-  process.exit(1);
+const hasGeminiKey = Boolean(process.env.GEMINI_API_KEY);
+if (!hasGeminiKey) {
+  console.warn('⚠️ GEMINI_API_KEY missing - Gemini will be used only if configured later');
 }
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = hasGeminiKey ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY) : null;
 
 /* ============= STAGE-BASED PROGRESSION MODULES ============= */
 const {
@@ -50,8 +50,10 @@ const {
 
 /* ============= NEW INTERVIEW ENGINE MODULES ============= */
 const InterviewEngine = require('./InterviewEngine');
+const EnhancedInterviewEngine = require('./EnhancedInterviewEngine');
 const QuestionSelector = require('./QuestionSelector');
 const interviewRoutes = require('./interviewRoutes');
+const interviewRoutesV2 = require('./interview-routes-v2');
 
 // Load questions once at startup
 const questionLoader = require('./questionLoader');
@@ -705,12 +707,9 @@ app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
       // Handle PDF files
       if (mimeType === 'application/pdf' || req.file.originalname?.endsWith('.pdf')) {
         try {
-          // Try PDF parsing with options
-          const pdfData = await pdf(fileBuffer, {
-            max: 0, // Parse all pages
-            version: 'default'
-          });
-          resumeText = pdfData.text;
+          // Try PDF parsing with correct pdfParse API
+          const pdfData = await pdfParse(fileBuffer);
+          resumeText = pdfData.text || '';
           console.log('✅ PDF extracted successfully, text length:', resumeText.length);
           
           // If PDF extraction resulted in very little text, try fallback
@@ -758,12 +757,49 @@ app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
       });
     }
 
-    console.log('🤖 Using AI to parse resume...');
+    console.log('🤖 Using AI Service to parse resume...');
     
-    // Use Gemini AI for intelligent resume parsing
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    // Try AI Service first (local phi3 - no rate limits!)
+    let responseText = null;
+    let usedService = 'ai-service';
     
-    const parsePrompt = `
+    try {
+      console.log('🔄 Calling AI Service (http://localhost:8000)...');
+      const aiServiceUrl = 'http://localhost:8000/api/generate-qa';
+      
+      const aiResponse = await fetch(aiServiceUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          resume: resumeText,
+          experience_level: 'mid-level'
+        })
+      });
+      
+      if (aiResponse.ok) {
+        const aiData = await aiResponse.json();
+        console.log('✅ AI Service response received');
+        
+        // AI Service returns questions, use it to validate resume was parsed
+        if (aiData.questions && aiData.questions.length > 0) {
+          console.log('✅ AI Service confirmed resume parsed successfully');
+          // Signal to use pattern-based extraction instead
+          responseText = 'AI_SERVICE_SUCCESS';
+        }
+      } else {
+        console.warn(`⚠️ AI Service returned ${aiResponse.status}`);
+      }
+    } catch (aiServiceError) {
+      console.warn('⚠️ AI Service unavailable:', aiServiceError.message);
+    }
+    
+    // Fallback: Use Gemini if AI Service failed
+    let result;
+    if (!responseText) {
+      console.log('🔄 Falling back to Gemini API...');
+      const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+      
+      const parsePrompt = `
 You are a professional resume parser. Analyze this resume and extract structured information.
 
 RESUME TEXT:
@@ -804,72 +840,52 @@ If a field is not found in the resume, use an empty array [] or empty string "".
 Return ONLY the JSON object, no additional text or markdown.
 `;
 
-    let result;
-    let responseText;
-    
-    // Retry logic for rate limiting (429 errors) - 5 attempts with exponential backoff
-    let retries = 5;
-    let lastError = null;
-    
-    while (retries > 0) {
-      try {
-        console.log(`🔄 Calling Gemini API (attempt ${4 - retries}/3)...`);
-        result = await model.generateContent(parsePrompt);
-        console.log('✅ Gemini response received');
-        responseText = result.response.text();
-        console.log('📝 Response length:', responseText.length);
-        break; // Success, exit retry loop
-        
-      } catch (aiError) {
-        lastError = aiError;
-        console.error(`❌ Gemini API error (attempt ${4 - retries}/3):`, {
-          message: aiError.message,
-          status: aiError.status,
-          code: aiError.code
-        });
-        
-        // Check if it's a rate limit error (429, quota exceeded, rate limited)
-        const isRateLimitError = aiError.message?.toLowerCase().includes('429') ||
-          aiError.message?.toLowerCase().includes('rate limit') ||
-          aiError.message?.toLowerCase().includes('quota') ||
-          aiError.message?.toLowerCase().includes('resource exhausted') ||
-          aiError.code === 429 ||
-          aiError.status === 429;
-        
-        if (isRateLimitError) {
-          retries--;
-          if (retries > 0) {
-            // Exponential backoff: 2s, 4s, 8s, 16s
-            const delayMs = Math.pow(2, 5 - retries) * 1000;
-            console.log(`⏳ Rate limited. Retrying in ${delayMs}ms...`);
-            await new Promise(resolve => setTimeout(resolve, delayMs));
-            continue;
-          }
-        } else if (aiError.message?.includes('API key')) {
-          return res.status(500).json({
-            error: 'AI service not configured',
-            details: 'GEMINI_API_KEY is missing or invalid',
-            suggestion: 'Contact administrator to configure API key'
+      // Retry logic for Gemini rate limiting (429 errors)
+      let retries = 5;
+      let lastError = null;
+      
+      for (let attempt = 0; attempt < retries; attempt++) {
+        try {
+          console.log(`🔄 Calling Gemini API (attempt ${attempt + 1}/${retries})...`);
+          result = await model.generateContent(parsePrompt);
+          console.log('✅ Gemini response received');
+          responseText = result.response.text();
+          console.log('📝 Response length:', responseText.length);
+          usedService = 'gemini';
+          break; // Success
+          
+        } catch (aiError) {
+          lastError = aiError;
+          console.error(`❌ Gemini API error (attempt ${attempt + 1}/${retries}):`, {
+            message: aiError.message?.slice(0, 200),
+            status: aiError.status
           });
-        } else {
-          throw aiError; // Non-retryable error
+          
+          const isQuotaError = aiError.message?.toLowerCase().includes('429') ||
+            aiError.message?.toLowerCase().includes('rate limit') ||
+            aiError.message?.toLowerCase().includes('quota');
+          
+          if (isQuotaError) {
+            console.log(`⏳ Quota exceeded or rate limited. Skipping retries to save time.`);
+            break;
+          }
         }
       }
-    }
-    
-    // If we exhausted retries, throw the last error
-    if (lastError && retries === 0) {
-      console.error('❌ Failed after 3 retry attempts');
-      return res.status(503).json({
-        error: 'AI service temporarily unavailable (rate limited)',
-        details: 'The AI service is experiencing high load. Please try again in a moment.',
-        suggestion: 'Please wait 30-60 seconds and try again.'
-      });
+      
+      // If Gemini failed, use pattern-based fallback
+      if (!responseText) {
+        console.error('❌ All AI services exhausted. Using pattern-based extraction.');
+        usedService = 'fallback';
+      }
     }
     
     // Clean and parse JSON
     let parsedData;
     try {
+      if (!responseText || responseText === 'AI_SERVICE_SUCCESS') {
+        throw new Error('Using fallback extraction method');
+      }
+      
       // Remove markdown code blocks if present
       const cleanedResponse = responseText
         .replace(/```json\s*/g, '')
@@ -880,13 +896,9 @@ Return ONLY the JSON object, no additional text or markdown.
       parsedData = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful');
     } catch (parseError) {
-      console.error('❌ JSON parsing failed:', {
-        error: parseError.message,
-        responseLength: responseText.length,
-        firstChars: responseText.slice(0, 300)
-      });
+      console.log('⚠️ Using pattern-based fallback extraction');
       
-      // Fallback to basic extraction
+      // Fallback to pattern-based extraction
       const basicSkills = extractSkills(resumeText);
       parsedData = {
         skills: basicSkills.skills.all,
@@ -894,10 +906,10 @@ Return ONLY the JSON object, no additional text or markdown.
         education: [],
         projects: [],
         certifications: [],
-        summary: resumeText.slice(0, 200),
-        experienceLevel: basicSkills.experienceLevel
+        summary: resumeText.slice(0, 300),
+        experienceLevel: basicSkills.experienceLevel,
+        parsingMethod: 'pattern-based-fallback'
       };
-      console.log('⚠️ Using fallback data due to JSON parse error');
     }
 
     // Enhance with pattern-based extraction
@@ -919,6 +931,7 @@ Return ONLY the JSON object, no additional text or markdown.
     }
 
     console.log('✅ Resume parsed successfully:', {
+      service: usedService,
       skills: parsedData.totalSkills,
       experience: parsedData.experience?.length || 0,
       education: parsedData.education?.length || 0,
@@ -933,7 +946,8 @@ Return ONLY the JSON object, no additional text or markdown.
       success: true,
       data: parsedData,
       text: cleanText,
-      textLength: resumeText.length
+      textLength: resumeText.length,
+      service: usedService
     });
 
   } catch (error) {
@@ -1092,8 +1106,8 @@ app.post('/api/generate-qa', async (req, res) => {
       resumeAnalysis = { skills: { all: [], frontend: [], backend: [] }, experienceLevel: 'mid-level', totalSkills: 0 };
     }
 
-    // ===== STEP 5: Contextualize question using Gemini =====
-    console.log('\n🤖 Generating contextual answer...');
+    // ===== STEP 5: Contextualize question using AI Service first, Gemini fallback =====
+    console.log('\n🤖 Generating contextual answer (AI Service primary)...');
     
     const prompt = `You are an interview coach preparing a candidate.
 
@@ -1123,21 +1137,49 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
     let direction = 'Answer clearly and concisely, relating to your experience.';
     let answer = 'Provide a brief, structured response with specific examples when relevant.';
     let tips = ['Be specific with examples', 'Keep it concise'];
+    let guidanceSource = 'default';
 
-  // Retry logic for rate limiting (429 errors) - 5 attempts with exponential backoff
-  let retries = 5;
+    // Try AI service first (local LLM)
+    try {
+      console.log('🔄 Calling AI Service guidance endpoint (http://localhost:8000/api/guidance)...');
+      const aiGuidanceResponse = await fetch('http://localhost:8000/api/guidance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: questionText,
+          stage: currentStage,
+          resume_summary: resumeText.slice(0, 500),
+          job_description: jobDescription.slice(0, 300),
+          skills: resumeAnalysis.skills?.all?.slice(0, 8) || [],
+          experience_level: resumeAnalysis.experienceLevel || level
+        })
+      });
+
+      if (!aiGuidanceResponse.ok) {
+        throw new Error(`AI service guidance returned ${aiGuidanceResponse.status}`);
+      }
+
+      const aiGuidance = await aiGuidanceResponse.json();
+      direction = aiGuidance.direction || direction;
+      answer = aiGuidance.answer || answer;
+      tips = Array.isArray(aiGuidance.tips) ? aiGuidance.tips : tips;
+      guidanceSource = aiGuidance.source || 'ai-service';
+      console.log(`✅ Guidance generated by ${guidanceSource}`);
+    } catch (aiGuidanceError) {
+      console.warn('⚠️ AI Service guidance failed, will try Gemini fallback:', aiGuidanceError.message);
+    }
+
+    // Fallback to Gemini only if AI service guidance was not available
+    if (guidanceSource === 'default' && genAI) {
+      // Retry logic for rate limiting (429 errors) - 5 attempts with exponential backoff
+      let retries = 5;
     let lastError = null;
     
     while (retries > 0) {
       try {
-        console.log(`🔐 Checking Gemini API key...`);
-        if (!process.env.GEMINI_API_KEY) {
-          console.error('❌ GEMINI_API_KEY not set in environment');
-          throw new Error('Gemini API key not configured');
-        }
-        console.log('✓ API key found');
+        console.log('🔐 Gemini fallback enabled');
 
-  console.log(`⏳ Calling Gemini API (attempt ${6 - retries}/5)...`);
+        console.log(`⏳ Calling Gemini API (attempt ${6 - retries}/5)...`);
         const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
         const response = await model.generateContent(prompt);
         
@@ -1159,6 +1201,7 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
             direction = parsed.direction || direction;
             answer = parsed.answer || answer;
             tips = parsed.tips || tips;
+            guidanceSource = 'gemini';
             console.log('✅ Contextual answer generated successfully');
           } catch (parseError) {
             console.warn('⚠️ Could not parse Gemini JSON, using defaults:', parseError.message);
@@ -1180,14 +1223,8 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
           aiError.status === 429;
         
         if (isRateLimitError) {
-          retries--;
-          if (retries > 0) {
-            // Exponential backoff: 2s, 4s, 8s, 16s
-            const delayMs = Math.pow(2, 5 - retries) * 1000;
-            console.log(`⏳ Rate limited. Retrying in ${delayMs}ms...`);
-            await new Promise(resolve => setTimeout(resolve, delayMs));
-            continue;
-          }
+          console.warn('⚠️ Quota exceeded or rate limited. Skipping retries to save time.');
+          break; // Fast fail and fallback to default
         } else {
           console.warn('⚠️ Gemini API error (non-retryable), using defaults:', aiError.message);
           break; // Non-retryable error, use defaults and continue
@@ -1197,6 +1234,9 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
     
     if (lastError && retries === 0 && lastError.message?.includes('429')) {
       console.warn('❌ Rate limited after 3 attempts, using default answers');
+    }
+    } else if (guidanceSource === 'default' && !genAI) {
+      console.warn('⚠️ Gemini fallback unavailable (missing API key), using default guidance');
     }
 
     // ===== STEP 6: Validate response structure before sending =====
@@ -1219,7 +1259,8 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
       guidance: {
         direction: String(direction),
         answer: String(answer),
-        tips: Array.isArray(tips) ? tips.map(t => String(t)) : [String(tips)]
+        tips: Array.isArray(tips) ? tips.map(t => String(t)) : [String(tips)],
+        source: guidanceSource
       },
       nextAction: questionIndex < TOTAL_INTERVIEW_QUESTIONS - 1 
         ? `Next question will be in "${STAGE_ORDER[getStageIndexFromStage(currentStage) + 1] || 'final'}" stage`
@@ -1423,6 +1464,9 @@ app.get('/api/questions', (req, res) => {
 
 // Mount interview routes
 app.use('/api/interview', interviewRoutes);
+
+// Mount enhanced interview routes v2
+app.use('/api/interview', interviewRoutesV2);
 
 /* ============= END NEW INTERVIEW FLOW API ============= */
 

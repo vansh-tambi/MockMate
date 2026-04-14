@@ -48,7 +48,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
 
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 45000);
+      const timer = setTimeout(() => controller.abort(), 120000);
 
       const askedQuestions = sessionState.askedQuestions || [];
 

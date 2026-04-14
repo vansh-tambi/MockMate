@@ -68,7 +68,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 45000);
+      const timer = setTimeout(() => controller.abort(), 120000);
       
       const askedQuestions = sessionState.askedQuestions || [];
       
@@ -248,7 +248,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 45000);
+      const timer = setTimeout(() => controller.abort(), 120000);
 
       const res = await fetch(`${API_BASE}/api/evaluate-answer`, {
         method: 'POST',
