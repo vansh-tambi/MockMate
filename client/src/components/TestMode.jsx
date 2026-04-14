@@ -181,14 +181,23 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
   // Initialize camera
   useEffect(() => {
+    let mediaStream = null;
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then(stream => {
+        mediaStream = stream;
         if (videoRef.current) videoRef.current.srcObject = stream;
       })
       .catch(err => {
         console.error('Camera/mic error:', err);
         setError('Unable to access camera/microphone. Please check permissions.');
       });
+
+    // Cleanup camera hardware locks immediately when switching tabs
+    return () => {
+      if (mediaStream) {
+        mediaStream.getTracks().forEach(track => track.stop());
+      }
+    };
   }, []);
 
   // Initialize speech recognition
