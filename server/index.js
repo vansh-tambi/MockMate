@@ -892,7 +892,8 @@ app.post('/api/generate-qa', async (req, res) => {
         role,
         level,
         resumeText,
-        askedQuestions
+        askedQuestions,
+        questionIndex
       );
       
       if (!selectedQuestion) {
@@ -918,15 +919,52 @@ app.post('/api/generate-qa', async (req, res) => {
 
     console.log(`❓ Selected: ${questionText.slice(0, 80)}...`);
 
-    // ===== INSTANT GUIDANCE from pre-loaded question data =====
+    // ===== RICH GUIDANCE from pre-loaded question data =====
     let direction = 'Answer clearly and concisely, relating to your experience.';
     let answer = 'Provide a brief, structured response with specific examples when relevant.';
     let tips = ['Be specific with examples', 'Keep it concise'];
+    let followUps = [];
 
+    // Use ideal_points for tips
     if (selectedQuestion.ideal_points && selectedQuestion.ideal_points.length > 0) {
       tips = selectedQuestion.ideal_points;
-      direction = 'Cover the key technical points expected for this topic.';
-      answer = `A good answer should include: ${tips[0]}. ${tips.length > 1 ? tips[1] + '.' : ''}`;
+    }
+
+    // Build direction from evaluation_rubric
+    if (selectedQuestion.evaluation_rubric) {
+      const rubricKeys = Object.keys(selectedQuestion.evaluation_rubric);
+      const rubricPoints = rubricKeys.map(k => {
+        const val = selectedQuestion.evaluation_rubric[k];
+        return typeof val === 'object' ? val.description : val;
+      }).filter(Boolean);
+      if (rubricPoints.length > 0) {
+        direction = `Focus on: ${rubricPoints.slice(0, 3).join('; ')}.`;
+      }
+    }
+
+    // Build sample answer from ideal_points
+    if (tips.length > 1) {
+      answer = `A strong answer should cover: ${tips.slice(0, 4).join(', ')}.`;
+    }
+
+    // Include follow-ups for bonus practice
+    if (selectedQuestion.follow_ups && selectedQuestion.follow_ups.length > 0) {
+      followUps = selectedQuestion.follow_ups;
+    }
+
+    // Stage-specific direction adjustments
+    const stageDirections = {
+      introduction: 'Keep your answer warm and conversational. Show personality while staying professional.',
+      warmup: 'This is a warm-up question. Be relaxed but thoughtful in your response.',
+      resume_based: 'Connect your answer to specific experiences from your resume.',
+      technical: 'Demonstrate technical depth. Use precise terminology and explain your reasoning.',
+      behavioral: 'Use the STAR method (Situation, Task, Action, Result) to structure your answer.',
+      real_world: 'Think practically. Show how you handle real-world challenges and ambiguity.',
+      hr_closing: 'Be honest and professional. Show genuine interest and thoughtful career planning.'
+    };
+
+    if (stageDirections[currentStage] && !selectedQuestion.evaluation_rubric) {
+      direction = stageDirections[currentStage];
     }
 
     // ===== Build and send response instantly =====
@@ -948,6 +986,7 @@ app.post('/api/generate-qa', async (req, res) => {
         direction: String(direction),
         answer: String(answer),
         tips: Array.isArray(tips) ? tips.map(t => String(t)) : [String(tips)],
+        followUps: followUps.map(f => String(f)),
         source: 'static-fast-load'
       },
       nextAction: questionIndex < TOTAL_INTERVIEW_QUESTIONS - 1 
@@ -1053,6 +1092,18 @@ app.post('/api/evaluate-answer', async (req, res) => {
     if (answerLower.match(/\d+%|\d+ percent|team|collaboration|lead/)) impact += 3;
     if (wordCount > 40) impact += 2;
     impact = Math.min(20, impact);
+
+    // Stage-aware scoring adjustment:
+    // Behavioral questions shouldn't penalize for lack of tech terms
+    const isBehavioral = questionLower.match(/tell me about a time|describe a situation|how do you handle|give an example|what would you do/);
+    if (isBehavioral) {
+      // Boost impact/clarity for behavioral, reduce tech_depth penalty
+      technical_depth = Math.max(technical_depth, 12);
+      if (answerLower.match(/situation|task|action|result|outcome|learned|team|challenge/)) {
+        impact = Math.min(20, impact + 3);
+        structure = Math.min(20, structure + 2);
+      }
+    }
 
     const score = relevance + clarity + structure + technical_depth + impact;
     const scoreBand = getScoreBand(score);
