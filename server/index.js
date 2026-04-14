@@ -681,15 +681,7 @@ app.get('/api/platform-metrics', async (req, res) => {
 // Parse resume endpoint
 app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
   try {
-    console.log('📄 ===== RESUME PARSING REQUEST RECEIVED =====');
-    console.log('Request headers:', req.headers);
-    console.log('Request file:', req.file ? {
-      fieldname: req.file.fieldname,
-      originalname: req.file.originalname,
-      mimetype: req.file.mimetype,
-      size: req.file.size
-    } : 'NO FILE');
-    console.log('Request body:', req.body);
+    console.log('📄 Resume upload:', req.file ? `${req.file.originalname} (${req.file.size} bytes)` : 'text input');
     
     let resumeText = '';
     
@@ -757,186 +749,31 @@ app.post('/api/parse-resume', upload.single('resume'), async (req, res) => {
       });
     }
 
-    console.log('🤖 Using AI Service to parse resume...');
+    // ===== INSTANT PATTERN-BASED EXTRACTION (no AI calls needed) =====
+    // All questions are pre-loaded in memory. Resume parsing only needs skill extraction
+    // to filter questions — no need to call slow AI APIs for this.
+    console.log('⚡ Using instant pattern-based extraction...');
     
-    // Try AI Service first (local phi3 - no rate limits!)
-    let responseText = null;
-    let usedService = 'ai-service';
-    
-    try {
-      console.log('🔄 Calling AI Service (http://localhost:8000)...');
-      const aiServiceUrl = 'http://localhost:8000/api/generate-qa';
-      
-      const aiResponse = await fetch(aiServiceUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          resume: resumeText,
-          experience_level: 'mid-level'
-        })
-      });
-      
-      if (aiResponse.ok) {
-        const aiData = await aiResponse.json();
-        console.log('✅ AI Service response received');
-        
-        // AI Service returns questions, use it to validate resume was parsed
-        if (aiData.questions && aiData.questions.length > 0) {
-          console.log('✅ AI Service confirmed resume parsed successfully');
-          // Signal to use pattern-based extraction instead
-          responseText = 'AI_SERVICE_SUCCESS';
-        }
-      } else {
-        console.warn(`⚠️ AI Service returned ${aiResponse.status}`);
-      }
-    } catch (aiServiceError) {
-      console.warn('⚠️ AI Service unavailable:', aiServiceError.message);
-    }
-    
-    // Fallback: Use Gemini if AI Service failed
-    let result;
-    if (!responseText) {
-      console.log('🔄 Falling back to Gemini API...');
-      const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
-      
-      const parsePrompt = `
-You are a professional resume parser. Analyze this resume and extract structured information.
-
-RESUME TEXT:
-${resumeText}
-
-Extract and return ONLY a JSON object with this exact structure:
-{
-  "skills": ["skill1", "skill2", ...],
-  "experience": [
-    {
-      "title": "Job Title",
-      "company": "Company Name",
-      "duration": "Time period",
-      "description": "Brief description"
-    }
-  ],
-  "education": [
-    {
-      "degree": "Degree name",
-      "institution": "School/University",
-      "year": "Year or period"
-    }
-  ],
-  "projects": [
-    {
-      "name": "Project name",
-      "description": "Brief description",
-      "technologies": ["tech1", "tech2"]
-    }
-  ],
-  "certifications": ["certification1", "certification2"],
-  "summary": "Brief professional summary",
-  "experienceLevel": "fresher|mid-level|senior"
-}
-
-Be thorough in extracting ALL technical skills mentioned (programming languages, frameworks, tools, databases, cloud services, etc.).
-If a field is not found in the resume, use an empty array [] or empty string "".
-Return ONLY the JSON object, no additional text or markdown.
-`;
-
-      // Retry logic for Gemini rate limiting (429 errors)
-      let retries = 5;
-      let lastError = null;
-      
-      for (let attempt = 0; attempt < retries; attempt++) {
-        try {
-          console.log(`🔄 Calling Gemini API (attempt ${attempt + 1}/${retries})...`);
-          result = await model.generateContent(parsePrompt);
-          console.log('✅ Gemini response received');
-          responseText = result.response.text();
-          console.log('📝 Response length:', responseText.length);
-          usedService = 'gemini';
-          break; // Success
-          
-        } catch (aiError) {
-          lastError = aiError;
-          console.error(`❌ Gemini API error (attempt ${attempt + 1}/${retries}):`, {
-            message: aiError.message?.slice(0, 200),
-            status: aiError.status
-          });
-          
-          const isQuotaError = aiError.message?.toLowerCase().includes('429') ||
-            aiError.message?.toLowerCase().includes('rate limit') ||
-            aiError.message?.toLowerCase().includes('quota');
-          
-          if (isQuotaError) {
-            console.log(`⏳ Quota exceeded or rate limited. Skipping retries to save time.`);
-            break;
-          }
-        }
-      }
-      
-      // If Gemini failed, use pattern-based fallback
-      if (!responseText) {
-        console.error('❌ All AI services exhausted. Using pattern-based extraction.');
-        usedService = 'fallback';
-      }
-    }
-    
-    // Clean and parse JSON
-    let parsedData;
-    try {
-      if (!responseText || responseText === 'AI_SERVICE_SUCCESS') {
-        throw new Error('Using fallback extraction method');
-      }
-      
-      // Remove markdown code blocks if present
-      const cleanedResponse = responseText
-        .replace(/```json\s*/g, '')
-        .replace(/```\s*/g, '')
-        .trim();
-      
-      console.log('🔍 Attempting to parse JSON (first 200 chars):', cleanedResponse.slice(0, 200));
-      parsedData = JSON.parse(cleanedResponse);
-      console.log('✅ JSON parsing successful');
-    } catch (parseError) {
-      console.log('⚠️ Using pattern-based fallback extraction');
-      
-      // Fallback to pattern-based extraction
-      const basicSkills = extractSkills(resumeText);
-      parsedData = {
-        skills: basicSkills.skills.all,
-        experience: [],
-        education: [],
-        projects: [],
-        certifications: [],
-        summary: resumeText.slice(0, 300),
-        experienceLevel: basicSkills.experienceLevel,
-        parsingMethod: 'pattern-based-fallback'
-      };
-    }
-
-    // Enhance with pattern-based extraction
     const enhancedSkills = extractSkills(resumeText);
     
-    // Merge AI-extracted skills with pattern-based skills
-    const allSkills = new Set([
-      ...(parsedData.skills || []),
-      ...enhancedSkills.skills.all
-    ]);
-    
-    parsedData.skills = Array.from(allSkills);
-    parsedData.skillsByCategory = enhancedSkills.skills;
-    parsedData.totalSkills = parsedData.skills.length;
-    
-    // Use pattern-based experience level if AI didn't provide one
-    if (!parsedData.experienceLevel || parsedData.experienceLevel === '') {
-      parsedData.experienceLevel = enhancedSkills.experienceLevel;
-    }
+    const parsedData = {
+      skills: enhancedSkills.skills.all,
+      skillsByCategory: enhancedSkills.skills,
+      totalSkills: enhancedSkills.skills.all.length,
+      experience: [],
+      education: [],
+      projects: [],
+      certifications: [],
+      summary: resumeText.slice(0, 300),
+      experienceLevel: enhancedSkills.experienceLevel,
+      parsingMethod: 'instant-pattern-extraction'
+    };
 
-    console.log('✅ Resume parsed successfully:', {
-      service: usedService,
+    console.log('✅ Resume parsed instantly:', {
       skills: parsedData.totalSkills,
-      experience: parsedData.experience?.length || 0,
-      education: parsedData.education?.length || 0,
-      projects: parsedData.projects?.length || 0,
-      level: parsedData.experienceLevel
+      level: parsedData.experienceLevel,
+      frontend: enhancedSkills.skills.frontend.length,
+      backend: enhancedSkills.skills.backend.length
     });
 
     // Return clean text (first 2000 chars) instead of raw PDF to reduce payload
@@ -947,7 +784,7 @@ Return ONLY the JSON object, no additional text or markdown.
       data: parsedData,
       text: cleanText,
       textLength: resumeText.length,
-      service: usedService
+      service: 'instant-local'
     });
 
   } catch (error) {
@@ -1031,14 +868,7 @@ app.post('/api/generate-qa', async (req, res) => {
       level = 'mid'
     } = req.body;
 
-    console.log('\n🚀 ===== GENERATE Q&A REQUEST (STAGED) =====');
-    console.log('📊 Current question index:', questionIndex);
-    console.log('📝 Already asked questions:', askedQuestions.length);
-    if (askedQuestions.length > 0) {
-      console.log('   Sample:', askedQuestions.slice(0, 2).map(q => (typeof q === 'string' && q.length > 50) ? q.substring(0, 50) + '...' : q));
-    }
-    console.log('🎭 Role:', role);
-    console.log('📊 Level:', level);
+    console.log(`🚀 Q${questionIndex + 1} request | role: ${role} | level: ${level} | asked: ${askedQuestions.length}`);
 
     // ===== STEP 1: Determine current stage based on question index =====
     let currentStage;
@@ -1046,10 +876,6 @@ app.post('/api/generate-qa', async (req, res) => {
     try {
       currentStage = getStageFromIndex(questionIndex);
       stageProgress = getStageProgress(questionIndex);
-      console.log(`\n📍 Current Stage: ${currentStage.toUpperCase()}`);
-      console.log(`   Description: ${stageProgress.description}`);
-      console.log(`   Stage progress: ${stageProgress.stageProgress}`);
-      console.log(`   Overall progress: ${stageProgress.overallProgress} (${stageProgress.percentComplete}%)`);
     } catch (stageError) {
       console.error('❌ Error determining stage:', stageError.message);
       return res.status(400).json({ 
@@ -1090,66 +916,20 @@ app.post('/api/generate-qa', async (req, res) => {
       ? selectedQuestion 
       : selectedQuestion.question || JSON.stringify(selectedQuestion);
 
-    console.log(`\n❓ Selected Question: ${questionText.slice(0, 80)}...`);
+    console.log(`❓ Selected: ${questionText.slice(0, 80)}...`);
 
-    // ===== STEP 4: Extract resume analysis for context =====
-    let resumeAnalysis;
-    try {
-      resumeAnalysis = extractSkills(resumeText);
-      console.log(`\n👤 Resume Analysis:
-   Skills: ${resumeAnalysis.totalSkills}
-   Level: ${resumeAnalysis.experienceLevel}
-   Frontend: ${resumeAnalysis.skills.frontend.length}
-   Backend: ${resumeAnalysis.skills.backend.length}`);
-    } catch (analysisError) {
-      console.error('⚠️ Error analyzing resume:', analysisError.message);
-      resumeAnalysis = { skills: { all: [], frontend: [], backend: [] }, experienceLevel: 'mid-level', totalSkills: 0 };
-    }
-
-    // ===== STEP 5: Contextualize question using AI Service first, Gemini fallback =====
-    console.log('\n🤖 Generating contextual answer (AI Service primary)...');
-    
-    const prompt = `You are an interview coach preparing a candidate.
-
-Stage: ${currentStage.replace('_', ' ').toUpperCase()}
-
-Candidate Profile:
-- Skills: ${resumeAnalysis.totalSkills > 0 ? resumeAnalysis.skills.all.slice(0, 5).join(', ') : 'Not specified'}
-- Experience Level: ${resumeAnalysis.experienceLevel}
-- Target Role: ${jobDescription || 'Not specified'}
-
-Resume Summary:
-${resumeText.slice(0, 500)}
-
-Job Requirements:
-${jobDescription.slice(0, 300)}
-
-Interview Question:
-"${questionText}"
-
-Provide a JSON response with:
-1. "direction": One-line coaching tip for answering this question
-2. "answer": Brief, professional sample answer (3-4 sentences max)
-3. "tips": Array of 2-3 tips to improve the answer
-
-Respond ONLY with valid JSON (no markdown, no extra text):`;
-
+    // ===== INSTANT GUIDANCE from pre-loaded question data =====
     let direction = 'Answer clearly and concisely, relating to your experience.';
     let answer = 'Provide a brief, structured response with specific examples when relevant.';
     let tips = ['Be specific with examples', 'Keep it concise'];
-    let guidanceSource = 'static-fast-load';
 
-    // FAST LOAD: Use predefined ideal points for tips to keep the NEXT QUESTION button instant!
-    // Generating guidance on-the-fly via AI causes long loading screens between questions.
     if (selectedQuestion.ideal_points && selectedQuestion.ideal_points.length > 0) {
       tips = selectedQuestion.ideal_points;
       direction = 'Cover the key technical points expected for this topic.';
       answer = `A good answer should include: ${tips[0]}. ${tips.length > 1 ? tips[1] + '.' : ''}`;
     }
 
-    // ===== STEP 6: Validate response structure before sending =====
-    console.log('\n🔍 Building response payload...');
-    
+    // ===== Build and send response instantly =====
     const responsePayload = {
       success: true,
       stage: currentStage,
@@ -1168,7 +948,7 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
         direction: String(direction),
         answer: String(answer),
         tips: Array.isArray(tips) ? tips.map(t => String(t)) : [String(tips)],
-        source: guidanceSource
+        source: 'static-fast-load'
       },
       nextAction: questionIndex < TOTAL_INTERVIEW_QUESTIONS - 1 
         ? `Next question will be in "${STAGE_ORDER[getStageIndexFromStage(currentStage) + 1] || 'final'}" stage`
@@ -1180,36 +960,7 @@ Respond ONLY with valid JSON (no markdown, no extra text):`;
       }
     };
 
-    // Validate response payload
-    console.log('✓ Checking success flag:', !!responsePayload.success);
-    console.log('✓ Checking question object:', !!responsePayload.question);
-    console.log('✓ Checking question.text length:', responsePayload.question.text?.length || 0);
-    console.log('✓ Checking question.index:', responsePayload.question.index);
-    console.log('✓ Checking stage:', responsePayload.question.stage);
-    console.log('✓ Checking guidance.direction length:', responsePayload.guidance.direction?.length || 0);
-    console.log('✓ Checking guidance.answer length:', responsePayload.guidance.answer?.length || 0);
-    console.log('✓ Checking guidance.tips length:', responsePayload.guidance.tips?.length || 0);
-
-    if (!responsePayload.success || !responsePayload.question || !responsePayload.question.text) {
-      console.error('❌ Invalid response payload structure');
-      console.error('   success:', responsePayload.success);
-      console.error('   question:', responsePayload.question);
-      console.error('   question.text:', responsePayload.question?.text);
-      return res.status(500).json({ 
-        error: 'Response payload validation failed',
-        debug: { 
-          hasSuccess: !!responsePayload.success,
-          hasQuestion: !!responsePayload.question,
-          hasText: !!responsePayload.question?.text,
-          questiony: responsePayload.question
-        }
-      });
-    }
-
-    console.log('\n✅ Response ready to send to frontend');
-    console.log('   Question text preview:', questionText.slice(0, 60) + '...');
-    console.log('   Guidance direction:', direction.slice(0, 60) + '...');
-    
+    console.log(`✅ Q${questionIndex + 1} ready [${currentStage}]`);
     res.json(responsePayload);
 
   } catch (error) {
@@ -1260,56 +1011,90 @@ app.post('/api/evaluate-answer', async (req, res) => {
 
     console.log('📊 Evaluating answer for:', question.slice(0, 50) + '...');
 
-    // Use Gemini for evaluation
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
-    
-    const evaluationPrompt = `
-You are an expert technical interviewer evaluating a candidate's answer.
+    // ===== FAST LOCAL EVALUATION (no AI needed) =====
+    // Keyword-match scoring against ideal points for instant feedback
+    const answerLower = userAnswer.toLowerCase();
+    const questionLower = question.toLowerCase();
+    const words = answerLower.split(/\s+/);
+    const wordCount = words.length;
 
-Experience Level: ${experienceLevel}
-Interview Stage: ${stage}
+    // Scoring dimensions (each 0-20, total 0-100)
+    let relevance = 10, clarity = 10, structure = 10, technical_depth = 10, impact = 10;
 
-QUESTION: "${question}"
+    // 1. Relevance: Does the answer relate to the question?
+    const questionKeywords = questionLower.split(/\s+/).filter(w => w.length > 3);
+    const matchedKeywords = questionKeywords.filter(kw => answerLower.includes(kw));
+    relevance = Math.min(20, Math.round((matchedKeywords.length / Math.max(questionKeywords.length, 1)) * 20) + 5);
 
-CANDIDATE'S ANSWER: "${userAnswer}"
+    // 2. Clarity: Is the answer well-structured and readable?
+    if (wordCount > 20) clarity += 3;
+    if (wordCount > 50) clarity += 3;
+    if (userAnswer.includes('.')) clarity += 2;
+    if (userAnswer.includes(',')) clarity += 1;
+    clarity = Math.min(20, clarity);
 
-${idealAnswer ? `IDEAL ANSWER FOR REFERENCE: "${idealAnswer}"` : ''}
+    // 3. Structure: Does the answer have organization?
+    if (wordCount > 30) structure += 3;
+    if (userAnswer.match(/first|second|third|finally|also|moreover|however/i)) structure += 3;
+    if (userAnswer.includes('\n') || userAnswer.includes('. ')) structure += 2;
+    structure = Math.min(20, structure);
 
-Evaluate the answer and provide:
-1. Score (0-100)
-2. Brief feedback (2-3 sentences)
-3. Strengths (array of 1-2 items)
-4. Improvements (array of 1-2 items)
-5. Band (Poor/Basic/Good/Strong/Hire-Ready)
+    // 4. Technical depth: technical terms, specifics
+    const techTerms = ['api', 'database', 'server', 'client', 'function', 'class', 'component',
+      'algorithm', 'data structure', 'framework', 'library', 'react', 'node', 'python',
+      'javascript', 'sql', 'html', 'css', 'git', 'docker', 'aws', 'rest', 'http',
+      'testing', 'deployment', 'architecture', 'scalable', 'performance', 'security',
+      'agile', 'scrum', 'ci/cd', 'microservice', 'cache', 'async', 'promise'];
+    const foundTech = techTerms.filter(t => answerLower.includes(t));
+    technical_depth = Math.min(20, 8 + foundTech.length * 2);
 
-Respond ONLY in JSON:
-{
-  "score": 75,
-  "feedback": "Clear explanation with good examples...",
-  "strengths": ["Clear communication", "Relevant examples"],
-  "improvements": ["Add more technical depth", "Mention edge cases"],
-  "band": "Good"
-}
-`;
+    // 5. Impact: Does the answer show results/examples?
+    if (answerLower.match(/example|instance|project|built|created|developed|implemented|achieved|improved|reduced|increased/)) impact += 4;
+    if (answerLower.match(/\d+%|\d+ percent|team|collaboration|lead/)) impact += 3;
+    if (wordCount > 40) impact += 2;
+    impact = Math.min(20, impact);
 
-    const result = await model.generateContent(evaluationPrompt);
-    const responseText = result.response.text();
-    const cleaned = cleanJson(responseText);
-    const evaluation = JSON.parse(cleaned);
+    const score = relevance + clarity + structure + technical_depth + impact;
+    const scoreBand = getScoreBand(score);
 
-    // Get scoring band details
-    const scoreBand = getScoreBand(evaluation.score || 50);
+    // Generate feedback
+    const strengths = [];
+    const improvements = [];
 
-    console.log(`✅ Evaluation complete: ${evaluation.score}/100 (${scoreBand.label})`);
+    if (relevance >= 14) strengths.push('Answer directly addresses the question');
+    if (clarity >= 14) strengths.push('Clear and well-articulated response');
+    if (technical_depth >= 14) strengths.push('Good technical vocabulary and depth');
+    if (impact >= 14) strengths.push('Demonstrates real-world impact with examples');
+    if (wordCount > 50) strengths.push('Comprehensive coverage of the topic');
+
+    if (strengths.length === 0) strengths.push('Attempted to answer the question');
+
+    if (relevance < 12) improvements.push('Focus more directly on what the question is asking');
+    if (clarity < 12) improvements.push('Use complete sentences and clearer language');
+    if (technical_depth < 12) improvements.push('Include more specific technical details');
+    if (impact < 12) improvements.push('Add concrete examples or measurable outcomes');
+    if (wordCount < 20) improvements.push('Elaborate more — aim for at least 3-4 sentences');
+
+    if (improvements.length === 0) improvements.push('Continue practicing for even more polish');
+
+    const feedback = score >= 70 
+      ? 'Strong answer with good depth and relevance.' 
+      : score >= 50 
+        ? 'Decent attempt. Add more specifics and examples to strengthen it.'
+        : 'Needs more depth. Try to directly address the question with concrete examples.';
+
+    console.log(`✅ Evaluation: ${score}/100 (${scoreBand.label})`);
 
     res.json({
-      score: evaluation.score || 50,
-      feedback: evaluation.feedback || 'Good attempt',
-      strengths: evaluation.strengths || [],
-      improvements: evaluation.improvements || [],
+      score,
+      feedback,
+      strengths,
+      improvements,
       band: scoreBand.label,
       bandColor: scoreBand.color,
-      advice: scoreBand.advice
+      advice: scoreBand.advice,
+      breakdown: { relevance, clarity, structure, technical_depth, impact },
+      aiData: { strengths, improvements }
     });
 
   } catch (e) {

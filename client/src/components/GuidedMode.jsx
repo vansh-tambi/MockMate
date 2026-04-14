@@ -154,15 +154,11 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     // Increment question index
     const newIndex = sessionState.questionIndex + 1;
 
+    setCurrentQuestion(null); // Clear current question immediately
     setSessionState(prev => ({
       ...prev,
       questionIndex: newIndex
     }));
-
-    // Fetch next question with new index
-    setTimeout(() => {
-      setCurrentQuestion(null); // Clear current question while loading
-    }, 100);
 
     // This will be picked up by the effect with updated questionIndex
   }, [sessionState.questionIndex, setSessionState]);
