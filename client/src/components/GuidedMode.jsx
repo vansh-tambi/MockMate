@@ -206,33 +206,42 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
 
       {/* Progress Bar Header */}
       {currentQuestion && (
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-10 w-full">
-          <div className="flex items-center justify-between mb-3">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="mb-10 w-full"
+        >
+          <div className="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-widest text-muted">
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest">
-                {currentStageConfig?.label || 'Interview'}
+              <span className="px-3 py-1 rounded-lg bg-primary/10 text-primary border border-primary/20">
+                {currentStageConfig?.label || 'Segment'}
               </span>
-              <span className="text-sm font-medium text-muted">
-                Question {displayIndex} of {TOTAL_INTERVIEW_QUESTIONS}
+              <span>
+                Prompt {displayIndex} <span className="opacity-40">/</span> {TOTAL_INTERVIEW_QUESTIONS}
               </span>
             </div>
-            <span className="text-sm font-bold text-foreground">{completionPercent}%</span>
+            <span className="text-foreground">{completionPercent}%</span>
           </div>
 
-          <div className="w-full h-1.5 bg-card rounded-full overflow-hidden border border-border">
-            <div className="h-full bg-primary transition-all duration-500 rounded-full" style={{ width: `${completionPercent}%` }} />
+          <div className="w-full h-1.5 bg-card rounded-full overflow-hidden border border-border shadow-inner">
+            <motion.div 
+              className="h-full bg-primary shadow-[0_0_12px_rgba(59,130,246,0.5)]" 
+              initial={{ width: 0 }}
+              animate={{ width: `${completionPercent}%` }}
+              transition={{ type: 'spring', damping: 20, stiffness: 50 }}
+            />
           </div>
 
-          <div className="flex mt-2 w-full gap-[1px]">
+          <div className="flex mt-3 w-full gap-1">
             {stageSegments.map((seg) => {
               const widthPercent = (seg.questions / TOTAL_INTERVIEW_QUESTIONS) * 100;
               const isActive = currentQuestion.stage === seg.name;
               const isPassed = sessionState.questionIndex >= seg.start + seg.questions;
               return (
-                <div key={seg.name} className="h-1 rounded-sm transition-colors duration-300" style={{
-                  width: `${widthPercent}%`,
-                  backgroundColor: isActive ? 'var(--color-primary)' : isPassed ? 'var(--color-muted)' : 'transparent',
-                }} />
+                <div key={seg.name} className="h-1 rounded-full transition-all duration-500 overflow-hidden bg-card border border-border/50" style={{ width: `${widthPercent}%` }}>
+                  {isActive && <motion.div layoutId="active-stage" className="w-full h-full bg-primary" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 2 }} />}
+                  {isPassed && <div className="w-full h-full bg-muted/30" />}
+                </div>
               );
             })}
           </div>
@@ -243,119 +252,212 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
       <div className="flex-1">
         <AnimatePresence mode="wait">
           {loading && !currentQuestion ? (
-            <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-24 glass-panel flex flex-col items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-x-0 bottom-0 h-1 bg-primary/20">
-                <motion.div initial={{ x: '-100%' }} animate={{ x: '100%' }} transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }} className="h-full w-48 bg-primary shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+            <motion.div 
+              key="loading" 
+              initial={{ opacity: 0, scale: 0.95 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              exit={{ opacity: 0, scale: 1.05 }} 
+              className="text-center py-24 glass-panel flex flex-col items-center justify-center relative overflow-hidden group"
+            >
+              <div className="absolute inset-x-0 bottom-0 h-1 bg-primary/10">
+                <motion.div 
+                  initial={{ x: '-100%' }} 
+                  animate={{ x: '100%' }} 
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }} 
+                  className="h-full w-1/3 bg-primary shadow-[0_0_20px_var(--color-primary)]" 
+                />
               </div>
-              <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 shadow-inner">
-                <img src="/Logo.png" alt="Logo" className="w-8 h-8 object-contain animate-pulse" />
+              <div className="w-20 h-20 rounded-2xl bg-card border border-border flex items-center justify-center mb-8 shadow-inner group-hover:border-primary/30 transition-colors">
+                <img src="/Logo.png" alt="Logo" className="w-10 h-10 object-contain animate-pulse" />
               </div>
-              <p className="text-foreground font-bold text-lg mb-1 tracking-tight">Synthesizing follow-up...</p>
-              <p className="text-muted text-sm px-8 max-w-xs">Our AI is analyzing your previous responses to generate the perfect next question.</p>
+              <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight">Synthesizing Logic</h3>
+              <p className="text-muted text-sm px-8 max-w-sm leading-relaxed">Analyzing your previous trajectory to formulate a high-impact follow-up segment.</p>
             </motion.div>
           ) : error ? (
-            <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel border-l-4 border-l-red-500 p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <AlertCircle className="w-5 h-5 text-red-500" />
-                <p className="font-bold text-red-500 uppercase tracking-widest text-xs">Synthesis Failed</p>
+            <motion.div 
+              key="error" 
+              initial={{ opacity: 0, y: 10 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              className="glass-panel border-l-4 border-l-red-500 p-8 shadow-xl"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
+                  <AlertCircle className="w-5 h-5 text-red-500" />
+                </div>
+                <div>
+                  <p className="font-black text-red-500 uppercase tracking-widest text-[10px]">Synthesis Interrupted</p>
+                  <p className="text-muted text-sm">{error}</p>
+                </div>
               </div>
-              <p className="text-muted mb-6 text-sm">{error}</p>
-              <button onClick={fetchNextQuestion} className="btn-secondary">
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={fetchNextQuestion} 
+                className="btn-secondary w-full sm:w-auto"
+              >
                 <RefreshCw className="w-4 h-4 mr-2" />
-                Retry Generation
-              </button>
+                Retry Connection
+              </motion.button>
             </motion.div>
           ) : !currentQuestion && !isInterviewComplete ? (
-            <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-16 text-center flex flex-col items-center">
-              <div className="w-20 h-20 rounded-3xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-8">
+            <motion.div 
+              key="empty" 
+              initial={{ opacity: 0, scale: 0.98 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              className="glass-panel p-16 text-center flex flex-col items-center shadow-2xl"
+            >
+              <div className="w-24 h-24 rounded-[2rem] bg-primary/5 border border-primary/10 flex items-center justify-center mb-10 shadow-inner">
                 <Rocket className="w-10 h-10 text-primary" />
               </div>
-              <h3 className="text-3xl font-extrabold text-foreground mb-3 tracking-tight">Session Ready</h3>
-              <p className="text-muted mb-10 max-w-sm text-base">
-                Your environment is initialized. Press the button below to generate your introductory greeting.
+              <h3 className="text-4xl font-black text-foreground mb-4 tracking-tighter">Session Initialized</h3>
+              <p className="text-muted mb-12 max-w-sm text-lg leading-relaxed">
+                Hardware layers verified. Press initialize to begin your structured interview battery.
               </p>
-              <button onClick={fetchNextQuestion} className="btn-primary py-4 px-10 rounded-2xl shadow-2xl shadow-primary/20 group">
-                Initialize Session
-                <Play className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </button>
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={fetchNextQuestion} 
+                className="btn-primary py-5 px-12 rounded-[1.25rem] shadow-2xl shadow-primary/30 group text-lg font-bold"
+              >
+                Start Session
+                <Play className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
+              </motion.button>
             </motion.div>
           ) : currentQuestion && !isInterviewComplete ? (
-            <motion.div key={`question-${currentQuestion.question.index}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col h-full">
+            <motion.div 
+              key={`question-${currentQuestion.question.index}`} 
+              initial={{ opacity: 0, x: 20 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              exit={{ opacity: 0, x: -20 }} 
+              className="flex flex-col h-full"
+            >
               
-              <div className="glass-panel p-8 sm:p-12 mb-6">
-                <p className="text-xs font-bold text-muted uppercase tracking-widest mb-4">Interview Prompt</p>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-foreground leading-snug">{currentQuestion.question.text}</h2>
+              <div className="glass-panel p-10 sm:p-14 mb-8 shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-10 opacity-[0.02] pointer-events-none">
+                  <MessageSquare className="w-48 h-48" />
+                </div>
+                <p className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-6 block">Interview Module / Stage {currentQuestion.stage}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight tracking-tight mb-12">{currentQuestion.question.text}</h2>
                 
-                <div className="mt-10 flex flex-wrap gap-3">
-                  <button onClick={() => setShowHint(!showHint)} className="btn-secondary text-xs">
-                    <Lightbulb className="w-4 h-4 mr-1" />
-                    {showHint ? 'Hide Hint' : 'Coaching Hint'}
-                  </button>
-                  <button onClick={() => setShowAnswer(!showAnswer)} className="btn-secondary text-xs">
-                    <Key className="w-4 h-4 mr-1" />
-                    {showAnswer ? 'Hide Sample' : 'Sample Answer'}
-                  </button>
-                  {currentQuestion.guidance?.tips?.length > 0 && (
-                    <button onClick={() => setShowTips(!showTips)} className="btn-secondary text-xs">
-                      <CheckSquare className="w-4 h-4 mr-1" />
-                      {showTips ? 'Hide Framework' : 'Answer Framework'}
-                    </button>
-                  )}
+                <div className="flex flex-wrap gap-4">
+                  {[
+                    { id: 'hint', state: showHint, set: setShowHint, icon: Lightbulb, label: 'Coach Hint', color: 'blue' },
+                    { id: 'answer', state: showAnswer, set: setShowAnswer, icon: Key, label: 'Sample Logic', color: 'emerald' },
+                    { id: 'tips', state: showTips, set: setShowTips, icon: CheckSquare, label: 'Framework', color: 'amber', condition: currentQuestion.guidance?.tips?.length > 0 }
+                  ].filter(t => t.condition !== false).map((tool) => (
+                    <motion.button
+                      key={tool.id}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => tool.set(!tool.state)}
+                      className={`flex items-center gap-2.5 px-6 py-3 rounded-xl border-2 text-[11px] font-black uppercase tracking-widest transition-all ${
+                        tool.state 
+                          ? `bg-${tool.color}-500/10 border-${tool.color}-500/40 text-${tool.color}-500 shadow-lg shadow-${tool.color}-500/10` 
+                          : 'bg-card border-border/50 text-muted hover:border-muted hover:text-foreground'
+                      }`}
+                    >
+                      <tool.icon className="w-4 h-4" />
+                      {tool.label}
+                    </motion.button>
+                  ))}
                 </div>
               </div>
 
               {/* Coaching Drawers */}
-              <AnimatePresence>
-                {showHint && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
-                    <div className="glass-panel-subtle p-6 border-l-2 border-l-blue-400">
-                      <span className="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Direction</span>
-                      <p className="text-sm text-muted">{currentQuestion.guidance?.direction || 'Focus on clarity and structure in your response.'}</p>
-                    </div>
-                  </motion.div>
-                )}
-                {showAnswer && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
-                    <div className="glass-panel-subtle p-6 border-l-2 border-l-green-400">
-                      <span className="text-xs font-bold text-green-400 uppercase tracking-widest block mb-2">Sample</span>
-                      <p className="text-sm text-muted">{currentQuestion.guidance?.answer || 'Provide a relevant example from your experience.'}</p>
-                    </div>
-                  </motion.div>
-                )}
-                {showTips && currentQuestion.guidance?.tips?.length > 0 && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
-                    <div className="glass-panel-subtle p-6 border-l-2 border-l-amber-400">
-                      <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-3">Key Points</span>
-                      <ul className="space-y-2">
-                        {currentQuestion.guidance.tips.map((tip, idx) => (
-                          <li key={idx} className="flex text-sm text-muted">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-1.5 mr-3"></span>
-                            {tip}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="space-y-4 mb-8">
+                <AnimatePresence>
+                  {showHint && (
+                    <motion.div initial={{ opacity: 0, y: -10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, y: -10, height: 0 }} className="overflow-hidden">
+                      <div className="bg-blue-500/5 border border-blue-500/20 rounded-2xl p-8 border-l-4 border-l-blue-500 shadow-sm shadow-blue-500/5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <Lightbulb className="w-4 h-4 text-blue-500" />
+                          <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Thought Guidance</span>
+                        </div>
+                        <p className="text-base text-foreground/80 leading-relaxed font-medium">{currentQuestion.guidance?.direction || 'Synthesizing directional hint...'}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {showAnswer && (
+                    <motion.div initial={{ opacity: 0, y: -10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, y: -10, height: 0 }} className="overflow-hidden">
+                      <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-8 border-l-4 border-l-emerald-500 shadow-sm shadow-emerald-500/5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <Key className="w-4 h-4 text-emerald-500" />
+                          <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Sample Logic Path</span>
+                        </div>
+                        <p className="text-base text-foreground/80 leading-relaxed font-medium italic">"{currentQuestion.guidance?.answer || 'Synthesizing sample response...'}"</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {showTips && currentQuestion.guidance?.tips?.length > 0 && (
+                    <motion.div initial={{ opacity: 0, y: -10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, y: -10, height: 0 }} className="overflow-hidden">
+                      <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-8 border-l-4 border-l-amber-500 shadow-sm shadow-amber-500/5">
+                        <div className="flex items-center gap-2 mb-5">
+                          <CheckSquare className="w-4 h-4 text-amber-500" />
+                          <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">Structural Pillar Framework</span>
+                        </div>
+                        <ul className="space-y-4">
+                          {currentQuestion.guidance.tips.map((tip, idx) => (
+                            <motion.li 
+                              key={idx} 
+                              initial={{ opacity: 0, x: -10 }} 
+                              animate={{ opacity: 1, x: 0 }} 
+                              transition={{ delay: idx * 0.1 }}
+                              className="flex gap-4 text-sm text-foreground/80 font-medium"
+                            >
+                              <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                              </div>
+                              {tip}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-              <div className="mt-8 flex items-center justify-between">
-                <span className="text-xs text-muted font-mono hidden sm:inline-block">Press [Ctrl + Enter] for next question</span>
-                <button onClick={handleNextQuestion} disabled={loading} className="btn-primary ml-auto">
-                  {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Finish Interview' : 'Next Question'}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
+              <div className="mt-auto pt-8 flex items-center justify-between gap-6 border-t border-border">
+                <span className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] hidden sm:block">Hardware Verified / [CTRL + ENTER] TO PROCEED</span>
+                <motion.button 
+                  whileHover={{ x: 4 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleNextQuestion} 
+                  disabled={loading} 
+                  className="btn-primary py-4 px-10 rounded-2xl group shadow-xl shadow-primary/20 ml-auto flex items-center gap-3 font-bold"
+                >
+                  {displayIndex >= TOTAL_INTERVIEW_QUESTIONS ? 'Finalize Analysis' : 'Next Segment'}
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </motion.button>
               </div>
 
             </motion.div>
           ) : isInterviewComplete ? (
-            <motion.div key="complete" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-12 text-center flex flex-col items-center">
-              <CheckCircle2 className="w-16 h-16 text-green-400 mb-6" />
-              <h2 className="text-3xl font-bold text-foreground mb-4">Session Complete</h2>
-              <p className="text-muted mb-10 max-w-md mx-auto">
-                You've successfully completed a full {TOTAL_INTERVIEW_QUESTIONS}-question battery across all stages. 
+            <motion.div 
+              key="complete" 
+              initial={{ opacity: 0, scale: 0.95 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              className="glass-panel p-16 text-center flex flex-col items-center shadow-2xl"
+            >
+              <div className="w-24 h-24 rounded-[2rem] bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-10 shadow-inner">
+                <CheckCircle2 className="w-12 h-12 text-emerald-500" />
+              </div>
+              <h2 className="text-4xl font-black text-foreground mb-4 tracking-tighter">Session Concluded</h2>
+              <p className="text-muted mb-12 max-w-md mx-auto text-lg leading-relaxed">
+                Synthesis complete. All hardware layers have finalized their analysis. Please return to the dashboard for clinical feedback.
               </p>
-              <button onClick={() => window.location.reload()} className="btn-primary">Return to Setup</button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.location.reload()} 
+                className="btn-primary py-5 px-12 rounded-[1.25rem] text-lg font-bold"
+              >
+                Reset Environment
+              </motion.button>
             </motion.div>
           ) : null}
         </AnimatePresence>

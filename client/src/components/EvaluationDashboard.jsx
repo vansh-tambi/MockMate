@@ -26,158 +26,212 @@ const EvaluationDashboard = ({ sessionState, onRestart }) => {
 
   const overallBand = getScoreBand(avgScore);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-6xl mx-auto py-12 px-4">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      className="w-full max-w-6xl mx-auto py-12 px-4 shadow-sm"
+    >
       
       {/* Brand Header */}
-      <div className="flex items-center gap-4 mb-10">
-        <div className="p-2 rounded-xl bg-card border border-border shadow-inner">
+      <motion.div variants={itemVariants} className="flex items-center gap-4 mb-12">
+        <motion.div 
+          whileHover={{ rotate: 360 }}
+          transition={{ duration: 0.7 }}
+          className="p-2.5 rounded-2xl bg-card border border-border shadow-inner"
+        >
           <img src="/Logo.png" alt="MockMate Logo" className="w-8 h-8 object-contain" />
-        </div>
+        </motion.div>
         <div>
-          <h2 className="text-lg font-bold text-foreground leading-none">MockMate Analysis</h2>
-          <p className="text-[10px] font-bold text-muted uppercase tracking-widest mt-1">Session ID: {sessionState.sessionId || 'Local-001'}</p>
+          <h2 className="text-xl font-black text-foreground leading-none tracking-tighter uppercase">Clinical Analysis</h2>
+          <p className="text-[10px] font-black text-muted uppercase tracking-[0.3em] mt-1 opacity-50">Log ID: {sessionState.sessionId || 'MATE-X-402'}</p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="glass-panel p-8 sm:p-12 mb-12">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+      <motion.div variants={itemVariants} className="glass-panel p-10 sm:p-16 mb-16 shadow-2xl relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+        
+        <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
           
           {/* Main Score & Status */}
-          <div className="flex flex-col items-center gap-4 text-center">
-            <div className="relative w-48 h-48 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <div className="relative w-56 h-56 flex items-center justify-center">
               <svg className="w-full h-full -rotate-90">
-                <circle cx="96" cy="96" r="88" className="stroke-card-hover fill-none" strokeWidth="12" />
+                <circle cx="112" cy="112" r="102" className="stroke-card-hover fill-none" strokeWidth="12" />
                 <motion.circle 
-                  cx="96" cy="96" r="88" 
+                  cx="112" cy="112" r="102" 
                   className={`fill-none ${overallBand.ring}`} 
                   strokeWidth="12" 
                   strokeLinecap="round"
-                  strokeDasharray={552.92}
-                  initial={{ strokeDashoffset: 552.92 }}
-                  animate={{ strokeDashoffset: 552.92 - (avgScore / 100) * 552.92 }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  strokeDasharray={640.88}
+                  initial={{ strokeDashoffset: 640.88 }}
+                  animate={{ strokeDashoffset: 640.88 - (avgScore / 100) * 640.88 }}
+                  transition={{ duration: 2, ease: "circOut", delay: 0.5 }}
                 />
               </svg>
               <div className="absolute flex flex-col items-center">
-                <span className="text-5xl font-bold tracking-tighter text-foreground">{avgScore}</span>
-                <span className="text-xs font-bold text-muted uppercase">Overall Efficiency</span>
+                <motion.span 
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: 'spring', damping: 10, delay: 1 }}
+                  className="text-6xl font-black tracking-tighter text-foreground"
+                >
+                  {avgScore}
+                </motion.span>
+                <div className="w-8 h-1 bg-border/50 rounded-full my-1" />
+                <span className="text-[10px] font-black text-muted uppercase tracking-[0.2em]">Efficiency</span>
               </div>
             </div>
-            <div>
-              <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest ${overallBand.bg} ${overallBand.color}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+            >
+              <span className={`px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.25em] ${overallBand.bg} ${overallBand.color} shadow-lg shadow-current/5 border border-current/10`}>
                 {overallBand.label}
               </span>
-            </div>
+            </motion.div>
           </div>
 
           {/* Key Insights */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-10">
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-4 tracking-tight">Performance Summary</h1>
-              <p className="text-muted text-lg max-w-2xl leading-relaxed">
-                Based on your {answers.length} responses, we've analyzed your communication style, technical accuracy, and structural reasoning. 
+              <h1 className="text-5xl font-black text-foreground mb-6 tracking-tighter leading-none">Diagnostic Result</h1>
+              <p className="text-muted text-lg max-w-2xl leading-relaxed font-medium opacity-80">
+                Logic synthesis completed. Your communication matrix has been processed across behavioral and technical hardware layers. 
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-              <div className="bg-card/50 border border-border/50 rounded-2xl p-6 group transition-colors hover:border-primary/20 shadow-inner">
-                <Award className="w-5 h-5 text-primary mx-auto mb-3" />
-                <span className="text-[10px] font-bold text-muted uppercase tracking-widest block mb-1">Clarity</span>
-                <div className="flex items-center justify-center gap-1">
-                  <span className="text-2xl font-bold text-foreground">8.2</span>
-                  <span className="text-xs text-muted mb-1">/10</span>
-                </div>
-              </div>
-              <div className="bg-card/50 border border-border/50 rounded-2xl p-6 group transition-colors hover:border-primary/20 shadow-inner">
-                <BarChart3 className="w-5 h-5 text-blue-500 mx-auto mb-3" />
-                <span className="text-[10px] font-bold text-muted uppercase tracking-widest block mb-1">Structure</span>
-                <div className="flex items-center justify-center gap-1">
-                  <span className="text-2xl font-bold text-foreground">7.5</span>
-                  <span className="text-xs text-muted mb-1">/10</span>
-                </div>
-              </div>
-              <div className="bg-card/50 border border-border/50 rounded-2xl p-6 group transition-colors hover:border-primary/20 shadow-inner">
-                <Target className="w-5 h-5 text-emerald-500 mx-auto mb-3" />
-                <span className="text-[10px] font-bold text-muted uppercase tracking-widest block mb-1">Confidence</span>
-                <div className="flex items-center justify-center gap-1">
-                  <span className="text-2xl font-bold text-foreground">9.1</span>
-                  <span className="text-xs text-muted mb-1">/10</span>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                { icon: Award, label: 'Clarity', val: '8.2', color: 'text-primary' },
+                { icon: BarChart3, label: 'Structure', val: '7.5', color: 'text-blue-500' },
+                { icon: Target, label: 'Instinct', val: '9.1', color: 'text-emerald-500' }
+              ].map((stat, i) => (
+                <motion.div 
+                  key={stat.label}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, borderColor: 'var(--color-primary)' }}
+                  className="bg-background/40 border border-border/50 rounded-[1.5rem] p-8 text-center transition-all shadow-inner group/stat"
+                >
+                  <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-4 group-hover/stat:scale-110 transition-transform`} />
+                  <span className="text-[10px] font-black text-muted uppercase tracking-widest block mb-1 opacity-50">{stat.label}</span>
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="text-3xl font-black text-foreground tracking-tighter">{stat.val}</span>
+                    <span className="text-xs text-muted mb-1 font-bold opacity-30">/10</span>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-4 mb-16">
-        <button onClick={onRestart} className="btn-primary flex items-center gap-3 py-4 px-10 rounded-2xl shadow-xl shadow-primary/20">
+      <motion.div variants={itemVariants} className="flex flex-wrap gap-6 mb-20">
+        <motion.button 
+          whileHover={{ scale: 1.05, x: 4 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onRestart} 
+          className="btn-primary flex items-center gap-4 py-5 px-12 rounded-[1.25rem] shadow-2xl shadow-primary/30 font-black uppercase text-xs tracking-widest"
+        >
           <RefreshCcw className="w-5 h-5" />
-          Start New Practice
-        </button>
-        <button onClick={() => window.print()} className="btn-secondary flex items-center gap-3 py-4 px-10 rounded-2xl">
+          Recursive Session
+        </motion.button>
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.print()} 
+          className="btn-secondary flex items-center gap-4 py-5 px-12 rounded-[1.25rem] font-black uppercase text-xs tracking-widest"
+        >
           <Download className="w-5 h-5" />
-          Save Analytics (PDF)
-        </button>
-      </div>
+          Archive Assessment
+        </motion.button>
+      </motion.div>
 
       {/* Detailed Question Breakdown */}
-      <div className="space-y-8">
-        <div className="flex items-center gap-4 mb-2">
-          <span className="text-lg font-bold text-foreground">Detailed Feedback</span>
-          <div className="flex-1 h-[1px] bg-border/50"></div>
-          <span className="text-xs font-bold text-muted uppercase tracking-widest">{answers.length} Modules Analyzed</span>
-        </div>
+      <div className="space-y-12">
+        <motion.div variants={itemVariants} className="flex items-center gap-6 mb-4">
+          <span className="text-xl font-black text-foreground uppercase tracking-tighter">Module logs</span>
+          <div className="flex-1 h-[2px] bg-border/30 rounded-full"></div>
+          <span className="text-[10px] font-black text-muted uppercase tracking-[0.3em] opacity-40">{answers.length} segments analyzed</span>
+        </motion.div>
 
         {answers.map((item, idx) => {
           const band = getScoreBand(item.feedback?.score || 0);
           return (
             <motion.div 
               key={idx} 
-              initial={{ opacity: 0, x: -20 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }}
-              className="glass-panel overflow-hidden border-l-4"
+              initial={{ opacity: 0, scale: 0.98 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true, margin: "-50px" }}
+              className="glass-panel overflow-hidden border-l-[6px] shadow-xl group/card"
               style={{ borderLeftColor: item.feedback?.score ? `var(--color-${band.color.split('-')[1]})` : 'var(--color-border)' }}
             >
-              <div className="p-8 sm:p-10">
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-10 pb-8 border-b border-border/30">
+              <div className="p-10 sm:p-14">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-10 mb-12 pb-10 border-b border-border/20">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="w-7 h-7 rounded-lg bg-card border border-border flex items-center justify-center text-xs font-bold text-muted shadow-sm">
-                        {idx + 1}
+                    <div className="flex items-center gap-4 mb-5">
+                      <span className="w-8 h-8 rounded-xl bg-card border border-border flex items-center justify-center text-xs font-black text-muted shadow-inner group-hover/card:text-primary transition-colors">
+                        {(idx + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className="text-[10px] font-bold text-muted uppercase tracking-widest">Question Segment</span>
+                      <span className="text-[10px] font-black text-muted uppercase tracking-[0.3em] opacity-50">Hardware Module</span>
                     </div>
-                    <h3 className="text-2xl font-semibold text-foreground leading-snug">{item.question}</h3>
+                    <h3 className="text-3xl font-bold text-foreground leading-[1.2] tracking-tight">{item.question}</h3>
                   </div>
-                  <div className="flex flex-col items-center sm:items-end shrink-0 md:bg-card/30 md:p-4 rounded-2xl border border-transparent md:hover:border-border/50 transition-colors">
-                    <span className={`text-3xl font-black ${band.color}`}>{item.feedback?.score}<span className="text-sm text-muted font-bold tracking-tight">/100</span></span>
-                    <span className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-1 ${band.color}`}>{band.label}</span>
-                  </div>
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    className="flex flex-col items-center sm:items-end shrink-0 md:bg-background/20 md:p-6 rounded-3xl border border-transparent md:hover:border-border/50 transition-all shadow-sm"
+                  >
+                    <span className={`text-4xl font-black tracking-tighter ${band.color}`}>{item.feedback?.score}<span className="text-sm text-muted font-bold tracking-tight opacity-30">/100</span></span>
+                    <span className={`text-[10px] font-black uppercase tracking-[0.3em] mt-2 ${band.color}`}>{band.label}</span>
+                  </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div className="space-y-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                  <div className="space-y-10">
                     <div>
-                      <span className="text-[10px] font-bold text-muted uppercase tracking-widest block mb-4">Transcription</span>
-                      <div className="bg-[#121214] border border-border/40 rounded-2xl p-6 sm:p-8 italic text-foreground/80 leading-relaxed text-base shadow-inner">
+                      <span className="text-[10px] font-black text-muted uppercase tracking-[0.3em] block mb-6 opacity-40">Transcription Capture</span>
+                      <div className="bg-background/30 border border-border/30 rounded-[2rem] p-8 sm:p-10 italic text-foreground/70 leading-relaxed text-lg shadow-inner selection:bg-primary/20">
                         "{item.answer}"
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-8">
+                  <div className="space-y-12">
                     {item.feedback?.aiData?.strengths?.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest block mb-4">Core Strengths</span>
-                        <ul className="space-y-3">
+                        <span className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.3em] block mb-6 border-b border-emerald-500/10 pb-2">Vector Peaks</span>
+                        <ul className="space-y-5">
                           {item.feedback.aiData.strengths.map((s, i) => (
-                            <li key={i} className="flex items-start gap-3.5 text-sm text-foreground/80 font-medium">
-                              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                            <motion.li 
+                              initial={{ opacity: 0, x: 10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.1 }}
+                              key={i} 
+                              className="flex items-start gap-5 text-base text-foreground/80 font-medium leading-relaxed"
+                            >
+                              <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                              </div>
                               {s}
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
                       </div>
@@ -185,26 +239,39 @@ const EvaluationDashboard = ({ sessionState, onRestart }) => {
 
                     {item.feedback?.aiData?.improvements?.length > 0 && (
                       <div>
-                        <span className="text-[10px] font-bold text-amber-500 uppercase tracking-widest block mb-4">Growth Strategy</span>
-                        <ul className="space-y-3">
+                        <span className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] block mb-6 border-b border-amber-500/10 pb-2">Optimization Paths</span>
+                        <ul className="space-y-5">
                           {item.feedback.aiData.improvements.map((s, i) => (
-                            <li key={i} className="flex items-start gap-3.5 text-sm text-foreground/80 font-medium">
-                              <TrendingUp className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                            <motion.li 
+                              initial={{ opacity: 0, x: 10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.1 }}
+                              key={i} 
+                              className="flex items-start gap-5 text-base text-foreground/80 font-medium leading-relaxed"
+                            >
+                              <div className="w-6 h-6 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                                <TrendingUp className="w-3.5 h-3.5 text-amber-500" />
+                              </div>
                               {s}
-                            </li>
+                            </motion.li>
                           ))}
                         </ul>
                       </div>
                     )}
 
                     {item.feedback?.improvement_tip && (
-                      <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 shadow-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                          <Target className="w-4 h-4 text-primary" />
-                          <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Synthesis Highlight</span>
+                      <motion.div 
+                        whileHover={{ x: 4 }}
+                        className="bg-primary shadow-2xl shadow-primary/20 rounded-[1.5rem] p-8 text-white relative overflow-hidden group/tip"
+                      >
+                        <div className="absolute top-0 right-0 p-6 opacity-10 group-hover/tip:rotate-12 transition-transform">
+                          <Target className="w-12 h-12" />
                         </div>
-                        <p className="text-sm text-foreground/90 leading-relaxed font-medium">{item.feedback.improvement_tip}</p>
-                      </div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-[10px] font-black uppercase tracking-[0.3em] block opacity-70">Clinical Insight</span>
+                        </div>
+                        <p className="text-base leading-relaxed font-bold">{item.feedback.improvement_tip}</p>
+                      </motion.div>
                     )}
                   </div>
                 </div>

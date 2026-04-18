@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import GuidedMode from './components/GuidedMode';
 import TestMode from './components/TestMode';
 import SetupScreen from './components/SetupScreen';
+import EvaluationDashboard from './components/EvaluationDashboard';
 import './App.css';
 
 function App() {
