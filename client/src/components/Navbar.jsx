@@ -1,9 +1,10 @@
 import React from 'react';
+import { Sparkles, Mic, User } from 'lucide-react';
 
 const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
   const tabs = [
-    { id: 'guided', label: 'Practice Mode', icon: 'auto_stories' },
-    { id: 'test', label: 'Interview Mode', icon: 'mic' },
+    { id: 'guided', label: 'Practice Mode', icon: Sparkles },
+    { id: 'test', label: 'Interview Mode', icon: Mic },
   ];
 
   return (
@@ -24,30 +25,33 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
 
         {/* Tab Switcher */}
         <div className="flex bg-card border border-border p-1 rounded-xl">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                if (isGenerating) return;
-                setActiveMode(tab.id);
-              }}
-              disabled={isGenerating}
-              className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                activeMode === tab.id 
-                  ? 'bg-primary text-white shadow-md shadow-primary/20' 
-                  : 'text-muted hover:text-foreground hover:bg-card-hover'
-              } disabled:opacity-50 disabled:cursor-not-allowed`}
-            >
-              <span className="material-symbols-outlined text-[18px]">{tab.icon}</span>
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  if (isGenerating) return;
+                  setActiveMode(tab.id);
+                }}
+                disabled={isGenerating}
+                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  activeMode === tab.id 
+                    ? 'bg-primary text-white shadow-md shadow-primary/20' 
+                    : 'text-muted hover:text-foreground hover:bg-card-hover'
+                } disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                <Icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Right side placeholder or settings */}
         <div className="flex items-center gap-4">
           <button className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted hover:text-foreground hover:bg-card transition">
-            <span className="material-symbols-outlined text-[18px]">account_circle</span>
+            <User className="w-4 h-4" />
           </button>
         </div>
       </div>

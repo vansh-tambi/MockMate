@@ -231,22 +231,41 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
       <div className="flex-1">
         <AnimatePresence mode="wait">
           {loading && !currentQuestion ? (
-            <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-24 glass-panel flex flex-col items-center justify-center">
-              <span className="material-symbols-outlined text-4xl text-primary animate-spin mb-4">progress_activity</span>
-              <p className="text-muted font-medium">Generating intelligent follow-up...</p>
+            <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-24 glass-panel flex flex-col items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-x-0 bottom-0 h-1 bg-primary/20">
+                <motion.div initial={{ x: '-100%' }} animate={{ x: '100%' }} transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }} className="h-full w-48 bg-primary shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+              </div>
+              <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 shadow-inner">
+                <img src="/Logo.png" alt="Logo" className="w-8 h-8 object-contain animate-pulse" />
+              </div>
+              <p className="text-foreground font-bold text-lg mb-1 tracking-tight">Synthesizing follow-up...</p>
+              <p className="text-muted text-sm px-8 max-w-xs">Our AI is analyzing your previous responses to generate the perfect next question.</p>
             </motion.div>
           ) : error ? (
             <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel border-l-4 border-l-red-500 p-8">
-              <p className="font-semibold text-red-500 mb-2">Analysis Failed</p>
-              <p className="text-muted mb-6">{error}</p>
-              <button onClick={fetchNextQuestion} className="btn-secondary">Retry Generate</button>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="material-symbols-outlined text-red-500">error</span>
+                <p className="font-bold text-red-500 uppercase tracking-widest text-xs">Synthesis Failed</p>
+              </div>
+              <p className="text-muted mb-6 text-sm">{error}</p>
+              <button onClick={fetchNextQuestion} className="btn-secondary">
+                <span className="material-symbols-outlined text-[16px] mr-2">refresh</span>
+                Retry Generation
+              </button>
             </motion.div>
           ) : !currentQuestion && !isInterviewComplete ? (
-            <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-12 text-center flex flex-col items-center">
-              <span className="material-symbols-outlined text-5xl text-muted mb-4">rocket_launch</span>
-              <h3 className="text-xl font-bold text-foreground mb-2">Ready to start</h3>
-              <p className="text-muted mb-8 max-w-sm">Your interview is configured and ready. Click below to generate your first greeting question.</p>
-              <button onClick={fetchNextQuestion} className="btn-primary">Initialize Session</button>
+            <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-16 text-center flex flex-col items-center">
+              <div className="w-20 h-20 rounded-3xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-8">
+                <span className="material-symbols-outlined text-4xl text-primary">rocket_launch</span>
+              </div>
+              <h3 className="text-3xl font-extrabold text-foreground mb-3 tracking-tight">Session Ready</h3>
+              <p className="text-muted mb-10 max-w-sm text-base">
+                Your environment is initialized. Press the button below to generate your introductory greeting.
+              </p>
+              <button onClick={fetchNextQuestion} className="btn-primary py-4 px-10 rounded-2xl shadow-2xl shadow-primary/20 group">
+                Initialize Session
+                <span className="material-symbols-outlined text-[20px] ml-2 transition-transform group-hover:translate-x-1">play_arrow</span>
+              </button>
             </motion.div>
           ) : currentQuestion && !isInterviewComplete ? (
             <motion.div key={`question-${currentQuestion.question.index}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col h-full">

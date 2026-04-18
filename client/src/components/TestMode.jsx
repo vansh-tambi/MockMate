@@ -336,9 +336,15 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
       )}
 
       {loading && (
-        <div className="glass-panel p-8 text-center flex flex-col items-center mb-6">
-          <span className="material-symbols-outlined text-4xl text-primary animate-spin mb-3">progress_activity</span>
-          <p className="text-sm text-muted">Retrieving next question...</p>
+        <div className="glass-panel p-12 text-center flex flex-col items-center mb-6 relative overflow-hidden">
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-primary/20">
+            <motion.div initial={{ x: '-100%' }} animate={{ x: '100%' }} transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }} className="h-full w-48 bg-primary shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+          </div>
+          <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 shadow-inner">
+            <img src="/Logo.png" alt="Logo" className="w-8 h-8 object-contain animate-pulse" />
+          </div>
+          <p className="text-foreground font-bold tracking-tight mb-1">Synthesizing Prompt...</p>
+          <p className="text-muted text-xs">Calibrating interview stages based on your profile.</p>
         </div>
       )}
 

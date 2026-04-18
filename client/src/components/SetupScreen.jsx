@@ -1,5 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  FileText, 
+  Upload, 
+  Brain, 
+  Zap, 
+  BarChart3, 
+  ChevronRight, 
+  Loader2,
+  FileSearch
+} from 'lucide-react';
 
 const ROLE_SUGGESTIONS = [
   'Frontend Developer', 'Backend Developer', 'Full Stack Developer',
@@ -97,7 +107,7 @@ const SetupScreen = ({ onComplete }) => {
             <div className="space-y-5">
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-emerald-500/20">
-                  <span className="text-emerald-500 material-symbols-outlined text-[20px]">adaptive_audio_mic</span>
+                  <Zap className="text-emerald-500 w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground leading-none mb-1">Adaptive Progression</h3>
@@ -107,7 +117,7 @@ const SetupScreen = ({ onComplete }) => {
               
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-blue-500/20">
-                  <span className="text-blue-500 material-symbols-outlined text-[20px]">psychology</span>
+                  <Brain className="text-blue-500 w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground leading-none mb-1">Deep Evaluation</h3>
@@ -117,7 +127,7 @@ const SetupScreen = ({ onComplete }) => {
 
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-purple-500/20">
-                  <span className="text-purple-500 material-symbols-outlined text-[20px]">analytics</span>
+                  <BarChart3 className="text-purple-500 w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground leading-none mb-1">Clinical Analysis</h3>
@@ -158,14 +168,14 @@ const SetupScreen = ({ onComplete }) => {
                   <input ref={fileInputRef} type="file" accept=".pdf" onChange={(e) => setResume(e.target.files[0])} className="hidden" />
                   {resume ? (
                     <div className="flex flex-col items-center">
-                      <span className="material-symbols-outlined text-4xl text-primary mb-2">description</span>
+                      <FileSearch className="w-10 h-10 text-primary mb-2" />
                       <p className="text-sm font-medium text-foreground">{resume.name}</p>
                       <p className="text-xs text-muted mt-1">Click to replace</p>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center mb-4">
-                        <span className="material-symbols-outlined text-muted">upload_file</span>
+                        <Upload className="w-5 h-5 text-muted" />
                       </div>
                       <p className="text-sm font-medium text-foreground mb-1">Click to upload or drag and drop</p>
                       <p className="text-xs text-muted">PDF (max. 5MB)</p>
@@ -214,11 +224,14 @@ const SetupScreen = ({ onComplete }) => {
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
-                    <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+                    <Loader2 className="w-4 h-4 animate-spin" />
                     Processing...
                   </span>
                 ) : (
-                  'Start Session'
+                  <>
+                    Start Session
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </>
                 )}
               </button>
             </div>
