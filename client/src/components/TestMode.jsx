@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  BarChart3, 
+  Mic, 
+  Square, 
+  Check, 
+  History, 
+  RotateCcw, 
+  ArrowRight,
+  Loader2,
+  MicOff,
+  AlertCircle
+} from 'lucide-react';
 
 // Score bands
 const getScoreBand = (score) => {
@@ -377,7 +389,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
                 <p className="text-base text-foreground/80 leading-relaxed font-medium">{transcript}</p>
               ) : (
                 <div className="h-full flex flex-col items-center justify-center pt-8">
-                  <span className="material-symbols-outlined text-4xl text-border mb-2">mic_external_on</span>
+                  <MicOff className="w-10 h-10 text-border mb-2" />
                   <p className="text-sm text-muted font-medium">Ready for your answer.</p>
                 </div>
               )}
@@ -394,17 +406,17 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
             >
               {analyzing ? (
                 <>
-                  <span className="material-symbols-outlined animate-spin text-[20px]">sync</span>
+                  <Loader2 className="w-5 h-5 animate-spin" />
                   Analyzing logic...
                 </>
               ) : isRecording ? (
                 <>
-                  <span className="material-symbols-outlined text-[20px]">stop_circle</span>
+                  <Square className="w-5 h-5 fill-current" />
                   Finish & Submit
                 </>
               ) : (
                 <>
-                  <span className="material-symbols-outlined text-[20px]">mic</span>
+                  <Mic className="w-5 h-5" />
                   Start Speaking
                 </>
               )}
@@ -463,7 +475,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
                       <ul className="space-y-2">
                         {feedback.aiData.strengths.map((s, i) => (
                           <li key={i} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="material-symbols-outlined text-[16px] text-emerald-500 mt-0.5">check</span>
+                            <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                             {s}
                           </li>
                         ))}
@@ -477,7 +489,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
                       <ul className="space-y-2">
                         {feedback.aiData.improvements.map((s, i) => (
                           <li key={i} className="text-sm text-foreground/80 flex items-start gap-2">
-                            <span className="material-symbols-outlined text-[16px] text-amber-500 mt-0.5">change_history</span>
+                            <RotateCcw className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                             {s}
                           </li>
                         ))}
@@ -494,7 +506,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
                   <button onClick={handleNextQuestion} className="w-full btn-secondary py-3 flex items-center justify-center gap-2">
                     {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Finish Interview' : 'Continue to Next'}
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                   
                 </div>

@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Loader2, 
+  AlertCircle, 
+  Rocket, 
+  Play, 
+  Lightbulb, 
+  Key, 
+  CheckSquare, 
+  ArrowRight,
+  CheckCircle2,
+  RefreshCw
+} from 'lucide-react';
 
 const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionState, setSessionState }) => {
   const API_BASE = import.meta.env.VITE_API_BASE || '';
@@ -244,19 +256,19 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
           ) : error ? (
             <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel border-l-4 border-l-red-500 p-8">
               <div className="flex items-center gap-3 mb-4">
-                <span className="material-symbols-outlined text-red-500">error</span>
+                <AlertCircle className="w-5 h-5 text-red-500" />
                 <p className="font-bold text-red-500 uppercase tracking-widest text-xs">Synthesis Failed</p>
               </div>
               <p className="text-muted mb-6 text-sm">{error}</p>
               <button onClick={fetchNextQuestion} className="btn-secondary">
-                <span className="material-symbols-outlined text-[16px] mr-2">refresh</span>
+                <RefreshCw className="w-4 h-4 mr-2" />
                 Retry Generation
               </button>
             </motion.div>
           ) : !currentQuestion && !isInterviewComplete ? (
             <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-16 text-center flex flex-col items-center">
               <div className="w-20 h-20 rounded-3xl bg-primary/5 border border-primary/10 flex items-center justify-center mb-8">
-                <span className="material-symbols-outlined text-4xl text-primary">rocket_launch</span>
+                <Rocket className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-3xl font-extrabold text-foreground mb-3 tracking-tight">Session Ready</h3>
               <p className="text-muted mb-10 max-w-sm text-base">
@@ -264,7 +276,7 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
               </p>
               <button onClick={fetchNextQuestion} className="btn-primary py-4 px-10 rounded-2xl shadow-2xl shadow-primary/20 group">
                 Initialize Session
-                <span className="material-symbols-outlined text-[20px] ml-2 transition-transform group-hover:translate-x-1">play_arrow</span>
+                <Play className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </button>
             </motion.div>
           ) : currentQuestion && !isInterviewComplete ? (
@@ -276,16 +288,16 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                 
                 <div className="mt-10 flex flex-wrap gap-3">
                   <button onClick={() => setShowHint(!showHint)} className="btn-secondary text-xs">
-                    <span className="material-symbols-outlined text-[16px] mr-1">{showHint ? 'visibility_off' : 'lightbulb'}</span>
+                    <Lightbulb className="w-4 h-4 mr-1" />
                     {showHint ? 'Hide Hint' : 'Coaching Hint'}
                   </button>
                   <button onClick={() => setShowAnswer(!showAnswer)} className="btn-secondary text-xs">
-                    <span className="material-symbols-outlined text-[16px] mr-1">{showAnswer ? 'visibility_off' : 'key'}</span>
+                    <Key className="w-4 h-4 mr-1" />
                     {showAnswer ? 'Hide Sample' : 'Sample Answer'}
                   </button>
                   {currentQuestion.guidance?.tips?.length > 0 && (
                     <button onClick={() => setShowTips(!showTips)} className="btn-secondary text-xs">
-                      <span className="material-symbols-outlined text-[16px] mr-1">{showTips ? 'visibility_off' : 'checklist'}</span>
+                      <CheckSquare className="w-4 h-4 mr-1" />
                       {showTips ? 'Hide Framework' : 'Answer Framework'}
                     </button>
                   )}
@@ -331,14 +343,14 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
                 <span className="text-xs text-muted font-mono hidden sm:inline-block">Press [Ctrl + Enter] for next question</span>
                 <button onClick={handleNextQuestion} disabled={loading} className="btn-primary ml-auto">
                   {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Finish Interview' : 'Next Question'}
-                  <span className="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
               </div>
 
             </motion.div>
           ) : isInterviewComplete ? (
             <motion.div key="complete" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-12 text-center flex flex-col items-center">
-              <span className="material-symbols-outlined text-6xl text-green-400 mb-6">task_alt</span>
+              <CheckCircle2 className="w-16 h-16 text-green-400 mb-6" />
               <h2 className="text-3xl font-bold text-foreground mb-4">Session Complete</h2>
               <p className="text-muted mb-10 max-w-md mx-auto">
                 You've successfully completed a full {TOTAL_INTERVIEW_QUESTIONS}-question battery across all stages. 
