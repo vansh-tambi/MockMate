@@ -122,7 +122,7 @@ function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg-base)', color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>
+    <div className="min-h-screen bg-background text-foreground font-sans flex flex-col selection:bg-primary/30">
 
       {!userData.isReady ? (
         <SetupScreen onComplete={handleSetupComplete} />
@@ -135,7 +135,7 @@ function App() {
             isGenerating={isGenerating}
           />
 
-          <main className="max-w-6xl mx-auto px-4 md:px-6">
+          <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
             {activeMode === 'guided' ? (
               <GuidedMode
                 userData={userData}

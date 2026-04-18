@@ -16,15 +16,14 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
 
   const TOTAL_INTERVIEW_QUESTIONS = 35;
 
-  // Stage display config (no emojis — clean text)
   const stageConfig = {
-    introduction: { label: 'Introduction', color: '#f59e0b' },
-    warmup: { label: 'Warm-up', color: '#f97316' },
-    resume_based: { label: 'Resume & Skills', color: '#3b82f6' },
-    technical: { label: 'Technical', color: '#8b5cf6' },
-    behavioral: { label: 'Behavioral', color: '#ec4899' },
-    real_world: { label: 'Real-World', color: '#10b981' },
-    hr_closing: { label: 'HR & Closing', color: '#ef4444' },
+    introduction: { label: 'Introduction' },
+    warmup: { label: 'Warm-up' },
+    resume_based: { label: 'Resume & Skills' },
+    technical: { label: 'Technical' },
+    behavioral: { label: 'Behavioral' },
+    real_world: { label: 'Real-World' },
+    hr_closing: { label: 'HR & Closing' },
   };
 
   const stageSegments = [
@@ -37,7 +36,6 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     { name: 'hr_closing', start: 30, questions: 5 },
   ];
 
-  // Fetch next question
   const fetchNextQuestion = useCallback(async () => {
     setLoading(true);
     setIsGenerating?.(true);
@@ -77,7 +75,6 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
         throw new Error('Invalid response from server');
       }
 
-      // Check for stage transition
       if (previousStage.current && previousStage.current !== data.stage) {
         setStageTransition(data.stage);
         setTimeout(() => setStageTransition(null), 2000);
@@ -120,7 +117,6 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     }
   }, [API_BASE, sessionState.questionIndex, sessionState.askedQuestions, userData, setSessionState, setIsGenerating]);
 
-  // Handle next question
   const handleNextQuestion = useCallback(() => {
     setCurrentQuestion(null);
     setSessionState(prev => ({
@@ -129,7 +125,6 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     }));
   }, [setSessionState]);
 
-  // Load question on mount / index change
   useEffect(() => {
     const cachedCurrent = sessionState.currentQuestionCache;
     if (cachedCurrent?.question?.index === sessionState.questionIndex) {
@@ -160,7 +155,6 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
     }
   }, [sessionState.questionIndex]);
 
-  // Keyboard shortcut
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Enter' && e.ctrlKey && currentQuestion && !loading) {
@@ -178,326 +172,163 @@ const GuidedMode = ({ userData, qaPairs, setQaPairs, setIsGenerating, sessionSta
   const currentStageConfig = currentQuestion ? stageConfig[currentQuestion.stage] : null;
 
   return (
-    <div className="max-w-3xl mx-auto pt-28 pb-16 px-6">
-
-      {/* Stage Transition Interstitial */}
+    <div className="w-full max-w-4xl mx-auto flex-1 flex flex-col justify-center py-12">
       <AnimatePresence>
         {stageTransition && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            style={{ background: 'rgba(10, 10, 15, 0.9)' }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm"
           >
             <div className="text-center">
-              <div
-                className="w-3 h-3 rounded-full mx-auto mb-4"
-                style={{ background: stageConfig[stageTransition]?.color }}
-              />
-              <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+              <div className="w-3 h-3 rounded-full mx-auto mb-4 bg-primary animate-pulse" />
+              <h2 className="text-2xl font-bold mb-2 text-foreground">
                 {stageConfig[stageTransition]?.label}
               </h2>
-              <p style={{ color: 'var(--text-muted)' }}>Moving to next stage...</p>
+              <p className="text-muted">Moving to next stage...</p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Progress Section */}
+      {/* Progress Bar Header */}
       {currentQuestion && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-10"
-        >
-          <div className="flex items-center justify-between mb-4">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-10 w-full">
+          <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
-              <span
-                className="mm-badge"
-                style={{
-                  background: currentStageConfig ? `${currentStageConfig.color}15` : 'var(--accent-muted)',
-                  color: currentStageConfig?.color || 'var(--accent)',
-                }}
-              >
-                {currentStageConfig?.label}
+              <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest">
+                {currentStageConfig?.label || 'Interview'}
               </span>
-              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
+              <span className="text-sm font-medium text-muted">
                 Question {displayIndex} of {TOTAL_INTERVIEW_QUESTIONS}
               </span>
             </div>
-            <span className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>
-              {completionPercent}%
-            </span>
+            <span className="text-sm font-bold text-foreground">{completionPercent}%</span>
           </div>
 
-          {/* Single clean progress bar with stage markers */}
-          <div className="mm-progress" style={{ height: '6px' }}>
-            <div
-              className="mm-progress-fill"
-              style={{ width: `${completionPercent}%` }}
-            />
+          <div className="w-full h-1.5 bg-card rounded-full overflow-hidden border border-border">
+            <div className="h-full bg-primary transition-all duration-500 rounded-full" style={{ width: `${completionPercent}%` }} />
           </div>
 
-          {/* Stage labels below progress bar */}
-          <div className="flex mt-3">
+          <div className="flex mt-2 w-full gap-[1px]">
             {stageSegments.map((seg) => {
               const widthPercent = (seg.questions / TOTAL_INTERVIEW_QUESTIONS) * 100;
               const isActive = currentQuestion.stage === seg.name;
               const isPassed = sessionState.questionIndex >= seg.start + seg.questions;
               return (
-                <div
-                  key={seg.name}
-                  className="text-center overflow-hidden"
-                  style={{ width: `${widthPercent}%` }}
-                >
-                  <div
-                    className="text-[10px] font-medium truncate px-0.5 transition-colors duration-300"
-                    style={{
-                      color: isActive ? stageConfig[seg.name]?.color : isPassed ? 'var(--text-muted)' : 'var(--bg-hover)',
-                    }}
-                  >
-                    {stageConfig[seg.name]?.label}
-                  </div>
-                </div>
+                <div key={seg.name} className="h-1 rounded-sm transition-colors duration-300" style={{
+                  width: `${widthPercent}%`,
+                  backgroundColor: isActive ? 'var(--color-primary)' : isPassed ? 'var(--color-muted)' : 'transparent',
+                }} />
               );
             })}
           </div>
         </motion.div>
       )}
 
-      {/* Main Content */}
-      <AnimatePresence mode="wait">
-        {loading && !currentQuestion ? (
-          <motion.div
-            key="loading"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="text-center py-20"
-          >
-            <div className="inline-block">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-                className="w-10 h-10 rounded-full mx-auto mb-4"
-                style={{ border: '3px solid var(--border)', borderTopColor: 'var(--accent)' }}
-              />
-              <p style={{ color: 'var(--text-muted)' }}>Loading question...</p>
-            </div>
-          </motion.div>
-
-        ) : error ? (
-          <motion.div
-            key="error"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mm-card p-8"
-            style={{ borderColor: 'var(--error)', borderLeftWidth: '3px' }}
-          >
-            <p className="font-semibold mb-3" style={{ color: 'var(--error)' }}>Failed to load question</p>
-            <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>{error}</p>
-            <button onClick={fetchNextQuestion} className="mm-btn mm-btn-secondary text-sm">
-              Retry
-            </button>
-          </motion.div>
-
-        ) : !currentQuestion && !isInterviewComplete ? (
-          <motion.div
-            key="empty"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mm-card p-10 text-center"
-          >
-            <p className="mb-6 text-base" style={{ color: 'var(--text-secondary)' }}>Ready to begin your practice session.</p>
-            <button onClick={fetchNextQuestion} className="mm-btn mm-btn-primary">
-              Load First Question
-            </button>
-          </motion.div>
-
-        ) : currentQuestion && !isInterviewComplete ? (
-          <motion.div
-            key={`question-${currentQuestion.question.index}`}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.35 }}
-          >
-            {/* Question Card */}
-            <div className="mm-card p-10 mb-8">
-              <div className="flex items-start justify-between gap-6 mb-8">
-                <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
-                    Interview Question
-                  </p>
-                  <h2 className="text-2xl font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
-                    {currentQuestion.question.text}
-                  </h2>
-                </div>
-                <div
-                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-base font-bold"
-                  style={{
-                    background: 'var(--accent-muted)',
-                    color: 'var(--accent)',
-                  }}
-                >
-                  {displayIndex}
-                </div>
-              </div>
-
-              {/* Reveal Buttons */}
-              <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={() => setShowHint(!showHint)}
-                  className="mm-reveal-btn"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  {showHint ? 'Hide Hint' : 'Show Hint'}
-                </button>
-                <button
-                  onClick={() => setShowAnswer(!showAnswer)}
-                  className="mm-reveal-btn"
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  {showAnswer ? 'Hide Answer' : 'Show Answer'}
-                </button>
-                {currentQuestion.guidance?.tips?.length > 0 && (
-                  <button
-                    onClick={() => setShowTips(!showTips)}
-                    className="mm-reveal-btn"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 6h16M4 12h16M4 18h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {showTips ? 'Hide Tips' : 'Key Tips'}
+      {/* Main Content Area */}
+      <div className="flex-1">
+        <AnimatePresence mode="wait">
+          {loading && !currentQuestion ? (
+            <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-24 glass-panel flex flex-col items-center justify-center">
+              <span className="material-symbols-outlined text-4xl text-primary animate-spin mb-4">progress_activity</span>
+              <p className="text-muted font-medium">Generating intelligent follow-up...</p>
+            </motion.div>
+          ) : error ? (
+            <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel border-l-4 border-l-red-500 p-8">
+              <p className="font-semibold text-red-500 mb-2">Analysis Failed</p>
+              <p className="text-muted mb-6">{error}</p>
+              <button onClick={fetchNextQuestion} className="btn-secondary">Retry Generate</button>
+            </motion.div>
+          ) : !currentQuestion && !isInterviewComplete ? (
+            <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-12 text-center flex flex-col items-center">
+              <span className="material-symbols-outlined text-5xl text-muted mb-4">rocket_launch</span>
+              <h3 className="text-xl font-bold text-foreground mb-2">Ready to start</h3>
+              <p className="text-muted mb-8 max-w-sm">Your interview is configured and ready. Click below to generate your first greeting question.</p>
+              <button onClick={fetchNextQuestion} className="btn-primary">Initialize Session</button>
+            </motion.div>
+          ) : currentQuestion && !isInterviewComplete ? (
+            <motion.div key={`question-${currentQuestion.question.index}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="flex flex-col h-full">
+              
+              <div className="glass-panel p-8 sm:p-12 mb-6">
+                <p className="text-xs font-bold text-muted uppercase tracking-widest mb-4">Interview Prompt</p>
+                <h2 className="text-2xl sm:text-3xl font-semibold text-foreground leading-snug">{currentQuestion.question.text}</h2>
+                
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <button onClick={() => setShowHint(!showHint)} className="btn-secondary text-xs">
+                    <span className="material-symbols-outlined text-[16px] mr-1">{showHint ? 'visibility_off' : 'lightbulb'}</span>
+                    {showHint ? 'Hide Hint' : 'Coaching Hint'}
                   </button>
-                )}
+                  <button onClick={() => setShowAnswer(!showAnswer)} className="btn-secondary text-xs">
+                    <span className="material-symbols-outlined text-[16px] mr-1">{showAnswer ? 'visibility_off' : 'key'}</span>
+                    {showAnswer ? 'Hide Sample' : 'Sample Answer'}
+                  </button>
+                  {currentQuestion.guidance?.tips?.length > 0 && (
+                    <button onClick={() => setShowTips(!showTips)} className="btn-secondary text-xs">
+                      <span className="material-symbols-outlined text-[16px] mr-1">{showTips ? 'visibility_off' : 'checklist'}</span>
+                      {showTips ? 'Hide Framework' : 'Answer Framework'}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
 
-            {/* Collapsible Sections */}
-            <AnimatePresence>
-              {showHint && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-5"
-                >
-                  <div
-                    className="mm-card p-7"
-                    style={{ borderLeft: '3px solid var(--info)' }}
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--info)' }}>
-                      Coaching Direction
-                    </p>
-                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                      {currentQuestion.guidance?.direction || 'Focus on clarity and structure in your response.'}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
+              {/* Coaching Drawers */}
+              <AnimatePresence>
+                {showHint && (
+                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
+                    <div className="glass-panel-subtle p-6 border-l-2 border-l-blue-400">
+                      <span className="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Direction</span>
+                      <p className="text-sm text-muted">{currentQuestion.guidance?.direction || 'Focus on clarity and structure in your response.'}</p>
+                    </div>
+                  </motion.div>
+                )}
+                {showAnswer && (
+                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
+                    <div className="glass-panel-subtle p-6 border-l-2 border-l-green-400">
+                      <span className="text-xs font-bold text-green-400 uppercase tracking-widest block mb-2">Sample</span>
+                      <p className="text-sm text-muted">{currentQuestion.guidance?.answer || 'Provide a relevant example from your experience.'}</p>
+                    </div>
+                  </motion.div>
+                )}
+                {showTips && currentQuestion.guidance?.tips?.length > 0 && (
+                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="overflow-hidden mb-4">
+                    <div className="glass-panel-subtle p-6 border-l-2 border-l-amber-400">
+                      <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-3">Key Points</span>
+                      <ul className="space-y-2">
+                        {currentQuestion.guidance.tips.map((tip, idx) => (
+                          <li key={idx} className="flex text-sm text-muted">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 mt-1.5 mr-3"></span>
+                            {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              {showAnswer && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-5"
-                >
-                  <div
-                    className="mm-card p-7"
-                    style={{ borderLeft: '3px solid var(--success)' }}
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--success)' }}>
-                      Sample Answer
-                    </p>
-                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                      {currentQuestion.guidance?.answer || 'Provide a relevant example from your experience.'}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
+              <div className="mt-8 flex items-center justify-between">
+                <span className="text-xs text-muted font-mono hidden sm:inline-block">Press [Ctrl + Enter] for next question</span>
+                <button onClick={handleNextQuestion} disabled={loading} className="btn-primary ml-auto">
+                  {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Finish Interview' : 'Next Question'}
+                  <span className="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+                </button>
+              </div>
 
-              {showTips && currentQuestion.guidance?.tips?.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden mb-5"
-                >
-                  <div
-                    className="mm-card p-7"
-                    style={{ borderLeft: '3px solid var(--secondary)' }}
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--secondary)' }}>
-                      Key Points to Cover
-                    </p>
-                    <ul className="space-y-3">
-                      {currentQuestion.guidance.tips.map((tip, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                          <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: 'var(--secondary)' }} />
-                          {tip}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Next button */}
-            <div className="flex items-center justify-between mt-10">
-              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                Ctrl+Enter for next
+            </motion.div>
+          ) : isInterviewComplete ? (
+            <motion.div key="complete" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass-panel p-12 text-center flex flex-col items-center">
+              <span className="material-symbols-outlined text-6xl text-green-400 mb-6">task_alt</span>
+              <h2 className="text-3xl font-bold text-foreground mb-4">Session Complete</h2>
+              <p className="text-muted mb-10 max-w-md mx-auto">
+                You've successfully completed a full {TOTAL_INTERVIEW_QUESTIONS}-question battery across all stages. 
               </p>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={handleNextQuestion}
-                disabled={loading}
-                className="mm-btn mm-btn-primary"
-              >
-                {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Complete Interview' : 'Next Question'}
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </motion.button>
-            </div>
-          </motion.div>
-
-        ) : isInterviewComplete ? (
-          <motion.div
-            key="complete"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-20"
-          >
-            <div
-              className="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center text-2xl"
-              style={{ background: 'var(--success-bg)' }}
-            >
-              ✓
-            </div>
-            <h2 className="text-2xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
-              Practice Complete
-            </h2>
-            <p className="mb-8 max-w-md mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              You've gone through all {TOTAL_INTERVIEW_QUESTIONS} questions across 7 interview stages. Great preparation!
-            </p>
-            <button
-              onClick={() => window.location.reload()}
-              className="mm-btn mm-btn-primary mm-btn-lg"
-            >
-              Start New Session
-            </button>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+              <button onClick={() => window.location.reload()} className="btn-primary">Return to Setup</button>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

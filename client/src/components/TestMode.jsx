@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Score bands
 const getScoreBand = (score) => {
-  if (score <= 30) return { label: 'Needs Work', color: '#ef4444', bg: 'var(--error-bg)' };
-  if (score <= 50) return { label: 'Surface Level', color: '#f59e0b', bg: 'var(--warning-bg)' };
-  if (score <= 70) return { label: 'Acceptable', color: '#eab308', bg: 'rgba(234, 179, 8, 0.1)' };
-  if (score <= 85) return { label: 'Strong', color: '#10b981', bg: 'var(--success-bg)' };
-  return { label: 'Exceptional', color: '#34d399', bg: 'rgba(52, 211, 153, 0.1)' };
+  if (score <= 30) return { label: 'Needs Work', color: '#ef4444', ringClass: 'stroke-red-500' };
+  if (score <= 50) return { label: 'Surface Level', color: '#f59e0b', ringClass: 'stroke-amber-500' };
+  if (score <= 70) return { label: 'Acceptable', color: '#eab308', ringClass: 'stroke-yellow-500' };
+  if (score <= 85) return { label: 'Strong', color: '#10b981', ringClass: 'stroke-emerald-500' };
+  return { label: 'Exceptional', color: '#34d399', ringClass: 'stroke-green-400' };
 };
 
 // Score Ring SVG Component
@@ -18,13 +18,16 @@ const ScoreRing = ({ score, size = 100 }) => {
   const offset = circumference - (score / 100) * circumference;
 
   return (
-    <div className="mm-score-ring" style={{ width: size, height: size }}>
-      <svg width={size} height={size}>
-        <circle className="mm-score-ring-bg" cx={size/2} cy={size/2} r={radius} />
+    <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
+      <svg width={size} height={size} className="-rotate-90">
+        <circle className="fill-none stroke-card-hover" strokeWidth="6" cx={size/2} cy={size/2} r={radius} />
         <motion.circle
-          className="mm-score-ring-fill"
-          cx={size/2} cy={size/2} r={radius}
-          stroke={band.color}
+          className={`fill-none stroke-current ${band.ringClass}`}
+          strokeWidth="6"
+          strokeLinecap="round"
+          cx={size/2}
+          cy={size/2}
+          r={radius}
           strokeDasharray={circumference}
           initial={{ strokeDashoffset: circumference }}
           animate={{ strokeDashoffset: offset }}
@@ -32,8 +35,8 @@ const ScoreRing = ({ score, size = 100 }) => {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-bold" style={{ color: band.color }}>{score}</span>
-        <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>/100</span>
+        <span className={`text-2xl font-bold`} style={{ color: band.color }}>{score}</span>
+        <span className="text-[10px] text-muted">/100</span>
       </div>
     </div>
   );
@@ -41,9 +44,14 @@ const ScoreRing = ({ score, size = 100 }) => {
 
 // Waveform Component
 const Waveform = () => (
-  <div className="mm-waveform">
-    {Array.from({ length: 7 }).map((_, i) => (
-      <div key={i} className="mm-waveform-bar" />
+  <div className="flex items-center gap-[3px] h-6">
+    {[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6].map((delay, i) => (
+      <motion.div 
+        key={i} 
+        className="w-[3px] bg-red-500 rounded-sm"
+        animate={{ height: ["6px", "20px", "6px"], opacity: [0.4, 1, 0.4] }}
+        transition={{ duration: 1.2, repeat: Infinity, delay, ease: "easeInOut" }}
+      />
     ))}
   </div>
 );
@@ -69,16 +77,15 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
   const TOTAL_INTERVIEW_QUESTIONS = 35;
 
   const stageConfig = {
-    introduction: { label: 'Introduction', color: '#f59e0b' },
-    warmup: { label: 'Warm-up', color: '#f97316' },
-    resume_based: { label: 'Resume & Skills', color: '#3b82f6' },
-    technical: { label: 'Technical', color: '#8b5cf6' },
-    behavioral: { label: 'Behavioral', color: '#ec4899' },
-    real_world: { label: 'Real-World', color: '#10b981' },
-    hr_closing: { label: 'HR & Closing', color: '#ef4444' },
+    introduction: { label: 'Introduction', color: 'text-amber-500', bg: 'bg-amber-500/10' },
+    warmup: { label: 'Warm-up', color: 'text-orange-500', bg: 'bg-orange-500/10' },
+    resume_based: { label: 'Resume & Skills', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+    technical: { label: 'Technical', color: 'text-purple-500', bg: 'bg-purple-500/10' },
+    behavioral: { label: 'Behavioral', color: 'text-pink-500', bg: 'bg-pink-500/10' },
+    real_world: { label: 'Real-World', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+    hr_closing: { label: 'HR & Closing', color: 'text-red-500', bg: 'bg-red-500/10' },
   };
 
-  // Fetch current question
   const fetchCurrentQuestion = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -105,10 +112,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
 
       clearTimeout(timer);
 
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
-        throw new Error(`Server error: ${res.status} - ${errorData.error || 'Unknown'}`);
-      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const data = await res.json();
       if (!data.success || !data.question) throw new Error('Invalid response');
@@ -138,7 +142,6 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     }
   }, [API_BASE, userData, sessionState.questionIndex, sessionState.askedQuestions]);
 
-  // Load question on index change
   useEffect(() => {
     const cachedCurrent = sessionState.currentQuestionCache;
     if (cachedCurrent?.question?.index === sessionState.questionIndex) {
@@ -162,7 +165,6 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     }
   }, [sessionState.questionIndex]);
 
-  // Camera
   useEffect(() => {
     let mediaStream = null;
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -176,7 +178,6 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     };
   }, []);
 
-  // Speech recognition
   useEffect(() => {
     if (!recognitionRef.current) {
       const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -214,20 +215,16 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
     }
   }, []);
 
-  // Recording timer
   useEffect(() => {
     if (isRecording) {
       setRecordingTime(0);
-      recordingTimerRef.current = setInterval(() => {
-        setRecordingTime(t => t + 1);
-      }, 1000);
+      recordingTimerRef.current = setInterval(() => setRecordingTime(t => t + 1), 1000);
     } else {
       clearInterval(recordingTimerRef.current);
     }
     return () => clearInterval(recordingTimerRef.current);
   }, [isRecording]);
 
-  // Submit answer
   const submitAnswer = useCallback(async () => {
     if (!currentQuestionRef.current || !transcriptRef.current.trim()) {
       setError('Please speak your answer before submitting.');
@@ -261,7 +258,7 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
       setFeedback({
         rating: 'Yellow', score: 50, justification: 'Evaluation unavailable.',
         breakdown: { relevance: 10, clarity: 10, structure: 10, technical_depth: 10, impact: 10 },
-        improvement_tip: 'Try again'
+        improvement_tip: 'Try again.'
       });
     } finally {
       setAnalyzing(false);
@@ -309,272 +306,196 @@ const TestMode = ({ userData, sessionState, setSessionState }) => {
   const completionPercent = Math.round((sessionState.questionIndex / TOTAL_INTERVIEW_QUESTIONS) * 100);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="pt-24 max-w-5xl mx-auto min-h-[calc(100vh-4rem)] pb-12 px-6"
-    >
-      {/* Header: Stage + Progress */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-3">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex-1 w-full max-w-6xl mx-auto py-8">
+      
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8 pb-4 border-b border-border">
+        <div className="flex items-center gap-4">
+          <h1 className="text-xl font-bold text-foreground tracking-tight hidden sm:block">Interview Session</h1>
           {currentStageConf && (
-            <span
-              className="mm-badge"
-              style={{
-                background: `${currentStageConf.color}15`,
-                color: currentStageConf.color,
-              }}
-            >
+            <span className={`px-2.5 py-0.5 rounded-md text-xs font-semibold uppercase tracking-wider ${currentStageConf.bg} ${currentStageConf.color}`}>
               {currentStageConf.label}
             </span>
           )}
-          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            {sessionState.questionIndex + 1} / {TOTAL_INTERVIEW_QUESTIONS}
+          <span className="text-sm font-medium text-muted border-l border-border pl-4">
+            {sessionState.questionIndex + 1} of {TOTAL_INTERVIEW_QUESTIONS}
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <div className="mm-progress w-32" style={{ height: '4px' }}>
-            <div className="mm-progress-fill" style={{ width: `${completionPercent}%` }} />
+          <div className="w-32 h-1.5 bg-card border border-border rounded-full overflow-hidden">
+            <div className="h-full bg-primary transition-all duration-300" style={{ width: `${completionPercent}%` }} />
           </div>
-          <span className="text-xs font-semibold" style={{ color: 'var(--accent)' }}>{completionPercent}%</span>
+          <span className="text-xs font-bold text-foreground">{completionPercent}%</span>
         </div>
       </div>
 
       {error && (
-        <div className="mm-card p-4 mb-4" style={{ borderLeft: '3px solid var(--error)' }}>
-          <p className="text-sm" style={{ color: 'var(--error)' }}>{error}</p>
+        <div className="bg-red-500/10 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+          <p className="text-sm text-red-500 font-medium">{error}</p>
         </div>
       )}
 
       {loading && (
-        <div className="mm-card p-6 mb-4 text-center">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-            className="w-8 h-8 rounded-full mx-auto mb-3"
-            style={{ border: '2px solid var(--border)', borderTopColor: 'var(--accent)' }}
-          />
-          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Loading question...</p>
+        <div className="glass-panel p-8 text-center flex flex-col items-center mb-6">
+          <span className="material-symbols-outlined text-4xl text-primary animate-spin mb-3">progress_activity</span>
+          <p className="text-sm text-muted">Retrieving next question...</p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* LEFT: Question + Transcript + Controls (2/3 width) */}
-        <div className="lg:col-span-2 flex flex-col gap-6">
-
-          {/* Question Card */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* LEFT COLUMN: Question & Prompt (Spans 7 cols) */}
+        <div className="lg:col-span-7 flex flex-col gap-6">
           {currentQuestion && (
-            <div className="mm-card p-8">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
-                Question {sessionState.questionIndex + 1}
-              </p>
-              <h2 className="text-xl font-semibold leading-relaxed" style={{ color: 'var(--text-primary)' }}>
-                {currentQuestion.question.text}
-              </h2>
+            <div className="glass-panel p-8">
+              <span className="inline-block px-2 py-1 rounded bg-card-hover border border-border text-[10px] font-bold text-muted tracking-widest uppercase mb-4">Prompt</span>
+              <h2 className="text-2xl font-semibold text-foreground leading-snug">{currentQuestion.question.text}</h2>
             </div>
           )}
 
-          {/* Transcript Area */}
-          <div className="mm-card p-8 min-h-[200px] flex flex-col">
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-                  Your Response
-                </span>
-                {isRecording && <Waveform />}
-              </div>
+          <div className="glass-panel p-8 flex-1 flex flex-col min-h-[250px]">
+            <div className="flex items-center justify-between mb-4 pb-4 border-b border-border/50">
+              <span className="text-xs font-bold text-muted uppercase tracking-widest">Your Answer</span>
               {isRecording && (
-                <span className="text-xs font-mono tabular-nums" style={{ color: 'var(--error)' }}>
-                  ● {formatTime(recordingTime)}
-                </span>
+                <div className="flex items-center gap-4">
+                  <Waveform />
+                  <span className="text-xs font-mono text-red-500 tabular-nums font-bold tracking-widest">
+                    {formatTime(recordingTime)}
+                  </span>
+                </div>
               )}
             </div>
-            <div className="flex-1">
+            
+            <div className="flex-1 max-h-[300px] overflow-y-auto custom-scrollbar pr-2 pb-4">
               {transcript ? (
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  {transcript}
-                </p>
+                <p className="text-base text-foreground/80 leading-relaxed font-medium">{transcript}</p>
               ) : (
-                <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                  {isRecording ? 'Listening...' : 'Press the button below to start speaking your answer.'}
-                </p>
+                <div className="h-full flex flex-col items-center justify-center pt-8">
+                  <span className="material-symbols-outlined text-4xl text-border mb-2">mic_external_on</span>
+                  <p className="text-sm text-muted font-medium">Ready for your answer.</p>
+                </div>
               )}
             </div>
-          </div>
 
-          {/* Action Button */}
-          <motion.button
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
-            onClick={handleAction}
-            disabled={analyzing || loading || !currentQuestion}
-            className={`w-full py-5 rounded-xl font-semibold text-base transition-all ${
-              isRecording ? 'mm-recording-pulse' : ''
-            }`}
-            style={{
-              background: analyzing ? 'var(--bg-elevated)' : isRecording ? 'var(--error-bg)' : 'var(--accent)',
-              color: analyzing ? 'var(--text-muted)' : isRecording ? 'var(--error)' : 'white',
-              border: isRecording ? '1px solid var(--error)' : '1px solid transparent',
-              opacity: (analyzing || loading || !currentQuestion) ? 0.5 : 1,
-              cursor: (analyzing || loading || !currentQuestion) ? 'not-allowed' : 'pointer',
-            }}
-          >
-            {analyzing ? (
-              <span className="flex items-center justify-center gap-2">
-                <motion.span
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                  className="inline-block w-4 h-4 border-2 rounded-full"
-                  style={{ borderColor: 'var(--border)', borderTopColor: 'var(--text-muted)' }}
-                />
-                Analyzing your answer...
-              </span>
-            ) : isRecording ? (
-              'Stop & Submit Answer'
-            ) : (
-              <span className="flex items-center justify-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" fill="currentColor"/>
-                  <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Start Recording
-              </span>
-            )}
-          </motion.button>
+            <button
+              onClick={handleAction}
+              disabled={analyzing || loading || !currentQuestion}
+              className={`mt-4 w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${
+                analyzing ? 'bg-card text-muted cursor-not-allowed' : 
+                isRecording ? 'bg-red-500/10 text-red-500 hover:bg-red-500/20' : 
+                'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/25'
+              }`}
+            >
+              {analyzing ? (
+                <>
+                  <span className="material-symbols-outlined animate-spin text-[20px]">sync</span>
+                  Analyzing logic...
+                </>
+              ) : isRecording ? (
+                <>
+                  <span className="material-symbols-outlined text-[20px]">stop_circle</span>
+                  Finish & Submit
+                </>
+              ) : (
+                <>
+                  <span className="material-symbols-outlined text-[20px]">mic</span>
+                  Start Speaking
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* RIGHT: Camera + Feedback Panel (1/3 width) */}
-        <div className="flex flex-col gap-6">
-
-          {/* Camera PIP */}
-          <div
-            className="rounded-2xl overflow-hidden relative"
-            style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', aspectRatio: '4/3' }}
-          >
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              className="w-full h-full object-cover"
-              style={{ transform: 'scaleX(-1)' }}
-            />
+        {/* RIGHT COLUMN: Camera & Feedback (Spans 5 cols) */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          
+          <div className="rounded-xl overflow-hidden bg-card border border-border aspect-video relative shadow-lg">
+            <video ref={videoRef} autoPlay muted className="w-full h-full object-cover scale-x-[-1]" />
             {isRecording && (
-              <div className="absolute top-3 left-3">
-                <span
-                  className="flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] font-semibold"
-                  style={{ background: 'rgba(239, 68, 68, 0.9)', color: 'white' }}
-                >
-                  ● LIVE
-                </span>
+              <div className="absolute top-4 left-4 bg-red-500/90 text-white px-2 py-1 rounded text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5 shadow-md shadow-red-500/20">
+                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+                Live Rec
               </div>
             )}
           </div>
 
-          {/* Feedback Panel */}
           <AnimatePresence>
             {feedback && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.3 }}
-                className="mm-card p-8 custom-scrollbar overflow-y-auto"
-                style={{ maxHeight: 'calc(100vh - 420px)' }}
-              >
-                {/* Score */}
-                <div className="flex flex-col items-center mb-6">
-                  <ScoreRing score={feedback.score} size={90} />
-                  <p
-                    className="text-xs font-semibold mt-2"
-                    style={{ color: getScoreBand(feedback.score).color }}
-                  >
-                    {getScoreBand(feedback.score).label}
-                  </p>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="glass-panel flex-1 flex flex-col overflow-hidden max-h-[600px] shadow-2xl relative">
+                <div className="absolute top-0 inset-x-0 h-1" style={{ background: getScoreBand(feedback.score).color }}></div>
+                <div className="p-6 overflow-y-auto custom-scrollbar">
+                  
+                  <div className="flex flex-col items-center mb-6">
+                    <ScoreRing score={feedback.score} size={80} />
+                    <span className="mt-2 text-xs font-bold uppercase tracking-widest" style={{ color: getScoreBand(feedback.score).color }}>
+                      {getScoreBand(feedback.score).label}
+                    </span>
+                  </div>
+
+                  {feedback.breakdown && (
+                    <div className="space-y-4 mb-8">
+                      {Object.entries(feedback.breakdown).map(([k, v]) => (
+                        <div key={k}>
+                          <div className="flex justify-between text-xs font-medium mb-1.5">
+                            <span className="text-muted capitalize">{k.replace('_', ' ')}</span>
+                            <span className="text-foreground">{v}<span className="text-muted/50">/20</span></span>
+                          </div>
+                          <div className="h-1.5 bg-card-hover rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }} animate={{ width: `${(v/20)*100}%` }} transition={{ duration: 0.8 }}
+                              className="h-full rounded-full" style={{ background: getScoreBand(feedback.score).color }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {feedback.aiData?.strengths?.length > 0 && (
+                    <div className="mb-6">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-3 block">Positives</span>
+                      <ul className="space-y-2">
+                        {feedback.aiData.strengths.map((s, i) => (
+                          <li key={i} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <span className="material-symbols-outlined text-[16px] text-emerald-500 mt-0.5">check</span>
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {feedback.aiData?.improvements?.length > 0 && (
+                    <div className="mb-6">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-3 block">To Refine</span>
+                      <ul className="space-y-2">
+                        {feedback.aiData.improvements.map((s, i) => (
+                          <li key={i} className="text-sm text-foreground/80 flex items-start gap-2">
+                            <span className="material-symbols-outlined text-[16px] text-amber-500 mt-0.5">change_history</span>
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {feedback.improvement_tip && (
+                    <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mb-6">
+                      <span className="text-[10px] font-bold text-primary uppercase tracking-widest block mb-1">Key Takeaway</span>
+                      <p className="text-sm text-foreground/90 font-medium">{feedback.improvement_tip}</p>
+                    </div>
+                  )}
+
+                  <button onClick={handleNextQuestion} className="w-full btn-secondary py-3 flex items-center justify-center gap-2">
+                    {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'Finish Interview' : 'Continue to Next'}
+                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  </button>
+                  
                 </div>
-
-                {/* Breakdown Bars */}
-                {feedback.breakdown && (
-                  <div className="space-y-3 mb-6">
-                    {Object.entries(feedback.breakdown).map(([k, v]) => (
-                      <div key={k}>
-                        <div className="flex justify-between text-[11px] mb-1">
-                          <span className="capitalize" style={{ color: 'var(--text-muted)' }}>{k.replace('_', ' ')}</span>
-                          <span style={{ color: 'var(--text-secondary)' }}>{v}/20</span>
-                        </div>
-                        <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--bg-elevated)' }}>
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${(v / 20) * 100}%` }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="h-full rounded-full"
-                            style={{ background: getScoreBand(feedback.score).color }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Strengths */}
-                {feedback.aiData?.strengths?.length > 0 && (
-                  <div className="mb-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--success)' }}>
-                      Strengths
-                    </p>
-                    <ul className="space-y-1">
-                      {feedback.aiData.strengths.map((s, i) => (
-                        <li key={i} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-                          <span style={{ color: 'var(--success)' }}>✓</span> {s}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Improvements */}
-                {feedback.aiData?.improvements?.length > 0 && (
-                  <div className="mb-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--warning)' }}>
-                      Improve
-                    </p>
-                    <ul className="space-y-1">
-                      {feedback.aiData.improvements.map((s, i) => (
-                        <li key={i} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-                          <span style={{ color: 'var(--warning)' }}>→</span> {s}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Justification fallback */}
-                {feedback.justification && !feedback.aiData?.strengths && (
-                  <p className="text-xs mb-4" style={{ color: 'var(--text-secondary)' }}>
-                    {feedback.justification}
-                  </p>
-                )}
-
-                {/* Improvement tip */}
-                {feedback.improvement_tip && (
-                  <div
-                    className="p-4 rounded-lg mb-6"
-                    style={{ background: 'var(--info-bg)', borderLeft: '2px solid var(--info)' }}
-                  >
-                    <p className="text-[11px] font-semibold mb-1" style={{ color: 'var(--info)' }}>Next Step</p>
-                    <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>{feedback.improvement_tip}</p>
-                  </div>
-                )}
-
-                {/* Next Question */}
-                <button
-                  onClick={handleNextQuestion}
-                  className="mm-btn mm-btn-primary w-full text-sm"
-                >
-                  {sessionState.questionIndex + 1 >= TOTAL_INTERVIEW_QUESTIONS ? 'View Results' : 'Next Question →'}
-                </button>
               </motion.div>
             )}
           </AnimatePresence>
+
         </div>
       </div>
     </motion.div>
