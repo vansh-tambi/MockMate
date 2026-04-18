@@ -75,38 +75,62 @@ const SetupScreen = ({ onComplete }) => {
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-primary opacity-[0.03] rounded-full blur-3xl"></div>
           
           <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-12">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xl">M</div>
-              <span className="text-xl font-bold tracking-tight text-foreground">MockMate</span>
+            <div className="flex items-center gap-4 mb-12">
+              <div className="p-2 rounded-xl bg-card border border-border shadow-inner">
+                <img src="/Logo.png" alt="MockMate Logo" className="w-10 h-10 object-contain" />
+              </div>
+              <div>
+                <span className="text-2xl font-bold tracking-tighter text-foreground block leading-none">MockMate</span>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Scale your career</span>
+              </div>
             </div>
             
-            <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4 leading-tight">
-              Master the interview. <br />
-              <span className="text-muted font-normal">Land the job.</span>
+            <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]">
+              Master <br />
+              <span className="text-muted/60 font-medium">the interview.</span>
             </h1>
             
-            <p className="text-muted leading-relaxed mb-8">
-              Configure your session. Upload your experience, specify your target role, and let our AI simulate a realistic technical interview.
+            <p className="text-muted/80 leading-relaxed mb-10 text-base">
+              Precision-engineered interview simulation. Upload your history, define your path, and receive clinical analysis of your performance.
             </p>
 
-            <ul className="space-y-4 text-sm text-foreground/80 font-medium">
-              <li className="flex items-center gap-3">
-                <span className="text-primary material-symbols-outlined text-[18px]">check_circle</span>
-                Adaptive progressive questioning
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-primary material-symbols-outlined text-[18px]">check_circle</span>
-                Deep technical & behavioral stages
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-primary material-symbols-outlined text-[18px]">check_circle</span>
-                Actionable immediate feedback
-              </li>
-            </ul>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-emerald-500/20">
+                  <span className="text-emerald-500 material-symbols-outlined text-[20px]">adaptive_audio_mic</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-foreground leading-none mb-1">Adaptive Progression</h3>
+                  <p className="text-xs text-muted">Questioning that evolves based on your logic.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-blue-500/20">
+                  <span className="text-blue-500 material-symbols-outlined text-[20px]">psychology</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-foreground leading-none mb-1">Deep Evaluation</h3>
+                  <p className="text-xs text-muted">Technical and behavioral stage modeling.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 transition-colors group-hover:bg-purple-500/20">
+                  <span className="text-purple-500 material-symbols-outlined text-[20px]">analytics</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-foreground leading-none mb-1">Clinical Analysis</h3>
+                  <p className="text-xs text-muted">Instant, actionable data on every answer.</p>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div className="mt-12 text-xs text-muted font-mono relative z-10">
-            System initialization // v2.0.0
+          <div className="mt-16 flex items-center gap-4 text-[10px] font-bold text-muted/50 uppercase tracking-widest relative z-10 transition hover:text-muted cursor-default">
+            <span>Core v2.4.0</span>
+            <div className="w-1 h-1 rounded-full bg-border"></div>
+            <span>Authored by DeepMind</span>
           </div>
         </div>
 

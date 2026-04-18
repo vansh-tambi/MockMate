@@ -13,11 +13,13 @@ const Navbar = ({ setActiveMode, activeMode, onNewSession, isGenerating }) => {
         {/* Logo */}
         <button
           onClick={onNewSession}
-          className="flex items-center gap-2 transition hover:opacity-80 disabled:opacity-50"
+          className="flex items-center gap-3 transition hover:opacity-80 disabled:opacity-50 group"
           disabled={isGenerating}
         >
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">M</div>
-          <span className="font-bold tracking-tight text-foreground text-xl hidden sm:block">MockMate</span>
+          <div className="w-9 h-9 p-1 rounded-lg bg-card border border-border flex items-center justify-center shadow-inner group-hover:border-primary/50 transition-colors">
+            <img src="/Logo.png" alt="MockMate Logo" className="w-full h-full object-contain" />
+          </div>
+          <span className="font-bold tracking-tighter text-foreground text-xl hidden sm:block">MockMate</span>
         </button>
 
         {/* Tab Switcher */}

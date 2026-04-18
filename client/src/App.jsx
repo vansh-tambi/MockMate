@@ -101,7 +101,8 @@ function App() {
       strongTopics: [],
       answers: [],
       evaluation: [],
-      resumeAnalysis
+      resumeAnalysis,
+      interviewComplete: false
     });
   };
 
@@ -114,7 +115,7 @@ function App() {
         sessionId: null, role: null, currentStage: 'warmup', questionIndex: 0,
         sequence: [], questionSequence: [], currentQuestionCache: null,
         askedQuestions: [], weakTopics: [], strongTopics: [], answers: [],
-        evaluation: [], resumeAnalysis: null
+        evaluation: [], resumeAnalysis: null, interviewComplete: false
       });
       localStorage.removeItem('mockMateUser');
       localStorage.removeItem('mockMateSession');
@@ -136,7 +137,12 @@ function App() {
           />
 
           <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
-            {activeMode === 'guided' ? (
+            {sessionState.interviewComplete ? (
+              <EvaluationDashboard 
+                sessionState={sessionState} 
+                onRestart={handleNewSession}
+              />
+            ) : activeMode === 'guided' ? (
               <GuidedMode
                 userData={userData}
                 qaPairs={qaPairs}
